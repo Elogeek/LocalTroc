@@ -38,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    box-shadow:  #6c757d;
 }
 
 /*my "slide"*/
@@ -145,6 +146,28 @@ h2 {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+}
+
+/*my articles*/
+#titleArtc {
+    text-align: center;
+}
+
+#articles {
+    padding: 5rem;
+    display: flex;
+    flex-flow: row ;
+    justify-content: center;
+}
+
+#articles div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#articles img {
+    width: 12rem;
+    height: 12rem;
 }
 
 footer {

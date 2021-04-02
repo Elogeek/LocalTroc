@@ -1,5 +1,5 @@
-/*my carousel*/
-let carrousel = document.getElementById('carousel');
+/*my videoImg*/
+let carrousel = document.getElementById('videoImg');
 let div = document.createElement("img");
 let img1 = "./assets/img/img1.png";
 let img2 = "./assets/img/img2.png";
@@ -21,15 +21,26 @@ div.className = "videoImg";
 
 let i = 0;
 
-function videoCarousel() {
+function videoImg() {
      setTimeout(function () {
         div.src = arrayImg[i];
         i++;
         if(i === arrayImg.length) {
             i = 0;
         }
-        videoCarousel()
+        videoImg()
     },2000)
 }
 
-videoCarousel();
+videoImg();
+
+
+/*my carousel*/
+let imgs = document.querySelectorAll(".imgArtcls");
+for(let a = 0; a < imgs.length; a++) {
+    console.log(imgs); //it's ok!
+}
+
+function carousel() {
+
+}
