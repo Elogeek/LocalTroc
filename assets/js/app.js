@@ -8,11 +8,11 @@ let arrayImg =[img1,img2,img3];
 
 div.style.cssText =
     `
-    padding-top: 3rem;
     width: 50%;
     height: 31vw;
     display: flex;
     margin-left: 27rem;
+    box-shadow: 2px 1px 8px 5px #6c757d;
     `;
 
 carrousel.appendChild(div);
@@ -21,6 +21,7 @@ div.className = "videoImg";
 
 let i = 0;
 
+/*videoIMg LocalTroc*/
 function videoImg() {
      setTimeout(function () {
         div.src = arrayImg[i];
@@ -31,9 +32,7 @@ function videoImg() {
         videoImg()
     },2000)
 }
-
 videoImg();
-
 
 /*my carousel*/
 let imgs = document.querySelectorAll(".imgArtcls");
@@ -42,5 +41,6 @@ for(let a = 0; a < imgs.length; a++) {
 }
 
 function carousel() {
+    
 
 }

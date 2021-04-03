@@ -16,12 +16,12 @@
         <!--main menu-->
         <div class="nav-section">
             <img id="logo" src="assets/img/logo.png" alt="logoSite">
-            <div> services</div>
+            <div> Services</div>
             <div> A propros</div>
             <div>Recherche rapide</div>
-            <div>blog</div>
-            <div> partager</div>
-            <div>se connecter</div>
+            <div>Blog</div>
+            <div>Partager</div>
+            <div>Se connecter</div>
         </div>
     </header>
     <section>
@@ -124,9 +124,10 @@
   </div>
 
  <footer>
-     Footer ( lien vers réseaux)
+
      <span>By Elogeek</span>
  </footer>
+
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
