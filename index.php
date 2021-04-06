@@ -55,7 +55,10 @@
        </div>
    </div>
     <!--frieze-->
-    <img src="assets/img/frieze.png" alt="frieze" id="frieze">
+    <div class="frieze">
+        <img src="assets/img/wave.png" alt="wave">
+    </div>
+
     <div id="section3">
       UNE GROSSE BARRE DE RECHERCHE ICI ;)
   </div>

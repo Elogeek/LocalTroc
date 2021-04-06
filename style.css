@@ -107,10 +107,11 @@ h2 {
     align-items: center;
 }
 
-#frieze {
-    width: 100%;
+img {
     height: 5rem;
+    width: 100%;
 }
+
 
 /*text*/
 #brefText {
