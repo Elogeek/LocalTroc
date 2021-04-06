@@ -54,8 +54,9 @@
            <button class="btn" type="button">Inscription gratuite</button>
        </div>
    </div>
-
-  <div id="section3">
+    <!--frieze-->
+    <img src="assets/img/frieze.png" alt="frieze" id="frieze">
+    <div id="section3">
       UNE GROSSE BARRE DE RECHERCHE ICI ;)
   </div>
 
