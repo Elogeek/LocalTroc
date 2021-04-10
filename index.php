@@ -56,7 +56,7 @@
    </div>
     <!--frieze-->
     <div class="frieze">
-        <img src="assets/img/wave.png" alt="wave">
+
     </div>
 
     <div id="section3">
