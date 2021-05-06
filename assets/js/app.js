@@ -41,6 +41,5 @@ for(let a = 0; a < imgs.length; a++) {
 }
 
 function carousel() {
-    
 
 }

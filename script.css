@@ -53,3 +53,21 @@ body {
 .item {
     position:relative;
 }
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+/*carousel === même hauteur élément, grâce à table*/
+.carousel__container::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+
+/*pour qu'il s'aligne à gauche*/
+.carousel__item {
+    float: left;
+}

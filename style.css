@@ -7,6 +7,7 @@
     padding: 0;
     font-size: large;
 }
+
 /*nav */
 .nav-section {
     display: flex;
@@ -112,7 +113,6 @@ img {
     width: 100%;
 }
 
-
 /*text*/
 #brefText {
     color: white;
@@ -142,6 +142,49 @@ img {
     transition: all 0.2s ease-in-out;
 }
 
+#section3 {
+    text-align: center;
+    font-weight: bold;
+    color: #08c1ef;
+    padding: 2rem;
+    font-size: 2.5rem;
+}
+/*search-bar*/
+#search-bar {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    height: 8rem;
+    padding: 2rem;
+}
+
+#search-bar input {
+    border-radius: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-color: black;
+    border-style: double;
+    text-align: center;
+}
+
+#search-bar button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6rem;
+    border-style: hidden;
+    background-color: #08c1ef;
+    color: white;
+    width: 4rem;
+}
+
+#search-bar button:hover {
+    background-color: #c9e265;
+}
+
 #section4 {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
@@ -150,6 +193,16 @@ img {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    color: white;
+}
+#section4 span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+    padding: 1rem;
+    /*font-size: 3rem;*/
 }
 
 /*my articles*/
@@ -182,4 +235,45 @@ footer {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+}
+
+/*share*/
+.share {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-content: space-around;
+    color: white;
+    margin-top: 9rem;
+    width: 80%;
+}
+
+.share div {
+    margin: 0.8rem;
+    width: 11rem;
+}
+
+.share i {
+    height: 4rem;
+    width: 45%;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+#span {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/*titleShare*/
+.titleShare {
+    font-weight: bold;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
