@@ -89,12 +89,24 @@ class Carousel {
         prevButton.addEventListener('click', this.prev().bind(this));
     };
         next() {
-            this.currentItem + this.slideToScroll
+            this.goToItem(this.currentItem + this.options.slidesToscroll)
+
         };
 
         prev() {
-
+            this.goToItem(this.currentItem - this.options.slidesToscroll)
         };
+
+    /**
+     * déplace le carrousel vers l'élement ciblé
+     * @param{number} index
+     */
+     goToItem(index){
+         //-number négatif  car direction left
+         let translateX = index * -100/this.item.length;
+        this.container.style.transform = 'translate3d('+ translateX +' %, 0, 0)'
+        this.currentItem = index
+    }
 
     /**
      * créer la pagination
