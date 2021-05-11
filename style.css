@@ -277,3 +277,75 @@ footer {
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+/*carousel*/
+.item {
+    margin: 40px 10px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
+    transition: transform 0.3s;
+    transform: translate3d(0,-1px,0);
+}
+
+.item:hover {
+    transform: translate3d(0,-10px,0);
+}
+
+.item__description {
+    color:#08c1ef;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.item {
+    position:relative;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel__container {
+    transition: transform 0.3s;
+    transform: translate3d(0,0,0);
+}
+/*carousel === même hauteur élément, grâce à table*/
+.carousel__container::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+/*pour qu'il s'aligne à gauche*/
+.carousel__item {
+    float: left;
+}
+
+.carousel__next {
+    background: white url('svg/svg_next.png') center center no-repeat;
+    right: 7px;
+}
+
+.carousel__prev {
+    background: white url("svg/svg_prev.png") center center no-repeat;
+    margin-top: -20px;
+    right: auto;
+    left: 7px;
+}
+
+.carousel__prev, .carousel__next {
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-size: 20px 20px;
+    top: 50%;
+    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
+    margin-top: -20px;
+    transition: transform 0.3s;
+}
+
+.carousel__next:hover, .carousel__prev:hover {
+    transform: scale(1.5);
+}
