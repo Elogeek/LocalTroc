@@ -11,57 +11,51 @@
 </head>
 <body>
 
-<header>
     <!--forcer l'user a évaluer le services et l'user service comme vinted par expl après chaque service === AVIS (*****)-->
     <!--main menu-->
     <div class="nav-section">
         <img id="logo" src="/assets/img/logo.png" alt="logoSite">
-        <div id="menuService"> Services
-            <!--for catégorie-->
-            <a href="#"  title="for category"> Paramètres services</a>
-            <div id="nav_service">
-                <a href="#" title="itemMenu"> Rédiger une annonce</a <!--ok photo-->
+        <div> Services</div>
+            <!--for catégorie
+            <div id="navService">
+                <a href="#"  title="for category"> Paramètres services</a>
+                <a href="#" title="itemMenu"> Rédiger une annonce</a ok photo
                 <a href="#" title="itemMenu"> Rendre un service</a
                 <a href="#" title="itemMenu"> Modifier une annonce</a
                 <a href="#" title="itemMenu"> Supprimer une annonce</a
                 <a href="#" title="itemMenu"> Signaler un service malveillant</a
+            -->
 
 
-            </div>
-        </div>
-        <div> A propros
-            <div id="nav_about">
+        <div> A propros</div>
+           <!-- <div id="nav_about">
                 <a href="#" title="itemMenu"> Informations légales</a
-                <a href="#" title="itemMenu"> Où nous trouver?</a <!--bref intro du site-->
+                <a href="#" title="itemMenu"> Où nous trouver?</a bref intro du site
                 <a href="#" title="itemMenu"> Ce site utilise des cookies</a
                 <a href="#" title="itemMenu"> Protections des données utilisateurs</a
-                <a href="#" title="itemMenu"> Rappel charte (réglements du site)</a <!--charte déjà signer leurs de l'envoie du code par mail-->
-            </div>
+                <a href="#" title="itemMenu"> Rappel charte (réglements du site)</a charte déjà signer leurs de l'envoie du code par mail-->
 
-        </div>
+
+
         <div>Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
         <div>Chat</div>
         <!--lorsque l'utilisateur fait une recherche service et trouve le bon, quand il clique sur une enveloppe message -->
         <div>Avis</div> <!--redirection bar statisfaction users-->
         <div>Partager</div> <!--redirection footer?-->
-        <div>Se connecter
-            <a href="#" title="spaceUser">Paramètres du compte</a>
-            <div id="nav_spaceUser">
-                <a href="#" title="itemMenu"> Changer d'avatar</a
-                <a href="#" title="itemMenu"> Changer d'adresse email</a
-                <a href="#" title="itemMenu"> Changer de numéro de téléphone</a
-                <a href="#" title="itemMenu"> Changer de pseudo</a
-                <a href="#" title="itemMenu"> Supprimer le compte</a
-                <a href="#" title="itemMenu"> Voir mes évaluations</a
-                <a href="#" title="itemMenu"> Recevoir mes étoiles</a <!--now/+later-->
-                <a href="#" title="itemMenu"> Mes avis rédigées</a
-                <a href="#" title="itemMenu"> Signaler un membre malveillant</a
-            </div>
-
-        </div>
-
+        <div>Se connecter </div>
+                <!--<div id="nav_spaceUser">
+                    <a href="#" title="spaceUser">Paramètres du compte</a>
+                    <a href="#" title="itemMenu"> Changer d'avatar</a
+                    <a href="#" title="itemMenu"> Changer d'adresse email</a
+                    <a href="#" title="itemMenu"> Changer de numéro de téléphone</a
+                    <a href="#" title="itemMenu"> Changer de pseudo</a
+                    <a href="#" title="itemMenu"> Supprimer le compte</a
+                    <a href="#" title="itemMenu"> Voir mes évaluations</a
+                    <a href="#" title="itemMenu"> Recevoir mes étoiles</a now/+later
+                    <a href="#" title="itemMenu"> Mes avis rédigées</a
+                    <a href="#" title="itemMenu"> Signaler un membre malveillant</a
+                </div>-->
     </div>
-</header>
 
     <section>
         <div class="section1">
@@ -69,7 +63,7 @@
             <div id="videoImg"></div>
         </div>
     </section>
-<!--my image slide-->
+    <!--my image slide-->
     <h2>Qu'est-ce-que LocalTroc ?</h2>
     <div class="font">
         <i class="fas fa-users"></i>
@@ -116,127 +110,129 @@
 
      <div id="articles">
          <div class="carousel__container">
+                <!-- SINGLETON === 1 SEUL OBJET CRÉER === ON PEUT L'UTILISER PARTOUT DANS LE CODE SANS METTRE À CHAQUE FOIS NEW uSER()-->
+             <div class="item">
+                 <div> <img class="itemImg" src="assets/img/jardinage.jpg" alt="jardin"></div>
+                 <div class="itemDescription">Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.</div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/jardinage.jpg" alt="jardin">
-                  <div class="item__description">Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.</div>
-              </div>
+             <div class="item">
+                 <div> <img class="itemImg" src="assets/img/dog-sitter.jpg" alt="dog-sitter"></div>
+                 <div class="itemDescription">Personne pour garder ou promener son chien ? Parcourir nos annonces.</div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/dog-sitter.jpg" alt="dog-sitter">
-                  <div class="item__description">Personne pour garder ou promener son chien ? Parcourir nos annonces.</div>
-              </div>
+             <div class="item">
+                 <div> <img class="itemImg"  src="assets/img/couture.jpg" alt="couture"> </div>
+                 <div class="itemDescription">
+                     Trop de connaissances en couture, envie de partager sa passion ?
+                     LocalTroc est fait pour vous .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls"  src="assets/img/couture.jpg" alt="couture">
-                  <div class="item__description">
-                      Trop de connaissances en couture, envie de partager sa passion ?
-                      LocalTroc est fait pour vous .
-                  </div>
-              </div>
+             <div class="item">
+                 <div> <img class="itemImg" src="assets/img/photographe.jpg" alt="photographe"> </div>
+                 <div class="itemDescription">
+                     Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région?
+                     Venez sur LocalTroc .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/photographe.jpg" alt="photographe">
-                  <div class="item__description">
-                      Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région?
-                      Venez sur LocalTroc .
-                  </div>
-              </div>
+             <div class="item">
+                 <div> <img class="itemImg" src="assets/img/course.jpg" alt="course"> </div>
+                 <div class="itemDescription"">
+                     Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
+                     Trouver un troqueur/ une troqueuse .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/course.jpg" alt="course">
-                  <div class="item__description">
-                      Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
-                      Trouver un troqueur/ une troqueuse .
-                  </div>
-              </div>
+             <div class="item">
+                <div> <img class="itemImg" src="assets/img/baby-sitter.jpg" alt="baby-sitter"> </div>
+                 <div class="itemDescription">
+                     Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
+                     Pratiquer le troc .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/baby-sitter.jpg" alt="baby-sitter">
-                  <div class="item__description">
-                      Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
-                      Pratiquer le troc .
-                  </div>
-              </div>
+             <div class="item">
+                <div> <img class="itemImg" src="assets/img/déménagement.jpg" alt="demenagement"> </div>
+                 <div class="itemDescription">
+                     Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
+                     Rédiger une annonce sur LocalTroc .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/déménagement.jpg" alt="demenagement">
-                  <div class="item__description">
-                      Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
-                      Rédiger une annonce sur LocalTroc .
-                  </div>
-              </div>
+             <div class="item">
+                <div> <img class="itemImg" src="assets/img/cuisine.jpg" alt="cuisine"> </div>
+                 <div class="itemDescription">
+                     Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
+                     LocalTroc est fait pour vous .
+                 </div>
+             </div>
 
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/cuisine.jpg" alt="cuisine">
-                  <div class="item__description">
-                      Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
-                      LocalTroc est fait pour vous .
-                  </span>
-              </div>
-
-              <div class="item">
-                  <img class="imgArtcls" src="assets/img/bricolage.jpg" alt="bricolage">
-                  <div class="item__description">
-                      Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
-                      Pratiquer le troc .
-                  </div>
-              </div>
-              <div>
+             <div class="item">
+                <div> <img class="itemImg" src="assets/img/bricolage.jpg" alt="bricolage"> </div>
+                 <div class="itemDescription">
+                     Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
+                     Pratiquer le troc .
+                 </div>
+             </div>
+             <div class="carouselControl">
                   <!--control carousel-->
                   <div class="carousel__next"></div>
                   <div class="carousel__prev"></div>
+             </div>
+
          </div>
-     </div>
+    </body>
          <!-- BARRE DE SATISFACTION ET AVIS CLIENT HERE / bckgrd linear
-            <img src="assets/img/expl.png" alt="expl">
+            <img src="assets/img/expl.png" alt="expl">-->
 
 
-    autre section ===> section5 ?
+    <!--autre section ===> section5 ?
     si assez de temps, services près de chez soi sur une carte (style google maps)
      avec les services en minuscule (icône), quand service terminée === hidden -->
 
     <!--sous la carte ===> un onglet message qui serait le "helpContact" des users avec messages automatiques
     besoin d'aide, un renseignement, parler avec les autres menbres connecter par expl-->
     <div id="helpContact">
-        <!--<i class="far fa-envelope"></i>-->
+        <i class="far fa-envelope"></i>
     </div>
-<footer>
+    <footer>
 
-    <div class="titleShare">Nous rejoindre !</div>
+        <div class="titleShare">Nous rejoindre !</div>
 
-    <!-- si le temps block "restons en conctact"===>newletter?-->
-    <div class="share">
-        <div>
-            <i id="twitter" class="fab fa-twitter-square"></i>
+     <!-- si le temps block "restons en conctact"===>newletter?-->
+        <div class="share">
+            <div>
+                <i id="twitter" class="fab fa-twitter-square"></i>
+            </div>
+
+            <div>
+                <i id="facebook" class="fab fa-facebook-square"></i>
+            </div>
+
+            <div>
+                <i id="google" class="fab fa-google-plus-square"></i>
+            </div>
+            <div>
+                <i id="insta" class="fab fa-instagram-square"></i>
+            </div>
+            <div>
+                <i id="linkd" class="fab fa-linkedin"></i>
+            </div>
+            <div>
+                <i id="printerest" class="fab fa-pinterest-square"></i>
+            </div>
+
+            <div id="span">
+                By Elogeek
+            </div>
         </div>
 
-        <div>
-            <i id="facebook" class="fab fa-facebook-square"></i>
-        </div>
+    </footer>
 
-        <div>
-            <i id="google" class="fab fa-google-plus-square"></i>
-        </div>
-        <div>
-            <i id="insta" class="fab fa-instagram-square"></i>
-        </div>
-        <div>
-            <i id="linkd" class="fab fa-linkedin"></i>
-        </div>
-        <div>
-            <i id="printerest" class="fab fa-pinterest-square"></i>
-        </div>
-
-        <div id="span">
-            By Elogeek
-        </div>
-    </div>
-
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/assets/js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/js/app.js"></script>
 </body>
 </html>
 

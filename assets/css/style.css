@@ -20,6 +20,9 @@
     box-shadow: 0 0 15px 0 #6c757d;
 }
 
+/*menu a*/
+
+
 /*le logo*/
 #logo {
     display: block;
@@ -40,6 +43,15 @@
     justify-content: center;
     align-content: center;
     padding-top: 2rem;
+}
+
+.videoImg {
+    width: 50%;
+    height: 31vw;
+    display: flex;
+    margin-left: 27rem;
+    box-shadow: rgb(108, 117, 125) 2px 1px 8px 5px;
+    margin-top: 3rem;
 }
 
 /*my "slide"*/
@@ -108,7 +120,7 @@ h2 {
     align-items: center;
 }
 
-img {
+#section2 img {
     height: 5rem;
     width: 100%;
 }
@@ -140,6 +152,7 @@ img {
 
 .btn {
     transition: all 0.2s ease-in-out;
+    margin-top: 1rem;
 }
 
 #section3 {
@@ -222,11 +235,87 @@ img {
     justify-content: space-between;
 }
 
-#articles img {
-    width: 12rem;
-    height: 12rem;
+/*carousel*/
+.item {
+    margin: 1rem 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
+    transition: transform 0.3s;
+    transform: translate3d(0,-1px,0);
+    width: 22rem;
+    height: 22rem;
 }
 
+.itemImg {
+    width: 100%;
+    padding: 2%;
+}
+
+.item:hover {
+    transform: translate3d(0,-10px,0);
+}
+
+.itemDescription {
+    color:#08c1ef;
+    display: flex;
+    padding: 5%;
+    width: 100%;
+}
+
+.item {
+    position:relative;
+}
+
+.carousel__container {
+    transition: transform 0.3s;
+    transform: translate3d(0,0,0);
+}
+/*carousel === même hauteur élément, grâce à table*/
+.carousel__container::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+/*pour qu'il s'aligne à gauche*/
+.carousel__item {
+    float: left;
+}
+
+/*conttrol carousel*/
+.carrouselControl {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+.carousel__next {
+    background: transparent url('../img/left.png') center center no-repeat;
+    right: 7px;
+}
+
+.carousel__prev {
+    background: transparent url("../img/right.png") center center no-repeat;
+    margin-top: -20px;
+    right: auto;
+    left: 7px;
+}
+
+.carousel__prev, .carousel__next {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-size: 20px 20px;
+    top: 50%;
+    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
+    margin-top: -20px;
+    transition: transform 0.3s;
+}
+
+.carousel__next:hover, .carousel__prev:hover {
+    transform: scale(1.5);
+}
+
+/*footer*/
 footer {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
@@ -235,7 +324,10 @@ footer {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    bottom: -132rem;
+    position: absolute;
 }
+
 
 /*share*/
 .share {
@@ -261,7 +353,7 @@ footer {
 }
 
 #span {
-    font-size: 2rem;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 2rem;
 }
@@ -276,84 +368,6 @@ footer {
     flex-flow: row;
     justify-content: flex-start;
     align-items: flex-start;
-}
-
-/*menu*/
-#menuService a{
-    display: none;
-}
-
-#nav_service a, #nav_about a, #nav_spaceUser a {
-    display: none;
-}
-
-
-/*carousel*/
-.item {
-    margin: 1rem 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
-    transition: transform 0.3s;
-    transform: translate3d(0,-1px,0);
-    width: 22rem;
-    height: 22rem;
-    padding: 1%;
-}
-
-.item:hover {
-    transform: translate3d(0,-10px,0);
-}
-
-.item__description {
-    color:#08c1ef;
-    display: flex;
-    padding-top: 14rem;
-    margin-left: -14rem;
-}
-
-.item {
-    position:relative;
-}
-
-.carousel__container {
-    transition: transform 0.3s;
-    transform: translate3d(0,0,0);
-}
-/*carousel === même hauteur élément, grâce à table*/
-.carousel__container::after {
-    content: '';
-    clear: both;
-    display: table;
-}
-
-/*pour qu'il s'aligne à gauche*/
-.carousel__item {
-    float: left;
-}
-
-.carousel__next {
-    background: transparent url('../img/right.png') center center no-repeat;
-    right: 7px;
-}
-
-.carousel__prev {
-    background: transparent url("../img/left.png") center center no-repeat;
-    margin-top: -20px;
-    right: auto;
-    left: 7px;
-}
-
-.carousel__prev, .carousel__next {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background-size: 20px 20px;
-    top: 50%;
-    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
-    margin-top: -20px;
-    transition: transform 0.3s;
-}
-
-.carousel__next:hover, .carousel__prev:hover {
-    transform: scale(1.5);
+    top: 3rem;
+    position: absolute;
 }
