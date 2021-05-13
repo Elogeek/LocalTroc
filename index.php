@@ -109,6 +109,11 @@
     <h2 id="titleArtc">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... Sur LocalTroc, vous trouverez tout !</h2>
 
      <div id="articles">
+         <div class="carouselControl">
+             <!--control carousel-->
+             <div class="carousel__next"></div>
+             <div class="carousel__prev"></div>
+         </div>
          <div class="carousel__container">
                 <!-- SINGLETON === 1 SEUL OBJET CRÉER === ON PEUT L'UTILISER PARTOUT DANS LE CODE SANS METTRE À CHAQUE FOIS NEW uSER()-->
              <div class="item">
@@ -175,11 +180,6 @@
                      Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
                      Pratiquer le troc .
                  </div>
-             </div>
-             <div class="carouselControl">
-                  <!--control carousel-->
-                  <div class="carousel__next"></div>
-                  <div class="carousel__prev"></div>
              </div>
 
          </div>
@@ -275,16 +275,49 @@
         </div>
     </div>
 
-
-    <!--section7 "helpContact" des users avec messages automatiques
-    besoin d'aide, un renseignement, parler avec les autres menbres connecter par expl-->
-
-   <!--autre section ===> section8 ?
-    si assez de temps, services près de chez soi sur une carte (style google maps)
-     avec les services en minuscule (icône), quand service terminée === hidden -->
-    <div id="helpContact">
-        <i class="far fa-envelope"></i>
+    <div id="section7">
+        <div id="helpContact">
+            <i class="far fa-envelope"></i>
+        </div>
     </div>
+    <!--si tout est fini, ok pour  "helpContact" : messages automatiques
+    besoin d'aide, un renseignement, parler avec les autres membres connecter par expl-->
+
+   <div id="section8">
+       <!--Affiche près de chez soi, les derniers services create
+     quand service terminée === hidden -->
+       <div class="rectangle">
+           <div class="image"></div>
+           <div class="description">
+               <h2>Course</h2>
+               <p>
+                   <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+               </p>
+           </div>
+       </div>
+
+       <div class="rectangle">
+           <div class="image"></div>
+           <div class="description">
+               <h2>Course</h2>
+               <p>
+                   <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+               </p>
+           </div>
+       </div>
+
+       <div class="rectangle">
+           <div class="image"></div>
+           <div class="description">
+               <h2>Course</h2>
+               <p>
+                   <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+               </p>
+           </div>
+       </div>
+   </div>
+
+
     <footer>
 
         <div class="titleShare">Nous rejoindre !</div>
