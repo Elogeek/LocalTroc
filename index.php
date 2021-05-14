@@ -106,7 +106,7 @@
       <button class="btn" type="button">Inscription gratuite</button>
     </div>
 
-    <h2 id="titleArtc">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... Sur LocalTroc, vous trouverez tout !</h2>
+    <h2 id="titleArtc">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... </h2>
 
      <div id="articles">
          <div class="carouselControl">
@@ -202,8 +202,10 @@
         <!--AVIS CLIENT HERE-->
         <div class="rectangle">
             <div class="image"></div>
-            <div class="description">
+            <div class="descriptionTitle">
                 <h2>Déménagement</h2>
+            </div>
+            <div class="description"
                 <p>
                     <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
                 </p>
@@ -227,12 +229,14 @@
 
         <div class="rectangle">
             <div class="image"></div>
-            <div class="description">
+            <div class="descriptionTitle">
                 <h2>Déménagement</h2>
-                <p>
-                    <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
-                </p>
             </div>
+            <div class="description"
+            <p>
+                <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
+            </p>
+        </div>
             <div class="avis">
                 <div><hr class="lignes"></div>
                 <div class="star">
@@ -251,12 +255,14 @@
         </div>
         <div class="rectangle">
             <div class="image"></div>
-            <div class="description">
+            <div class="descriptionTitle">
                 <h2>Déménagement</h2>
-                <p>
-                    <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
-                </p>
             </div>
+            <div class="description"
+            <p>
+                <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
+            </p>
+        </div>
             <div class="avis">
                 <div><hr class="lignes"></div>
                 <div class="star">
@@ -288,8 +294,10 @@
      quand service terminée === hidden -->
        <div class="rectangle">
            <div class="image"></div>
-           <div class="description">
+           <div class="descriptionTitle">
                <h2>Course</h2>
+           </div>
+           <div class="description">
                <p>
                    <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
                </p>
@@ -298,8 +306,10 @@
 
        <div class="rectangle">
            <div class="image"></div>
-           <div class="description">
+           <div class="descriptionTitle">
                <h2>Course</h2>
+           </div>
+           <div class="description">
                <p>
                    <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
                </p>
@@ -308,8 +318,10 @@
 
        <div class="rectangle">
            <div class="image"></div>
-           <div class="description">
+           <div class="descriptionTitle">
                <h2>Course</h2>
+           </div>
+           <div class="description">
                <p>
                    <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
                </p>
@@ -317,6 +329,9 @@
        </div>
    </div>
 
+    <div>
+        <h2 id="titleSection9">Sur LocalTroc, vous trouverez tout !</h2>
+    </div>
 
     <footer>
 
