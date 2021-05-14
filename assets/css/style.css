@@ -524,4 +524,6 @@ footer {
     flex-flow: row;
     justify-content: flex-start;
     align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 6rem;
 }
