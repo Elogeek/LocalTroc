@@ -26,7 +26,6 @@
                 <a href="#" title="itemMenu"> Signaler un service malveillant</a
             -->
 
-
         <div> A propros</div>
            <!-- <div id="nav_about">
                 <a href="#" title="itemMenu"> Informations légales</a
@@ -35,12 +34,7 @@
                 <a href="#" title="itemMenu"> Protections des données utilisateurs</a
                 <a href="#" title="itemMenu"> Rappel charte (réglements du site)</a charte déjà signer leurs de l'envoie du code par mail-->
 
-
-
         <div>Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
-        <div>Chat</div>
-        <!--lorsque l'utilisateur fait une recherche service et trouve le bon, quand il clique sur une enveloppe message -->
-        <div>Avis</div> <!--redirection bar statisfaction users-->
         <div>Partager</div> <!--redirection footer?-->
         <div>Se connecter </div>
                 <!--<div id="nav_spaceUser">
