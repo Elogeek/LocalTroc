@@ -17,7 +17,7 @@
         <img id="logo" src="/assets/img/logo.png" alt="logoSite">
         <div> Services</div>
             <!--for catégorie
-            <div id="navService">
+            <div id="nav1">
                 <a href="#"  title="for category"> Paramètres services</a>
                 <a href="#" title="itemMenu"> Rédiger une annonce</a ok photo
                 <a href="#" title="itemMenu"> Rendre un service</a
@@ -27,7 +27,7 @@
             -->
 
         <div> A propros</div>
-           <!-- <div id="nav_about">
+           <!-- <div id="nav2">
                 <a href="#" title="itemMenu"> Informations légales</a
                 <a href="#" title="itemMenu"> Où nous trouver?</a bref intro du site
                 <a href="#" title="itemMenu"> Ce site utilise des cookies</a
@@ -35,9 +35,8 @@
                 <a href="#" title="itemMenu"> Rappel charte (réglements du site)</a charte déjà signer leurs de l'envoie du code par mail-->
 
         <div>Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
-        <div>Partager</div> <!--redirection footer?-->
         <div>Se connecter </div>
-                <!--<div id="nav_spaceUser">
+                <!--<div id="nav3">
                     <a href="#" title="spaceUser">Paramètres du compte</a>
                     <a href="#" title="itemMenu"> Changer d'avatar</a
                     <a href="#" title="itemMenu"> Changer d'adresse email</a
