@@ -1,51 +1,53 @@
-<header>
-    <!--forcer l'user a évaluer le services et l'user service comme vinted par expl après chaque service === AVIS (*****)-->
-    <!--main menu-->
-    <div class="nav-section">
-        <img id="logo" src="/assets/img/logo.png" alt="logoSite">
-        <div id="menuService"> Services
-            <!--for catégorie-->
-        <a href="#"  title="for category"> Paramètres services</a>
-            <div id="nav_service">
-                <a href="#" title="itemMenu"> Rédiger une annonce</a <!--ok photo-->
-                <a href="#" title="itemMenu"> Rendre un service</a
-                <a href="#" title="itemMenu"> Modifier une annonce</a
-                <a href="#" title="itemMenu"> Supprimer une annonce</a
-                <a href="#" title="itemMenu"> Signaler un service malveillant</a
+<div class="container">
+    <!--my menu-->
+    <div class="nav">
 
+        <div id="logo"><img  id="myLogo" src="/assets/img/logo.png" alt="logoSite"></div>
 
+        <div class="menu">
+            <p><i class="far fa-handshake"></i> Services</p>
+            <div class="submenu">
+                <a href="#"  title="item"><i class="fas fa-cog"></i> Paramètres services</a>
+                <a href="#" title="item"><i class="far fa-edit"></i> Rédiger une annonce</a> <!--ok photo-->
+                <a href="#" title="item"><i class="far fa-handshake"></i>  Rendre un service</a>
+                <a href="#" title="item"><i class="far fa-edit"></i> Modifier une annonce</a>
+                <a href="#" title="item"><i class="far fa-trash-alt"></i> Supprimer une annonce</a>
+                <a href="#" title="item"><i class="fas fa-ban"></i> Signaler un service malveillant</a>
             </div>
         </div>
-        <div> A propros
-            <div id="nav_about">
-                <a href="#" title="itemMenu"> Informations légales</a
-                <a href="#" title="itemMenu"> Où nous trouver?</a <!--bref intro du site-->
-                <a href="#" title="itemMenu"> Ce site utilise des cookies</a
-                <a href="#" title="itemMenu"> Protections des données utilisateurs</a
-                <a href="#" title="itemMenu"> Rappel charte (réglements du site)</a <!--charte déjà signer leurs de l'envoie du code par mail-->
+
+        <div class="menu">
+            <p><i class="far fa-question-circle"></i> A propos</p>
+            <div class="submenu">
+                <a href="#" title="item"> Informations légales</a>
+                <a href="#" title="item"> Où nous trouver?</a> <!-- bref intro du site  -->
+                <a href="#" title="item"> Protections des données utilisateurs</a>
+                <a href="#" title="item"> Rappel charte (règlement du site)</a> <!-- charte déjà signer leurs de l'envoi du code par mail -->
+            </div>
+        </div>
+
+        <div><i class="fas fa-search"></i> Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
+
+        <div class="menu">
+            <p><i class="fas fa-user-astronaut"></i> Mon compte</p>
+            <div class="submenu">
+                <a href="#" title="item"><i class="fas fa-user-cog"></i> Paramètres du compte</a>
+                <a href="#" title="item"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
+                <a href="#" title="item"><i class="fas fa-at"></i> Changer d'adresse email</a>
+                <a href="#" title="item"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
+                <a href="#" title="item"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
+                <a href="#" title="item"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
+                <a href="#" title="item"><i class="far fa-star"></i> Voir mes évaluations</a>
+                <!-- option now/+later-->
+                <a href="#" title="item"><i class="far fa-grin-stars"></i> Recevoir mes étoiles</a>
+                <a href="#" title="item"><i class="far fa-edit"></i> Mes avis rédigées</a>
+                <a href="#" title="item"> <i class="fas fa-user-slash"></i> Signaler un membre malveillant</a>
             </div>
 
         </div>
-        <div>Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
-        <div>Chat</div>
-        <!--lorsque l'utilisateur fait une recherche service et trouve le bon, quand il clique sur une enveloppe message -->
-        <div>Avis</div> <!--redirection bar statisfaction users-->
-        <div>Partager</div> <!--redirection footer?-->
-        <div>Se connecter
-            <a href="#" title="spaceUser">Paramètres du compte</a>
-            <div id="nav_spaceUser">
-                <a href="#" title="itemMenu"> Changer d'avatar</a
-                <a href="#" title="itemMenu"> Changer d'adresse email</a
-                <a href="#" title="itemMenu"> Changer de numéro de téléphone</a
-                <a href="#" title="itemMenu"> Changer de pseudo</a
-                <a href="#" title="itemMenu"> Supprimer le compte</a
-                <a href="#" title="itemMenu"> Voir mes évaluations</a
-                <a href="#" title="itemMenu"> Recevoir mes étoiles</a <!--now/+later-->
-                <a href="#" title="itemMenu"> Mes avis rédigées</a
-                <a href="#" title="itemMenu"> Signaler un membre malveillant</a
-            </div>
 
-        </div>
+        <div><p> Se connecter</p></div>
+        <div><p> <i class="fas fa-power-off"></i> Déconnection </p></div>
 
     </div>
-</header>
+

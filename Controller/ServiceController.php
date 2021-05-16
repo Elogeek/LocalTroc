@@ -1,2 +1,12 @@
 <?php
-// chat here
+
+class ServiceController
+{
+
+    /**
+     * ServiceController constructor.
+     */
+    public function __construct()
+    {
+    }
+}

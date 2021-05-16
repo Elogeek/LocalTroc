@@ -2,7 +2,7 @@
 
     <div class="titleShare">Nous rejoindre !</div>
 
-    <!-- si le temps block "restons en conctact"===>newletter?-->
+    <!--si le temps block "restons en conctact"===>newletter?-->
     <div class="share">
         <div>
             <i id="twitter" class="fab fa-twitter-square"></i>
@@ -13,9 +13,6 @@
         </div>
 
         <div>
-            <i id="google" class="fab fa-google-plus-square"></i>
-        </div>
-        <div>
             <i id="insta" class="fab fa-instagram-square"></i>
         </div>
         <div>
@@ -25,14 +22,13 @@
             <i id="printerest" class="fab fa-pinterest-square"></i>
         </div>
 
-        <div id="span">
-            By Elogeek
-        </div>
+        <div id="span">By Elogeek</div>
     </div>
 
 </footer>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/assets/js/app.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

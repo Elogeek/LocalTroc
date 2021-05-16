@@ -85,4 +85,16 @@ class UserManager {
 
     }
 
+    /** Delete  an user in the Database
+     * @param int $id
+     * @param User $user
+     * @return User|null
+     */
+    public function deleteUser(int $id, User $user): ?User {
+        $request = DB::getInstance()->prepare("DELETE FROM user WHERE  id =:id");
+        $request->bindValue(":id",$user->getId());
+        $request->execute();
+        return $user;
+    }
+
 }

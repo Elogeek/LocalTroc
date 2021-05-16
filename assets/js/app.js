@@ -35,7 +35,17 @@ function videoImg() {
 videoImg();
 
 /*my carousel*/
-let imgs = document.querySelectorAll(".imgArtcls");
+let containerCarousel = document.querySelector(".carousel__container");
+let itemImg = document.createElement('img');
+itemImg.className = 'itemImg';
+let div = document.createElement('div');
+containerCarousel.appendChild(div);
+div.appendChild(itemImg);
+let item1 =  "./asset/img/jardinage.jpg";
+let item2 =  "./asset/img/dog-sitter.jpg";
+let item3 = "./asset/img/couture.jpg";
+let item4 =
+let imgs = itemImg [];
 for(let a = 0; a < imgs.length; a++) {
     console.log(imgs); //it's ok!
 }

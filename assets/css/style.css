@@ -8,26 +8,55 @@
     font-size: large;
 }
 
-/*nav */
-.nav-section {
+body{
+    width: 100%;
+    font-size: 15px;
+    font-family: cursive, serif;
+}
+
+#container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* menu */
+.nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    position: relative;
+    justify-content: space-between;
     width: 100%;
+    padding: 1%;
+    position: relative;
     height: 5.5rem;
-    background-color: white;
     box-shadow: 0 0 15px 0 #6c757d;
 }
 
-/*menu a*/
+.nav > div:hover div {
+    display: block;
+}
 
+.submenu {
+    display: none;
+    position: absolute;
+    top: 5.5rem;
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0 12px 7px -5px #6c757d;
+}
+/*menu a*/
+.submenu > * {
+    display: block;
+}
+
+.submenu a {
+    text-decoration: none;
+    padding-top: 1rem;
+    color: black;
+}
 
 /*le logo*/
-#logo {
-    display: block;
+#myLogo {
     max-width: 13rem;
-    height: auto;
 }
 
 /*section*/
@@ -120,10 +149,6 @@ h2 {
     align-items: center;
 }
 
-#section2 img {
-    height: 5rem;
-    width: 100%;
-}
 
 /*text*/
 #brefText {
@@ -138,7 +163,10 @@ h2 {
     font-weight: bold;
 }
 
+
 .btn {
+    transition: all 0.2s ease-in-out;
+    margin-top: 1rem;
     text-align: center;
     padding: 5px 28px;
     border: 2px solid #fff;
@@ -155,6 +183,7 @@ h2 {
     margin-top: 1rem;
 }
 
+/*section3*/
 #section3 {
     text-align: center;
     font-weight: bold;
