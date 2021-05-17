@@ -1,9 +1,9 @@
 /*my videoImg*/
 let carrousel = document.getElementById('videoImg');
 let div = document.createElement("img");
-let img1 = "./assets/img/img1.png";
-let img2 = "./assets/img/img2.png";
-let img3 = "./assets/img/img3.png";
+let img1 = "./assets/img/img1.jpg";
+let img2 = "./assets/img/img2.jpg";
+let img3 = "./assets/img/img3.jpg";
 let arrayImg =[img1,img2,img3];
 
 div.style.cssText =
@@ -35,21 +35,16 @@ function videoImg() {
 videoImg();
 
 /*my carousel*/
-let containerCarousel = document.querySelector(".carousel__container");
-let itemImg = document.createElement('img');
-itemImg.className = 'itemImg';
-let div = document.createElement('div');
-containerCarousel.appendChild(div);
-div.appendChild(itemImg);
-let item1 =  "./asset/img/jardinage.jpg";
-let item2 =  "./asset/img/dog-sitter.jpg";
-let item3 = "./asset/img/couture.jpg";
-let item4 =
-let imgs = itemImg [];
-for(let a = 0; a < imgs.length; a++) {
-    console.log(imgs); //it's ok!
-}
-
 function carousel() {
 
 }
+
+//menu pageAdmin
+let openMenu = document.querySelector("#openMenu");
+openMenu.addEventListener("click", function (e){
+    let subMenu = document.querySelectorAll(".subMenu2");
+    for(let i = 0; i < subMenu.length; i++) {
+       // console.log( "il y a " + subMenu.length);
+    }
+    subMenu.style.display  = "block";
+})

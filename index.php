@@ -76,8 +76,9 @@ if (isset($_GET['controller'])) {
 
 } else {
 // Créer un home controller qui ne fait que afficher la vue home.
-    $controller = new HomeController();
-    $controller->index();
+     $controller = new HomeController();
+     $controller->index();
+
 }
 //if admin ===>page admin
 /*if ($username["Elodie"]->getAdmin($id) === 1) {
