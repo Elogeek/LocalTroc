@@ -39,12 +39,3 @@ function carousel() {
 
 }
 
-//menu pageAdmin
-let openMenu = document.querySelector("#openMenu");
-openMenu.addEventListener("click", function (e){
-    let subMenu = document.querySelectorAll(".subMenu2");
-    for(let i = 0; i < subMenu.length; i++) {
-       // console.log( "il y a " + subMenu.length);
-    }
-    subMenu.style.display  = "block";
-})

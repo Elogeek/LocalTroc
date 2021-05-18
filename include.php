@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/View/home.php";
 
 require_once $_SERVER ['DOCUMENT_ROOT'] . '/View/_partials/footer.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/View/user/profileUserPage.php";
+
 
 require_once  $_SERVER ['DOCUMENT_ROOT'] . '/Model/DB.php';
 require_once $_SERVER ['DOCUMENT_ROOT'] . '/Model/Entity/';

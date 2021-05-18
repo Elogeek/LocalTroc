@@ -11,23 +11,28 @@
 </head>
 
 <div class="containerAdmin">
+
     <!--menu here-->
-    <div class="menu">
-       <p><i id="openMenu" class="fas fa-bars"></i></p>
-        <div class="subMenu2">
-            <img id="imgAdmin" src="/assets/img/avatarAdmin.webp" alt="super photo de moi">
-            <a href="#"  title="item"><i class="fas fa-home"></i> Home</a>
-            <a href="#" title="item"> <i class="fas fa-user-plus"></i> Add user</a>
-            <a href="#" title="item"><i class="fas fa-user-times"></i> Delete an user</a>
-            <!--help contact for expl-->
-            <a href="#" title="item"> <i class="far fa-envelope"></i> Message </a>
-            <!--ok photo-->
-            <a href="#" title="item"><i class="far fa-edit"></i> Edit an service</a>
-            <a href="#" title="item"><i class="far fa-handshake"></i>  Rendre un service</a>
-            <a href="#" title="item"><i class="fas fa-handshake-slash"></i> Delete an service</a>
-        </div>
-
+    <div class="menuAdmin">
+        <button type="button"> Disconnect</button>
+        <img id="imgAdmin" src="/assets/img/avatarAdmin.webp" alt="super photo de moi">
+        <a href="#"  title="item"><i class="fas fa-home"></i> Home</a>
+        <a href="#" title="item"> <i class="fas fa-user-plus"></i> Add user</a>
+        <a href="#" title="item"><i class="fas fa-user-times"></i> Delete an user</a>
+        <!--help contact for expl-->
+        <a href="#" title="item"> <i class="far fa-envelope"></i> Message </a>
+        <!--ok photo-->
+        <a href="#" title="item"><i class="far fa-edit"></i> Edit an service</a>
+        <a href="#" title="item"><i class="far fa-handshake"></i>  Render an service</a>
+        <a href="#" title="item"><i class="fas fa-handshake-slash"></i> Delete an service</a>
     </div>
-    <!--actu web site-->
-    <div class="right"></div>
 
+    <!--actu web site-->
+    <div class="right">
+        <!--du contenu ici-->
+        <span>Welcome to my administration page!</span>
+        <img src="/assets/img/logo.png" alt="beautiful logo">
+    </div>
+
+
+</div>

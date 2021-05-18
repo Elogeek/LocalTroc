@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Document</title>
 </head>
-
 <div class="container">
     <!--my menu-->
     <div class="nav">
@@ -32,13 +31,13 @@
             <p><i class="far fa-question-circle"></i> A propos</p>
             <div class="submenu">
                 <a href="#" title="item"> Informations légales</a>
-                <a href="#" title="item"> Où nous trouver?</a>
+                <a href="#" title="item"> Où nous trouver?</a> <!-- bref intro du site  -->
                 <a href="#" title="item"> Protections des données utilisateurs</a>
-                <a href="#" title="item"> Rappel charte (règlement du site)</a>
+                <a href="#" title="item"> Rappel charte (règlement du site)</a> <!-- charte déjà signer leurs de l'envoi du code par mail -->
             </div>
         </div>
 
-        <div><i class="fas fa-search"></i> Recherche rapide</div>
+        <div><i class="fas fa-search"></i> Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
 
         <div class="menu">
             <p><i class="fas fa-user-astronaut"></i> Mon compte</p>
@@ -61,68 +60,55 @@
 
     </div>
 
+   <div class="containerSearch">
+       <table>
+           <thead>
+               <div>
+                   <tr>
+                       <th>Avatar</th>
+                       <th>Non</th>
+                       <th>Disponibilité</th>
+                       <th>Lieu</th>
+                       <th>Message</th>
+                       <th>Evaluation</th>
 
-    <div class="boxUser">
-        <!--image avatar user-->
-        <div class="imgAvatar">
-            <img src="/assets/img/userProfile.webp" alt="MySuperProfil">
-            <div class="pseudoUser">
-                <!--pseudo-->
-                <span> Jhon </span>
-            </div>
-        </div>
-
-        <!--info user : annif, pseudo,mail,phone,...-->
-        <div class="infoDiv">
-            <ul>
-                <li>A propros </li>
-                <hr>
-
-                <li> Name : John</li>
-                <li> Lastname :  Doe</li>
-                <li>
-                    <!--email <i class="fas fa-at"></i>-->
-                    Email : doudouille@gmail.com
-                </li>
-                <li>
-                    <!--phone <i class="fas fa-phone"></i>-->
-                    Phone :  075123456
-                </li>
-                <li>
-                    <!--city <i class="fas fa-map-marker-alt"></i>-->
-                    City:  Kyoto
-                </li>
-                <li>
-                    <!--brithday user <i class="fas fa-birthday-cake"></i>-->
-                    Brithday :  29/mai/2000
-                </li>
-                <!--here eval service user-->
-                <li>
-                    Evaluations : 4/5
-                    <div>
-                        <!--here star-->
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <div>
-                        <!--avis other user for a service-->
-                        Voir les avis
-                    </div>
-                </li>
-                <li id="border">
-                    <!--LOISIRS <i class="far fa-heart"></i>-->
-                    My  favorite activies :
-                    Foot, dog-sitting, musique
-                </li>
-                <li>
-                    <!--school <i class="fas fa-graduation-cap"></i> -->
-                    Other :
-                    Graduat couture at Tokyo School
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
+                   </tr>
+               </div>
+           </thead>
+           <tbody>
+           <!--FIRST LINE-->
+               <div>
+                    <tr>
+                       <td><img src="/assets/img/userProfile.webp" alt="wonderful avatar"> </td>
+                       <td>John </td>
+                       <td>Disponible</td>
+                       <td>Chimay</td>
+                       <td><i class="far fa-envelope"></i></td>
+                       <td>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                       </td>
+                    </tr>
+               </div>
+               <div>
+                   <tr>
+                      <td><img src="/assets/img/userProfile.webp" alt="wonderful avatar"> </td>
+                       <td>Jane </td>
+                       <td>Disponible</td>
+                       <td>Bourlers</td>
+                       <td><i class="far fa-envelope"></i></td>
+                       <td>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <i class="far fa-star"></i>
+                       </td>
+                   </tr>
+               </div>
+           </tbody>
+       </table>
+   </div>

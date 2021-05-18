@@ -1,6 +1,4 @@
-<?php
-require_once "include.php";
-?>
+
 <!--forcer l'user a évaluer le services de l'user comme vinted après chaque service ===  donner AVIS (*****)-->
 <section>
     <div class="section1">
@@ -281,7 +279,7 @@ require_once "include.php";
 <div class="containerLetter">
 
     <div class="newletters">
-        <form action="POST">
+        <form action="" method="post">
             <h2 id="titleNewletter">Restons en contact</h2>
             <div>
                 <p>
