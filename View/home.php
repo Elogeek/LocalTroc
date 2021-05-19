@@ -52,79 +52,45 @@
 <h2 id="titleArtc">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... </h2>
 
 <div id="articles">
-    <div class="carouselControl">
-        control carousel
-        <div class="carousel__next"></div>
-        <div class="carousel__prev"></div>
-    </div>
-    <div class="carousel__container">
+    <!--articles-->
+    <div class="containerArticles">
 
-        <div class="item">
-            <div> <img class="itemImg" src="assets/img/jardinage.jpg" alt="jardin"></div>
-            <div class="itemDescription">Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.</div>
-        </div>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.
+        </a>
 
-        <div class="item">
-            <div> <img class="itemImg" src="assets/img/dog-sitter.jpg" alt="dog-sitter"></div>
-            <div class="itemDescription">Personne pour garder ou promener son chien ? Parcourir nos annonces.</div>
-        </div>
-
-        <div class="item">
-            <div> <img class="itemImg"  src="assets/img/couture.jpg" alt="couture"> </div>
-            <div class="itemDescription">
-                Trop de connaissances en couture, envie de partager sa passion ?
-                LocalTroc est fait pour vous .
-            </div>
-        </div>
-
-        <div class="item">
-            <div> <img class="itemImg" src="assets/img/photographe.jpg" alt="photographe"> </div>
-            <div class="itemDescription">
-                Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région?
-                Venez sur LocalTroc .
-            </div>
-        </div>
-
-        <div class="item">
-            <div> <img class="itemImg" src="assets/img/course.jpg" alt="course"> </div>
-            <div class="itemDescription"">
-            Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Personne pour garder ou promener son chien ? Parcourir nos annonces.
+        </a>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Trop de connaissances en couture, envie de partager sa passion ? LocalTroc est fait pour vous .
+        </a>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région? Venez sur LocalTroc .
+        </a>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
             Trouver un troqueur/ une troqueuse .
-        </div>
-    </div>
+        </a>
 
-    <div class="item">
-        <div> <img class="itemImg" src="assets/img/baby-sitter.jpg" alt="baby-sitter"> </div>
-        <div class="itemDescription">
-            Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
             Pratiquer le troc .
-        </div>
-    </div>
+        </a>
 
-    <div class="item">
-        <div> <img class="itemImg" src="assets/img/déménagement.jpg" alt="demenagement"> </div>
-        <div class="itemDescription">
-            Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
             Rédiger une annonce sur LocalTroc .
-        </div>
-    </div>
-
-    <div class="item">
-        <div> <img class="itemImg" src="assets/img/cuisine.jpg" alt="cuisine"> </div>
-        <div class="itemDescription">
-            Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
+        </a>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
             LocalTroc est fait pour vous .
-        </div>
-    </div>
-
-    <div class="item">
-        <div> <img class="itemImg" src="assets/img/bricolage.jpg" alt="bricolage"> </div>
-        <div class="itemDescription">
-            Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
+        </a>
+        <a href="#" title="item">
+            <img src="/assets/img/jardinage.jpg" alt="jardinage"> Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
             Pratiquer le troc .
-        </div>
+        </a>
     </div>
-
 </div>
 
 <!-- BARRE DE SATISFACTION-->

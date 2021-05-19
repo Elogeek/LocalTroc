@@ -251,90 +251,28 @@ h2 {
     padding: 1%;
 }
 
-#articles {
-    padding: 5rem;
+.containerArticles {
     display: flex;
-    flex-flow: row ;
+    flex-flow: column  ;
     justify-content: center;
-}
-
-#articles div {
-    display: flex;
-    justify-content: space-between;
-}
-
-/*carousel*/
-.item {
-    margin: 1rem 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
-    transition: transform 0.3s;
-    transform: translate3d(0,-1px,0);
-    width: 22rem;
-    height: 22rem;
-}
-
-.itemImg {
-    width: 100%;
-    padding: 2%;
-}
-
-.item:hover {
-    transform: translate3d(0,-10px,0);
-}
-
-.itemDescription {
-    color:#08c1ef;
-    display: flex;
-    padding: 5%;
-    width: 100%;
+    margin : 1rem;
+    width: 50%;
+    align-content: center;
+    align-items: center;
 }
 
 .item {
-    position:relative;
+    box-shadow: 0 15px 15px grey, 0 5px 15px #6c757d;
+    text-align: center;
+    padding: 1.5%;
+    margin-top: 1.5rem;
 }
 
-.carousel__container {
-    transition: transform 0.3s;
-    transform: translate3d(0,0,0);
-}
-/*carousel === même hauteur élément, grâce à table*/
-.carousel__container::after {
-    content: '';
-    clear: both;
-    display: table;
+.item img {
+    width: 20rem;
 }
 
-/*pour qu'il s'aligne à gauche*/
-.carousel__item {
-    float: left;
-}
 
-/*conttrol carousel*/
-.carrouselControl {
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-}
-.carousel__next {
-    background: transparent url('../img/left.png') center center no-repeat;
-}
-
-.carousel__prev {
-    background: transparent url("../img/right.png") center center no-repeat;
-}
-/*
-.carousel__prev, .carousel__next {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background-size: 20px 20px;
-    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
-    transition: transform 0.3s;
-}
-.carousel__next:hover, .carousel__prev:hover {
-    transform: scale(1.5);
-}*/
 
 /*user satisfaction*/
 #section5 {
@@ -630,7 +568,6 @@ footer {
     padding: 0.7rem;
     margin-top: 1.5rem;
     text-transform: full-width;
-
 }
 
 /*animation image*/
@@ -653,6 +590,7 @@ hr {
      opacity: 0.33;
      color: #08c1ef;
 }
+
 /*info profil*/
 .infoDiv * li {
     list-style: none;
@@ -662,6 +600,7 @@ hr {
     justify-content: space-between;
     font-size: x-large;
 }
+
 /*profile animation about*/
 .infoDiv li:first-child:hover {
     color: #c9e265;
@@ -738,22 +677,85 @@ hr {
     margin-bottom: 1rem;
 }
 
-/* DESIGN QUICK SEARCH */
+/* DESIGN  result QUICK SEARCH */
 .containerSearch {
-    display: table-cell;
-    table-layout: auto;
+    margin: 5rem;
+}
+/*table*/
+table {
     width: 100%;
+    border-collapse: collapse;
+    text-align: center;
 }
-.containerSearch table {
-    margin-top: 3rem;
+/*thead table*/
+thead {
+    background-color: #08c1ef;
+    color: white;
 }
 
-/* TODO HERE */
+table th {
+    border: 3px solid #6c757d;
+}
+/*tbody table*/
+table td {
+    border: 3px solid #6c757d;
+    background-color: #D3DCA5;
+    color: white;
+    font-size: 2rem;
+}
 
+table th, table td {
+    padding: 1rem;
+}
+
+table i {
+    font-size: x-large;
+}
+/*avatar user image*/
 .containerSearch img {
     border-radius: 50% !important;
     height: 10rem;
     width: 10rem;
     margin: 2%;
     padding: 2%;
+}
+
+/*Design click message ( result search)*/
+.containerMessage {
+    margin:4rem 15rem;
+    display:flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    border: 3px solid #6c757d;
+    width:60%;
+}
+/*form*/
+.containerMessage form {
+    width: 100%;
+    padding: 2%;
+    text-align: left;
+}
+
+.containerMessage hr {
+    margin-top: 2rem;
+}
+
+.containerMessage textarea {
+    margin: 3rem 8rem;
+    justify-content: flex-end;
+    padding: 2%;
+}
+
+.containerMessage button {
+    margin: 1rem 55rem;
+    padding: 1%;
+    justify-content: flex-end;
+    background-color: #08c1ef;
+    border: 2px solid #08c1ef;
+    color: white;
+}
+/*animation button*/
+.containerMessage button:hover {
+    background-color: #c9e265;
+    border: 2px solid #c9e265;
 }

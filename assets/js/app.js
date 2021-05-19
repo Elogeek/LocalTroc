@@ -34,8 +34,21 @@ function videoImg() {
 }
 videoImg();
 
-/*my carousel*/
-function carousel(){
+/*my articles*/
+let articles = document.querySelector(".containerArticles");
+let image = document.createElement("img");
+
+let slide2 = "/assets/img/dog-sitter.jpg";
+let slide3 = "/assets/img/couture.jpg";
+let slide4 = "/assets/img/photographe.jpg";
+let slide5 = "/assets/img/course.jpg";
+let slide6 ="/assets/img/baby-sitter.jpg";
+let slide7 ="/assets/img/déménagement.jpg";
+let slide8 = "/assets/img/cuisine.jpg";
+let slide9 ="/assets/img/bricolage.jpg";
+function slidesMove(){
+
+
 
 }
 

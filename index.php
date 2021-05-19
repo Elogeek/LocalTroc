@@ -10,6 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
 if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {
         case 'services':
@@ -50,15 +51,16 @@ if (isset($_GET['controller'])) {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
 
-                    case 'existUser':
+                    case ' to connect':
                         $manager->existUser("");
+                        session_start();
                         break;
 
                     case 'addUser':
                         $manager->addUser("");
                         break;
 
-                    case 'sanitizeSession':
+                    case 'disconnect':
                         $manager->sanitizeCookie();
                         break;
 
@@ -80,6 +82,7 @@ if (isset($_GET['controller'])) {
 // Créer un home controller qui ne fait que afficher la vue home.
      $controller = new HomeController();
      $controller->index();
+
 }
 //if admin ===>page admin
 /*if ($username["Elodie"]->getAdmin($id) === 1) {
