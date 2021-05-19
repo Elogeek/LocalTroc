@@ -134,7 +134,7 @@ body {
 h2 {
     position: relative;
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 5rem;
     font-size: xxx-large;
 }
 
@@ -332,7 +332,6 @@ h2 {
     box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
     transition: transform 0.3s;
 }
-
 .carousel__next:hover, .carousel__prev:hover {
     transform: scale(1.5);
 }*/
@@ -496,7 +495,7 @@ h2 {
 /* title section 9*/
 #titleSection9 {
     text-align: center;
-    padding: 4%;
+    padding: 0;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -504,21 +503,21 @@ h2 {
 
 /*newletter*/
 .containerLetter {
-    text-align: center;
     background-color: #c9e265;
-    width: 85%;
+    width: 75%;
     display: flex;
     justify-content: center;
-    margin: 4rem;
+    text-align: center;
+    margin: 8rem;
 }
 
 .newletters {
     font-size: 16px;
     font-family: Roboto,sans-serif;
     padding: 2%;
-    margin: 0;
     display: flex;
-    justify-content: center;
+    background-color: #c9e265;
+    margin:0;
 }
 
 .containerLetter form {
@@ -551,7 +550,6 @@ display: block;
 .newletters button {
     display: flex;
     align-items: end;
-
 }
 
 /*footer*/

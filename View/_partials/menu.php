@@ -31,6 +31,7 @@
         <div class="menu">
             <p><i class="fas fa-user-astronaut"></i> Mon compte</p>
             <div class="submenu">
+                <a href="#" title="item"><i class="fas fa-user-astronaut"></i> Mon profil</a>
                 <a href="#" title="item"><i class="fas fa-user-cog"></i> Paramètres du compte</a>
                 <a href="#" title="item"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
                 <a href="#" title="item"><i class="fas fa-at"></i> Changer d'adresse email</a>

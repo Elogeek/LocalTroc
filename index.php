@@ -12,7 +12,7 @@ ini_set('display_errors', 1);
 
 if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {
-        case 'articles':
+        case 'services':
             $controller = new ServiceController();
 
             switch ($_GET['action']) {
@@ -71,14 +71,15 @@ if (isset($_GET['controller'])) {
                 }
             }
             break;
-
+        case "search" :
+            $controller = new QuickSearchController();
+            $controller->goToQSearch();
     }
 
 } else {
 // Créer un home controller qui ne fait que afficher la vue home.
      $controller = new HomeController();
      $controller->index();
-
 }
 //if admin ===>page admin
 /*if ($username["Elodie"]->getAdmin($id) === 1) {

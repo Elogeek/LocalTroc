@@ -35,7 +35,8 @@ function videoImg() {
 videoImg();
 
 /*my carousel*/
-function carousel() {
+function carousel(){
 
 }
+
 
