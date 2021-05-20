@@ -84,6 +84,18 @@ if (isset($_GET['controller'])) {
      $controller->index();
 
 }
+
+//check create service file upload
+if (isset($_GET['success'])) {
+    ?> <div class="success">Vos fichiers ont bien été envoyés, merci.</div><?php
+}
+elseif (isset($_GET['e'])) {
+    $messageError = base64_decode($_GET['e']);
+    $messageError = json_decode($messageError);
+    foreach ($messageError as $messgError) {
+        ?> <div class="error"><?=$messageError?></div><?php
+    }
+}
 //if admin ===>page admin
 /*if ($username["Elodie"]->getAdmin($id) === 1) {
     session_start();

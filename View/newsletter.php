@@ -27,6 +27,7 @@
                     <button type="submit"> S'abonner</button>
                 </div>
             </div>
+        </form>
     </div>
-    </form>
+
 </div>

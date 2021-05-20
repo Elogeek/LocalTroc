@@ -252,27 +252,52 @@ h2 {
 }
 
 .containerArticles {
+    margin : 2.5rem 5rem;
+    padding: 1rem;
+    width: 70%;
+    height: 80vh;
     display: flex;
-    flex-flow: column  ;
-    justify-content: center;
-    margin : 1rem;
-    width: 50%;
-    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
-.item {
-    box-shadow: 0 15px 15px grey, 0 5px 15px #6c757d;
-    text-align: center;
-    padding: 1.5%;
-    margin-top: 1.5rem;
-}
-
-.item img {
+.tooltip {
     width: 20rem;
+    height: 10rem;
 }
 
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #75d8f7;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    margin: 1rem;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
 
+/* Show the tooltip text when you mouse over the image */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    padding: 1%;
+}
+
+.containerArticles img {
+    box-shadow: 0 15px 15px grey, 0 5px 15px #6c757d;
+    margin-left: 15rem;
+    width: 20rem;
+    padding: 1.5%;
+}
 
 /*user satisfaction*/
 #section5 {
@@ -446,7 +471,9 @@ h2 {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 8rem;
+    position: relative;
+    left: 16rem;
+    margin: 5rem;
 }
 
 .newletters {
@@ -758,4 +785,43 @@ table i {
 .containerMessage button:hover {
     background-color: #c9e265;
     border: 2px solid #c9e265;
+}
+
+/* CREATE SERVICE*/
+#createServ h3 {
+    text-decoration: #c9e265 underline overline;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#createServ {
+    margin: 2rem;
+    padding: 1rem;
+    border: 3px solid turquoise;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#createServ * input {
+    margin-top: 2rem;
+}
+
+#createServ div {
+    margin-top: 2rem;
+}
+/*#createServ input[name*="fichier"] {
+    margin-top: 2rem;
+}
+*/
+#createServ textarea {
+    margin-top: 2rem;
+}
+
+#createServ button {
+    display: flex;
+    width: 10rem;
+    height: 2rem;
+    margin: 2rem 16rem;
 }
