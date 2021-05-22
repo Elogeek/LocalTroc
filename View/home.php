@@ -80,20 +80,6 @@
             </a>
         </div>
 
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/course.jpg" alt="Supermarket" ><span class="tooltiptext">  Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
-            Trouver un troqueur/ une troqueuse.</span>
-            </a>
-        </div>
-
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/baby-sitter.jpg" alt="babySitter" ><span class="tooltiptext"> Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
-            Pratiquer le troc.</span>
-            </a>
-        </div>
-
     </div>
 </div>
 
@@ -241,47 +227,98 @@
     </div>
 </div>
 
-<div>
+   <!--articles diapo-->
+<div class="diapo">
     <h2 id="titleSection9">Sur LocalTroc, vous trouverez tout !</h2>
+
+    <div class="elements">
+        <!--one slide-->
+        <div class="element active">
+            <img src="/assets/img/déménagement.jpg" alt="img1">
+            <div class="caption">
+                <p>
+                    Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
+                    Rédiger une annonce sur LocalTroc.
+                </p>
+            </div>
+        </div>
+
+        <!--two slide-->
+        <div class="element">
+            <img src="/assets/img/cuisine.jpg" alt="img2">
+            <div class="caption">
+                <p>
+                    Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
+                    LocalTroc est fait pour vous.
+                </p>
+            </div>
+        </div>
+        <!--three slide-->
+        <div class="element">
+            <img src="/assets/img/couture.jpg" alt="img3">
+            <div class="caption">
+                <p>
+                    Trop de connaissances en couture, envie de partager sa passion ? LocalTroc est fait pour vous.
+                </p>
+            </div>
+        </div>
+
+        <!--four slide-->
+        <div class="element">
+            <img src="/assets/img/massage.webp" alt="img4">
+            <div class="caption">
+                <p>
+                    Trop nerveux, envie de relaxation, besoin d' améliorer ces compétences en massage? Trouver un troqueur/ une troqueuse.
+                </p>
+            </div>
+        </div>
+         <!--five slide-->
+        <div class="element">
+            <img src="/assets/img/travel.webp" alt="img5">
+            <div class="caption">
+                <p>
+                    Envie de s'évader dans votre région, besoin de vacances? Venez sur LocalTroc.
+                </p>
+            </div>
+        </div>
+
+       <!--six slide-->
+        <div class="element">
+            <img src="/assets/img/makeUp.webp" alt="img6">
+            <div class="caption">
+                <p>
+                    Pas douée pour se maquiller seul? Où tout,simplement maquiller les enfants pour les grandes occasions? C'est sur LocalTroc.
+                </p>
+            </div>
+        </div>
+
+        <!--seven slide-->
+        <div class="element">
+            <img src="/assets/img/course.jpg" alt="img7">
+            <div class="caption">
+                <p>
+                    Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
+                    Trouver un troqueur/ une troqueuse.
+                </p>
+            </div>
+        </div>
+
+       <!-- eight slide-->
+        <div class="element">
+            <img src="/assets/img/baby-sitter.jpg" alt="img8">
+            <div class="caption">
+                <p>
+                    Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
+                    Pratiquer le troc.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- control navigation : arrows -->
+    <i id="navLeft" class="las la-chevron-left"></i>
+    <i id="navRight" class="las la-chevron-right"></i>
+
 </div>
-<!--articles-->
-<div class="containerArticles">
 
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/déménagement.jpg" alt="déménagement" ><span class="tooltiptext"> Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
-            Rédiger une annonce sur LocalTroc.</span>
-        </a>
-    </div>
-
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/cuisine.jpg" alt="kitchen" ><span class="tooltiptext"> Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
-            LocalTroc est fait pour vous.</span>
-        </a>
-    </div>
-
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/couture.jpg" alt="couture" ><span class="tooltiptext"> Trop de connaissances en couture, envie de partager sa passion ? LocalTroc est fait pour vous.</span>
-        </a>
-    </div>
-
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/massage.webp" alt="massage" ><span class="tooltiptext"> Trop nerveux, envie de relaxation, besoin d' améliorer ces compétences en massage? Trouver un troqueur/ une troqueuse.</span>
-        </a>
-    </div>
-
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/travel.webp" alt="travel" ><span class="tooltiptext"> Envie de s'évader dans votre région, besoin de vacances? Venez sur LocalTroc.</span>
-        </a>
-    </div>
-
-    <div class="tooltip">
-        <a href="#">
-            <img src="/assets/img/makeUp.webp" alt="makeUp" ><span class="tooltiptext"> Pas douée pour se maquiller seul? Où tout,simplement maquiller les enfants pour les grandes occasions? C'est sur LocalTroc.</span>
-        </a>
-    </div>
-</div>
