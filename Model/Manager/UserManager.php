@@ -38,7 +38,7 @@ class UserManager {
         $user = null;
 
         if ($result && $userData = $request->fetch()) {
-            $user = new User($userData['id'], $userData['username'], $userData['lastName'], $userData['email'], $userData['phone'],$userData['password']);
+            $user = new User($userData['id'], $userData['role_fk'],$userData['firstname'], $userData['lastName'], $userData['email'],$userData['password']);
         }
 
         return $user;
@@ -51,13 +51,14 @@ class UserManager {
      */
     public function addUser(User $user): bool
     {
-        $request = DB::getInstance()->prepare("INSERT INTO user (id,username,lastName,email,phone,password) VALUES (:id, :username,:lastName, :mail, :phone, :password)");
+        $request = DB::getInstance()->prepare("INSERT INTO user (id, role_fk,firstname,lastName,email, password) 
+                                                     VALUES (:id, :role_fk, :firstname,:lastName, :mail, :password)");
 
         $request->bindValue(":id",$user->getId());
-        $request->bindValue(":username", $user->getUsername());
+        $request->bindValue("role_fk", $user->getRoleFk());
+        $request->bindValue(":firstname", $user->getFirstname());
         $request->bindValue(":lastName",$user->getLastName());
-        $request->bindValue(":mail", $user->getMail());
-        $request->bindValue(":phone",$user->getPhone());
+        $request->bindValue(":mail", $user->getEmail());
         $request->bindValue(":password", password_hash($user->getPassword(), PASSWORD_BCRYPT));
 
         return $request->execute() && DB::encodePassword($request) && DB::getInstance()->lastInsertId() != 0;
@@ -70,8 +71,8 @@ class UserManager {
      * @param string $username
      * @return User|null
      */
-    public function  sanitizeCookie(int $id, string $username): ?User {
-        if (isset($_SESSION['id'], $_SESSION['username'])) {
+    public function  sanitizeCookie(int $id, string $email): ?User {
+        if (isset($_SESSION['id'], $_SESSION['email'])) {
             //Destroy all session variables (the data)
             $_SESSION = array();
             $params = session_get_cookie_params();
