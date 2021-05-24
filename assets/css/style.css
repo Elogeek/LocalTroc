@@ -235,6 +235,7 @@ h2 {
     align-items: center;
     color: white;
 }
+
 #section4 span {
     display: flex;
     flex-direction: row;
@@ -245,58 +246,61 @@ h2 {
     /*font-size: 3rem;*/
 }
 
-/*my articles*/
-#titleArtc {
-    text-align: center;
-    padding: 1%;
+/*  DIAPO*/
+.diapo h2 {
+    padding: 2rem;
+    margin: 2rem;
 }
 
-.containerArticles {
-    margin : 2.5rem 5rem;
-    padding: 1rem;
-    width: 70%;
-    height: 80vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+.diapo {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
 }
 
-.tooltip {
-    width: 20rem;
-    height: 10rem;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    background-color: #75d8f7;
-    color: #fff;
-    text-align: center;
-    border-radius: 15px;
-    margin: 1rem;
+/*placement arrows*/
+#navRight, #navLeft {
     position: absolute;
-    z-index: 1;
+    top: 60%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 3em;
+}
+
+#navRight {
+    right: 20px;
+}
+
+#navLeft {
+    left: 20px;
+}
+
+/*placement diapo*/
+.elements {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* Position the tooltip text */
+    transition: 1s linear;
+}
+
+.element {
+    flex: 1 0 100%;
+    position: relative;
+}
+
+/*size img*/
+.element > img {
+    width: 100%;
+}
+
+/*text*/
+.caption {
     position: absolute;
-    z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the image */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    padding: 1%;
-}
-
-.containerArticles img {
-    box-shadow: 0 15px 15px grey, 0 5px 15px #6c757d;
-    margin-left: 8rem;
-    width: 20rem;
-    padding: 1.5%;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+    padding: 30px;
 }
 
 /*user satisfaction*/
@@ -307,6 +311,7 @@ h2 {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
 }
 
 #textHappy span {
@@ -451,61 +456,96 @@ h2 {
     flex-flow: row;
     justify-content: space-evenly;
     align-items: end;
-    margin-top: 16rem;
-    margin-bottom: 5rem;
+    margin-top: 0;
+    margin-bottom: 20rem;
 }
 
-/* section 9 : DIAPO*/
-
-.diapo {
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    margin: auto;
+/*title subject*/
+.subjectRectangle {
+    margin-top: 0;
 }
 
-/*placement arrows*/
-#navRight, #navLeft {
+.descriptionRectangle {
+    padding: 2%;
+    margin-top:  1rem;
+}
+
+.imageRectangle {
+    height: 6rem;
+    width: 6rem;
+    object-position: 100% 50%;
+    background-image: url("/assets/img/avatar.png");
+    background-position: 50% 50%;
+    border-radius: 50% !important;
+    background-size: cover;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 3em;
+    bottom: 20rem;
+    left: 8rem;
+    z-index: 1000;
 }
 
-#navRight {
-    right: 20px;
+.helpRectangle {
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
+    transition: transform 0.3s;
+    transform: translate3d(0,-1px,0);
+    width: 22rem;
+    height: 22rem;
+    margin: 2rem 1rem -17rem;
 }
 
-#navLeft {
-    left: 20px;
-}
-
-/*placement diapo*/
-.elements {
-    display: flex;
-    transition: 1s linear;
-}
-
-.element {
-    flex: 1 0 100%;
-    position: relative;
-}
-
-/*size img*/
-.element > img {
-    width: 100%;
-}
-
-/*text*/
-.caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/*my articles*/
+#titleArtc {
     text-align: center;
-    background-color: white;
-    padding: 30px;
+    padding: 1%;
+}
+
+.containerArticles {
+    margin : 2.5rem 5rem;
+    padding: 1rem;
+    width: 70%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tooltip {
+    width: 20rem;
+    height: 10rem;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #75d8f7;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    margin: 1rem;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the image */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    padding: 1%;
+}
+
+.containerArticles img {
+    box-shadow: 0 15px 15px grey, 0 5px 15px #6c757d;
+    margin-left: 8rem;
+    width: 20rem;
+    padding: 1.5%;
 }
 
 /* design newletter*/
