@@ -9,7 +9,8 @@ class UserProfileManager {
      * @param int $id
      * @return User|null
      */
-    public function getMyProfil(int $id): ?User {
+    public function getMyProfil(int $id): ?User
+    {
         $request = DB::getInstance()->prepare("SELECT * FROM user_profile WHERE id = :id");
         $request->bindValue(':id', $id);
 

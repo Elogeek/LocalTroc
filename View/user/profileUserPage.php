@@ -112,14 +112,10 @@
                     </div>
                 </li>
                 <li id="border">
-                    <!--LOISIRS <i class="far fa-heart"></i>-->
-                    My  favorite activies :
-                    Foot, dog-sitting, musique
-                </li>
-                <li>
+                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Other : diplômes, loisirs, lieu,..."></textarea>
                     <!--school <i class="fas fa-graduation-cap"></i> -->
                     Other :
-                    Graduat couture at Tokyo School
+
                 </li>
             </ul>
 
