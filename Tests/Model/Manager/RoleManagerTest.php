@@ -8,11 +8,14 @@ ini_set('display_errors', 1);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Dumper.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/DB.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Entity/Role.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Entity/User.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Manager/RoleManager.php';
 
 $manager = new RoleManager();
 $role = $manager->getRoleById(1);
 Dumper::dieAndDump($role);
+$adminUsers = $manager->getUsersByRole($role);
+Dumper::dieAndDump($adminUsers);
 
 // Exemple tester ajout d'un role
 $roleAdd = new Role();
