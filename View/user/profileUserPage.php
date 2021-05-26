@@ -78,27 +78,27 @@
                 <li>A propros </li>
                 <hr>
 
-                <li> Name : John</li>
-                <li> Lastname :  Doe</li>
+                <li> Pseudo : /li>
+
                 <li>
                     <!--email <i class="fas fa-at"></i>-->
-                    Email : doudouille@gmail.com
+                    Email :
                 </li>
                 <li>
                     <!--phone <i class="fas fa-phone"></i>-->
-                    Phone :  075123456
+                    Phone :
                 </li>
                 <li>
                     <!--city <i class="fas fa-map-marker-alt"></i>-->
-                    City:  Kyoto
+                    City:
                 </li>
                 <li>
                     <!--brithday user <i class="fas fa-birthday-cake"></i>-->
-                    Brithday :  29/mai/2000
+                    Brithday :
                 </li>
                 <!--here eval service user-->
                 <li>
-                    Evaluations : 4/5
+                    Evaluations : /5
                     <div>
                         <!--here star-->
                         <i class="far fa-star"></i>
