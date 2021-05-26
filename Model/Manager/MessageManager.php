@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Manager;
+
 use App\Entity\User\Message;
 use App\Entity\UserService;
 use Model\DB;

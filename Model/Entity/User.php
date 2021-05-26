@@ -1,8 +1,6 @@
 <?php
 namespace App\Entity;
 
-use App\Entity\Role;
-
 class User {
 
     private ?int $id;
@@ -15,7 +13,7 @@ class User {
     /**
      * User constructor.
      * @param int|null $id
-     * @param \App\Entity\Role|null $role
+     * @param Role|null $role
      * @param string|null $firstname
      * @param string|null $lastName
      * @param string|null $email

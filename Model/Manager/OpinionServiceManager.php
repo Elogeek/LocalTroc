@@ -1,7 +1,7 @@
 
 <?php
 
-use App\Entity\UserService\OpinionService;
+use App\Entity\User\OpinionService;
 use Model\DB;
 
 class OpinionServiceManager {
@@ -52,7 +52,7 @@ class OpinionServiceManager {
      */
     public function getSubjectOpinion($subject,$id): array{
         $opinion = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE subject = :subject AND SELECT * FROM opinion_service WHERE id = :id");
+        $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE subject = :subject anD SELECT * FROM opinion_service WHERE id = :id");
         return $opinion;
     }
 

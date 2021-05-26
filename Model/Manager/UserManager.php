@@ -2,9 +2,10 @@
 namespace App\Model\Entity;
 
 use App\Entity\User;
+use App\Manager\RoleManager;
 use Model\DB;
 
-class UserManager {
+class UserManager{
 
     /** Return an User by his id
      * @param int $id
@@ -18,8 +19,9 @@ class UserManager {
 
         if ($result) {
             $userData = $request->fetch();
+            $role = (new RoleManager())->getRoleById($userData['role_fk']);
             if ($userData) {
-                $user = new User($userData['id'], $userData['username'], $userData['lastName'], $userData['email'], $userData['phone'],$userData['password']);
+                $user = new User($userData['id'], $role, $userData['firstname'], $userData['lastName'], $userData['email'],$userData['password']);
             }
         }
 
@@ -55,7 +57,7 @@ class UserManager {
                                                      VALUES (:id, :role_fk, :firstname,:lastName, :mail, :password)");
 
         $request->bindValue(":id",$user->getId());
-        $request->bindValue("role_fk", $user->getRoleFk());
+        $request->bindValue("role_fk", $user->getRole());
         $request->bindValue(":firstname", $user->getFirstname());
         $request->bindValue(":lastName",$user->getLastName());
         $request->bindValue(":mail", $user->getEmail());
@@ -68,7 +70,7 @@ class UserManager {
      * Sanitize cookies session User
      * Destroy session cookie
      * @param int $id
-     * @param string $username
+     * @param string $email
      * @return User|null
      */
     public function  sanitizeCookie(int $id, string $email): ?User {
