@@ -1,113 +1,106 @@
 <?php
 
+use App\Entity\User;
 use App\Entity\UserService;
 use Model\DB;
 
 class UserServiceManager {
 
-    /** Return array service(s) by userFk
-     * @param $userFk
+    /**
+     * Return array service(s) by userFk
+     * @param User $user
      * @return array|null
      */
-    public function getServiceByUser($userFk): ?array {
-        $myService = [];
+    public function getServicesByUser(User $user): array {
+        $userService = [];
         $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE user_fk = :userFk");
-        $request->bindValue(':userFk',$userFk);
-        $result = $request->execute();
-        if ($result){
-            $data = $request->fetchAll();
-            foreach ($data as $serviceData) {
-                $myService[] = new UserService($serviceData['id'], $serviceData['userFk']);
+        $request->bindValue(':userFk', $user->getId());
+        if ($request->execute()){
+            foreach ($request->fetchAll() as $serviceData) {
+                $userService[] = new UserService($serviceData['id'], $serviceData['userFk']);
             }
         }
-        return $myService;
+        return $userService;
     }
 
-    /** Return all services
+    /**
+     * Return all services
      * @return array
      */
     public function getServices(): array {
         $services = [];
         $request = DB::getInstance()->prepare("SELECT * FROM user_service");
-        $result = $request->execute();
-        if ($result) {
-            $data = $request->fetchAll();
-            foreach ($data as $serviceData) {
+        if ($request->execute()) {
+            foreach ($request->fetchAll() as $serviceData) {
                 $services[] = new UserService($serviceData['id'], $serviceData['user_fk'], $serviceData['service_date'], $serviceData['subject'], $serviceData['description']);
             }
         }
         return $services;
     }
 
-    /** Return an service or null
-     * @param $id
+    /**
+     * Return an service or null
+     * @param int $id
      * @return Userservice|null
      */
-    public function getService($id): ?Userservice {
+    public function getService(int $id): ?Userservice {
         $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE id = :id");
         $request->bindValue(';id', $id);
         $result = $request->execute();
-        $service = null;
 
         if ($result && $data = $request->fetch()) {
-            $service = new Userservice($data['id']);
+            return new UserService($data['id']);
         }
-        return $service;
+        return null;
     }
 
-    /** Return all services by subject
-     * @param $subject
-     * @return UserService|null
-     */
-    public function getSubject($subject) : ? array {
-        $arraySubject = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE subject = :subject");
-        $request->bindValue(':subject', $subject);
-        $result = $request->execute();
-        if ($result) {
-            $data = $request->fetchAll();
-            foreach ($data as $datas) {
-                $arraySubject = new UserService( $datas['subject']);
-            }
-        }
-        return $arraySubject;
-    }
 
-    /** Add an service on the Database
+    /**
+     * Add an service on the Database
      * @param Userservice $service
      * @return bool
      */
-    public function addService(Userservice $service): bool {
-        $request =DB::getInstance()->prepare("INSERT INTO user_service (id, user_fk, service_date, subject, description) 
-                                                    VALUES (:id, :user_fk, :service_date, :subject, :description)");
+    public function addService(Userservice &$service): bool {
+        $request = DB::getInstance()->prepare("
+            INSERT INTO user_service (user_fk, service_date, subject, description) 
+                VALUES (:user_fk, :service_date, :subject, :description)
+        ");
 
-        $request->bindValue(':id', $service->getId());
-        $request->bindValue(':user_fk', $service->getUserFk());
+        $request->bindValue(':user_fk', $service->getUser());
         $request->bindValue(':service_date',$service->getServiceDate());
         $request->bindValue(':subject', $service->getSubject());
         $request->bindValue(':description', $service->getDescription());
 
-        return $request->execute() && DB::getInstance()->lastInsertId() != 0;
+        $request->execute();
+        $service->setId(DB::getInstance()->lastInsertId());
+        return $service->getId() !== null && $service->getId() > 0;
     }
 
-    /** Modify/update  service into the Database
+
+    /**
+     * Modify/update  service into the Database
      * @param Userservice $service
      * @return bool
      */
     public function updateService(Userservice $service): bool {
-        $request = DB::getInstance()->prepare("UPDATE user_service SET description = :description WHERE id = :id AND user_fk = :user");
+        $request = DB::getInstance()->prepare("
+            UPDATE user_service SET description = :description, subject = :subject WHERE id = :id AND user_fk = :user
+        ");
         $request->bindValue(':description', $service->getDescription());
+        $request->bindValue(':subject', $service->getSubject());
         $request->bindValue(':id',$service->getId());
-        $request->bindValue(':user', $service->getUserFk());
+        $request->bindValue(':user', $service->getUser());
 
         return $request->execute() ;
     }
 
-    /** Delete an service into the Database
+
+    /**
+     * Delete an service into the Database
      * @param Userservice $service
      * @return bool
      */
-    public function deleteService(Userservice $service):bool {
+    public function deleteService(Userservice $service): bool {
         $request = DB::getInstance()->prepare('DELETE FROM user_service WHERE  id = :id');
         $request->bindValue(':id',$service->getId());
 
