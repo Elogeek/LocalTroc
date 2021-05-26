@@ -1,7 +1,7 @@
 <?php
 namespace App\Entity;
 
-use Role;
+use App\Entity\Role;
 
 class User {
 
@@ -12,6 +12,15 @@ class User {
     private ?string $email;
     private ?string $password;
 
+    /**
+     * User constructor.
+     * @param int|null $id
+     * @param \App\Entity\Role|null $role
+     * @param string|null $firstname
+     * @param string|null $lastName
+     * @param string|null $email
+     * @param string|null $password
+     */
     public function __construct(int $id =null, Role $role = null, string $firstname = null, string $lastName = null, string  $email = null, string $password = null) {
         $this->id = $id;
         $this->role = $role;
@@ -38,14 +47,14 @@ class User {
     /**
      * @return Role|null
      */
-    public function getRoleFk(): ?Role {
+    public function getRole(): ?Role {
         return $this->role;
     }
 
     /**
      * @param Role|null $role
      */
-    public function setRoleFk(?Role $role): void {
+    public function setRole(Role $role): void {
         $this->role = $role;
     }
     /**
@@ -58,7 +67,7 @@ class User {
     /**
      * @param string|null $username
      */
-    public function setFirstname(?string $username): void {
+    public function setFirstname(string $username): void {
         $this->firstname = $username;
     }
 
@@ -72,7 +81,7 @@ class User {
     /**
      * @param string|null $lastName
      */
-    public function setLastName(?string $lastName): void {
+    public function setLastName(string $lastName): void {
         $this->lastName = $lastName;
     }
 
@@ -84,9 +93,9 @@ class User {
     }
 
     /**
-     * @param string|null $mail
+     * @param string $email
      */
-    public function setEmail(?string $email): void {
+    public function setEmail(string $email): void {
         $this->email = $email;
     }
 
@@ -101,7 +110,7 @@ class User {
     /**
      * @param string|null $password
      */
-    public function setPassword(?string $password): void {
+    public function setPassword(string $password): void {
         $this->password = $password;
     }
 

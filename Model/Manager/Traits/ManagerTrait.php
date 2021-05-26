@@ -1,9 +1,13 @@
 <?php
 namespace App\Model\Manager\Traits;
 
+/**
+ * Trait ManagerTrait
+ * @package App\Model\Manager\Traits
+ */
 trait ManagerTrait {
 
-    private static $manager = null;
+    private static ?ManagerTrait $manager = null;
 
     /**
      * Return manager or new manager

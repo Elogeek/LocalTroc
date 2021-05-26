@@ -29,6 +29,7 @@ body {
     position: relative;
     height: 5.5rem;
     box-shadow: 0 0 15px 0 #6c757d;
+    cursor: pointer;
 }
 
 .nav > div:hover div {

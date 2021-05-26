@@ -1,10 +1,17 @@
 <?php
 
+namespace App\Entity;
+
 class Role {
 
     private ?int $id;
     private ?string  $name;
 
+    /**
+     * Role constructor.
+     * @param int|null $id
+     * @param string|null $name
+     */
     public function __construct( int $id = null, string $name = null) {
         $this->id = $id;
         $this->name = $name;
@@ -34,7 +41,7 @@ class Role {
     /**
      * @param string|null $name
      */
-    public function setName(?string $name): void {
+    public function setName(string $name): void {
         $this->name = $name;
     }
 

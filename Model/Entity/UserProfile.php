@@ -1,34 +1,49 @@
 <?php
 namespace App\Entity\User;
 
+use App\Entity\User;
+
 class UserProfile {
 
     private ?int $id;
-    private ?int $user_fk;
+    private ?User $user;
     private ?string $pseudo;
     private ?string $avatar;
-    private ?string $brithday;
+    private ?string $birthday;
     private ?string $city;
     private ?string $address;
-    private ?string $code_zip;
+    private ?string $codeZip;
     private ?string $country;
-    private ?string  $more_infos;
+    private ?string  $moreInfo;
     private ?string $phone;
 
-
-    public function __construct(int $id =null, int $user_fk = null, string $pseudo = null, string  $avatar = null, string $brithday = null, string $city = null,
-                                string $address = null, string  $code_zip = null, string $country = null, string $more_infos = null, string $phone = null)
+    /**
+     * UserProfile constructor.
+     * @param int|null $id
+     * @param int|null $user
+     * @param string|null $pseudo
+     * @param string|null $avatar
+     * @param string|null $birthday
+     * @param string|null $city
+     * @param string|null $address
+     * @param string|null $codeZip
+     * @param string|null $country
+     * @param string|null $moreInfo
+     * @param string|null $phone
+     */
+    public function __construct(int $id = null, int $user = null, string $pseudo = null, string  $avatar = null, string $birthday = null, string $city = null,
+                                string $address = null, string  $codeZip = null, string $country = null, string $moreInfo = null, string $phone = null)
     {
         $this->id = $id;
-        $this->user_fk = $user_fk;
+        $this->user = $user;
         $this->pseudo = $pseudo;
         $this->avatar = $avatar;
-        $this->brithday = $brithday;
+        $this->birthday = $birthday;
         $this->city = $city;
         $this->address = $address;
-        $this->code_zip = $code_zip;
+        $this->codeZip = $codeZip;
         $this->country = $country;
-        $this->more_infos = $more_infos;
+        $this->moreInfo = $moreInfo;
         $this->phone = $phone;
     }
 
@@ -47,17 +62,17 @@ class UserProfile {
     }
 
     /**
-     * @return int|null
+     * @return User|null
      */
-    public function getUserFk(): ?int {
-        return $this->user_fk;
+    public function getUser(): ?User {
+        return $this->user;
     }
 
     /**
-     * @param int|null $user_fk
+     * @param User $user
      */
-    public function setUserFk(?int $user_fk): void {
-        $this->user_fk = $user_fk;
+    public function setUser(User $user): void {
+        $this->user = $user;
     }
 
     /**
@@ -70,7 +85,7 @@ class UserProfile {
     /**
      * @param string|null $pseudo
      */
-    public function setPseudo(?string $pseudo): void {
+    public function setPseudo(string $pseudo): void {
         $this->pseudo = $pseudo;
     }
 
@@ -84,22 +99,22 @@ class UserProfile {
     /**
      * @param string|null $avatar
      */
-    public function setAvatar(?string $avatar): void {
+    public function setAvatar(string $avatar): void {
         $this->avatar = $avatar;
     }
 
     /**
      * @return string|null
      */
-    public function getBrithday(): ?string {
-        return $this->brithday;
+    public function getBirthday(): ?string {
+        return $this->birthday;
     }
 
     /**
-     * @param string|null $brithday
+     * @param string|null $birthday
      */
-    public function setBrithday(?string $brithday): void {
-        $this->brithday = $brithday;
+    public function setBirthday(string $birthday): void {
+        $this->birthday = $birthday;
     }
 
     /**
@@ -112,7 +127,7 @@ class UserProfile {
     /**
      * @param string|null $city
      */
-    public function setCity(?string $city): void {
+    public function setCity(string $city): void {
         $this->city = $city;
     }
 
@@ -126,7 +141,7 @@ class UserProfile {
     /**
      * @param string|null $address
      */
-    public function setAddress(?string $address): void {
+    public function setAddress(string $address): void {
         $this->address = $address;
     }
 
@@ -134,14 +149,14 @@ class UserProfile {
      * @return string|null
      */
     public function getCodeZip(): ?string {
-        return $this->code_zip;
+        return $this->codeZip;
     }
 
     /**
-     * @param string|null $code_zip
+     * @param string|null $codeZip
      */
-    public function setCodeZip(?string $code_zip): void {
-        $this->code_zip = $code_zip;
+    public function setCodeZip(string $codeZip): void {
+        $this->codeZip = $codeZip;
     }
 
     /**
@@ -154,7 +169,7 @@ class UserProfile {
     /**
      * @param string|null $country
      */
-    public function setCountry(?string $country): void {
+    public function setCountry(string $country): void {
         $this->country = $country;
     }
 
@@ -162,14 +177,14 @@ class UserProfile {
      * @return string|null
      */
     public function getMoreInfos(): ?string {
-        return $this->more_infos;
+        return $this->moreInfo;
     }
 
     /**
-     * @param string|null $more_infos
+     * @param string|null $moreInfo
      */
-    public function setMoreInfos(?string $more_infos): void {
-        $this->more_infos = $more_infos;
+    public function setMoreInfos(string $moreInfo): void {
+        $this->moreInfo = $moreInfo;
     }
 
     /**
@@ -182,7 +197,7 @@ class UserProfile {
     /**
      * @param string|null $phone
      */
-    public function setPhone(?string $phone): void {
+    public function setPhone(string $phone): void {
         $this->phone = $phone;
     }
 

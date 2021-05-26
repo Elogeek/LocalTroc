@@ -50,17 +50,16 @@ class Message {
     }
 
     /**
-     * @param UserService $userService
      * @return UserService|null
      */
-    public function getUserService(UserService $userService): ?UserService {
-        $this->userService = $userService;
+    public function getUserService(): ?UserService {
+        return $this->userService;
     }
 
     /**
      * @param UserService $userService
      */
-    public function setUserServiceFk(UserService $userService ): void {
+    public function setUserService(UserService $userService ): void {
         $this->userService = $userService;
     }
 
@@ -74,7 +73,7 @@ class Message {
     /**
      * @param string|null $content
      */
-    public function setContent(?string $content): void {
+    public function setContent(string $content): void {
         $this->content = $content;
     }
 
@@ -88,7 +87,7 @@ class Message {
     /**
      * @param string|null $date
      */
-    public function setDate(?string $date): void {
+    public function setDate(string $date): void {
         $this->date = $date;
     }
 

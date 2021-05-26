@@ -1,9 +1,9 @@
 <?php
 
+use App\Entity\Role;
 use App\Entity\User;
 use Model\DB;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 /**
  * Class RolesManager
  */
@@ -15,24 +15,36 @@ class RoleManager
      * @param int $id
      * @return Role
      */
-    public function getAdmin($id): ?Role {
-        $role = null;
-        $request = DB::getInstance()->prepare("Select * FROM role WHERE id = :id");
+    public function getRoleById(int $id): ?Role {
+        $request = DB::getInstance()->prepare("SELECT * FROM role WHERE id = :id");
         $request->bindValue(':id', $id);
         $result = $request->execute();
         if ($result && $data = $request->fetch()) {
-            $role = new Role($data['id'], $data['name']);
+            return new Role($data['id'], $data['name']);
         }
 
-        return $role;
+        return null;
     }
 
-    /**
-     * Return true if user is admin.
-     * @param User $user
-     * @return bool
-     */
-    public static function isAdmin(User $user) {
-        return $user->getRoleFk()->getId() && $user->getRoleFk()->getName() === 'admin';
+    // TODO => Retourner la liste des utilisateurs ayant le role id donné.
+    public function getUsersByRole(int $id): array {
+
+    }
+
+    // TODO => Retourner un Role par son nom.
+    public function getRoleByName(string $roleName): Role {
+
+    }
+
+    // TODO => Ajouter un nouveau Role
+    public function addRole(Role &$role) : bool {
+
+
+        $role->setId(DB::getInstance()->lastInsertId());
+    }
+
+    // TODO => Supprime un role donné.
+    public function deleteRole(Role $role) : bool {
+
     }
 }

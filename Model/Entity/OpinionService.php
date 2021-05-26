@@ -1,19 +1,29 @@
 <?php
 namespace App\Entity\User;
-namespace App\Entity\UserService;
+
+use App\Entity\User;
+use App\Entity\UserService;
 
 class OpinionService {
 
     private ?int $id;
-    private ?int $user_fk;
-    private ?int $author_fk;
+    private ?User $user;
+    private ?User $author;
     private ?string $content;
     private ?string $date;
 
-    public function __construct(int $id = null, int $user_fk = null, int $author_fk = null, string $content = null, string $date = null) {
+    /**
+     * OpinionService constructor.
+     * @param int|null $id
+     * @param User|null $user
+     * @param User|null $author
+     * @param string|null $content
+     * @param string|null $date
+     */
+    public function __construct(int $id = null, User $user = null, User $author = null, string $content = null, string $date = null) {
         $this->id = $id;
-        $this->user_fk = $user_fk;
-        $this->author_fk = $author_fk;
+        $this->user = $user;
+        $this->author = $author;
         $this->content = $content;
         $this->date = $date;
     }
@@ -33,31 +43,31 @@ class OpinionService {
     }
 
     /**
-     * @return int|null
+     * @return User|null
      */
-    public function getUserFk(): ?int {
-        return $this->user_fk;
+    public function getUser(): ?User {
+        return $this->user;
     }
 
     /**
-     * @param int|null $user_fk
+     * @param User $user
      */
-    public function setUserFk(?int $user_fk): void {
-        $this->user_fk = $user_fk;
+    public function setUser(User $user): void {
+        $this->user = $user;
     }
 
     /**
-     * @return int|null
+     * @return User|null
      */
-    public function getAuthorFk(): ?int {
-        return $this->author_fk;
+    public function getAuthor(): ?User {
+        return $this->author;
     }
 
     /**
-     * @param int|null $author_fk
+     * @param User|null $author
      */
-    public function setAuthorFk(?int $author_fk): void {
-        $this->author_fk = $author_fk;
+    public function setAuthor(User $author): void {
+        $this->author = $author;
     }
 
     /**
@@ -70,7 +80,7 @@ class OpinionService {
     /**
      * @param string|null $content
      */
-    public function setContent(?string $content): void {
+    public function setContent(string $content): void {
         $this->content = $content;
     }
 
@@ -84,7 +94,7 @@ class OpinionService {
     /**
      * @param string|null $date
      */
-    public function setDate(?string $date): void {
+    public function setDate(string $date): void {
         $this->date = $date;
     }
 
