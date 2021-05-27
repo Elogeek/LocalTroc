@@ -4,12 +4,13 @@ namespace App\Manager;
 
 use App\Entity\User\Message;
 use App\Entity\UserService;
+use App\Model\Entity\UserManager;
 use Model\DB;
 
 class MessageManager {
 
     /** Return all messages
-     *
+     * @return array
      */
     public function getMessages(): array {
         $request = DB::getInstance()->prepare("SELECT * FROM message");
@@ -18,7 +19,7 @@ class MessageManager {
         if($data = $request->fetchAll()) {
             foreach($data as $datas) {
                 $message[] = new Message($datas['id'], $datas['from_user_fk'], $datas['user_service_fk'], $datas
-                ['content'],$datas['date']);
+                ['content'], $data['date']);
             }
         }
 
@@ -56,7 +57,7 @@ class MessageManager {
 
         $request = DB::getInstance()->prepare("INSERT INTO message (from_user_fk,user_service_fk,content,date) VALUES (:fromUser, :userFk, :content,:date)");
         $request->bindValue( ":fromUser", $fromUser);
-        $request->bindValue(":user_fk", $userFk);
+        $request->bindValue(":user", $userFk);
         $request->bindValue(":content", $messageContent);
         $request->bindValue(":date", $date);
         return $request->execute();
@@ -80,4 +81,32 @@ class MessageManager {
         return $message;
     }
 
+    /**
+     * Add a message
+     */
+    public function addMessage(Message &$message) : bool {
+        $request =DB::getInstance()->prepare("INSERT INTO messag (from_user_fk,user_fk_service,content, date) 
+                VALUES (:fromUser, :userServiceFk, :content, :date)
+        ");
+
+        $request->bindValue(':fromUser', $message->getUserFrom());
+        $request->bindValue(':userServiceFk',$message->getUserService());
+        $request->bindValue(':content', $message->getContent());
+        $request->bindValue(':date', $message->getDate());
+
+        $request->execute();
+        $message->setId(DB::getInstance()->lastInsertId());
+        return $message->getId() !== null && $message->getId() > 0;
+
+    }
+
+    /**
+     * Delete a message
+     */
+    public function deleteMessage($id) {
+        $request = DB::getInstance()->prepare("DELETE FROM message WHERE id =:id");
+        $request->bindValue(':id', $id);
+        $request->execute();
+        return $request;
+    }
 }

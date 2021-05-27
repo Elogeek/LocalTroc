@@ -1,30 +1,26 @@
 <?php
 namespace App\Model\Entity;
 
+use App\Entity\Role;
 use App\Entity\User;
 use App\Manager\RoleManager;
 use Model\DB;
 
-class UserManager{
+class UserManager {
 
     /** Return an User by his id
      * @param int $id
+     *
      * @return User|null
      */
     public function getById(int $id): ?User {
         $user = null;
-        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE id = :id");
+        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE id = :id ");
         $request->bindValue(':id', $id);
-        $result = $request->execute();
 
-        if ($result) {
-            $userData = $request->fetch();
-            $role = (new RoleManager())->getRoleById($userData['role_fk']);
-            if ($userData) {
-                $user = new User($userData['id'], $role, $userData['firstname'], $userData['lastName'], $userData['email'],$userData['password']);
-            }
+        if ($request->execute() && $userData = $request->fetch()) {
+            $user = new User($userData['id'],$userData['role'],$userData['firstname'], $userData['lastName'], $userData['email']);
         }
-
         return $user;
     }
 
@@ -40,7 +36,7 @@ class UserManager{
         $user = null;
 
         if ($result && $userData = $request->fetch()) {
-            $user = new User($userData['id'], $userData['role_fk'],$userData['firstname'], $userData['lastName'], $userData['email'],$userData['password']);
+            $user = new User($userData['id'],$userData['role'],$userData['firstname'], $userData['lastName'], $userData['email']);
         }
 
         return $user;
@@ -54,10 +50,10 @@ class UserManager{
     public function addUser(User $user): bool
     {
         $request = DB::getInstance()->prepare("INSERT INTO user (id, role_fk,firstname,lastName,email, password) 
-                                                     VALUES (:id, :role_fk, :firstname,:lastName, :mail, :password)");
+                                                     VALUES (:id, :role, :firstname,:lastName, :mail, :password)");
 
         $request->bindValue(":id",$user->getId());
-        $request->bindValue("role_fk", $user->getRole());
+        $request->bindValue("role", $user->getRole());
         $request->bindValue(":firstname", $user->getFirstname());
         $request->bindValue(":lastName",$user->getLastName());
         $request->bindValue(":mail", $user->getEmail());
