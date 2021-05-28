@@ -78,7 +78,7 @@
                 <li>A propros </li>
                 <hr>
 
-                <li> Pseudo : /li>
+                <li> Pseudo : JOHN
 
                 <li>
                     <!--email <i class="fas fa-at"></i>-->
@@ -112,7 +112,8 @@
                     </div>
                 </li>
                 <li id="border">
-                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Other : diplômes, loisirs, lieu,..."></textarea>
+                    <!--other-->
+                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Précissez vos informations: diplômes, loisirs, lieu,..."></textarea>
                     <!--school <i class="fas fa-graduation-cap"></i> -->
                     Other :
 
