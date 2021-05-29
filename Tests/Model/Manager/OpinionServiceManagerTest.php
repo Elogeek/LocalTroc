@@ -18,34 +18,35 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Manager/OpinionServiceManage
 //Return an opinion by user via an service
 $opinion = new opinionServiceManager();
 
-
 $opinion->getOpinion(1, 3, "");
 
 if(true) {
-    echo "voici mon opinion <br>";
+    echo "mon opinion <br>";
 }
 
 die(); // STOP SCRIPT TEST.
 
 
 //return an opinion via subjet(service)
-$roleByName = $manager->getRoleByName('role test');
-if($roleAdd->getId() === $roleByName->getId()) {
-    echo "Le role a bien été récupéré et est égal à : 'role test'<br>";
+$opinion = new OpinionServiceManager();
+if($opinion->getSubjectOpinion(' couture', 3)) {
+    echo "voilà le sujet du service'<br>";
 }
 else {
-    echo "Erreur en récupérant le rôle: 'role test'<br>";
+    echo "Erreur<br>";
     die(); // Arret du script de test.
 }
+//die();
 
 // return alla opinion by user
-if($manager->deleteRole($roleByName)) {
-    echo "Le role a bien été supprimé<br>";
+$opinion = new OpinionServiceManager();
+if($opinion->getOpinions(1, 3, "fhhfudui")) {
+    echo "toutes mes opinions<br>";
 }
 else {
-    echo "Le rôle n'a pas été supprimé<br>";
+    echo "Erreur<br>";
     die();
 }
-
+//die();
 
 echo "<br>TOUTE LA CLASSE EST OK !<br>";

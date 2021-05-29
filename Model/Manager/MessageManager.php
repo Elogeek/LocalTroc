@@ -9,7 +9,8 @@ use Model\DB;
 
 class MessageManager {
 
-    /** Return all messages
+    /**
+     * Return all messages
      * @return array
      */
     public function getMessages(): array {
@@ -26,36 +27,23 @@ class MessageManager {
         return $message;
     }
 
-    /**
-     * Return all message by subject
-     */
-    public function getMessage ($id, UserService $userService ) :?UserService {
-        $message = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM user_service WHERE id = :id AND subject = :subject");
-        $request->bindValue(':id', $id);
-        $request->bindValue(':subject', $userService);
-        $result = $request->execute();
-        if($result) {
-            $data = $request->fetchAll();
-            foreach($data as $datas) {
-                $message = new UserService($datas ['id'], $datas ['subject']);
-            }
-        }
-    return $message;
-    }
 
-    /** Send a message
+    /**
+     * Send a message
      * @param string $messageContent
      * @param $userFk
      * @param $fromUser
      * @return bool
      */
-    public function sendMessages(string $messageContent, $userFk, $fromUser): bool {
+    public function sendMessages(string $messageContent, int $userFk, int $fromUser): bool {
         // Creating a Mysql date.
         $date = new \DateTime();
         $date = $date->format('Y-m-d H:i:s');
 
-        $request = DB::getInstance()->prepare("INSERT INTO message (from_user_fk,user_service_fk,content,date) VALUES (:fromUser, :userFk, :content,:date)");
+        $request = DB::getInstance()->prepare("
+            INSERT INTO message (from_user_fk, user_service_fk, content, date) 
+                VALUES (:fromUser, :userFk, :content,:date)
+        ");
         $request->bindValue( ":fromUser", $fromUser);
         $request->bindValue(":user", $userFk);
         $request->bindValue(":content", $messageContent);
@@ -64,28 +52,10 @@ class MessageManager {
     }
 
     /**
-     * Return an message entre users
-     */
-    public function getMessageByUser($id, $fromUser) {
-        $message = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM message WHERE id = :id AND from_user_fk = :fromUser");
-        $request->bindValue( ':id', $id);
-        $request->bindValue( ':fromUser', $fromUser);
-        $result = $request->execute();
-        if ($result) {
-            $data = $request->fetchAll();
-            foreach ($data as $datas) {
-                $message = new Message( $datas['id'], $datas['fromUser']);
-            }
-        }
-        return $message;
-    }
-
-    /**
-     * Add a message
+     * Add a message into the BDD
      */
     public function addMessage(Message &$message) : bool {
-        $request =DB::getInstance()->prepare("INSERT INTO messag (from_user_fk,user_fk_service,content, date) 
+        $request = DB::getInstance()->prepare("INSERT INTO messag (from_user_fk,user_fk_service,content, date) 
                 VALUES (:fromUser, :userServiceFk, :content, :date)
         ");
 
@@ -101,7 +71,38 @@ class MessageManager {
     }
 
     /**
-     * Delete a message
+     * Return an message entre users
+     */
+    public function getMessageByUser(int $fromUser) {
+        $userManager = new UserManager();
+        $userServiceManager = new UserServiceManager();
+
+        $message = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM message WHERE from_user_fk = :fromUser");
+        $request->bindValue( ':fromUser', $fromUser);
+        $result = $request->execute();
+        if ($result) {
+            $datas = $request->fetchAll();
+            foreach ($datas as $data) {
+                $message = new Message();
+                $message->setId($data['id']);
+                $message->setContent($data['content']);
+                $message->setDate($data['date']);
+
+                // Getting message from user.
+                $user = $userManager->getById($data['from_user_fk']);
+                $message->setUserFrom($user);
+
+                // Getting user service.
+                $service = $userServiceManager->getService($data['user_service_fk']);
+                $message->setUserService($service);
+            }
+        }
+        return $message;
+    }
+
+    /**
+     * Delete a message in the BDD
      */
     public function deleteMessage($id) {
         $request = DB::getInstance()->prepare("DELETE FROM message WHERE id =:id");
