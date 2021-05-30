@@ -59,10 +59,10 @@ else {
 // Test de la fonction de mise à jour du password.
 $result = $userManager->updatePassword($user , 'azerty0000');
 if($result) {
-    echo 'mot de passe modifié';
+    echo 'mot de passe modifié<br>';
 }
 else {
-    echo " erreur lors de la modification du mot de passe";
+    echo " erreur lors de la modification du mot de passe<br>";
     die();
 }
 
@@ -72,7 +72,7 @@ if($result) {
     echo "tout est ok<br>";
 }
 else {
-    echo " une erreur est survenue";
+    echo " une erreur est survenue<br>";
     die();
 }
 

@@ -114,6 +114,7 @@ class UserManager {
 
 
     /**
+     * Modify password user and encode new password in the BDD
      * @param User $user
      * @param string $plainPassword
      * @return bool

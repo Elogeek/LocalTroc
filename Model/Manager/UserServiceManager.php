@@ -20,11 +20,18 @@ class UserServiceManager {
         $request->bindValue(':userFk', $user->getId());
         if ($request->execute()) {
             foreach ($request->fetchAll() as $serviceData) {
-                $userService[] = new UserService($serviceData['id'], $user);
+                $srv = new UserService();
+                $srv->setId($serviceData['id']);
+                $srv->setDescription($serviceData['description']);
+                $srv->setServiceDate($serviceData['service_date']);
+                $srv->setSubject($serviceData['subject']);
+                $srv->setUser($user);
+                $userService[] = $srv;
             }
         }
         return $userService;
     }
+
 
     /**
      * Return all services
@@ -37,11 +44,18 @@ class UserServiceManager {
         if ($request->execute()) {
             foreach ($request->fetchAll() as $serviceData) {
                 $user = $userManager->getById($serviceData['user_fk']);
-                $services[] = new UserService($serviceData['id'], $user, $serviceData['service_date'], $serviceData['subject'], $serviceData['description']);
+                $srv = new UserService();
+                $srv->setId($serviceData['id']);
+                $srv->setDescription($serviceData['description']);
+                $srv->setServiceDate($serviceData['service_date']);
+                $srv->setSubject($serviceData['subject']);
+                $srv->setUser($user);
+                $services[] = $srv;
             }
         }
         return $services;
     }
+
 
     /**
      * Return an service or null
@@ -58,6 +72,7 @@ class UserServiceManager {
         }
         return null;
     }
+
 
     /**
      * Add an service on the Database
