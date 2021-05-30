@@ -25,11 +25,11 @@ $userProfileManager = new UserProfileManager();
 $user = $userManager->getById(7);
 $profile = $userProfileManager->getUserProfile($user);
 if($profile) {
-    echo " récupération réussi <br>";
+    echo "Récupération du profil user réussi <br>";
     Dumper::dieAndDump($profile);
 }
 else {
-    echo "erreur pas de récupération<br>";
+    echo "Erreur de récupération du profil user <br>";
     die();
 }
 
@@ -47,7 +47,7 @@ if($userProfileManager->updateProfile($profile)) {
     echo "Modif réussie <br>";
 }
 else {
-    echo "Erreur <br>";
+    echo "Erreur aucune modif réussie <br>";
     die();
 }
 
@@ -57,7 +57,7 @@ if($userProfileManager->deleteUserProfile($profile)) {
     echo "Suppression réussie <br>";
 }
 else {
-    echo "Erreur pas de suppression<br>";
+    echo "Erreur de suppression du profil user<br>";
     die();
 }
 
