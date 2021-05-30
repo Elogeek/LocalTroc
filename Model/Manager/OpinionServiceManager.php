@@ -64,8 +64,11 @@ class OpinionServiceManager {
      * @return bool
      */
    public function addOpinion(OpinionServiceManager $opinionServiceManager)  : bool {
-       $request = DB::getInstance()->prepare("INSERT INTO opinion_service (id,userk_service_fk,author_fk, content,date)
-                                                    VALUES (:id, :user, :service, :author, :content, :date)");
+       $request = DB::getInstance()->prepare("
+            INSERT INTO opinion_service (id,userk_service_fk,author_fk, content,date)
+                VALUES (:id, :user, :service, :author, :content, :date)
+       ");
+
        $request->bindValue(':id', $opinionServiceManager->getId());
        $request->bindValue(':user', $opinionServiceManager->getUser());
        $request->bindValue(':author', $opinionServiceManager->getAuthor());

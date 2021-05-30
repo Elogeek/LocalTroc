@@ -6,6 +6,7 @@ use App\Entity\User\Message;
 use App\Entity\UserService;
 use App\Model\Entity\UserManager;
 use Model\DB;
+use PDOStatement;
 
 class MessageManager {
 
@@ -31,8 +32,8 @@ class MessageManager {
     /**
      * Send a message
      * @param string $messageContent
-     * @param $userFk
-     * @param $fromUser
+     * @param int $userFk
+     * @param int $fromUser
      * @return bool
      */
     public function sendMessages(string $messageContent, int $userFk, int $fromUser): bool {
@@ -53,6 +54,8 @@ class MessageManager {
 
     /**
      * Add a message into the BDD
+     * @param Message $message
+     * @return bool
      */
     public function addMessage(Message &$message) : bool {
         $request = DB::getInstance()->prepare("INSERT INTO messag (from_user_fk,user_fk_service,content, date) 
@@ -72,6 +75,8 @@ class MessageManager {
 
     /**
      * Return an message entre users
+     * @param int $fromUser
+     * @return Message|array
      */
     public function getMessageByUser(int $fromUser) {
         $userManager = new UserManager();
@@ -103,8 +108,10 @@ class MessageManager {
 
     /**
      * Delete a message in the BDD
+     * @param $id
+     * @return bool
      */
-    public function deleteMessage($id) {
+    public function deleteMessage($id) : bool {
         $request = DB::getInstance()->prepare("DELETE FROM message WHERE id =:id");
         $request->bindValue(':id', $id);
         $request->execute();

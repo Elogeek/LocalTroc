@@ -99,7 +99,7 @@ class UserProfile {
     /**
      * @param string|null $avatar
      */
-    public function setAvatar(string $avatar): void {
+    public function setAvatar(?string $avatar): void {
         $this->avatar = $avatar;
     }
 
@@ -113,7 +113,7 @@ class UserProfile {
     /**
      * @param string|null $birthday
      */
-    public function setBirthday(string $birthday): void {
+    public function setBirthday(?string $birthday): void {
         $this->birthday = $birthday;
     }
 
@@ -183,7 +183,7 @@ class UserProfile {
     /**
      * @param string|null $moreInfo
      */
-    public function setMoreInfos(string $moreInfo): void {
+    public function setMoreInfos(?string $moreInfo): void {
         $this->moreInfo = $moreInfo;
     }
 
@@ -197,7 +197,7 @@ class UserProfile {
     /**
      * @param string|null $phone
      */
-    public function setPhone(string $phone): void {
+    public function setPhone(?string $phone): void {
         $this->phone = $phone;
     }
 
