@@ -127,8 +127,17 @@ class UserManager {
     }
 
 
+    /**
+     * Return password en clair
+     * s'utilise avec la fct checkpassword par expl pour chek two passwords
+     * @param User $user
+     * @return string
+     */
     public function getUserPassword(User $user) : string {
-        // TODO
+        $request = DB::getInstance()->prepare("SELECT password FROM user WHERE id = :id");
+        $request->bindValue(':id', $user->getId());
+        $request->execute();
+        return $request->fetch()['password'];
     }
 
 }

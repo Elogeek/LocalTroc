@@ -28,6 +28,7 @@ if($exists){
 }
 else {
     echo "Erreur email user not existe<br>";
+    die();
 }
 
 //add user
@@ -52,6 +53,7 @@ if($result) {
 }
 else {
     echo "user pas mis à jour<br>";
+    die();
 }
 
 // Test de la fonction de mise à jour du password.
@@ -61,10 +63,18 @@ if($result) {
 }
 else {
     echo " erreur lors de la modification du mot de passe";
+    die();
 }
 
 // Teste la fonction de récupération du mot de passe utilisateur en base de données.
-
+$result = $userManager->getUserPassword($user);
+if($result) {
+    echo "tout est ok<br>";
+}
+else {
+    echo " une erreur est survenue";
+    die();
+}
 
 //delete user
 if($userManager->deleteUser($user)) {
