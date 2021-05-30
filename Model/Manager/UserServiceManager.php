@@ -68,7 +68,14 @@ class UserServiceManager {
         $result = $request->execute();
 
         if ($result && $data = $request->fetch()) {
-            return new UserService($data['id']);
+            $userManager = new UserManager();
+            $srv = new UserService();
+            $srv->setId($data['id']);
+            $srv->setDescription($data['description']);
+            $srv->setServiceDate($data['service_date']);
+            $srv->setSubject($data['subject']);
+            $srv->setUser($userManager->getById($data['user_fk']));
+            return $srv;
         }
         return null;
     }

@@ -40,11 +40,12 @@ else {
     die();
 }
 
+
 //modify an service
 $serviceAdd = $manager->updateService($service);
 
 if($service->getId()) {
-    echo "Le service est modofié<br>";
+    echo "Le service est modifié<br>";
 }
 else {
     echo "Erreur le service n'est pas modifié<br>";
@@ -53,6 +54,7 @@ else {
 
 
 //delete an service
+$serviceIdBackup = $service->getId();
 if($manager->deleteService($service)) {
     echo "Le service est bien supprimé<br>";
 }
@@ -62,11 +64,11 @@ else {
 }
 
 //if service NULL
-if ($manager->getService(2)) {
-    echo "le service est null";
+if ($manager->getService($serviceIdBackup)) {
+    echo "le service supprimé existe toujours en bdd";
 }
 else{
-    echo " le service n'est pas null";
+    echo " le service supprimé est bien null";
 }
 
 echo "<br>TOUTE LA CLASSE EST OK !<br>";
