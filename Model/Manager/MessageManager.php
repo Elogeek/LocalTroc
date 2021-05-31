@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Entity\User;
 use App\Entity\User\Message;
 use App\Entity\UserService;
 use App\Model\Entity\UserManager;
@@ -12,17 +13,26 @@ class MessageManager {
 
     /**
      * Return all messages
+     * @param User $user
      * @return array
      */
-    public function getMessages(): array {
-        $request = DB::getInstance()->prepare("SELECT * FROM message");
+    public function getMessages(User $user): array {
+        // Obtention des messages envoyés par l'utilisateur.
+        $request = DB::getInstance()->prepare("SELECT * FROM message WHERE from_user_fk = :id");
+        $request->bindValue(':id', $user->getId());
         $request->execute();
         $message = [];
-        if($data = $request->fetchAll()) {
-            foreach($data as $datas) {
-                $message[] = new Message($datas['id'], $datas['from_user_fk'], $datas['user_service_fk'], $datas
-                ['content'], $data['date']);
+        if($datas = $request->fetchAll()) {
+            foreach($datas as $data) {
+                $message["sent"][] = new Message($data['id'], $data['from_user_fk'], $data['user_service_fk'], $data['content'], $data['date']);
             }
+        }
+
+        // Récupérer les messages envoyés à l'utilisateur.
+        $services = (new UserServiceManager())->getServicesByUser($user);
+        foreach ($services as $service) {
+            /* @var UserService $service */
+
         }
 
         return $message;
@@ -58,7 +68,7 @@ class MessageManager {
      * @return bool
      */
     public function addMessage(Message &$message) : bool {
-        $request = DB::getInstance()->prepare("INSERT INTO message (from_user_fk,user_fk_service,content, date) 
+        $request = DB::getInstance()->prepare("INSERT INTO message (from_user_fk, user_fk_service, content, date) 
                 VALUES (:fromUser, :userServiceFk, :content, :date)
         ");
 

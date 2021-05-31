@@ -9,6 +9,8 @@ class OpinionServiceManager {
 
     /**
      * Return an opinion by user via an service
+     * @param User $user
+     * @return OpinionService|null
      */
     public function getOpinion(User $user):?OpinionService {
         $opinion = null;
@@ -32,6 +34,10 @@ class OpinionServiceManager {
 
     /**
      * Return all opinions by user
+     * @param $id
+     * @param $author
+     * @param $content
+     * @return OpinionService|null
      */
     public function getOpinions($id, $author, $content) :?OpinionService {
         $opinion = null;
@@ -54,6 +60,9 @@ class OpinionServiceManager {
 
     /**
      * Return an opinion via subjet(service)
+     * @param $subject
+     * @param OpinionService $id
+     * @return array
      */
     public function getSubjectOpinion($subject, OpinionService $id): array {
         $opinion = [];

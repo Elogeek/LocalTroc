@@ -13,6 +13,14 @@ class Message {
     private ?string $content;
     private ?string $date;
 
+    /**
+     * Message constructor.
+     * @param int|null $id
+     * @param User|null $fromUser
+     * @param UserService|null $userService
+     * @param string|null $content
+     * @param string|null $date
+     */
     public function __construct(int $id = null, User $fromUser = null, UserService $userService = null, string $content = null, string $date = null) {
         $this->id = $id;
         $this->userFrom = $fromUser;
