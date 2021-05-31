@@ -66,7 +66,7 @@ class UserManager {
      * @param string $email
      * @return void
      */
-    public function  sanitizeCookie(int $id, string $email): void {
+    public function logOut(int $id, string $email): void {
         if (isset($_SESSION['id'], $_SESSION['email'])) {
             //Destroy all session variables (the data)
             $_SESSION = array();

@@ -83,7 +83,9 @@ if (isset($_GET['controller'])) {
 // Créer un home controller qui ne fait que afficher la vue home.
      $controller = new HomeController();
      $controller->index();
-
+     //CONNECT
+    $controller = new ConnectController();
+    $controller->goConnect();
 }
 
 //check create service file upload

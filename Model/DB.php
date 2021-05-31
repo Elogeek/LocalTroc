@@ -9,7 +9,7 @@ class DB {
 
     private string $host = 'localhost';
     private string $db = 'LocalTroc';
-    private string $user = 'root';
+    private string $user = 'dev';
     private string $password = 'dev';
 
     private static ?PDO $dbInstance = null;

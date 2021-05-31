@@ -58,7 +58,7 @@ class MessageManager {
      * @return bool
      */
     public function addMessage(Message &$message) : bool {
-        $request = DB::getInstance()->prepare("INSERT INTO messag (from_user_fk,user_fk_service,content, date) 
+        $request = DB::getInstance()->prepare("INSERT INTO message (from_user_fk,user_fk_service,content, date) 
                 VALUES (:fromUser, :userServiceFk, :content, :date)
         ");
 

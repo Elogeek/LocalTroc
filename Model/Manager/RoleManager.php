@@ -79,4 +79,22 @@ class RoleManager
         $request->bindValue('id', $role->getId());
         return $request->execute();
     }
+
+    /**
+     * Return true if user is allowed to see the admin area.
+     * @param User $user
+     * @return bool
+     */
+    public static function isPower(User $user): bool {
+        return $user->getRole()->getId() && in_array($user->getRole()->getName(), ['admin']);
+    }
+
+    /**
+     * Return true if user is admin.
+     * @param User $user
+     * @return bool
+     */
+    public static function isAdmin(User $user): bool {
+        return $user->getRole()->getId() && $user->getRole()->getName() === 'admin';
+    }
 }

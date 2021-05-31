@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Entity\User;
 use App\Entity\User\OpinionService;
 use Model\DB;
 
@@ -9,18 +10,20 @@ class OpinionServiceManager {
     /**
      * Return an opinion by user via an service
      */
-    public function getOpinion($id, $author, $content):?OpinionService {
+    public function getOpinion(User $user):?OpinionService {
         $opinion = null;
         $request = DB::getInstance()->prepare("SELECT * FROM opinion_service WHERE id = :id AND author_fk = :author");
-        $request->bindValue(':id', $id);
-        $request->bindValue(':content', $content);
-        $request->bindValue(':author', $author);
+        $request->bindValue(':id', $);
+        $request->bindValue(':user', $user->getId());
+        $request->bindValue(':author', $user);
+        $request->bindValue(':content', $);
+        $request->bindValue(':date',$);
         $result = $request->execute();
 
         if ($result) {
             $opinionData = $request->fetch();
             if ($opinion) {
-                $opinion = new OpinionService($opinionData['id'], $opinionData['content'], $opinionData['author_fk']);
+                $opinion = new OpinionService($opinionData['id'], $opinionData['user'], $opinionData['author'], $opinionData['content'], $opinionData['date']);
             }
         }
 
@@ -34,14 +37,16 @@ class OpinionServiceManager {
         $opinion = null;
         $request = DB::getInstance()->prepare("SELECT * FROM opinion_service WHERE id = :id AND author_fk = :author");
         $request->bindValue( ':id', $id);
-        $request->bindValue(':content', $content);
-        $request->bindValue( ':author', $author);
+        $request->bindValue(':user', $));
+        $request->bindValue(':author', $);
+        $request->bindValue(':content', $);
+        $request->bindValue(':date',$);
         $result = $request->execute();
 
         if($result) {
             $opinionData = $request->fetchAll();
             if($opinion) {
-                $opinion = new OpinionService($opinionData['id'], $opinionData['content'], $opinionData['author_fk']);
+                $opinion = new OpinionService($opinionData['id'], $opinionData['user'], $opinionData['author'], $opinionData['content'], $opinionData['date']);
             }
         }
         return $opinion;
