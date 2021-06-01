@@ -33,7 +33,7 @@ if(count($messages) > 0) {
     Dumper::dieAndDump($messages);
 }
 else {
-    echo "Le messages n'ont pas pu être récupérés, ou erreur de récuupération des données de test";
+    echo "Les messages n'ont pas pu être récupérés, ou erreur de récupération des données de test";
     die();
 }
 
@@ -42,27 +42,27 @@ $userFK = $userManager->getById(1); // obtention d'un utilisateur qui envoie le 
 
 $result = $messageManager->sendMessages('test message', $services[0], $userFK); // Premier service de la liste des services.
 if($result){
-    echo "Message envoyé";
+    echo "Message  bien envoyé";
 }
 else {
-    echo "Error envoi message";
-    die();
+    echo "Error lors de l'envoi  du message";
+    //die();
 }
 
-//delete
+//delete a message
 $messages = $messageManager->getSentMessages($user); // Pour avoir aussi le dernier message envoyé.
 print_r($messages);
 if(count($messages) > 0) {
     $result = $messageManager->deleteMessage($messages[count($messages) - 1]);
     if ($result) {
-        echo "message delete";
+        echo "Le message est bien supprimé";
     } else {
-        echo "oups, message not delete";
+        echo "Oups, le message n'est pas supprimé";
     }
 }
 else {
     echo "Aucun message trouvé";
-    die();
+   // die();
 }
 
 echo "<br>TOUTE LA CLASSE EST OK !<br>";

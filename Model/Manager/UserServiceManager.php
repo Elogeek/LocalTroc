@@ -103,7 +103,7 @@ class UserServiceManager {
     }
 
     /**
-     * Modify/update  service into the Database
+     * Modify/update service into the Database
      * @param Userservice $service
      * @return bool
      */

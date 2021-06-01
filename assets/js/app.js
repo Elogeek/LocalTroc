@@ -73,7 +73,7 @@ window.onload = () => {
         slideWidth = diapo.getBoundingClientRect().width;
         slideNext();
     });
-}
+};
 
 /**
  * scroll the slide to the right
@@ -89,7 +89,7 @@ function slideNext() {
     // calculate the offset value
     let decal = -slideWidth * counter
     elements.style.transform = `translateX(${decal}px)`
-}
+};
 
 /**
  * scroll the slideshow to the left
@@ -106,14 +106,14 @@ function slidePrev() {
     // calculate the offset value
     let decal = -slideWidth * counter;
     elements.style.transform = `translateX(${decal}px)`;
-}
+};
 
 /**
  * stop scrolling
  */
 function stopTimer() {
     clearInterval(timer);
-}
+};
 
 /**
  * restart scrolling
@@ -122,4 +122,19 @@ function startTimer() {
     timer = setInterval(slideNext, 4000);
 };
 
+/// verify form register
+let psswrd = document.getElementById('password');
+let psswdConfirm = document.getElementById('passwordRepeat');
 
+function checkPassword() {
+    if(psswrd.value !== psswdConfirm.value) {
+        psswdConfirm.setCustomValidity('Les mots de passe ne correspondent pas ! ');
+    }
+    //dès que l'user corrige son password
+    else{
+        psswdConfirm.setCustomValidity('');
+    }
+}
+
+psswrd.addEventListener('change',checkPassword);
+psswdConfirm.addEventListener('keyup',checkPassword);

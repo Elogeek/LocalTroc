@@ -28,7 +28,13 @@ class RoleManager
         return null;
     }
 
-    // Retourner la liste des utilisateurs ayant le role id donné.
+
+
+    /**
+     *   Return the list of users with the given role id
+     * @param Role $role
+     * @return array
+     */
     public function getUsersByRole(Role $role): array {
         $users = [];
         $request = DB::getInstance()->prepare("SELECT * FROM user WHERE role_fk = :idRole");
@@ -50,7 +56,12 @@ class RoleManager
         return $users;
     }
 
-    // Retourner un Role par son nom.
+
+    /**
+     * Return a Role by name
+     * @param string $roleName
+     * @return Role
+     */
     public function getRoleByName(string $roleName): Role {
         $request = DB::getInstance()->prepare("SELECT * FROM role WHERE name = :name");
         $request->bindValue(':name', $roleName);
@@ -64,7 +75,12 @@ class RoleManager
         return $role;
     }
 
-    // Ajouter un nouveau Role
+
+    /**
+     * Add a new role
+     * @param Role $role
+     * @return bool
+     */
     public function addRole(Role &$role) : bool {
         $request = DB::getInstance()->prepare("INSERT INTO role (name) VALUES (:role)");
         $request->bindValue(':role', $role->getName());
@@ -73,28 +89,16 @@ class RoleManager
         return $role->getId() !== null && $role->getId() > 0;
     }
 
-    // Supprime un role donné.
+
+    /**
+     * Delete a role
+     * @param Role $role
+     * @return bool
+     */
     public function deleteRole(Role $role) : bool {
         $request = DB::getInstance()->prepare("DELETE FROM role WHERE id = :id");
         $request->bindValue('id', $role->getId());
         return $request->execute();
     }
 
-    /**
-     * Return true if user is allowed to see the admin area.
-     * @param User $user
-     * @return bool
-     */
-    public static function isPower(User $user): bool {
-        return $user->getRole()->getId() && in_array($user->getRole()->getName(), ['admin']);
-    }
-
-    /**
-     * Return true if user is admin.
-     * @param User $user
-     * @return bool
-     */
-    public static function isAdmin(User $user): bool {
-        return $user->getRole()->getId() && $user->getRole()->getName() === 'admin';
-    }
 }

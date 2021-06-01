@@ -15,13 +15,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Manager/RoleManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Manager/UserManager.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../Model/Manager/UserProfileManager.php';
 
-// Récupération d'un user qui existe.
+//Retrieving an existing user.
 
 $userManager = new UserManager();
 $userProfileManager = new UserProfileManager();
 
 
-// Test de récupération d'un profil avec un utilisateur qui existe.
+//Test recovery of a profile with an existing user.
 $user = $userManager->getById(7);
 $profile = $userProfileManager->getUserProfile($user);
 if($profile) {
@@ -42,7 +42,7 @@ $profile->setBirthday((new DateTime())->format('Y-m-d H:i:s'));
 $profile->setAvatar('mon avatar');
 $profile->setPhone('+336123456');
 
-// Test de modification d'un profile.
+//Test modify profile
 if($userProfileManager->updateProfile($profile)) {
     echo "Modif réussie <br>";
 }
@@ -52,7 +52,7 @@ else {
 }
 
 
-// Test de suppression d'un profile.
+//Test delete profile.
 if($userProfileManager->deleteUserProfile($profile)) {
     echo "Suppression réussie <br>";
 }

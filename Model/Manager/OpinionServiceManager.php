@@ -42,11 +42,11 @@ class OpinionServiceManager {
     public function getOpinions($id, $author, $content) :?OpinionService {
         $opinion = null;
         $request = DB::getInstance()->prepare("SELECT * FROM opinion_service WHERE id = :id AND author_fk = :author");
-        $request->bindValue( ':id', $id);
-        $request->bindValue(':user', $));
-        $request->bindValue(':author', $);
-        $request->bindValue(':content', $);
-        $request->bindValue(':date',$);
+        $request->bindValue(':id', $id);
+        $request->bindValue();
+        $request->bindValue(':author', $author);
+        $request->bindValue();
+        $request->bindValue());
         $result = $request->execute();
 
         if($result) {

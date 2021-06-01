@@ -60,7 +60,7 @@ class MessageManager {
 
     /**
      * Delete a message in the BDD
-     * @param $id
+     * @param Message $message
      * @return bool
      */
     public function deleteMessage(Message $message) : bool {

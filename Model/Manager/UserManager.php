@@ -129,8 +129,8 @@ class UserManager {
 
 
     /**
-     * Return password en clair
-     * s'utilise avec la fct checkpassword par expl pour chek two passwords
+     * Return plainPassword
+     * (is used with the function check password by example to check the two passwords)
      * @param User $user
      * @return string
      */

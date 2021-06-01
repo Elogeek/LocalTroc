@@ -34,7 +34,7 @@ class UserProfileManager {
             return $userProfile;
         }
 
-        // Attention, si l'utilisateur n'a pas de profile, invoquer la fonction "createProfile" avec des données vides.
+        // Warning, if the user does not have a profile, invoke the "createProfile" function with empty data
         return $this->createProfile($user);
     }
 

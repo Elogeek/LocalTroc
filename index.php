@@ -1,10 +1,6 @@
 <?php
-session_start();
 
 use App\Model\Entity\UserManager;
-
-require_once "include.php";
-
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 
@@ -54,15 +50,17 @@ if (isset($_GET['controller'])) {
 
                     case ' to connect':
                         $manager->existUser("");
+                        $controller = new connectController();
+                        $controller->goConnect();
                         session_start();
                         break;
 
                     case 'addUser':
-                        $manager->addUser("");
+                        $manager->addUser();
                         break;
 
                     case 'disconnect':
-                        $manager->sanitizeCookie();
+                        $manager->logOut('');
                         break;
 
                     case 'delete' :
