@@ -1,9 +1,14 @@
 <?php
 
-class HomeController {
+/**
+ * Class HomeController
+ */
+class HomeController extends Controller {
 
+    /**
+     * Handle the home page.
+     */
     public function index() {
-        require_once "include.php";
-        require_once './View/home.php';
+        $this->showView('home22');
     }
 }

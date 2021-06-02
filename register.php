@@ -16,6 +16,6 @@ $role = $roleManager;
 $userActual = unserialize($_SESSION['userActual']);
 
 
-if($_POST['email'] && $_POST['password'] && isset($_POST['passwordRepeat']) {
-    header();
+if($_POST['email'] && $_POST['password'] && isset($_POST['passwordRepeat'])) {
+
 }

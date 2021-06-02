@@ -1,16 +1,7 @@
 <?php
-
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/View/_partials/header.php';
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/View/_partials/menu.php';
-
-require_once $_SERVER['DOCUMENT_ROOT'] . "/View/home.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/View/newsletter.php";
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/View/_partials/footer.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require_once  $_SERVER ['DOCUMENT_ROOT'] . '/Model/DB.php';
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/Model/Entity/';
-
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/Model/Manager/';
-
-require_once $_SERVER ['DOCUMENT_ROOT'] . '/Controller/';
+require_once  $_SERVER ['DOCUMENT_ROOT'] . '/Controller/Controller.php';
 

@@ -1,15 +1,9 @@
 <?php
 
-use App\Model\Entity\UserManager;
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
 if (isset($_GET['controller'])) {
-    switch ($_GET['controller']) {
+    /*switch ($_GET['controller']) {
         case 'services':
             $controller = new ServiceController();
 
@@ -74,16 +68,14 @@ if (isset($_GET['controller'])) {
             break;
         case "search" :
             $controller = new QuickSearchController();
-            $controller->goToQSearch();
-    }
-
+            $controller->goToQSearch();*/
+    echo "Controller is set";
+    //}
 } else {
-// Créer un home controller qui ne fait que afficher la vue home.
-     $controller = new HomeController();
-     $controller->index();
-     //CONNECT
-    $controller = new ConnectController();
-    $controller->goConnect();
+    // Display the home page if no action asked in get params.
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/HomeController.php';
+    $controller = new HomeController();
+    $controller->index();
 }
 
 //check create service file upload
@@ -97,12 +89,4 @@ elseif (isset($_GET['e'])) {
         ?> <div class="error"><?=$messageError?></div><?php
     }
 }
-//if admin ===>page admin
-/*if ($username["Elodie"]->getAdmin($id) === 1) {
-    session_start();
-    $controller = new AdminController();
-    $controller->gotoAdmin();
-}*/
-
-
 
