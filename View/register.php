@@ -1,4 +1,18 @@
-<!--create compte user placer dans le footer-->
+<?php
+if(isset($error)) { ?>
+    <div class="error">
+        <?= $error ?>
+    </div><?php
+}
+
+if(isset($success)) { ?>
+    <div class="success">
+    <?= $success ?>
+    </div><?php
+}
+
+?>
+<!-- Create user account -->
 <div>
     <form action="/index.php?controller=user&action=register" method="POST">
         <h4>Créer un compte client</h4>
@@ -30,7 +44,7 @@
         <input name="country" type="text" placeholder="Pays" required>
         <div class="invalid-feedback">Veuillez entrer un pays valide</div>
 
-        <input name="other" type="text" placeholder="Autre : diplôme, passions, compétences,..." required>
+        <input name="other" type="text" placeholder="Autre : diplôme, passions, compétences,...">
 
         <input name="phone" type="tel" placeholder="Téléphone">
         <div class="invalid-feedback">Veuillez entrer un numéro de téléphone valide au format: +33...</div>
@@ -47,7 +61,7 @@
         <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe" required>
         <div class="invalid-feedback">Les deux mots de passe ne correspondent pas</div>
 
-        <button type="submit">Créer mon compte</button>
+        <input type="submit" name="submit" value="Créer mon compte">
     </form>
 
 </div>
