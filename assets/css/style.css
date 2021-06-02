@@ -549,7 +549,7 @@ h2 {
     padding: 1.5%;
 }
 
-/* design newletter*/
+/* design newletter
 .containerLetter {
     background-color: #c9e265;
     width: 75%;
@@ -601,7 +601,7 @@ display: block;
     display: flex;
     align-items: end;
 }
-
+*/
 /*footer*/
 footer {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
