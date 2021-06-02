@@ -57,30 +57,7 @@ body {
     max-width: 13rem;
 }
 
-/*section*/
-.section1 {
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-    width: 100%;
-    height: 39rem;
-}
-
-/*videoImg*/
-#videoImg {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding-top: 2rem;
-}
-
-.videoImg {
-    width: 40rem;
-    display: flex;
-    margin-left: 27rem;
-    box-shadow: rgb(108, 117, 125) 2px 1px 8px 5px;
-    margin-top: 1rem;
-}
-
-/*my "slide"*/
+/*design rond */
 .font {
     margin: 8rem;
     display: flex;
@@ -106,22 +83,21 @@ body {
     transform: scale(1.5);
 }
 
-/*text slide*/
+
 .text {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
 }
 
-.text  div {
+.text p {
  justify-content: center;
  align-items: center;
  color: #c9e265;
  text-align: center;
- margin: -6rem;
 }
 
-.text div:hover {
+.text p:hover {
     color: #08c1ef;
     font-style: italic;
     font-weight: bold;
@@ -136,8 +112,8 @@ h2 {
     font-size: xxx-large;
 }
 
-/*section2*/
-#section2 {
+/*design div2*/
+#div2 {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
     height: 11rem;
@@ -179,7 +155,7 @@ h2 {
 }
 
 /*section3*/
-#section3 {
+#div3 {
     text-align: center;
     font-weight: bold;
     color: #08c1ef;
@@ -223,31 +199,12 @@ h2 {
     background-color: #c9e265;
 }
 
-#section4 {
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-    width: 100%;
-    height: 11rem;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-#section4 span {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem;
-    padding: 1rem;
-    /*font-size: 3rem;*/
-}
-
 /*  DIAPO*/
-.diapo h2 {
-    padding: 2rem;
+#titleDiapo {
+    position: relative;
+    text-align: center;
     margin: 2rem;
+    font-size: xxx-large;
 }
 
 .diapo {
@@ -302,7 +259,7 @@ h2 {
 }
 
 /*user satisfaction*/
-#section5 {
+#div5 {
     width: 100%;
     height: 11rem;
     display: flex;
@@ -332,6 +289,28 @@ h2 {
     display: flex;
     justify-content: space-between;
     text-align: center;
+}
+
+
+#div4 {
+    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
+    width: 100%;
+    height: 11rem;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#div4 span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+    padding: 1rem;
+    /*font-size: 3rem;*/
 }
 
 /* last users review*/
@@ -546,59 +525,6 @@ h2 {
     padding: 1.5%;
 }
 
-/* design newletter
-.containerLetter {
-    background-color: #c9e265;
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    left: 8rem;
-    margin: 5rem;
-}
-
-.newletters {
-    font-size: 16px;
-    font-family: Roboto,sans-serif;
-    padding: 2%;
-    display: flex;
-    background-color: #c9e265;
-    margin:0;
-}
-
-.containerLetter form {
-    padding: 8px;
-    text-align: left;
-}
-
-#titleNewletter {
-    display: flex;
-    justify-content: center;
-    font-size: xx-large;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.newletters div {
-    text-align: center;
-    background-color: white;
-    max-width: 36rem;
-    padding: 2%;
-}
-
-.containerLetter form {
-    text-align: left;
-    padding: 1rem;
-}
-.newletters div + input {
-display: block;
-}
-.newletters button {
-    display: flex;
-    align-items: end;
-}
-*/
 /*footer*/
 footer {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);

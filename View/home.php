@@ -1,32 +1,29 @@
 
 <!--forcer l'user a évaluer le services de l'user comme vinted après chaque service ===  donner AVIS (*****)-->
-<section>
-    <div class="section1">
-        <!--videoImg--->
-        <div id="videoImg"></div>
+
+    <div class="div1">
+        <!--slider--->
+        <div id="slider"></div>
     </div>
-</section>
-<!--my image slide-->
+
+
 <h2>Qu'est-ce-que LocalTroc ?</h2>
 <div class="font">
     <div>
         <i class="fas fa-users"></i>
-        <p>COMMUNAUTÉ</p>
+        <p class="text">COMMUNAUTÉ</p>
     </div>
-
-    <i class="fas fa-comments"></i>
-    <i class="fas fa-map"></i>
-    <i class="fas fa-piggy-bank"></i>
+    <div>
+        <i class="fas fa-map"></i>
+            <p class="text">LOCAL</p>
+    </div>
+    <div>
+        <i class="fas fa-piggy-bank"></i>
+            <p class="text">GRATUIT</p>
+    </div>
 </div>
 
-<div class="text">
-
-    <div>CHAT</div>
-    <div>LOCAL</div>
-    <div>GRATUIT</div>
-</div>
-
-<div id="section2">
+<div id="div2">
     <div id="brefText">
         <span>LocalTroc est 100% gratuit !</span><br>
         <span>Lancez - vous !</span><br>
@@ -34,10 +31,9 @@
     </div>
 </div>
 
-<!--frieze-->
-<div class="frieze"></div>
 
-<div id="section3">
+
+<div id="div3">
     Ma recherche rapide !
     <div id="search-bar">
         <input type="text" placeholder=" Où ?">
@@ -48,14 +44,9 @@
     </div>
 </div>
 
-<div id="section4">
-    <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
-    <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
-</div>
-
 <!--articles diapo-->
 <div class="diapo">
-    <h2 id="titleSection9">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... </h2>
+    <h2 id="titleDiapo">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... </h2>
 
     <div class="elements">
         <!--one slide-->
@@ -149,18 +140,21 @@
 </div>
 
 <!-- BARRE DE SATISFACTION-->
-<div id="section5">
+<div id="div5">
     <div id="happyBar">
         <div id="textHappy">
-            <span>98%</span>
+            <span>95%</span>
             <span>d'utilisateurs satisfaits</span>
             <div>
-                <progress id="barHappy" max="20000" value="250"></progress>
+                <progress id="barHappy" max="100" value="85"></progress>
             </div>
         </div>
     </div>
 </div>
-
+<div id="div4">
+    <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
+    <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
+</div>
 <div id="section6">
     <!--AVIS CLIENT HERE-->
     <div class="rectangle">

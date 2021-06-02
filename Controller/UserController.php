@@ -21,7 +21,7 @@ class UserController extends Controller {
         if($this->isFormSubmitted()) {
             // Checking all required are set.
             if($this->issetAndNotEmpty($_POST['firstname'], $_POST['lastname'], $_POST['pseudo'], $_POST['birthday'], $_POST['city'],
-                $_POST['address'], $_POST['codeZip'], $_POST['country'], $_POST['mail'], $_POST['password'], $_POST['passwordConfirm'])
+                $_POST['address'], $_POST['codeZip'], $_POST['mail'], $_POST['password'], $_POST['passwordConfirm'])
             ) {
                 // Optionals
                 $other = DB::secureData($_POST['other']);
@@ -37,7 +37,6 @@ class UserController extends Controller {
                 $city = DB::secureData($_POST['city']);
                 $address = DB::secureData($_POST['address']);
                 $zip = DB::secureInt($_POST['codeZip']);
-                $country = DB::secureData($_POST['country']);
                 $birthday = DB::secureData($_POST['birthday']);
                 $mail = DB::secureData($_POST['mail']);
 

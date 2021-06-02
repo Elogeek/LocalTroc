@@ -20,6 +20,10 @@ class Controller {
         for($i = 0; $i < count($javaScripts); $i++) {
             $javaScripts[$i] = '/assets/js/' . $javaScripts[$i] . '.js';
         }
+        // Handling optional css
+        for($i = 0; $i < count($css); $i++) {
+            $css[$i] = '/assets/css/' . $css[$i] . '.css';
+        }
 
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/header.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/menu.php';

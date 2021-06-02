@@ -30,7 +30,7 @@ if(isset($success)) { ?>
         <!-- User infos. -->
         <input type="file" name="avatar" placeholder="Choissisez une image comme avatar">
 
-        <input type="date" name="birthday" required>
+        <input type="date" name="birthday">
 
         <input name="city" type="text" placeholder="Ville" required>
         <div class="invalid-feedback">Veuillez entrer une ville valide</div>
@@ -41,8 +41,6 @@ if(isset($success)) { ?>
         <input name="codeZip" type="number" placeholder="Code postal" required>
         <div class="invalid-feedback">Veuillez entrer un code postal valide</div>
 
-        <input name="country" type="text" placeholder="Pays" required>
-        <div class="invalid-feedback">Veuillez entrer un pays valide</div>
 
         <input name="other" type="text" placeholder="Autre : diplôme, passions, compétences,...">
 
@@ -55,7 +53,7 @@ if(isset($success)) { ?>
         <div class="invalid-feedback">Veuillez entrer une adresse mail valide</div>
 
         <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <small>Plus grand que 5 caractères, lettres, majuscules, chiffres et caractères spéciaux</small>
+        <small>Plus grand que 5 caractères, lettres, majuscules, chiffres </small>
         <div class="invalid-feedback">Veuillez entrer un mot de passe valide</div>
 
         <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe" required>

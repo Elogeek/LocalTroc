@@ -9,5 +9,9 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/errors.css">
+    <?php
+    foreach ($css as $fcss) { ?>
+        <link rel="stylesheet" href="<?= $fcss ?>"><?php
+    }?>
     <title>Document</title>
 </head>

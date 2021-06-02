@@ -9,9 +9,11 @@ class HomeController extends Controller {
      * Handle the home page.
      */
     public function index() {
-        $this->showView('home', [], [
+        // Additional javaScript
+        $javaScripts = [
             'HeaderCarousel',
             'GenericCarousel',
-        ]);
+        ];
+        $this->showView('home', [], $javaScripts, ['headerCarousel']);
     }
 }

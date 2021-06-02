@@ -3,7 +3,7 @@
  */
 const HeaderCarousel = {
     speed: 3000, // Carousel speed in ms.
-    carrousel: document.getElementById('videoImg'),
+    carrousel: document.getElementById('slider'),
     div: document.createElement("img"),
     images: [
         "/assets/img/img1.jpg",
