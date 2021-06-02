@@ -2,7 +2,11 @@
     <!--my menu-->
     <div class="nav">
 
-        <div id="logo"><img  id="myLogo" src="/assets/img/logo.png" alt="logoSite"></div>
+        <div id="logo">
+            <a href="/index.php">
+                <img  id="myLogo" src="/assets/img/logo.png" alt="logoSite">
+            </a>
+        </div>
 
         <div class="menu">
             <p><i class="far fa-handshake"></i> Services</p>

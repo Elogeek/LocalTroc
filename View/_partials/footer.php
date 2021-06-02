@@ -29,6 +29,9 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/assets/js/app.js"></script>
+<script src="/assets/js/app.js"></script> <?php
+  foreach ($javaScripts as $javaScript) { ?>
+      <script src="<?= $javaScript ?>"></script> <?php
+  }?>
 </body>
 </html>
