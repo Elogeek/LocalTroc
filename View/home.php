@@ -9,14 +9,18 @@
 <!--my image slide-->
 <h2>Qu'est-ce-que LocalTroc ?</h2>
 <div class="font">
-    <i class="fas fa-users"></i>
+    <div>
+        <i class="fas fa-users"></i>
+        <p>COMMUNAUTÉ</p>
+    </div>
+
     <i class="fas fa-comments"></i>
     <i class="fas fa-map"></i>
     <i class="fas fa-piggy-bank"></i>
 </div>
 
 <div class="text">
-    <div>COMMUNAUTÉ</div>
+
     <div>CHAT</div>
     <div>LOCAL</div>
     <div>GRATUIT</div>
@@ -26,7 +30,7 @@
     <div id="brefText">
         <span>LocalTroc est 100% gratuit !</span><br>
         <span>Lancez - vous !</span><br>
-        <button class="btn" type="button">Inscription gratuite</button>
+        <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
     </div>
 </div>
 
@@ -46,7 +50,7 @@
 
 <div id="section4">
     <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
-    <button class="btn" type="button">Inscription gratuite</button>
+    <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
 </div>
 
 <!--articles diapo-->

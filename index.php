@@ -3,8 +3,8 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 
 if (isset($_GET['controller'])) {
-    /*switch ($_GET['controller']) {
-        case 'services':
+    switch ($_GET['controller']) {
+        /*case 'services':
             $controller = new ServiceController();
 
             switch ($_GET['action']) {
@@ -34,19 +34,16 @@ if (isset($_GET['controller'])) {
                     break;
             }
 
-            break;
+            break;*/
 
         case 'user':
-            $manager = new UserManager();
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/UserController.php';
+            $controller = new UserController();
 
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-
-                    case ' to connect':
-                        $manager->existUser("");
-                        $controller = new connectController();
-                        $controller->goConnect();
-                        session_start();
+                    case 'register':
+                        $controller->register();
                         break;
 
                     case 'addUser':
@@ -62,21 +59,33 @@ if (isset($_GET['controller'])) {
                         break;
 
                     default:
-                        break;
+                        home();
                 }
+            }
+            else {
+                home();
             }
             break;
         case "search" :
-            $controller = new QuickSearchController();
-            $controller->goToQSearch();*/
-    echo "Controller is set";
-    //}
+            //$controller = new QuickSearchController();
+            //$controller->goToQSearch();
+            break;
+    }
 } else {
+    home();
+}
+
+
+/**
+ * Display the home page.
+ */
+function home() {
     // Display the home page if no action asked in get params.
     require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/HomeController.php';
     $controller = new HomeController();
     $controller->index();
 }
+
 
 //check create service file upload
 if (isset($_GET['success'])) {
