@@ -12,5 +12,23 @@ function checkPassword() {
     }
 }
 
-psswrd.addEventListener('change', checkPassword);
-psswdConfirm.addEventListener('keyup', checkPassword);
+if(psswrd && psswdConfirm) {
+    psswrd.addEventListener('change', checkPassword);
+    psswdConfirm.addEventListener('keyup', checkPassword);
+}
+
+/**
+ * Managing menu
+ */
+// Main menu hovering.
+document.querySelectorAll('.menu').forEach(menu => {
+    menu.addEventListener('mouseover', () => {
+        document.querySelectorAll('.menu .submenu').forEach(submenu => submenu.style.display = 'none');
+        menu.querySelector('.submenu').style.display = 'block';
+    });
+});
+
+// Submenu out.
+document.querySelectorAll('.menu .submenu').forEach(submenu => submenu.addEventListener('mouseout', () => {
+    submenu.style.display = 'none';
+}))
