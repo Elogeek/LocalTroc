@@ -16,9 +16,6 @@
             <i id="insta" class="fab fa-instagram-square"></i>
         </div>
         <div>
-            <i id="linkd" class="fab fa-linkedin"></i>
-        </div>
-        <div>
             <i id="printerest" class="fab fa-pinterest-square"></i>
         </div>
 
