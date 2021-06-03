@@ -12,15 +12,17 @@ body {
     width: 100%;
     font-size: 15px;
     font-family: cursive, serif;
+    color: #3c3c3c;
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 #container {
     margin: 0 auto;
     width: 100%;
-}
-
-html {
-    font-size: 62.5%;
 }
 
 /* Menu */
@@ -108,10 +110,11 @@ html {
 }
 
 h2 {
-    position: relative;
     text-align: center;
     margin-top: 5rem;
-    font-size: xxx-large;
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+    color: #08C1EFFF;
 }
 
 /* Design div3*/
@@ -143,7 +146,7 @@ h2 {
 .btn {
     transition: all 0.2s ease-in-out;
     text-align: center;
-    padding: 5px 28px;
+    padding: 0.5rem 2.8rem;
     border: 2px solid #fff;
     color: white;
     background-color: transparent;
@@ -605,36 +608,7 @@ footer {
 .containerSearch {
     margin: 5rem;
 }
-/*table*/
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-/*thead table*/
-thead {
-    background-color: #08c1ef;
-    color: white;
-}
 
-table th {
-    border: 3px solid #6c757d;
-}
-/*tbody table*/
-table td {
-    border: 3px solid #6c757d;
-    background-color: #D3DCA5;
-    color: white;
-    font-size: 2rem;
-}
-
-table th, table td {
-    padding: 1rem;
-}
-
-table i {
-    font-size: x-large;
-}
 /*avatar user image*/
 .containerSearch img {
     border-radius: 50% !important;
@@ -740,3 +714,27 @@ table i {
     text-align: center;
 }
 
+
+
+@media screen and (max-width: 950px) {
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+        padding: 0.2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 1.3rem;
+    }
+}

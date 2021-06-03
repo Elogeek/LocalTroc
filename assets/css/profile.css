@@ -1,10 +1,6 @@
 /*  Design profile user */
 #profile-actions {
-    margin-left: 2rem;
-    margin-top: 2rem;
-    width: 33%;
     display: flex;
-    justify-content: space-between;
 }
 
 .profile-container {
@@ -14,23 +10,103 @@
     flex-direction: column;
 }
 
-#profile-content {
-
+.profile-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
 
-.profile-table {
-    max-width: 60%;
+#profile-actions a.btn-primary {
+    margin: 2rem 3rem 4rem 0;
+}
+
+table.profile-table {
     margin: 0 auto;
 }
 
-.profile-table th, .profile td {
+table.profile-table th, table.profile-table td {
     text-align: left;
     width: 1px;
     white-space: nowrap;
+}
+
+div.profile-table h2 {
+    text-align: left;
+}
+
+div.profile-table {
+    width: 80%;
+    padding-bottom: 5rem;
+}
+
+.imgAvatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .imgAvatar img {
     height: 15rem;
     width: 15rem;
     border-radius: 50%;
+}
+
+.imgAvatar > span {
+    margin-top: 1rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+/*table*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+table th {
+    border: 0.1rem solid #6c757d;
+}
+
+/*tbody table*/
+table td {
+    border: 0.1rem solid #6c757d;
+    font-size: 2rem;
+}
+
+table th, table td {
+    padding: 1rem;
+}
+
+
+@media screen and (max-width: 950px) {
+
+    .imgAvatar {
+        display: none;
+    }
+
+    div.profile-table {
+        width: 100%;
+    }
+
+    table.profile-table th, table.profile-table td {
+        white-space: break-spaces;
+        word-break: break-all;
+    }
+
+    #profile-actions a.btn-primary {
+        margin: 1rem 1rem 3rem 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #profile-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .profile-container {
+        width: 90%;
+    }
 }
