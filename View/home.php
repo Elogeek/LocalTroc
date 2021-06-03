@@ -8,24 +8,24 @@
 
 
 <h2>Qu'est-ce-que LocalTroc ?</h2>
-<div class="font">
+<div class="div2">
     <div>
         <i class="fas fa-users"></i>
-        <p class="text">COMMUNAUTÉ</p>
+        <p class="div2Text">COMMUNAUTÉ</p>
     </div>
     <div>
         <i class="fas fa-map"></i>
-            <p class="text">LOCAL</p>
+            <p class="div2Text">LOCAL</p>
     </div>
     <div>
         <i class="fas fa-piggy-bank"></i>
-            <p class="text">GRATUIT</p>
+            <p class="div2Text">GRATUIT</p>
     </div>
 </div>
 
-<div id="div2">
-    <div id="brefText">
-        <span>LocalTroc est 100% gratuit !</span><br>
+<div id="div3">
+    <div id="div3Text">
+        <span>LocalTroc est 100% gratuit !</span>
         <span>Lancez - vous !</span><br>
         <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
     </div>
@@ -33,7 +33,7 @@
 
 
 
-<div id="div3">
+<div id="div4">
     Ma recherche rapide !
     <div id="search-bar">
         <input type="text" placeholder=" Où ?">
@@ -131,7 +131,48 @@
             </div>
         </div>
 
-    </div>
+        <!-- nine slide-->
+        <div class="element">
+            <img src="/assets/img/jardinage.jpg" alt="img9">
+            <div class="caption">
+                <p>
+                    Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.
+                </p>
+            </div>
+        </div>
+
+        <!-- ten slide-->
+        <div class="element">
+            <img src="/assets/img/dog-sitter.jpg" alt="img10">
+            <div class="caption">
+                <p>
+                    Personne pour garder ou promener son chien ? Parcourir nos annonces.
+                </p>
+            </div>
+        </div>
+
+        <!-- eleven slide-->
+        <div class="element">
+            <img src="/assets/img/bricolage.jpg" alt="img11">
+            <div class="caption">
+                <p>
+                    Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
+                    Pratiquer le troc.
+                </p>
+            </div>
+        </div>
+
+        <!-- twelve slide-->
+        <div class="element">
+            <img src="/assets/img/photographe.jpg" alt="img12">
+            <div class="caption">
+                <p>
+                    Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région? Venez sur LocalTroc.
+                </p>
+            </div>
+        </div>
+
+   </div>
 
     <!-- control navigation : arrows -->
     <i id="navLeft" class="las la-chevron-left"></i>
@@ -151,11 +192,11 @@
         </div>
     </div>
 </div>
-<div id="div4">
+<div id="div6">
     <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
     <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
 </div>
-<div id="section6">
+<div id="div7">
     <!--AVIS CLIENT HERE-->
     <div class="rectangle">
         <div class="image"></div>
@@ -239,14 +280,14 @@
 </div>
 </div>
 
-<div id="section7">
+<div id="div8">
     <div id="helpContact">
         <i class="far fa-envelope"></i>
     </div>
 </div>
 <!--OPTION  "helpContact" : messages automatiques besoin d'aide, un renseignement, parler avec les autres membres connecter par expl-->
 
-<div id="section8">
+<div id="div9">
     <!--Affiche près de chez soi, les derniers services create
   quand service terminée === hidden -->
     <div class="helpRectangle">
@@ -286,36 +327,5 @@
     </div>
 </div>
 
-<div id="articles">
-    <!--articles-->
-    <h2 id="titleArtc">Sur LocalTroc, vous trouverez tout !</h2>
-    <div class="containerArticles">
 
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/jardinage.jpg" alt="jardinage" ><span class="tooltiptext"> Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.</span>
-            </a>
-        </div>
-
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/dog-sitter.jpg" alt="dogSitting"" ><span class="tooltiptext"> Personne pour garder ou promener son chien ? Parcourir nos annonces.</span>
-            </a>
-        </div>
-
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/bricolage.jpg" alt="brico" ><span class="tooltiptext"> Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
-            Pratiquer le troc.</span>
-            </a>
-        </div>
-
-        <div class="tooltip">
-            <a href="#">
-                <img src="/assets/img/photographe.jpg" alt="photo"" ><span class="tooltiptext"> Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région? Venez sur LocalTroc.</span>
-            </a>
-        </div>
-
-    </div>
-</div>
 

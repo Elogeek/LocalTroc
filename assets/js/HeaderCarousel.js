@@ -18,13 +18,14 @@ const HeaderCarousel = {
     init: function() {
         this.div.style.cssText = `
             width: 50%;
-            height: 31vw;
             display: flex;
-            margin-left: 27rem;
+            flex-flow: row;
+            justify-content: center;
+            height: 31vw;
             box-shadow: 2px 1px 8px 5px #6c757d;
         `;
         this.carrousel.appendChild(this.div);
-        this.div.className = "videoImg";
+        this.div.className = "headerCarousel";
     },
 
 

@@ -101,4 +101,21 @@ class RoleManager
         return $request->execute();
     }
 
+    /**
+     * Getting default role entity.
+     * @return Role
+     */
+    public function getDefaultRole(): Role {
+        $role = new Role();
+        $request = DB::getInstance()->prepare("SELECT * FROM role WHERE name = 'user' LIMIT 1"); // Limit 1 pour être sûr de n'avoir qu'un seul résultat !
+        if($request->execute()) {
+            // Fetch car ue seule ligne récupérée
+            if($rdata = $request->fetch()) {
+                $role->setId($rdata['id']);
+                $role->setName($rdata['name']);
+            }
+        }
+        return $role;
+    }
+
 }

@@ -15,7 +15,7 @@ if(isset($success)) { ?>
 <!-- Create user account -->
 <div>
     <form action="/index.php?controller=user&action=register" method="POST">
-        <h4>Créer un compte client</h4>
+        <h4>Créer un compte </h4>
 
         <!-- first name and last name -->
         <input type="text" name="firstname" id="firstname" placeholder="Prénom" required>
@@ -28,7 +28,6 @@ if(isset($success)) { ?>
         <div class="invalid-feedback">Veuillez entrer votre pseudo</div>
 
         <!-- User infos. -->
-        <input type="file" name="avatar" placeholder="Choissisez une image comme avatar">
 
         <input type="date" name="birthday">
 

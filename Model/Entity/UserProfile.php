@@ -13,7 +13,6 @@ class UserProfile {
     private ?string $city;
     private ?string $address;
     private ?string $codeZip;
-    private ?string $country;
     private ?string  $moreInfo;
     private ?string $phone;
 
@@ -32,7 +31,7 @@ class UserProfile {
      * @param string|null $phone
      */
     public function __construct(int $id = null, int $user = null, string $pseudo = null, string  $avatar = null, string $birthday = null, string $city = null,
-                                string $address = null, string  $codeZip = null, string $country = null, string $moreInfo = null, string $phone = null)
+                                string $address = null, string  $codeZip = null, string $moreInfo = null, string $phone = null)
     {
         $this->id = $id;
         $this->user = $user;
@@ -42,7 +41,6 @@ class UserProfile {
         $this->city = $city;
         $this->address = $address;
         $this->codeZip = $codeZip;
-        $this->country = $country;
         $this->moreInfo = $moreInfo;
         $this->phone = $phone;
     }
@@ -157,20 +155,6 @@ class UserProfile {
      */
     public function setCodeZip(string $codeZip): void {
         $this->codeZip = $codeZip;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCountry(): ?string {
-        return $this->country;
-    }
-
-    /**
-     * @param string|null $country
-     */
-    public function setCountry(string $country): void {
-        $this->country = $country;
     }
 
     /**

@@ -28,7 +28,6 @@ class UserProfileManager {
             $userProfile->setCity($data['city']);
             $userProfile->setAddress($data['address']);
             $userProfile->setCodeZip($data['code_zip']);
-            $userProfile->setCountry($data['country']);
             $userProfile->setMoreInfos($data['more_infos']);
             $userProfile->setPhone($data['phone']);
             return $userProfile;
@@ -47,8 +46,7 @@ class UserProfileManager {
     public function updateProfile(UserProfile $userProfile): bool {
         $request = DB::getInstance()->prepare("
             UPDATE user_profile SET user_fk = :user, pseudo = :pseudo, avatar = :avatar, birthday = :birthday, 
-                city = :city, address = :address, code_zip = :codeZip, country = :country,
-                    more_infos = :moreInfo, phone = :phone WHERE id = :id
+                city = :city, address = :address, code_zip = :codeZip, more_infos = :moreInfo, phone = :phone WHERE id = :id
         ");
 
         $request->bindValue(':id', $userProfile->getId());
@@ -59,7 +57,6 @@ class UserProfileManager {
         $request->bindValue(':city', $userProfile->getCity());
         $request->bindValue(':address', $userProfile->getAddress());
         $request->bindValue(':codeZip', $userProfile->getCodeZip());
-        $request->bindValue(':country', $userProfile->getCountry());
         $request->bindValue(':moreInfo', $userProfile->getMoreInfos());
         $request->bindValue(':phone', $userProfile->getPhone());
 
@@ -85,18 +82,16 @@ class UserProfileManager {
      */
     private function createProfile(User $user): ?UserProfile {
         $request = DB::getInstance()->prepare(" 
-            INSERT INTO user_profile(user_fk, pseudo, avatar, birthday, city, address, code_zip, country, more_infos, phone)
-                VALUES (:userFK, :pseudo, :avatar, :birthday, :city, :address, :codeZip, :country, :moreInfo, :phone)
+            INSERT INTO user_profile(user_fk, pseudo, birthday, city, address, code_zip, more_infos, phone)
+                VALUES (:userFK, :pseudo, :birthday, :city, :address, :codeZip, :moreInfo, :phone)
         ");
 
         $request->bindValue(':userFK', $user->getId());
         $request->bindValue(':pseudo', $user->getFirstname());
-        $request->bindValue(':avatar', null);
         $request->bindValue(':birthday', null);
         $request->bindValue(':city', '');
         $request->bindValue(':address', '');
         $request->bindValue(':codeZip', '');
-        $request->bindValue(':country', '');
         $request->bindValue(':moreInfo',null);
         $request->bindValue(':phone', null);
 
@@ -105,12 +100,10 @@ class UserProfileManager {
             $profile->setId(DB::getInstance()->lastInsertId());
             $profile->setUser($user);
             $profile->setPseudo($user->getFirstname());
-            $profile->setAvatar(null);
             $profile->setBirthday('0000-00-00 00:00:OO');
             $profile->setCity('');
             $profile->setAddress('');
             $profile->setCodeZip('');
-            $profile->setCountry('');
             $profile->setMoreInfos(null);
             $profile->setPhone(null);
             return $profile;

@@ -1,5 +1,8 @@
 <?php
 
+use App\Entity\User;
+use App\Manager\RoleManager;
+use App\Model\Entity\UserManager;
 use Model\DB;
 
 /**
@@ -26,7 +29,6 @@ class UserController extends Controller {
                 // Optionals
                 $other = DB::secureData($_POST['other']);
                 $phone = DB::secureData($_POST['phone']);
-                //"avatar"
 
                 // Starting checking provided - required form data.
                 $password = DB::secureData($_POST['password']);
@@ -42,7 +44,42 @@ class UserController extends Controller {
 
                 // Checking passwords, zip, phone, birthday
 
+                // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
 
+                $userManager = new UserManager();
+                $roleManager = new RoleManager();
+                $user = new User();
+                $user->setEmail($mail);
+                $user->setFirstname($firstName);
+                $user->setLastName($lastName);
+                $user->setId(null);
+                $user->setPassword($password);
+                $user->setRole($roleManager->getDefaultRole());
+
+                // Sauvegarde du nouvel user.
+                if($userManager->addUser($user) && $user->getId() !== null) {
+                    // addUser retourne true en cas de succès, ou false en cas d'erreur.
+                    // Si c'est true, on peut ajouter le profile, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
+                    $profileManager = new UserProfileManager();
+                    $profile = $profileManager->getUserProfile($user);
+                    $profile->setAddress($address);
+                    $profile->setBirthday($birthday);
+                    $profile->setCity($city);
+                    $profile->setCodeZip($zip);
+                    $profile->setMoreInfos($other);
+                    $profile->setPhone($phone);
+                    $profile->setPseudo($pseudo);
+                    if($profileManager->updateProfile($profile)) {
+                        $this->setSuccessMessage("Votre compte a bien été créé.");
+                    }
+                    else {
+                        $this->setErrorMessage("Une erreur est survenue lors de la génération de votre profile.");
+                    }
+                }
+                else {
+                    // Si c'est false, alors on notifie l'utilisateur.
+                    $this->setErrorMessage("Une erreur est survenue en créant votre compte.");
+                }
             }
             else {
                 $this->setErrorMessage('Les champs requis ne sont pas tous remplis');
