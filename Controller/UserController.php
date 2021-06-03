@@ -21,6 +21,11 @@ class UserController extends Controller {
      * @param array $request
      */
     public function login(array $request) {
+        // S l'utilisateur est déjà connecté, je le renvoie sur son profile.
+        if(!is_null($this->getLoggedInUser())) {
+            $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
+        }
+
         // Je vérifie si le formulaire a été soumis ou pas.
         if($this->isFormSubmitted() && $this->issetAndNotEmpty($request['email'], $request['password'])) {
             $mail = DB::secureData($request['email']);
@@ -60,6 +65,11 @@ class UserController extends Controller {
      * @param array $request
      */
     public function register(array $request) {
+        // Si un utilisateur connecté tente d'accéder à la page d'enregistrelment, alors on le redirige vers son profil.
+        if(!is_null($this->getLoggedInUser())) {
+            $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
+        }
+
         // Checking if form was submit.
         if($this->isFormSubmitted()) {
             // Checking all required are set.
@@ -137,11 +147,21 @@ class UserController extends Controller {
         if(is_null($user)) {
             $this->redirectTo('user', 'login');
         }
-
+        /* return profile user*/
         $this->showView('user/profile', [
             'user' => $user,
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
-        ]);
+        ], [], ['profile']);
+    }
+
+    /**
+     * Handle user disconnect and redirect to index.
+     */
+    public function disconnect() {
+        $_SESSION = []; // Je remplace le tableau $_SESSION par un tableau qui ne contient rien.
+        session_unset();
+        session_destroy();
+        $this->redirectTo('index');
     }
 
 }

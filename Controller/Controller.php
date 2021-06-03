@@ -105,8 +105,11 @@ class Controller {
      * @param string|null $action
      */
     public function redirectTo(string $controller, string $action = null) {
-        $route = $action !== null ? "controller=$controller&action=$action" : "controller=$controller";
-        header('Location: /index.php?' . $route);
+        $route = '';
+        if($controller !== 'index') {
+            $route = $action !== null ? "?controller=$controller&action=$action" : "?controller=$controller";
+        }
+        header('Location: /index.php' . $route);
     }
 
 

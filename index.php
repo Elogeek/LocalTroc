@@ -57,7 +57,7 @@ if (isset($_GET['controller'])) {
                         break;
 
                     case 'disconnect':
-                        $manager->logOut('');
+                        $controller->disconnect();
                         break;
 
                     case 'delete' :

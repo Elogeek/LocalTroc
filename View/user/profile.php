@@ -1,14 +1,24 @@
 <?php
- require_once $_SERVER['DOCUMENT_ROOT'] . '/Tests/Dumper.php';
- Dumper::dieAndDump($params);
+/* @var User $user */
+/* @var UserProfile $userProfile */
+
+use App\Entity\User;
+use App\Entity\User\UserProfile;
+
+$user = $params['user'];
+$userProfile = $params['userProfile'];
+
 ?>
+
+<a href="#" title="item"><i class="far fa-edit">Modifier mon profil</a>
+
     <div class="boxUser">
         <!--image avatar user-->
         <div class="imgAvatar">
             <img src="/assets/img/userProfile.webp" alt="MySuperProfil">
             <div class="pseudoUser">
                 <!--pseudo-->
-                <span> Jhon </span>
+                <span> <?= $userProfile->getPseudo() ?></span>
             </div>
         </div>
 
@@ -18,44 +28,43 @@
                 <li>A propros </li>
                 <hr>
 
-                <li> Pseudo : JOHN
+                <li> Prénom : <?= $user->getFirstname() ?><li>
+
+                <li> Nom : <?= $user->getLastName() ?></li>
 
                 <li>
                     <!--email <i class="fas fa-at"></i>-->
-                    Email :
+                    Email : <?= $user->getEmail() ?>
                 </li>
+
                 <li>
                     <!--phone <i class="fas fa-phone"></i>-->
-                    Phone :
+                    Phone : <?= $userProfile->getPhone()?>
                 </li>
+
                 <li>
-                    <!--city <i class="fas fa-map-marker-alt"></i>-->
-                    City:
+                    Adresse : <?= $userProfile->getAddress()?>
                 </li>
+
+                <li>
+                    <!--<i class="fas fa-map-marker-alt">-->
+                        Ville: <?= $userProfile->getCity()?>
+
+                </li>
+
+                <li>
+                    Code postal: <?= $userProfile->getCodeZip()?>
+                </li>
+
                 <li>
                     <!--brithday user <i class="fas fa-birthday-cake"></i>-->
-                    Brithday :
+                    Anniversaire : <?= $userProfile->getBirthday()?>
                 </li>
-                <!--here eval service user-->
-                <li>
-                    Evaluations : /5
-                    <div>
-                        <!--here star-->
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <div>
-                        <!--avis other user for a service-->
-                        Voir les avis
-                    </div>
-                </li>
+
                 <li id="border">
                     <!--other-->
+                    Autre :
                     <textarea name="text" id="text" cols="30" rows="10" placeholder="Précissez vos informations: diplômes, loisirs, lieu,..."></textarea>
-                    <!--school <i class="fas fa-graduation-cap"></i> -->
-                    Other :
 
                 </li>
             </ul>

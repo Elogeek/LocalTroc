@@ -52,7 +52,10 @@
         </div>
 
         <a title="Connexion" href="/index.php?controller=user&action=login"> Se connecter</a>
-        <div><p> <i class="fas fa-power-off"></i> Déconnection </p></div>
+        <div>
+            <i class="fas fa-power-off"></i>
+            <a title="Déconnexion" href="/index.php?controller=user&action=disconnect">Déconnexion</a>
+        </div>
 
     </div>
 
