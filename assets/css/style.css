@@ -152,12 +152,17 @@ h2 {
     line-height: 1.8;
     cursor: pointer;
     text-decoration-line: none;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem 0;
 }
 
-.btn {
-    transition: all 0.2s ease-in-out;
-    margin-top: 1rem;
+
+.btn-primary {
+    border: 1px solid black;
+    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
+}
+
+.btn-primary > i {
+    padding-right: 0.5rem;
 }
 
 /* Design div4 ( search bar)*/

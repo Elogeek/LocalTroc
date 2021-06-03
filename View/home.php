@@ -23,13 +23,16 @@
     </div>
 </div>
 
-<div id="div3">
-    <div id="div3Text">
-        <span>LocalTroc est 100% gratuit !</span>
-        <span>Lancez - vous !</span><br>
-        <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
-    </div>
-</div>
+<?php
+if(!$connected) { ?>
+    <div id="div3">
+        <div id="div3Text">
+            <span>LocalTroc est 100% gratuit !</span>
+            <span>Lancez - vous !</span><br>
+            <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
+        </div>
+    </div><?php
+} ?>
 
 
 
@@ -193,10 +196,15 @@
     </div>
 </div>
 
-<div id="div6">
-    <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
-    <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
-</div>
+<?php
+// Discplay register button only if user is not connected.
+if(!$connected) { ?>
+    <div id="div6">
+        <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
+        <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
+    </div> <?php
+}
+?>
 
 
 <div id="div8">

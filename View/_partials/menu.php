@@ -32,24 +32,27 @@
 
         <div><i class="fas fa-search"></i> Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
 
-        <div class="menu">
-            <p><i class="fas fa-user-astronaut"></i> Mon compte</p>
-            <div class="submenu">
-                <a href="#" title="item"><i class="fas fa-user-astronaut"></i> Mon profil</a>
-                <a href="#" title="item"><i class="fas fa-user-cog"></i> Paramètres du compte</a>
-                <a href="#" title="item"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
-                <a href="#" title="item"><i class="fas fa-at"></i> Changer d'adresse email</a>
-                <a href="#" title="item"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
-                <a href="#" title="item"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
-                <a href="#" title="item"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
-                <a href="#" title="item"><i class="far fa-star"></i> Voir mes évaluations</a>
-                <!-- option now/+later-->
-                <a href="#" title="item"><i class="far fa-grin-stars"></i> Recevoir mes étoiles</a>
-                <a href="#" title="item"><i class="far fa-edit"></i> Mes avis rédigées</a>
-                <a href="#" title="item"> <i class="fas fa-user-slash"></i> Signaler un membre malveillant</a>
-            </div>
+        <?php
+        // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
+        if($connected) { ?>
+            <div class="menu">
+                <p>
+                    <i class="fas fa-user-astronaut"></i>
+                    <a href="/index.php?controller=user&action=profile">Mon profil</a>
+                </p>
+                <div class="submenu">
+                    <a href="#" title="item"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
+                    <a href="#" title="item"><i class="fas fa-at"></i> Changer d'adresse email</a>
+                    <a href="#" title="item"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
+                    <a href="#" title="item"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
+                    <a href="#" title="item"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
+                    <a href="#" title="item"><i class="far fa-star"></i> Voir mes évaluations</a>
+                    <!-- option now/+later-->
+                    <a href="#" title="item"><i class="far fa-edit"></i> Mes avis rédigées</a>
+                </div>
 
-        </div>
+            </div> <?php
+        } ?>
 
         <?php
         // Si l'utilisateur n'est pas connecté, alors on affiche le lien de connexion.

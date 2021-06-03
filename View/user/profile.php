@@ -9,10 +9,15 @@ $userProfile = $params['userProfile'];
 
 ?>
 
-<a href="#" title="item"><i class="far fa-edit">Modifier mon profil</a>
+<div class="profile-container">
+    <!-- Edit buttons. -->
+    <div id="profile-actions">
+        <a href="#" title="item" class="btn btn-primary"><i class="far fa-edit"></i>Editer mes données</a>
+        <a href="#" title="item" class="btn btn-primary"><i class="far fa-edit"></i>Editer mon profil</a>
+    </div>
 
-    <div class="boxUser">
-        <!--image avatar user-->
+    <!--image avatar user-->
+    <div id="profile-content">
         <div class="imgAvatar">
             <img src="/assets/img/userProfile.webp" alt="Mon profile">
             <div class="pseudoUser">
@@ -21,51 +26,59 @@ $userProfile = $params['userProfile'];
             </div>
         </div>
 
-        <!--info user : annif, pseudo,mail,phone,...-->
-        <div class="infoDiv">
-            <ul>
-                <li>A propros </li>
-                <hr>
+        <h1>Mon profil </h1>
+        <hr>
 
-                <li> Prénom : <?= $user->getFirstname() ?><li>
+        <!-- User basic information. -->
+        <h2>Vos informations de base</h2>
+        <table class="profile-table">
+            <tr>
+                <th>Nom</th>
+                <td><?= $user->getLastName() ?></td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td><?= $user->getFirstName() ?></td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td><?= $user->getEmail() ?></td>
+            </tr>
+        </table>
 
-                <li> Nom : <?= $user->getLastName() ?></li>
-
-                <li>
-                    <!--email <i class="fas fa-at"></i>-->
-                    Email : <?= $user->getEmail() ?>
-                </li>
-
-                <li>
-                    <!--phone <i class="fas fa-phone"></i>-->
-                    Phone : <?= $userProfile->getPhone()?>
-                </li>
-
-                <li>
-                    Adresse : <?= $userProfile->getAddress()?>
-                </li>
-
-                <li>
-                    <!--<i class="fas fa-map-marker-alt">-->
-                        Ville: <?= $userProfile->getCity()?>
-
-                </li>
-
-                <li>
-                    Code postal: <?= $userProfile->getCodeZip()?>
-                </li>
-
-                <li>
-                    <!--brithday user <i class="fas fa-birthday-cake"></i>-->
-                    Anniversaire : <?= $userProfile->getBirthday()?>
-                </li>
-
-                <li id="border">
-                    <!--other-->
-                    Autre : <?= $userProfile->getMoreInfos() ?>
-                </li>
-            </ul>
-
-        </div>
+        <!-- Profile information. -->
+        <h2>Vos informations de profile</h2>
+        <table class="profile-table">
+            <tr>
+                <th>Pseudo</th>
+                <td><?= $userProfile->getPseudo() ?></td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td><?= $userProfile->getPhone() ?></td>
+            </tr>
+            <tr>
+                <th>Anniversaire</th>
+                <td><?= $userProfile->getBirthday() ?></td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td><?= $userProfile->getAddress() ?></td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td><?= $userProfile->getCodeZip() ?></td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td><?= $userProfile->getCity() ?></td>
+            </tr>
+            <tr>
+                <th>Informations complémentaires</th>
+                <td><?= $userProfile->getMoreInfos() ?></td>
+            </tr>
+        </table>
 
     </div>
+
+</div>
