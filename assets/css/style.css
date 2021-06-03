@@ -25,18 +25,6 @@ html {
     width: 100%;
 }
 
-/* Menu */
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1%;
-    position: relative;
-    height: 5.5rem;
-    box-shadow: 0 0 15px 0 #6c757d;
-    cursor: pointer;
-}
 
 .submenu {
     display: none;
@@ -714,7 +702,29 @@ footer {
     text-align: center;
 }
 
+/**
+ * New code, don't touch this :-)
+ */
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 1.5rem 0 #6c757d;
+    width: 100%;
+    padding: 1%;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav > div {
+    margin-right: 2.5rem;
+}
 
 @media screen and (max-width: 950px) {
 
