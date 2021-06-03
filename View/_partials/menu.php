@@ -51,11 +51,17 @@
 
         </div>
 
-        <a title="Connexion" href="/index.php?controller=user&action=login"> Se connecter</a>
-        <div>
-            <i class="fas fa-power-off"></i>
-            <a title="Déconnexion" href="/index.php?controller=user&action=disconnect">Déconnexion</a>
-        </div>
-
+        <?php
+        // Si l'utilisateur n'est pas connecté, alors on affiche le lien de connexion.
+        if(!$connected) { ?>
+            <a title="Connexion" href="/index.php?controller=user&action=login"> Se connecter</a> <?php
+        } else {
+            // Si l'utilisateur est connecté, alors on peut afficher le bouton de déconnexion ?>
+            <div>
+                <i class="fas fa-power-off"></i>
+                <a title="Déconnexion" href="/index.php?controller=user&action=disconnect">Déconnexion</a>
+            </div><?php
+        }
+        ?>
     </div>
 
