@@ -1,5 +1,8 @@
 <?php
 
+use App\Entity\User;
+use App\Model\Entity\UserManager;
+
 /**
  * Class Controller, base controller to be extended.
  */
@@ -94,5 +97,31 @@ class Controller {
      */
     public function setSuccessMessage(string $message) {
         $this->successMessage = $message;
+    }
+
+    /**
+     * Redirect to specified controller with or without specified action.
+     * @param string $controller
+     * @param string|null $action
+     */
+    public function redirectTo(string $controller, string $action = null) {
+        $route = $action !== null ? "controller=$controller&action=$action" : "controller=$controller";
+        header('Location: /index.php?' . $route);
+    }
+
+
+    /**
+     * Return the connected user or null
+     * @return User|null
+     */
+    public function getLoggedInUser(): ?User {
+        if(array_key_exists('connected_user', $_SESSION)) {
+            $userManager = new UserManager();
+            $user = $userManager->getById($_SESSION['connected_user']);
+            if($user->getId()) {
+                return $user;
+            }
+        }
+        return null;
     }
 }

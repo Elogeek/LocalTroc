@@ -13,34 +13,74 @@ class UserController extends Controller {
     /*public function goToPageUser() {
         $username = "John";
         require_once "./include.php";
-        require_once './View/user/profileUserPage.php';
+        require_once './View/user/profile.php';
     }*/
 
     /**
-     * Handle user account register.
+     * Get user logged in.
+     * @param array $request
      */
-    public function register() {
+    public function login(array $request) {
+        // Je vérifie si le formulaire a été soumis ou pas.
+        if($this->isFormSubmitted() && $this->issetAndNotEmpty($request['email'], $request['password'])) {
+            $mail = DB::secureData($request['email']);
+            $password = DB::secureData($request['password']);
+
+            if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                $userManager = new UserManager();
+                $user = $userManager->getByMail($mail);
+                if($user->getId() !== null) {
+                    // Alors le user existe bien, on peut vérifier le password.
+                    $encodedPassword = $userManager->getUserPassword($user);
+                    if(password_verify($password, $encodedPassword)) {
+                        // L'objet utilisateur se trouve en session, on peut l'utiliser partout, si cette variable de session existe ( connected_user ) c'est que l'utilisateur est connecté
+                        $_SESSION['connected_user'] = $user->getId();
+                        $this->redirectTo('user', 'profile');
+                    }
+                    else {
+                        $this->setErrorMessage("Erreur, le mot de passe n'est pas correct");
+                    }
+                }
+                else {
+                    $this->setErrorMessage("L'adresse email n'a pa pu être trouvée, ce compte ne semble pas exister.");
+                }
+            }
+            else {
+                $this->setErrorMessage("Le format de l'adresse email n'est pas bon.");
+            }
+
+        }
+        // On affiche la vue qqui est en charge du formulaire d'inscription.
+        $this->showView('user/connect');
+    }
+
+
+    /**
+     * Handle user account register.
+     * @param array $request
+     */
+    public function register(array $request) {
         // Checking if form was submit.
         if($this->isFormSubmitted()) {
             // Checking all required are set.
-            if($this->issetAndNotEmpty($_POST['firstname'], $_POST['lastname'], $_POST['pseudo'], $_POST['birthday'], $_POST['city'],
-                $_POST['address'], $_POST['codeZip'], $_POST['mail'], $_POST['password'], $_POST['passwordConfirm'])
+            if($this->issetAndNotEmpty($request['firstname'], $request['lastname'], $request['pseudo'], $request['birthday'],
+                $request['city'], $request['address'], $request['codeZip'], $request['mail'], $request['password'], $request['passwordConfirm'])
             ) {
                 // Optionals
-                $other = DB::secureData($_POST['other']);
-                $phone = DB::secureData($_POST['phone']);
+                $other = DB::secureData($request['other']);
+                $phone = DB::secureData($request['phone']);
 
                 // Starting checking provided - required form data.
-                $password = DB::secureData($_POST['password']);
-                $passwordConfirm = DB::secureData($_POST['passwordConfirm']);
-                $firstName = DB::secureData($_POST['firstname']);
-                $lastName = DB::secureData($_POST['lastname']);
-                $pseudo = DB::secureData($_POST['pseudo']);
-                $city = DB::secureData($_POST['city']);
-                $address = DB::secureData($_POST['address']);
-                $zip = DB::secureInt($_POST['codeZip']);
-                $birthday = DB::secureData($_POST['birthday']);
-                $mail = DB::secureData($_POST['mail']);
+                $password = DB::secureData($request['password']);
+                $passwordConfirm = DB::secureData($request['passwordConfirm']);
+                $firstName = DB::secureData($request['firstname']);
+                $lastName = DB::secureData($request['lastname']);
+                $pseudo = DB::secureData($request['pseudo']);
+                $city = DB::secureData($request['city']);
+                $address = DB::secureData($request['address']);
+                $zip = DB::secureInt($request['codeZip']);
+                $birthday = DB::secureData($request['birthday']);
+                $mail = DB::secureData($request['mail']);
 
                 // Checking passwords, zip, phone, birthday
 
@@ -85,7 +125,23 @@ class UserController extends Controller {
                 $this->setErrorMessage('Les champs requis ne sont pas tous remplis');
             }
         }
-        $this->showView('register', [], ['Forms']);
+        $this->showView('user/register', [], ['Forms']);
+    }
+
+
+    /**
+     * Handle user profile.
+     */
+    public function profile() {
+        $user = $this->getLoggedInUser();
+        if(is_null($user)) {
+            $this->redirectTo('user', 'login');
+        }
+
+        $this->showView('user/profile', [
+            'user' => $user,
+            'userProfile' => (new UserProfileManager())->getUserProfile($user),
+        ]);
     }
 
 }

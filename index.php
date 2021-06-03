@@ -1,4 +1,6 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Tests/Dumper.php';
+Dumper::dieAndDump($_SESSION);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 
@@ -43,11 +45,15 @@ if (isset($_GET['controller'])) {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'register':
-                        $controller->register();
+                        $controller->register($_POST);
                         break;
 
-                    case 'addUser':
-                        $manager->addUser();
+                    case 'login':
+                        $controller->login($_POST);
+                        break;
+
+                    case 'profile':
+                        $controller->profile();
                         break;
 
                     case 'disconnect':

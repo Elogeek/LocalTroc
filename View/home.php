@@ -34,7 +34,7 @@
 
 
 <div id="div4">
-    Ma recherche rapide !
+    <h2>Ma recherche rapide !</h2>
     <div id="search-bar">
         <input type="text" placeholder=" Où ?">
         <input type="text" placeholder=" Quand ?">
@@ -192,93 +192,12 @@
         </div>
     </div>
 </div>
+
 <div id="div6">
     <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
     <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
 </div>
-<div id="div7">
-    <!--AVIS CLIENT HERE-->
-    <div class="rectangle">
-        <div class="image"></div>
-        <div class="descriptionTitle">
-            <h2>Déménagement</h2>
-        </div>
-        <div class="description"
-        <p>
-            <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
-        </p>
-    </div>
-    <div class="avis">
-        <div><hr class="lignes"></div>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div><hr class="lignes"></div>
-        <p>
-            Très bon troqueur , il a répondu à mes attentes, de plus travail très propre, vite fait et bien fait
-            merci beaucoup Georges!
-        </p>
-    </div>
-</div>
-<!--two opinion-->
-<div class="rectangle">
-    <div class="image"></div>
-    <div class="descriptionTitle">
-        <h2>Déménagement</h2>
-    </div>
-    <div class="description"
-    <p>
-        <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
-    </p>
-</div>
-<div class="avis">
-    <div><hr class="lignes"></div>
-    <div class="star">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-    </div>
-    <div><hr class="lignes"></div>
-    <p>
-        Très bon troqueur , il a répondu à mes attentes, de plus travail très propre, vite fait et bien fait
-        merci beaucoup Georges!
-    </p>
-</div>
-</div>
-<!--three opinion-->
-<div class="rectangle">
-    <div class="image"></div>
-    <div class="descriptionTitle">
-        <h2>Déménagement</h2>
-    </div>
-    <div class="description"
-    <p>
-        <span class="blue">Odile</span> a fait débarrasser des meubles à <span class="gras">Chimay(6460)</span> par <span class="blue">Georges</span>.
-    </p>
-</div>
-<div class="avis">
-    <div><hr class="lignes"></div>
-    <div class="star">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-    </div>
-    <div><hr class="lignes"></div>
-    <p>
-        Très bon troqueur , il a répondu à mes attentes, de plus travail très propre, vite fait et bien fait
-        merci beaucoup Georges!
-    </p>
-</div>
-</div>
-</div>
+
 
 <div id="div8">
     <div id="helpContact">
