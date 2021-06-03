@@ -149,7 +149,6 @@ class UserController extends Controller {
         }
         /* return profile user*/
         $this->showView('user/profile', [
-            'user' => $user,
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
         ], [], ['profile']);
     }

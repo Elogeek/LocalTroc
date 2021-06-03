@@ -5,7 +5,6 @@
 use App\Entity\User;
 use App\Entity\User\UserProfile;
 
-$user = $params['user'];
 $userProfile = $params['userProfile'];
 
 ?>
@@ -15,7 +14,7 @@ $userProfile = $params['userProfile'];
     <div class="boxUser">
         <!--image avatar user-->
         <div class="imgAvatar">
-            <img src="/assets/img/userProfile.webp" alt="MySuperProfil">
+            <img src="/assets/img/userProfile.webp" alt="Mon profile">
             <div class="pseudoUser">
                 <!--pseudo-->
                 <span> <?= $userProfile->getPseudo() ?></span>
@@ -63,9 +62,7 @@ $userProfile = $params['userProfile'];
 
                 <li id="border">
                     <!--other-->
-                    Autre :
-                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Précissez vos informations: diplômes, loisirs, lieu,..."></textarea>
-
+                    Autre : <?= $userProfile->getMoreInfos() ?>
                 </li>
             </ul>
 

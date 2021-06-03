@@ -19,6 +19,8 @@ class Controller {
      * @param array $css
      */
     public function showView(string $viewName, array $params = [], array $javaScripts = [], array $css = []) {
+        // Getting connected user.
+        $user = $this->getLoggedInUser();
         // Handling optional JavaScripts.
         for($i = 0; $i < count($javaScripts); $i++) {
             $javaScripts[$i] = '/assets/js/' . $javaScripts[$i] . '.js';
