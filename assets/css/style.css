@@ -534,6 +534,17 @@ h2 {
  * New code, don't touch this :-)
  */
 
+h1+hr {
+    margin-top: 1rem;
+}
+
+.internal-container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
 nav {
     display: flex;
     justify-content: space-between;

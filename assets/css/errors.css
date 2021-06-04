@@ -8,16 +8,17 @@
     margin-bottom: 10rem;
 }
 
-.success {
-    background-color: #c9e265;
+.success, .error {
     color: white;
     font-weight: bold;
     text-align: center;
+    padding: 1rem;
+}
+
+.success {
+    background-color: #c9e265;
 }
 
 .error {
     background-color: darkred;
-    color: white;
-    text-align: center;
-    font-weight: bold;
 }

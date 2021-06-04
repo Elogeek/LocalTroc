@@ -1,4 +1,4 @@
-<div class="profile-container">
+<div class="internal-container">
     <div class="profile-content form">
         <form action="/index.php?controller=user&action=editInformation" method="POST">
             <h1>Editer mon compte </h1>

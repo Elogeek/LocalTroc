@@ -34,7 +34,7 @@ class UserController extends Controller {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                 $userManager = new UserManager();
                 $user = $userManager->getByMail($mail);
-                if($user->getId() !== null) {
+                if(!is_null($user)) {
                     // Alors le user existe bien, on peut vérifier le password.
                     $encodedPassword = $userManager->getUserPassword($user);
                     if(password_verify($password, $encodedPassword)) {

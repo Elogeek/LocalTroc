@@ -9,7 +9,7 @@ $userProfile = $params['userProfile'];
 
 ?>
 
-<div class="profile-container">
+<div class="internal-container">
     <!--image avatar user-->
     <div class="profile-content">
         <div class="imgAvatar">
