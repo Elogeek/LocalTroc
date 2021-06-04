@@ -103,44 +103,50 @@ class UserController extends Controller {
                 $birthday = DB::secureData($request['birthday']);
                 $mail = DB::secureData($request['mail']);
 
-                // Checking passwords, zip, phone, birthday
-
-                // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
-                // TODO => Vérifier si le pseudo n'est pas déjà pris...
-
                 $userManager = new UserManager();
-                $roleManager = new RoleManager();
-                $user = new User();
-                $user->setEmail($mail);
-                $user->setFirstname($firstName);
-                $user->setLastName($lastName);
-                $user->setId(null);
-                $user->setPassword($password);
-                $user->setRole($roleManager->getDefaultRole());
+                $userTest = $userManager->getByMail($mail);
+                if(is_null($userTest)) {
 
-                // Sauvegarde du nouvel user.
-                if($userManager->addUser($user) && $user->getId() !== null) {
-                    // addUser retourne true en cas de succès, ou false en cas d'erreur.
-                    // Si c'est true, on peut ajouter le profile, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
-                    $profileManager = new UserProfileManager();
-                    $profile = $profileManager->getUserProfile($user);
-                    $profile->setAddress($address);
-                    $profile->setBirthday($birthday);
-                    $profile->setCity($city);
-                    $profile->setCodeZip($zip);
-                    $profile->setMoreInfos($other);
-                    $profile->setPhone($phone);
-                    $profile->setPseudo($pseudo);
-                    if($profileManager->updateProfile($profile)) {
-                        $this->setSuccessMessage("Votre compte a bien été créé.");
+                    // Checking passwords, zip, phone, birthday
+
+                    // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
+                    // TODO => Vérifier si le pseudo n'est pas déjà pris...
+
+                    $roleManager = new RoleManager();
+                    $user = new User();
+                    $user->setEmail($mail);
+                    $user->setFirstname($firstName);
+                    $user->setLastName($lastName);
+                    $user->setId(null);
+                    $user->setPassword($password);
+                    $user->setRole($roleManager->getDefaultRole());
+
+                    // Sauvegarde du nouvel user.
+                    if ($userManager->addUser($user) && $user->getId() !== null) {
+                        // addUser retourne true en cas de succès, ou false en cas d'erreur.
+                        // Si c'est true, on peut ajouter le profile, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
+                        $profileManager = new UserProfileManager();
+                        $profile = $profileManager->getUserProfile($user);
+                        $profile->setAddress($address);
+                        $profile->setBirthday($birthday);
+                        $profile->setCity($city);
+                        $profile->setCodeZip($zip);
+                        $profile->setMoreInfos($other);
+                        $profile->setPhone($phone);
+                        $profile->setPseudo($pseudo);
+
+                        if ($profileManager->updateProfile($profile)) {
+                            $this->setSuccessMessage("Votre compte a bien été créé.");
+                        } else {
+                            $this->setErrorMessage("Une erreur est survenue lors de la génération de votre profile.");
+                        }
+
+                    } else {
+                        // Si c'est false, alors on notifie l'utilisateur.
+                        $this->setErrorMessage("Une erreur est survenue en créant votre compte.");
                     }
-                    else {
-                        $this->setErrorMessage("Une erreur est survenue lors de la génération de votre profile.");
-                    }
-                }
-                else {
-                    // Si c'est false, alors on notifie l'utilisateur.
-                    $this->setErrorMessage("Une erreur est survenue en créant votre compte.");
+                } else {
+                  $this->setErrorMessage("L'utilisateur existe déjà");
                 }
             }
             else {
@@ -178,9 +184,42 @@ class UserController extends Controller {
 
         if($this->isFormSubmitted()) {
             // Checking all required are set.
-            if ($this->issetAndNotEmpty($req['firstname'], $req['lastname'], $req['mail'], $req['password'], $req['passwordConfirm'])) {
-                // TODO
+            if ($this->issetAndNotEmpty($req['firstname'], $req['lastname'], $req['mail'])) {
 
+                $userManager = new UserManager();
+
+                $mail = DB::secureData($req['mail']);
+                $firstName = DB::secureData($req['firstname']);
+                $lastname = DB::secureData($req['lastname']);
+
+                if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                    $user->setEmail($mail);
+                }
+
+                $user->setFirstname($firstName);
+                $user->setLastName($lastname);
+
+                $infosRes = $userManager->updateUser($user);
+
+                $passwordResult = true;
+                // Checking if password was changed, if so, updating password.
+                if($this->issetAndNotEmpty($req['password'], $req['passwordConfirm'])) {
+                    $pass = DB::secureData($req['password']);
+                    $passConfirm = DB::secureData($req['passwordConfirm']);
+
+                    if(!DB::checkPassword($pass)) {
+                        $this->setErrorMessage("Le format du mot de passe n'est pas correct.");
+                    }
+                    else {
+                        if($pass === $passConfirm) {
+                            $passwordResult = $userManager->updatePassword($user, $pass);
+                        }
+                    }
+                }
+
+                if($infosRes && $passwordResult) {
+                    $this->setSuccessMessage("Vos informations ont bien été mises à jour !");
+                }
             }
         }
 

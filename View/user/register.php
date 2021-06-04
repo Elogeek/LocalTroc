@@ -1,17 +1,3 @@
-<?php
-if(isset($error)) { ?>
-    <div class="error">
-        <?= $error ?>
-    </div><?php
-}
-
-if(isset($success)) { ?>
-    <div class="success">
-    <?= $success ?>
-    </div><?php
-}
-
-?>
 <!-- Create user account -->
 <div>
     <form action="/index.php?controller=user&action=register" method="POST">
@@ -34,7 +20,7 @@ if(isset($success)) { ?>
         <!-- User info connect -->
         <input name="mail" type="email" placeholder="Adresse mail" required>
         <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <small>Plus grand que 5 caractères, lettres, majuscules, chiffres </small>
+        <small>Min 5 caractères, lettres, majuscules, chiffres </small>
         <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe" required>
 
         <input type="submit" name="submit" value="Créer mon compte">

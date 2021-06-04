@@ -12,21 +12,19 @@ class DB {
     private string $user = 'dev';
     private string $password = 'dev';
 
-    private static ?PDO $dbInstance = null;
-    private static array $message = [];
-    private static bool $hasError = false;
+    private static ?PDO $pdo = null;
 
     /**
      *  my DB constructor.
      */
     public function __construct() {
         try {
-            self::$dbInstance = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->password);
-            self::$dbInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$dbInstance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            self::$pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->password);
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         }
         catch (PDOException $exception) {
-            echo "Erreur: " . $exception->getMessage();
+            echo "Erreur de connexion: " . $exception->getMessage();
         }
     }
 
@@ -35,11 +33,11 @@ class DB {
      * @return PDO|null
      */
     public static function getInstance(): ?PDO {
-        if(null === self::$dbInstance) {
+        if(null === self::$pdo) {
             new self();
         }
 
-        return self::$dbInstance;
+        return self::$pdo;
     }
 
     /**
@@ -105,52 +103,6 @@ class DB {
         // Encoding password.
         $password = self::secureData($plainPassword);
         return password_hash($password, PASSWORD_BCRYPT);
-    }
-
-    /**
-     * Encode an error message.
-     * @param string $message
-     * @param string $type
-     */
-    public static function setMessage(string $message, string $type) {
-        $msg = [
-            'message' => $message,
-            'type' => $type,
-        ];
-
-        if($type === 'error') {
-            $msg['error'] = true;
-        }
-
-        self::$message = $msg;
-    }
-
-
-    /**
-     * Return if any message was recorded.
-     * @return bool
-     */
-    public static function hasMessage(): bool {
-        return count(self::$message) > 0;
-    }
-
-
-    /**
-     * Return the stored message and empty var message.
-     * @return array
-     */
-    public static function getMessage(): array {
-        $message = self::$message;
-        self::$message = [];
-        return $message;
-    }
-
-    /**
-     * Return true if an error was stored.
-     * @return bool
-     */
-    public static function hasError(): bool {
-        return array_key_exists('error', self::$message);
     }
 
     /**

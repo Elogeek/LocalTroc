@@ -32,22 +32,22 @@ class Controller {
             $css[$i] = '/assets/css/' . $css[$i] . '.css';
         }
 
+        // Checking if there are at least one error or success message.
+        if(!is_null($this->errorMessage)) {
+            $error = $this->errorMessage;
+            $this->errorMessage = null;
+        }
+
+        if(!is_null($this->successMessage)) {
+            $success = $this->successMessage;
+            $this->successMessage = null;
+        }
+
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/header.php';
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/menu.php';
 
         $file = $_SERVER['DOCUMENT_ROOT'] . '/View/' . $viewName . '.php';
         if(file_exists($file)) {
-            // Checking if there are at least one error or success message.
-            if(!is_null($this->errorMessage)) {
-                $error = $this->errorMessage;
-                $this->errorMessage = null;
-            }
-
-            if(!is_null($this->successMessage)) {
-                $success = $this->successMessage;
-                $this->successMessage = null;
-            }
-
             require_once "$file";
         } else { ?>
             <section class="error-404">
