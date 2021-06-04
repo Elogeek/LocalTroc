@@ -10,18 +10,12 @@ use Model\DB;
  */
 class UserController extends Controller {
 
-    /*public function goToPageUser() {
-        $username = "John";
-        require_once "./include.php";
-        require_once './View/user/profile.php';
-    }*/
-
     /**
      * Get user logged in.
      * @param array $request
      */
     public function login(array $request) {
-        // S l'utilisateur est déjà connecté, je le renvoie sur son profile.
+        // Si l'utilisateur est déjà connecté, je le renvoie sur son profile.
         if(!is_null($this->getLoggedInUser())) {
             $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
         }
@@ -56,7 +50,11 @@ class UserController extends Controller {
 
         }
         // On affiche la vue qqui est en charge du formulaire d'inscription.
-        $this->showView('user/connect', [], [], ['forms', 'errors']);
+        $this->addCss([
+            'forms.css',
+            'errors.css',
+        ]);
+        $this->showView('user/connect');
     }
 
 
@@ -151,7 +149,12 @@ class UserController extends Controller {
                 $this->setErrorMessage('Les champs requis ne sont pas tous remplis');
             }
         }
-        $this->showView('user/register', [], ['Forms', 'errors']);
+
+        $this->addCss([
+            'forms.css',
+            'errors.css',
+        ]);
+        $this->showView('user/register');
     }
 
 
@@ -163,10 +166,15 @@ class UserController extends Controller {
         if(is_null($user)) {
             $this->redirectTo('user', 'login');
         }
-        /* return profile user*/
+
+        /* return profile user */
+        $this->addCss([
+            'profile.css',
+        ]);
+
         $this->showView('user/profile', [
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
-        ], [], ['profile']);
+        ]);
     }
 
 
@@ -226,7 +234,12 @@ class UserController extends Controller {
             }
         }
 
-        $this->showView('user/editInformation', [], [], ['profile', 'forms', 'errors']);
+        $this->addCss([
+            'profile.css',
+            'forms.css',
+            'errors.css',
+        ]);
+        $this->showView('user/editInformation');
     }
 
 

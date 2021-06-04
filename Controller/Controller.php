@@ -8,28 +8,37 @@ use App\Model\Entity\UserManager;
  */
 class Controller {
 
-    public ?string $errorMessage = null;
-    public ?string $successMessage = null;
+    private ?string $errorMessage = null;
+    private ?string $successMessage = null;
+    private ?array $javaScripts = null;
+    private ?array $css = null;
 
     /**
      * Show a provided view with all provided params.
      * @param string $viewName
      * @param array|null $params
-     * @param array $javaScripts
-     * @param array $css
      */
-    public function showView(string $viewName, array $params = [], array $javaScripts = [], array $css = []) {
+    public function showView(string $viewName, array $params = []) {
         // Getting connected user.
         $user = $this->getLoggedInUser();
         $connected = !is_null($user);
 
-        // Handling optional JavaScripts.
-        for($i = 0; $i < count($javaScripts); $i++) {
-            $javaScripts[$i] = '/assets/js/' . $javaScripts[$i] . '.js';
+        // Handling additional JavaScripts.
+        if(!is_null($this->javaScripts)) {
+            $javaScripts = array_map(function ($js) { return '/assets/js/' . $js;}, $this->javaScripts);
+            $this->javaScripts = null;
         }
-        // Handling optional css
-        for($i = 0; $i < count($css); $i++) {
-            $css[$i] = '/assets/css/' . $css[$i] . '.css';
+        else {
+            $javaScripts = [];
+        }
+
+        // Handling additional css.
+        if(!is_null($this->css)) {
+            $css = array_map(function ($cs) { return '/assets/css/' . $cs;}, $this->css);
+            $this->css = null;
+        }
+        else {
+            $css = [];
         }
 
         // Checking if there are at least one error or success message.
@@ -101,6 +110,22 @@ class Controller {
      */
     public function setSuccessMessage(string $message) {
         $this->successMessage = $message;
+    }
+
+    /**
+     * Add JavaScript to the next view.
+     * @param array $javaScripts
+     */
+    public function addJavaScript(array $javaScripts) {
+        $this->javaScripts = $javaScripts;
+    }
+
+    /**
+     * Add css to the next view.
+     * @param array $css
+     */
+    public function addCss(array $css) {
+        $this->css = $css;
     }
 
     /**
