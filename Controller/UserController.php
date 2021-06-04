@@ -56,7 +56,7 @@ class UserController extends Controller {
 
         }
         // On affiche la vue qqui est en charge du formulaire d'inscription.
-        $this->showView('user/connect');
+        $this->showView('user/connect', [], [], ['forms']);
     }
 
 
@@ -106,9 +106,7 @@ class UserController extends Controller {
                 $userManager = new UserManager();
                 $userTest = $userManager->getByMail($mail);
                 if(is_null($userTest)) {
-
                     // Checking passwords, zip, phone, birthday
-
                     // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
                     // TODO => Vérifier si le pseudo n'est pas déjà pris...
 
@@ -209,15 +207,20 @@ class UserController extends Controller {
 
                     if(!DB::checkPassword($pass)) {
                         $this->setErrorMessage("Le format du mot de passe n'est pas correct.");
+                        $passwordResult = false;
                     }
                     else {
                         if($pass === $passConfirm) {
                             $passwordResult = $userManager->updatePassword($user, $pass);
                         }
+                        else {
+                            $this->setErrorMessage("Les mots de passe ne correspondent pas");
+                            $passwordResult = false;
+                        }
                     }
                 }
 
-                if($infosRes && $passwordResult) {
+                if($passwordResult) {
                     $this->setSuccessMessage("Vos informations ont bien été mises à jour !");
                 }
             }

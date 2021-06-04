@@ -47,6 +47,12 @@ small.form-control-info::before {
     margin-left: 1rem;
 }
 
+.login-form {
+    width: 40%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
 
 @media screen and (max-width: 750px) {
     small.form-control-info {

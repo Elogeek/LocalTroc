@@ -151,7 +151,7 @@ class UserManager
     {
         $request = DB::getInstance()->prepare(" UPDATE user SET password = :password WHERE id = :id");
         $request->bindValue(':id', $user->getId());
-        $request->bindValue(':password', DB::encodePassword($user->getPassword()));
+        $request->bindValue(':password', DB::encodePassword($plainPassword));
         $request->execute();
         return $plainPassword;
     }

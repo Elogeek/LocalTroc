@@ -27,11 +27,11 @@
             <p class="form-control-info">Uniquement si vous souhaitez changer de mot de passe</p>
             <div class="form-group">
                 <div class="form-group-item">
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe">
                     <small class="form-control-info">Min 5 caractères, lettres, majuscule, chiffres</small>
                 </div>
-                    <div class="form-group-item">
-                    <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe" required>
+                <div class="form-group-item">
+                    <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe">
                 </div>
             </div>
 
