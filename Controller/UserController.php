@@ -61,6 +61,17 @@ class UserController extends Controller {
 
 
     /**
+     * Handle user disconnect and redirect to index.
+     */
+    public function disconnect() {
+        $_SESSION = []; // Je remplace le tableau $_SESSION par un tableau qui ne contient rien.
+        session_unset();
+        session_destroy();
+        $this->redirectTo('index');
+    }
+
+
+    /**
      * Handle user account register.
      * @param array $request
      */
@@ -95,6 +106,7 @@ class UserController extends Controller {
                 // Checking passwords, zip, phone, birthday
 
                 // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
+                // TODO => Vérifier si le pseudo n'est pas déjà pris...
 
                 $userManager = new UserManager();
                 $roleManager = new RoleManager();
@@ -153,14 +165,28 @@ class UserController extends Controller {
         ], [], ['profile']);
     }
 
+
     /**
-     * Handle user disconnect and redirect to index.
+     * Edit user account information.
+     * @param $req
      */
-    public function disconnect() {
-        $_SESSION = []; // Je remplace le tableau $_SESSION par un tableau qui ne contient rien.
-        session_unset();
-        session_destroy();
-        $this->redirectTo('index');
+    public function editInformation($req) {
+        $user = $this->getLoggedInUser();
+        if(is_null($user)) {
+            $this->redirectTo('user', 'login');
+        }
+
+        if($this->isFormSubmitted()) {
+            // Checking all required are set.
+            if ($this->issetAndNotEmpty($req['firstname'], $req['lastname'], $req['mail'], $req['password'], $req['passwordConfirm'])) {
+                // TODO
+
+            }
+        }
+
+        $this->showView('user/editInformation', [], [], ['profile', 'forms']);
     }
+
+
 
 }

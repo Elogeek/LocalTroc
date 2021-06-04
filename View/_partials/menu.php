@@ -22,7 +22,7 @@
             </div>
 
             <div class="menu">
-                <p><i class="far fa-question-circle"></i> A propos</p>
+                <p><i class="far fa-question-circle"></i> </p>
                 <div class="submenu">
                     <a href="#" title="item"> Informations légales</a>
                     <a href="#" title="item"> Où nous trouver?</a> <!-- bref intro du site  -->

@@ -1,4 +1,6 @@
-/*  Design profile user */
+/**
+ * Design profile user data
+ */
 #profile-actions {
     display: flex;
 }

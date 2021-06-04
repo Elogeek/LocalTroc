@@ -60,6 +60,10 @@ if (isset($_GET['controller'])) {
                         $controller->disconnect();
                         break;
 
+                    case 'editInformation':
+                        $controller->editInformation($_POST);
+                        break;
+
                     case 'delete' :
                         $manager->deleteUser();
                         break;

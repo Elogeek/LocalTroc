@@ -99,7 +99,7 @@ html {
 
 h2 {
     text-align: center;
-    margin-top: 29rem;
+    margin-top: 2.5rem;
     margin-bottom: 2rem;
     font-size: 3.5rem;
     color: #08C1EFFF;
@@ -326,81 +326,6 @@ h2 {
     margin-top: 16rem;
 }
 
-/* user review
-.rectangle {
-    margin: 2rem 1rem;
-    background-color: #ffffff;
-    box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
-    transition: transform 0.3s;
-    transform: translate3d(0,-1px,0);
-    width: 22rem;
-    height: 22rem;
-}
-
-.image {
-    display: flex;
-    justify-content: center;
-    height: 4rem;
-}
-
-.image {
-    height: 6rem;
-    width: 6rem;
-    object-position: 100% 50%;
-    background-image: url("/assets/img/avatar.png");
-    background-position: 50% 50%;
-    border-radius: 50% !important;
-    background-size: cover;
-    position: absolute;
-    bottom: 20rem;
-    left: 8rem;
-    z-index: 1000;
-}
-
-.rectangle h2 {
-    position: relative;
-    text-align: center;
-    margin-top: 2rem;
-    font-size: xxx-large;
-}
-
-.descriptionTitle {
-    margin-top: 3rem;
-}
-
-.description {
-    padding: 2%;
-    margin-top: 1rem;
-}
-
-.blue {
-    color: #08c1ef;
-    font-size: 20px;
-}
-
-.gras {
-    font-weight: bold;
-    font-style: italic;
-    color: #c9e265;
-    text-shadow: 2px 2px black;
-}
-
-.avis p {
-    padding: 3%;
-
-}
-.lignes {
-    color: #c9e265;
-    opacity: 0.33;
-    margin: 0.5rem;
-}
-
-.star {
-     color: #08c1ef;
-    display: flex;
-    justify-content: center;
-}
-*/
 /* Design div8: helpContact */
 #div8 {
     font-weight: bold;
@@ -471,6 +396,19 @@ h2 {
     width: 22rem;
     height: 22rem;
     margin: 2rem 1rem -17rem;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+}
+
+.rectangle h2 {
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: xxx-large;
 }
 
 .blue {
@@ -701,6 +639,7 @@ footer > div:first-child {
 }
 
 footer {
+    margin-top: 4rem;
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
     display: flex;

@@ -1,6 +1,6 @@
 <footer>
 
-    <div>Nous rejoindre !</div>
+    <div>Nous suivre !</div>
 
     <!--si le temps block "restons en conctact"===>newletter?-->
     <div class="share">

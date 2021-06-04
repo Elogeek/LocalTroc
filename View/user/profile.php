@@ -21,7 +21,9 @@ $userProfile = $params['userProfile'];
 
             <!-- Edit buttons. -->
             <div id="profile-actions">
-                <a href="#" title="item" class="btn btn-primary"><i class="far fa-edit"></i>Editer mes données</a>
+                <a href="/index.php?controller=user&action=editInformation" title="item" class="btn btn-primary">
+                    <i class="far fa-edit"></i>Editer mes données
+                </a>
                 <a href="#" title="item" class="btn btn-primary"><i class="far fa-edit"></i>Editer mon profil</a>
             </div>
 

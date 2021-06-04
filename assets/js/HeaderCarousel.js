@@ -22,6 +22,7 @@ const HeaderCarousel = {
             flex-flow: row;
             justify-content: center;
             height: 31vw;
+            margin-top: 20.5rem;
             box-shadow: 2px 1px 8px 5px #6c757d;
         `;
         this.carrousel.appendChild(this.div);

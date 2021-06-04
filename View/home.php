@@ -1,5 +1,4 @@
 
-<!--forcer l'user a évaluer le services de l'user comme vinted après chaque service ===  donner AVIS (*****)-->
 
     <div class="div1">
         <!--slider--->
