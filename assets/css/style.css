@@ -99,7 +99,7 @@ html {
 
 h2 {
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 29rem;
     margin-bottom: 2rem;
     font-size: 3.5rem;
     color: #08C1EFFF;
@@ -114,7 +114,7 @@ h2 {
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    margin: 10.4rem 0 2.4rem 0;
+    margin: 21.4rem 0 2.4rem 0;
 }
 
 /*text*/
@@ -214,7 +214,7 @@ h2 {
     position: relative;
     overflow: hidden;
     width: 80%;
-    margin: auto;
+    margin: 3rem;
 }
 
 /*placement arrows*/
@@ -485,58 +485,6 @@ h2 {
     text-shadow: 2px 2px black;
 }
 
-/*footer*/
-footer {
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-}
-
-/*share*/
-.share {
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-end;
-    align-content: space-around;
-    color: white;
-    margin-top: 9rem;
-    width: 80%;
-}
-
-.share div {
-    margin: 0.8rem;
-    width: 11rem;
-}
-
-.share i {
-    height: 4rem;
-    width: 45%;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-#span {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
-
-/*titleShare*/
-.titleShare {
-    font-weight: bold;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1rem;
-    margin-bottom: 6rem;
-}
 
 /*DESIGN PAGE ADMIN*/
 .menuAdmin {
@@ -726,6 +674,53 @@ nav {
     margin-right: 2.5rem;
 }
 
+footer .share {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 3rem;
+}
+
+footer .share div {
+    padding: 0.8rem;
+}
+
+footer .share div > i {
+    font-size: 3.5rem;
+}
+
+footer > div:first-child {
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+footer {
+    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+#copyright {
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+/**
+ * Responsive mode.
+ */
 @media screen and (max-width: 950px) {
 
     h2 {

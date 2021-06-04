@@ -1,6 +1,6 @@
 <footer>
 
-    <div class="titleShare">Nous rejoindre !</div>
+    <div>Nous rejoindre !</div>
 
     <!--si le temps block "restons en conctact"===>newletter?-->
     <div class="share">
@@ -18,11 +18,11 @@
         <div>
             <i id="printerest" class="fab fa-pinterest-square"></i>
         </div>
-
-        <div id="span">By Elogeek</div>
     </div>
 
+    <div id="copyright">&copy; 2021 Elogeek, tous droits réservés.</div>
 </footer>
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
