@@ -12,26 +12,24 @@
             <div class="menu">
                 <p><i class="far fa-handshake"></i> Services</p>
                 <div class="submenu">
-                    <a href="#"  title="item"><i class="fas fa-cog"></i> Paramètres services</a>
-                    <a href="#" title="item"><i class="far fa-edit"></i> Rédiger une annonce</a> <!--ok photo-->
-                    <a href="#" title="item"><i class="far fa-handshake"></i>  Rendre un service</a>
-                    <a href="#" title="item"><i class="far fa-edit"></i> Modifier une annonce</a>
-                    <a href="#" title="item"><i class="far fa-trash-alt"></i> Supprimer une annonce</a>
-                    <a href="#" title="item"><i class="fas fa-ban"></i> Signaler un service malveillant</a>
+                    <!-- annonce : ok  pour photo-->
+                    <a href="#" title="Editer une annonce"><i class="far fa-edit"></i> Rédiger une annonce</a>
+                    <a href="#" title="Donner un service"><i class="far fa-handshake"></i>  Rendre un service</a>
+                    <a href="#" title="Modifier"><i class="far fa-edit"></i> Modifier une annonce</a>
+                    <a href="#" title="Supprimer une annonce"><i class="far fa-trash-alt"></i> Supprimer une annonce</a>
+
                 </div>
             </div>
 
             <div class="menu">
                 <p><i class="far fa-question-circle"></i> </p>
                 <div class="submenu">
-                    <a href="#" title="item"> Informations légales</a>
-                    <a href="#" title="item"> Où nous trouver?</a> <!-- bref intro du site  -->
-                    <a href="#" title="item"> Protections des données utilisateurs</a>
-                    <a href="#" title="item"> Rappel charte (règlement du site)</a> <!-- charte déjà signer leurs de l'envoi du code par mail -->
+                    <a href="#" title="Règles du site"> Charte et règlement du site </a>
                 </div>
             </div>
 
-            <div><i class="fas fa-search"></i> Recherche rapide</div> <!--redirection big search bar avec search le + proche (expl ta === tapis/table....)-->
+            <div><i class="fas fa-search"></i> Recherche rapide</div>
+            <!--redirection big search bar(home) avec search le + proche (expl ta === tapis/table....)-->
 
             <?php
             // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
@@ -39,17 +37,16 @@
                 <div class="menu">
                     <p>
                         <i class="fas fa-user-astronaut"></i>
-                        <a href="/index.php?controller=user&action=profile">Mon profil</a>
+                        <a title="Mon profil" href="/index.php?controller=user&action=profile">Mon profil</a>
                     </p>
                     <div class="submenu">
-                        <a href="#" title="item"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
-                        <a href="#" title="item"><i class="fas fa-at"></i> Changer d'adresse email</a>
-                        <a href="#" title="item"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
-                        <a href="#" title="item"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
-                        <a href="#" title="item"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
-                        <a href="#" title="item"><i class="far fa-star"></i> Voir mes évaluations</a>
+                        <a href="#" title="Modifier mon profil"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
+                        <a href="#" title="Modifier mon profil"><i class="fas fa-at"></i> Changer d'adresse email</a>
+                        <a href="#" title="Modifier mon profil"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
+                        <a href="#" title="Modifier mon profil"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
+                        <a href="#" title="Supprimer mon compte"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
                         <!-- option now/+later-->
-                        <a href="#" title="item"><i class="far fa-edit"></i> Mes avis rédigées</a>
+                        <a href="#" title="Mes avis"><i class="far fa-edit"></i> Mes avis rédigées</a>
                     </div>
 
                 </div> <?php

@@ -364,8 +364,7 @@ h2 {
     flex-flow: row;
     justify-content: space-evenly;
     align-items: end;
-    margin-top: 0;
-    margin-bottom: 20rem;
+    margin-top: 20rem;
 }
 
 /*title subject*/
@@ -379,15 +378,15 @@ h2 {
 }
 
 .imageRectangle {
-    height: 6rem;
-    width: 6rem;
+    height: 8rem;
+    width: 8rem;
     object-position: 100% 50%;
     background-image: url("/assets/img/avatar.jpg");
     background-position: 50% 50%;
     border-radius: 50% !important;
     background-size: cover;
     position: absolute;
-    bottom: 20rem;
+    bottom: 22rem;
     left: 8rem;
     z-index: 1000;
 }
@@ -397,15 +396,9 @@ h2 {
     box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
     transition: transform 0.3s;
     transform: translate3d(0,-1px,0);
-    width: 22rem;
-    height: 22rem;
-    margin: 2rem 1rem -17rem;
-}
-
-.image {
-    display: flex;
-    justify-content: center;
-    height: 4rem;
+    width: 25rem;
+    height: 25rem;
+    margin-top: -16rem;
 }
 
 .rectangle h2 {
@@ -425,61 +418,6 @@ h2 {
     font-style: italic;
     color: #c9e265;
     text-shadow: 2px 2px black;
-}
-
-
-/*DESIGN PAGE ADMIN*/
-.menuAdmin {
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 15%;
-    padding: 1rem;
-    box-shadow: 0 0 15px 0 #6c757d;
-    background-color: #2f323a;
-}
-
-.menuAdmin > div:hover div {
-    display: block;
-}
-
-/*avatar admin*/
-#imgAdmin {
-    border-radius: 50% !important;
-    height: 5rem;
-    width: 5rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-/*menu a*/
-.containerAdmin * a {
-    text-decoration: none;
-    padding-top: 3rem;
-    color: white;
-}
-
-.containerAdmin * a:hover {
-    color: #4ECDC4;
-    transition: all 0.3s ease;
-}
-
-.containerAdmin {
-    width: 100%;
-}
-
-.right {
-    text-align: center;
-    float: right;
-    margin-top: -31rem;
-    margin-right: 29rem;
-}
-
-.right span {
-    display: block;
-    margin-bottom: 1rem;
 }
 
 /* DESIGN  result QUICK SEARCH */
@@ -627,7 +565,7 @@ footer .share div {
     padding: 0.8rem;
 }
 
-footer .share div > i {
+footer .share div >  i {
     font-size: 3.5rem;
 }
 

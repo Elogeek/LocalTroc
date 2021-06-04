@@ -13,6 +13,6 @@
     foreach ($css as $fcss) { ?>
         <link rel="stylesheet" href="<?= $fcss ?>"><?php
     }?>
-    <title>Document</title>
+    <title>LocalTroc</title>
 </head>
 <body>

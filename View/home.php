@@ -223,7 +223,7 @@ if(!$connected) { ?>
         </div>
         <div class="descriptionRectangle">
             <p>
-                <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+                <span class="blue">John</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
             </p>
         </div>
     </div>
@@ -235,7 +235,7 @@ if(!$connected) { ?>
         </div>
         <div class="descriptionRectangle">
             <p>
-                <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+                <span class="blue">John</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
             </p>
         </div>
     </div>
@@ -247,7 +247,7 @@ if(!$connected) { ?>
         </div>
         <div class="descriptionRectangle">
             <p>
-                <span class="blue">Jack</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
+                <span class="blue">John</span> a besoin d'aide pour faire ses courses  à <span class="gras"> Bourlers (6460) </span> <span class="timeService">aujourd'hui .</span>
             </p>
         </div>
     </div>
