@@ -8,3 +8,16 @@
     margin-bottom: 10rem;
 }
 
+.success {
+    background-color: #c9e265;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}

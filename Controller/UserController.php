@@ -56,7 +56,7 @@ class UserController extends Controller {
 
         }
         // On affiche la vue qqui est en charge du formulaire d'inscription.
-        $this->showView('user/connect', [], [], ['forms']);
+        $this->showView('user/connect', [], [], ['forms', 'errors']);
     }
 
 
@@ -151,7 +151,7 @@ class UserController extends Controller {
                 $this->setErrorMessage('Les champs requis ne sont pas tous remplis');
             }
         }
-        $this->showView('user/register', [], ['Forms']);
+        $this->showView('user/register', [], ['Forms', 'errors']);
     }
 
 
@@ -226,7 +226,7 @@ class UserController extends Controller {
             }
         }
 
-        $this->showView('user/editInformation', [], [], ['profile', 'forms']);
+        $this->showView('user/editInformation', [], [], ['profile', 'forms', 'errors']);
     }
 
 

@@ -36,6 +36,11 @@ html {
 }
 
 /* Menu a*/
+.nav * a, .nav * i {
+    text-decoration-line: none;
+    color: #3c3c3c;
+}
+
 .submenu > * {
     display: block;
 }
@@ -43,7 +48,6 @@ html {
 .submenu a {
     text-decoration: none;
     padding-top: 1rem;
-    color: black;
 }
 
 /* Logo */
