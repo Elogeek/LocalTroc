@@ -4,28 +4,25 @@ class LoginRouter {
 
     /**
      * Route user through login controller.
-     * @param string $action
-     * @param array $request
      */
-    public static function route(string $action, array $request) {
+    public static function route() {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/LoginController.php';
         $controller = new LoginController();
 
-        switch($action) {
+        switch($_GET['action']) {
             case 'disconnect':
                $controller->disconnect();
                 break;
             default:
-                (new LoginController())->login($request);
+                self::default();
         }
     }
 
     /**
      * Load the default route.
-     * @param array $request
      */
-    public static function default(array $request) {
+    public static function default() {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/LoginController.php';
-        (new LoginController())->login($request);
+        (new LoginController())->login($_POST);
     }
 }

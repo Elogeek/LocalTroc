@@ -39,12 +39,13 @@ if (isset($_GET['controller'])) {
             break;*/
 
         case 'login':
-            isset($_GET['action']) ? LoginRouter::route($_GET['action'], $_POST) : LoginRouter::default($_POST);
+            isset($_GET['action']) ? LoginRouter::route() : LoginRouter::default();
             break;
 
         case 'user':
-            isset($_GET['user']) ? UserRouter::route($_GET['action'], $_POST) : UserRouter::default($_POST);
+            isset($_GET['action']) ? UserRouter::route() : home();
             break;
+
         case "search" :
             //$controller = new QuickSearchController();
             //$controller->goToQSearch();
