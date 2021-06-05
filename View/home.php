@@ -28,7 +28,7 @@ if(!$connected) { ?>
         <div id="div3Text">
             <span>LocalTroc est 100% gratuit !</span>
             <span>Lancez - vous !</span><br>
-            <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
+            <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
         </div>
     </div><?php
 } ?>
@@ -200,7 +200,7 @@ if(!$connected) { ?>
 if(!$connected) { ?>
     <div id="div6">
         <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
-        <a class="btn" href="/index.php?controller=user&action=register">Inscription gratuite</a>
+        <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
     </div> <?php
 }
 ?>

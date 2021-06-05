@@ -38,6 +38,10 @@ if (isset($_GET['controller'])) {
 
             break;*/
 
+        case 'register':
+            RegisterRouter::route();
+            break;
+
         case 'login':
             isset($_GET['action']) ? LoginRouter::route() : LoginRouter::default();
             break;

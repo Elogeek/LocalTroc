@@ -16,7 +16,7 @@
                         <input type="submit" name="submit" value="Connexion">
                     </div>
                 </form>
-                <p id="createAccount">Pas encore de compte ? <a title="Register" href="/index.php?controller=user&action=register">Créez en un</a>.</p>
+                <p id="createAccount">Pas encore de compte ? <a title="Register" href="/index.php?controller=register">Créez en un</a>.</p>
             </div>
         </div>
     </div>

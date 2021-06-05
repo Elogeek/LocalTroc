@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Loading routes.
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/RegisterRouter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/LoginRouter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/UserRouter.php';
 
