@@ -1,7 +1,9 @@
 <?php
 
 use App\Entity\User;
+use App\Manager\MessageManager;
 use App\Manager\RoleManager;
+use App\Manager\UserServiceManager;
 use App\Model\Entity\UserManager;
 use Model\DB;
 
@@ -186,6 +188,38 @@ class UserController extends Controller {
         $this->showView('user/editProfile', [
             'userProfile' => $userProfile,
         ]);
+    }
+
+
+    /**
+     * Delete all user data.
+     */
+    public function deleteUser() {
+        $user = $this->getLoggedInUser();
+        if(is_null($user)) {
+            $this->redirectTo('user', 'login');
+        }
+
+        $messageManager = new MessageManager();
+        $userProfileManager = new UserProfileManager();
+        $serviceManager = new UserServiceManager();
+
+        // Getting all user data and delete them to be RGPD conform.
+        $messages = $messageManager->getSentMessages($user);
+        $profile = $userProfileManager->getUserProfile($user);
+        $services = $serviceManager->getServicesByUser($user);
+
+        foreach($messages as $message) {
+            $messageManager->deleteMessage($message);
+        }
+
+        $userProfileManager->deleteUserProfile($profile);
+
+        foreach($services as $service) {
+            $serviceManager->deleteService($service);
+        }
+
+        $this->redirectTo('login', 'disconnect');
     }
 
 

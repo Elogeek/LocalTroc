@@ -26,7 +26,7 @@ class UserRouter {
                 break;
 
             case 'delete' :
-                //$manager->deleteUser();
+                $controller->deleteUser();
                 break;
 
             default:
