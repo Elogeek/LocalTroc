@@ -40,45 +40,49 @@ class UserController extends Controller {
         if($this->isFormSubmitted()) {
             // Checking all required are set.
             if ($this->issetAndNotEmpty($req, 'firstname', 'lastname', 'mail')) {
-
                 $userManager = new UserManager();
 
                 $mail = DB::secureData($req['mail']);
                 $firstName = DB::secureData($req['firstname']);
                 $lastname = DB::secureData($req['lastname']);
 
-                if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                // Checking user not already exists.
+                $error = false;
+                if($mail !== $user->getEmail() && $userManager->getByMail($mail) !== null || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                    $error = true;
+                    $this->setErrorMessage("Cette adresse email est déjà prise ou n'est pas au bon format.");
+                }
+
+                // If no errors.
+                if(!$error) {
+                    $user->setFirstname($firstName);
+                    $user->setLastName($lastname);
                     $user->setEmail($mail);
-                }
 
-                $user->setFirstname($firstName);
-                $user->setLastName($lastname);
+                    $infosRes = $userManager->updateUser($user);
 
-                $infosRes = $userManager->updateUser($user);
+                    $passwordResult = true;
+                    // Checking if password was changed, if so, updating password.
+                    if ($this->issetAndNotEmpty($req, 'password', 'passwordConfirm')) {
+                        $pass = DB::secureData($req['password']);
+                        $passConfirm = DB::secureData($req['passwordConfirm']);
 
-                $passwordResult = true;
-                // Checking if password was changed, if so, updating password.
-                if($this->issetAndNotEmpty($req, 'password', 'passwordConfirm')) {
-                    $pass = DB::secureData($req['password']);
-                    $passConfirm = DB::secureData($req['passwordConfirm']);
-
-                    if(!DB::checkPassword($pass)) {
-                        $this->setErrorMessage("Le format du mot de passe n'est pas correct.");
-                        $passwordResult = false;
-                    }
-                    else {
-                        if($pass === $passConfirm) {
-                            $passwordResult = $userManager->updatePassword($user, $pass);
-                        }
-                        else {
-                            $this->setErrorMessage("Les mots de passe ne correspondent pas");
+                        if (!DB::checkPassword($pass)) {
+                            $this->setErrorMessage("Le format du mot de passe n'est pas correct.");
                             $passwordResult = false;
+                        } else {
+                            if ($pass === $passConfirm) {
+                                $passwordResult = $userManager->updatePassword($user, $pass);
+                            } else {
+                                $this->setErrorMessage("Les mots de passe ne correspondent pas");
+                                $passwordResult = false;
+                            }
                         }
                     }
-                }
 
-                if($infosRes && $passwordResult) {
-                    $this->setSuccessMessage("Vos informations ont bien été mises à jour !");
+                    if ($infosRes && $passwordResult) {
+                        $this->setSuccessMessage("Vos informations ont bien été mises à jour !");
+                    }
                 }
             }
         }
