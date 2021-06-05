@@ -22,7 +22,8 @@ class UserController extends Controller {
         }
 
         /* return profile user */
-        $this->addCss(['profile.css',]);
+        $this->addCss(['profile.css']);
+        $this->addJavaScript(['profile.js']);
         $this->showView('user/profile', [
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
         ]);
@@ -200,6 +201,7 @@ class UserController extends Controller {
             $this->redirectTo('user', 'login');
         }
 
+        $userManager = new UserManager();
         $messageManager = new MessageManager();
         $userProfileManager = new UserProfileManager();
         $serviceManager = new UserServiceManager();
@@ -218,6 +220,9 @@ class UserController extends Controller {
         foreach($services as $service) {
             $serviceManager->deleteService($service);
         }
+
+        // Finally deleting the user itself.
+        $userManager->deleteUser($user);
 
         $this->redirectTo('login', 'disconnect');
     }

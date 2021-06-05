@@ -134,32 +134,6 @@ h2 {
     font-weight: bold;
 }
 
-/* Btn registration */
-.btn {
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-    padding: 0.5rem 2.8rem;
-    border: 2px solid #fff;
-    color: white;
-    background-color: transparent;
-    border-radius: 30px;
-    font-size: 2rem;
-    line-height: 1.8;
-    cursor: pointer;
-    text-decoration-line: none;
-    margin: 1rem 0;
-}
-
-
-.btn-primary {
-    border: 1px solid black;
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-}
-
-.btn-primary > i {
-    padding-right: 0.5rem;
-}
-
 /* Design div4 ( search bar)*/
 #div4 {
     text-align: center;
@@ -533,6 +507,39 @@ h2 {
 /**
  * New code, don't touch this :-)
  */
+
+/* Btn registration */
+.btn {
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    padding: 0.1rem 1.5rem 0.1rem 1.5rem;
+    border: 2px solid #fff;
+    color: white;
+    background-color: transparent;
+    border-radius: 1.2rem;
+    font-size: 2rem;
+    line-height: 1.8;
+    cursor: pointer;
+    text-decoration-line: none;
+    margin: 1rem 0;
+
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.btn i {
+    padding-right: 0.5rem;
+}
+
+.btn-primary {
+    border: 1px solid #3c3c3c;
+    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
+}
+
+.btn-secondary {
+    background-color: #3c3c3c;
+}
 
 h1+hr {
     margin-top: 1rem;

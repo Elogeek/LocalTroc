@@ -30,6 +30,12 @@
     width: 100%;
 }
 
+input, select {
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid;
+}
+
 input {
     padding: 0.6rem;
     margin-left: 0.7rem;

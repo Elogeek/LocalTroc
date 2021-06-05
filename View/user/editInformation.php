@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <div class="form-group-item">
-                    <input type="submit" name="submit" value="Sauvegarder">
+                    <input class="btn btn-secondary" type="submit" name="submit" value="Sauvegarder">
                 </div>
             </div>
         </form>

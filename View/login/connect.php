@@ -13,7 +13,7 @@
                         <input type="password" id="password" name="password" placeholder="Mot de passe valide" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" value="Connexion">
+                        <input class="btn btn-secondary" type="submit" name="submit" value="Connexion">
                     </div>
                 </form>
                 <p id="createAccount">Pas encore de compte ? <a title="Register" href="/index.php?controller=register">Créez en un</a>.</p>

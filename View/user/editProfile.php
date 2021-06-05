@@ -61,7 +61,7 @@ $userProfile = $params['userProfile'];
 
             <div class="form-group">
                 <div class="form-group-item">
-                    <input type="submit" name="submit" value="Modifier">
+                    <input class="btn btn-secondary" type="submit" name="submit" value="Modifier">
                 </div>
             </div>
 

@@ -34,10 +34,6 @@
                     </p>
                     <div class="submenu">
                         <a href="#" title="Modifier mon profil"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
-                        <a href="#" title="Modifier mon profil"><i class="fas fa-at"></i> Changer d'adresse email</a>
-                        <a href="#" title="Modifier mon profil"><i class="fas fa-phone"></i> Changer de numéro de téléphone</a>
-                        <a href="#" title="Modifier mon profil"><i class="far fa-hand-point-right"></i> Changer de pseudo</a>
-                        <a href="#" title="Supprimer mon compte"><i class="fas fa-user-times"></i>  Supprimer le compte</a>
                         <!-- option now/+later-->
                         <a href="#" title="Mes avis"><i class="far fa-edit"></i> Mes avis rédigées</a>
                     </div>

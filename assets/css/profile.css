@@ -16,17 +16,19 @@
 }
 
 table.profile-table {
-    margin: 0 auto;
+    margin: 0 auto 6rem;
 }
 
 table.profile-table th, table.profile-table td {
     text-align: left;
     width: 1px;
     white-space: nowrap;
+    border: none;
 }
 
 div.profile-table h2 {
     text-align: left;
+    margin-top: 4rem;
 }
 
 div.profile-table {
