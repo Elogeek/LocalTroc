@@ -8,11 +8,11 @@
             <div class="form-group">
                 <div class="form-group-item">
                     <label for="firstname">Votre prénom</label>
-                    <input type="text" name="firstname" id="firstname" required>
+                    <input type="text" name="fname" id="firstname" required>
                 </div>
                 <div class="form-group-item">
                     <label for="lastname">Votre nom</label>
-                    <input type="text" name="lastname" id="lastname" required>
+                    <input type="text" name="lname" id="lastname" required>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
 
                 <div class="form-group-item">
                     <label for="codeZip">Code postal</label>
-                    <input name="codeZip" id="codeZip" type="number" required>
+                    <input name="codeZip" id="zip" type="number" required>
                 </div>
             </div>
 
@@ -63,13 +63,13 @@
             <div class="form-group">
                 <div class="form-group-item">
                     <label for="password">Votre mot de passe</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="passwd" id="password" required>
                     <small class="form-control-info">Min 5 caractères, lettres, majuscules, chiffres </small>
                 </div>
 
                 <div class="form-group-item">
                     <label for="passwordConfirm">Confirmez votre mot de passe</label>
-                    <input type="password" name="passwordConfirm" id="passwordConfirm" required>
+                    <input type="password" name="passwdConfirm" id="passwordConfirm" required>
                 </div>
 
             </div>

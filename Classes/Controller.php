@@ -82,12 +82,13 @@ class Controller {
 
     /**
      * Return true if all provided parameters was set.
-     * @param ...$params
+     * @param array $array
+     * @param mixed ...$keys
      * @return bool
      */
-    public function issetAndNotEmpty(...$params): bool {
-        foreach ($params as $param) {
-            if(!isset($param) || empty($param)) {
+    public function issetAndNotEmpty(array $array, ...$keys): bool {
+        foreach ($keys as $key) {
+            if(!isset($array[$key]) || empty($array[$key])) {
                 return false;
             }
         }

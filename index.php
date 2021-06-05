@@ -49,7 +49,7 @@ if (isset($_GET['controller'])) {
                         break;
 
                     case 'login':
-                        $controller->login($_POST);
+                        (new LoginController())->login($_POST);
                         break;
 
                     case 'profile':

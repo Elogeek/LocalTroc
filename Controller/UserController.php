@@ -11,54 +11,6 @@ use Model\DB;
 class UserController extends Controller {
 
     /**
-     * Get user logged in.
-     * @param array $request
-     */
-    public function login(array $request) {
-        // Si l'utilisateur est déjà connecté, je le renvoie sur son profile.
-        if(!is_null($this->getLoggedInUser())) {
-            $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
-        }
-
-        // Je vérifie si le formulaire a été soumis ou pas.
-        if($this->isFormSubmitted() && $this->issetAndNotEmpty($request['email'], $request['password'])) {
-            $mail = DB::secureData($request['email']);
-            $password = DB::secureData($request['password']);
-
-            if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                $userManager = new UserManager();
-                $user = $userManager->getByMail($mail);
-                if(!is_null($user)) {
-                    // Alors le user existe bien, on peut vérifier le password.
-                    $encodedPassword = $userManager->getUserPassword($user);
-                    if(password_verify($password, $encodedPassword)) {
-                        // L'objet utilisateur se trouve en session, on peut l'utiliser partout, si cette variable de session existe ( connected_user ) c'est que l'utilisateur est connecté
-                        $_SESSION['connected_user'] = $user->getId();
-                        $this->redirectTo('user', 'profile');
-                    }
-                    else {
-                        $this->setErrorMessage("Erreur, le mot de passe n'est pas correct");
-                    }
-                }
-                else {
-                    $this->setErrorMessage("L'adresse email n'a pa pu être trouvée, ce compte ne semble pas exister.");
-                }
-            }
-            else {
-                $this->setErrorMessage("Le format de l'adresse email n'est pas bon.");
-            }
-
-        }
-        // On affiche la vue qqui est en charge du formulaire d'inscription.
-        $this->addCss([
-            'forms.css',
-            'errors.css',
-        ]);
-        $this->showView('user/connect');
-    }
-
-
-    /**
      * Handle user disconnect and redirect to index.
      */
     public function disconnect() {
@@ -82,46 +34,63 @@ class UserController extends Controller {
         // Checking if form was submit.
         if($this->isFormSubmitted()) {
             // Checking all required are set.
-            if($this->issetAndNotEmpty($request['firstname'], $request['lastname'], $request['pseudo'], $request['birthday'],
-                $request['city'], $request['address'], $request['codeZip'], $request['mail'], $request['password'], $request['passwordConfirm'])
-            ) {
+            if($this->issetAndNotEmpty($request, 'fname','lname','pseudo','birthday','city','address','zip','mail','passwd','passwdConfirm')) {
                 // Optionals
                 $other = DB::secureData($request['other']);
                 $phone = DB::secureData($request['phone']);
 
                 // Starting checking provided - required form data.
-                $password = DB::secureData($request['password']);
-                $passwordConfirm = DB::secureData($request['passwordConfirm']);
-                $firstName = DB::secureData($request['firstname']);
-                $lastName = DB::secureData($request['lastname']);
+                $password = DB::secureData($request['passwd']);
+                $passwordConfirm = DB::secureData($request['passwdConfirm']);
+                $firstName = DB::secureData($request['fname']);
+                $lastName = DB::secureData($request['lname']);
                 $pseudo = DB::secureData($request['pseudo']);
                 $city = DB::secureData($request['city']);
                 $address = DB::secureData($request['address']);
-                $zip = DB::secureInt($request['codeZip']);
+                $zip = DB::secureInt($request['zip']);
                 $birthday = DB::secureData($request['birthday']);
                 $mail = DB::secureData($request['mail']);
 
                 $userManager = new UserManager();
                 $userTest = $userManager->getByMail($mail);
+
+                // Checking if user already exists into the users table.
                 if(is_null($userTest)) {
                     // Checking passwords, zip, phone, birthday
-                    // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
+                    // TODO => Vérifie le téléphone, etc...
                     // TODO => Vérifier si le pseudo n'est pas déjà pris...
                     // TODO => Vérifier que les champs optionnels ne soient pas vide avant de mettre à jour.....
 
+                    $error = false;
                     $roleManager = new RoleManager();
                     $user = new User();
-                    $user->setEmail($mail);
+                    // Checking user mail.
+                    if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                        $error = true;
+                        $this->setErrorMessage("Le format de l'adresse mail n'est pas correct");
+                    }
+                    else {
+                        $user->setEmail($mail);
+                    }
+
+                    // Checking password.
+                    if($password !== $passwordConfirm || !DB::checkPassword($password)) {
+                        $error = true;
+                        $this->setErrorMessage("Les mots de passe ne correspondent pas ou ne respectent pas le critère de sécurité");
+                    }
+                    else {
+                        $user->setPassword($password);
+                    }
+
                     $user->setFirstname($firstName);
                     $user->setLastName($lastName);
                     $user->setId(null);
-                    $user->setPassword($password);
                     $user->setRole($roleManager->getDefaultRole());
 
                     // Sauvegarde du nouvel user.
-                    if ($userManager->addUser($user) && $user->getId() !== null) {
+                    if (!$error && $userManager->addUser($user) && $user->getId() !== null) {
                         // addUser retourne true en cas de succès, ou false en cas d'erreur.
-                        // Si c'est true, on peut ajouter le profile, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
+                        // Si c'est true, on peut ajouter le profil, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
                         $profileManager = new UserProfileManager();
                         $profile = $profileManager->getUserProfile($user);
                         $profile->setAddress($address);
@@ -145,8 +114,7 @@ class UserController extends Controller {
                 } else {
                   $this->setErrorMessage("L'utilisateur existe déjà");
                 }
-            }
-            else {
+            } else {
                 $this->setErrorMessage('Les champs requis ne sont pas tous remplis');
             }
         }
@@ -169,10 +137,7 @@ class UserController extends Controller {
         }
 
         /* return profile user */
-        $this->addCss([
-            'profile.css',
-        ]);
-
+        $this->addCss(['profile.css',]);
         $this->showView('user/profile', [
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
         ]);
@@ -191,7 +156,7 @@ class UserController extends Controller {
 
         if($this->isFormSubmitted()) {
             // Checking all required are set.
-            if ($this->issetAndNotEmpty($req['firstname'], $req['lastname'], $req['mail'])) {
+            if ($this->issetAndNotEmpty($req, 'firstname', 'lastname', 'mail')) {
 
                 $userManager = new UserManager();
 
@@ -210,7 +175,7 @@ class UserController extends Controller {
 
                 $passwordResult = true;
                 // Checking if password was changed, if so, updating password.
-                if($this->issetAndNotEmpty($req['password'], $req['passwordConfirm'])) {
+                if($this->issetAndNotEmpty($req, 'password', 'passwordConfirm')) {
                     $pass = DB::secureData($req['password']);
                     $passConfirm = DB::secureData($req['passwordConfirm']);
 
@@ -229,7 +194,7 @@ class UserController extends Controller {
                     }
                 }
 
-                if($passwordResult) {
+                if($infosRes && $passwordResult) {
                     $this->setSuccessMessage("Vos informations ont bien été mises à jour !");
                 }
             }
@@ -261,37 +226,45 @@ class UserController extends Controller {
 
         if($this->isFormSubmitted()) {
             // Starting checking provided - required form data.
-            if($this->issetAndNotEmpty($req['pseudo'], $req['city'], $req['address'], $req['codeZip'], $req['birthday'])) {
+            if($this->issetAndNotEmpty($req, 'pseudo', 'city', 'address', 'codeZip', 'birthday')) {
                 $pseudo = DB::secureData($req['pseudo']);
                 $city = DB::secureData($req['city']);
                 $address = DB::secureData($req['address']);
                 $zip = DB::secureInt($req['codeZip']);
                 $birthday = DB::secureData($req['birthday']);
 
-                // TODO check birthday, $codeZip, phone, ...
-                $userProfile->setPseudo($pseudo);
-                $userProfile->setCodeZip($zip);
-                $userProfile->setCity($city);
-                $userProfile->setAddress($address);
-                $userProfile->setBirthday($birthday);
-
-                // Checking if MoreInfo was provided.
-                if($this->issetAndNotEmpty($req['other'])) {
-                    $userProfile->setMoreInfos(DB::secureData($req['other']));
+                $error = false;
+                // Si la date n'est pas valide ou si la date ne se situe pas dans la limite [-100 ans ... -10 ans].
+                if(!DateUtils::isDateValid($birthday) || !DateUtils::isDateBetween($birthday)) {
+                    $error = true;
+                    $this->setErrorMessage("La date ne semble pas valide.");
                 }
 
-                // Checking if phone was provided.
-                if($this->issetAndNotEmpty($req['phone'])) {
-                    $userProfile->setPhone(DB::secureData($req['phone']));
-                }
 
-                if($profileManager->updateProfile($userProfile)) {
-                    $this->setSuccessMessage("Votre profil a bien été mis à jour");
-                }
-                else {
-                    $this->setErrorMessage("Une erreur est survenue en mettant à jour votre profil");
-                }
+                // TODO check $codeZip, phone, ...
+                if(!$error) {
+                    $userProfile->setPseudo($pseudo);
+                    $userProfile->setCodeZip($zip);
+                    $userProfile->setCity($city);
+                    $userProfile->setAddress($address);
+                    $userProfile->setBirthday($birthday);
 
+                    // Checking if MoreInfo was provided.
+                    if ($this->issetAndNotEmpty($req, 'other')) {
+                        $userProfile->setMoreInfos(DB::secureData($req['other']));
+                    }
+
+                    // Checking if phone was provided.
+                    if ($this->issetAndNotEmpty($req, 'phone')) {
+                        $userProfile->setPhone(DB::secureData($req['phone']));
+                    }
+
+                    if ($profileManager->updateProfile($userProfile)) {
+                        $this->setSuccessMessage("Votre profil a bien été mis à jour");
+                    } else {
+                        $this->setErrorMessage("Une erreur est survenue en mettant à jour votre profil");
+                    }
+                }
             }
             else {
                 $this->setErrorMessage("Certains champs obligatoires sont manquants");
