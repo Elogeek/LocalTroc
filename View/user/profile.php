@@ -1,5 +1,4 @@
 <?php
-/* @var User $user */
 /* @var UserProfile $userProfile */
 
 use App\Entity\User;
@@ -24,7 +23,9 @@ $userProfile = $params['userProfile'];
                 <a href="/index.php?controller=user&action=editInformation" title="item" class="btn btn-primary">
                     <i class="far fa-edit"></i>Editer mes données
                 </a>
-                <a href="#" title="item" class="btn btn-primary"><i class="far fa-edit"></i>Editer mon profil</a>
+                <a href="/index.php?controller=user&action=editProfile" title="item" class="btn btn-primary">
+                    <i class="far fa-edit"></i>Editer mon profil
+                </a>
             </div>
 
             <h1>Mon profil </h1>

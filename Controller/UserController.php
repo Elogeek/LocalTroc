@@ -107,6 +107,7 @@ class UserController extends Controller {
                     // Checking passwords, zip, phone, birthday
                     // TODO => Vérifie que le password ait bien les pré requis, vérifie l'email, le téléphone, etc...
                     // TODO => Vérifier si le pseudo n'est pas déjà pris...
+                    // TODO => Vérifier que les champs optionnels ne soient pas vide avant de mettre à jour.....
 
                     $roleManager = new RoleManager();
                     $user = new User();
@@ -180,9 +181,9 @@ class UserController extends Controller {
 
     /**
      * Edit user account information.
-     * @param $req
+     * @param array $req
      */
-    public function editInformation($req) {
+    public function editInformation(array $req) {
         $user = $this->getLoggedInUser();
         if(is_null($user)) {
             $this->redirectTo('user', 'login');
@@ -242,6 +243,66 @@ class UserController extends Controller {
         $this->showView('user/editInformation');
     }
 
+
+    /**
+     * Edit user in site profile.
+     * @param array $req
+     */
+    public function editProfile(array $req)
+    {
+        // Redirect user to the login page if he try to access the edit page without being logged in.
+        $user = $this->getLoggedInUser();
+        if(is_null($user)) {
+            $this->redirectTo('user', 'login');
+        }
+        // Getting user profile to populate html fields and update user profile with provided data.
+        $profileManager = new UserProfileManager();
+        $userProfile = $profileManager->getUserProfile($user);
+
+        if($this->isFormSubmitted()) {
+            if($this->issetAndNotEmpty($req['pseudo'], $req['city'], $req['address'], $req['codeZip'], $req['birthday'])) {
+                // Optionals
+                $other = DB::secureData($req['other']);
+                $phone = DB::secureData($req['phone']);
+
+                // Starting checking provided - required form data.
+                $pseudo = DB::secureData($req['pseudo']);
+                $city = DB::secureData($req['city']);
+                $address = DB::secureData($req['address']);
+                $zip = DB::secureInt($req['codeZip']);
+                $birthday = DB::secureData($req['birthday']);
+
+                // TODO check birthday, $codeZip, phone, ...
+                $userProfile->setPseudo($pseudo);
+                $userProfile->setCodeZip($zip);
+                $userProfile->setCity($city);
+                $userProfile->setAddress($address);
+
+                $userProfile->setBirthday($birthday);
+
+                if($profileManager->updateProfile($userProfile)) {
+                    $this->setSuccessMessage("Votre profil a bien été mis à jour");
+                }
+                else {
+                    $this->setErrorMessage("Une erreur est survenue en mettant à jour votre profil");
+                }
+
+            }
+            else {
+                $this->setErrorMessage("Certains champs obligatoires sont manquants");
+            }
+        }
+
+        $this->addCss([
+            'profile.css',
+            'forms.css',
+            'errors.css',
+        ]);
+
+        $this->showView('user/editProfile', [
+            'userProfile' => $userProfile,
+        ]);
+    }
 
 
 }

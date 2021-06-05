@@ -64,6 +64,10 @@ if (isset($_GET['controller'])) {
                         $controller->editInformation($_POST);
                         break;
 
+                    case 'editProfile':
+                        $controller->editProfile($_POST);
+                        break;
+
                     case 'delete' :
                         $manager->deleteUser();
                         break;
