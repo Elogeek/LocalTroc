@@ -39,54 +39,11 @@ if (isset($_GET['controller'])) {
             break;*/
 
         case 'login':
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/LoginController.php';
-            $controller = new LoginController();
-            if (isset($_GET['action'])) {
-                switch ($_GET['action']) {
-                    case 'disconnect':
-                        $controller->disconnect();
-                        break;
-                    default:
-                        (new LoginController())->login($_POST);
-                }
-            } else {
-                (new LoginController())->login($_POST);
-            }
+            isset($_GET['action']) ? LoginRouter::route($_GET['action'], $_POST) : LoginRouter::default($_POST);
             break;
 
         case 'user':
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/UserController.php';
-            $controller = new UserController();
-
-            if (isset($_GET['action'])) {
-                switch ($_GET['action']) {
-                    case 'register':
-                        $controller->register($_POST);
-                        break;
-
-                    case 'profile':
-                        $controller->profile();
-                        break;
-
-                    case 'editInformation':
-                        $controller->editInformation($_POST);
-                        break;
-
-                    case 'editProfile':
-                        $controller->editProfile($_POST);
-                        break;
-
-                    case 'delete' :
-                        $manager->deleteUser();
-                        break;
-
-                    default:
-                        home();
-                }
-            }
-            else {
-                home();
-            }
+            isset($_GET['user']) ? UserRouter::route($_GET['action'], $_POST) : UserRouter::default($_POST);
             break;
         case "search" :
             //$controller = new QuickSearchController();
