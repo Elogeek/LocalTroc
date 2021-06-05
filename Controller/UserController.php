@@ -260,12 +260,8 @@ class UserController extends Controller {
         $userProfile = $profileManager->getUserProfile($user);
 
         if($this->isFormSubmitted()) {
+            // Starting checking provided - required form data.
             if($this->issetAndNotEmpty($req['pseudo'], $req['city'], $req['address'], $req['codeZip'], $req['birthday'])) {
-                // Optionals
-                $other = DB::secureData($req['other']);
-                $phone = DB::secureData($req['phone']);
-
-                // Starting checking provided - required form data.
                 $pseudo = DB::secureData($req['pseudo']);
                 $city = DB::secureData($req['city']);
                 $address = DB::secureData($req['address']);
@@ -277,8 +273,17 @@ class UserController extends Controller {
                 $userProfile->setCodeZip($zip);
                 $userProfile->setCity($city);
                 $userProfile->setAddress($address);
-
                 $userProfile->setBirthday($birthday);
+
+                // Checking if MoreInfo was provided.
+                if($this->issetAndNotEmpty($req['other'])) {
+                    $userProfile->setMoreInfos(DB::secureData($req['other']));
+                }
+
+                // Checking if phone was provided.
+                if($this->issetAndNotEmpty($req['phone'])) {
+                    $userProfile->setPhone(DB::secureData($req['phone']));
+                }
 
                 if($profileManager->updateProfile($userProfile)) {
                     $this->setSuccessMessage("Votre profil a bien été mis à jour");

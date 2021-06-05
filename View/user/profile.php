@@ -61,7 +61,7 @@ $userProfile = $params['userProfile'];
                 </tr>
                 <tr>
                     <th>Anniversaire</th>
-                    <td><?= $userProfile->getBirthday() ?></td>
+                    <td><?= date('d / m / Y', strtotime($userProfile->getBirthday())) ?></td>
                 </tr>
                 <tr>
                     <th>Adresse</th>

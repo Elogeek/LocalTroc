@@ -23,7 +23,9 @@
                 </div>
                 <div class="form-group-item">
                     <label for="birthday">Votre date de naissance</label>
-                    <input type="date" name="birthday" id="birthday">
+                    <input type="date" name="birthday" id="birthday"
+                           min="<?= (new DateTime())->modify('-110 years')->format('Y-m-d') ?>"
+                           max="<?= (new DateTime())->modify('-10 years')->format('Y-m-d') ?>">
                 </div>
             </div>
 
