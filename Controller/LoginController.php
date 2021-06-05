@@ -57,4 +57,14 @@ class LoginController extends Controller {
         $this->showView('user/connect');
     }
 
+
+    /**
+     * Handle user disconnect and redirect to index.
+     */
+    public function disconnect() {
+        $_SESSION = []; // Je remplace le tableau $_SESSION par un tableau qui ne contient rien.
+        session_unset();
+        session_destroy();
+        $this->redirectTo('index');
+    }
 }

@@ -38,6 +38,22 @@ if (isset($_GET['controller'])) {
 
             break;*/
 
+        case 'login':
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/LoginController.php';
+            $controller = new LoginController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'disconnect':
+                        $controller->disconnect();
+                        break;
+                    default:
+                        (new LoginController())->login($_POST);
+                }
+            } else {
+                (new LoginController())->login($_POST);
+            }
+            break;
+
         case 'user':
             require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/UserController.php';
             $controller = new UserController();
@@ -48,16 +64,8 @@ if (isset($_GET['controller'])) {
                         $controller->register($_POST);
                         break;
 
-                    case 'login':
-                        (new LoginController())->login($_POST);
-                        break;
-
                     case 'profile':
                         $controller->profile();
-                        break;
-
-                    case 'disconnect':
-                        $controller->disconnect();
                         break;
 
                     case 'editInformation':

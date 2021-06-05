@@ -11,17 +11,6 @@ use Model\DB;
 class UserController extends Controller {
 
     /**
-     * Handle user disconnect and redirect to index.
-     */
-    public function disconnect() {
-        $_SESSION = []; // Je remplace le tableau $_SESSION par un tableau qui ne contient rien.
-        session_unset();
-        session_destroy();
-        $this->redirectTo('index');
-    }
-
-
-    /**
      * Handle user account register.
      * @param array $request
      */

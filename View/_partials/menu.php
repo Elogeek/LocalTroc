@@ -56,13 +56,13 @@
             // Si l'utilisateur n'est pas connecté, alors on affiche le lien de connexion.
             if(!$connected) { ?>
                 <div>
-                    <a title="Connexion" href="/index.php?controller=user&action=login"> Se connecter</a>
+                    <a title="Connexion" href="/index.php?controller=login"> Se connecter</a>
                 </div> <?php
             } else {
                 // Si l'utilisateur est connecté, alors on peut afficher le bouton de déconnexion ?>
                 <div>
                     <i class="fas fa-power-off"></i>
-                    <a title="Déconnexion" href="/index.php?controller=user&action=disconnect">Déconnexion</a>
+                    <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">Déconnexion</a>
                 </div><?php
             }
             ?>

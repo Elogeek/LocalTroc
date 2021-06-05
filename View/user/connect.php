@@ -5,7 +5,7 @@
             <h1>Connexion</h1>
             <hr>
             <div class="login-form form">
-                <form action="/index.php?controller=user&action=login" method="POST">
+                <form action="/index.php?controller=login" method="POST">
                    <div class="form-group">
                        <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
                    </div>
