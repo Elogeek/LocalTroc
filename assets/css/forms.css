@@ -26,6 +26,10 @@
     margin-bottom: 1rem;
 }
 
+.form-group > div > textarea {
+    width: 100%;
+}
+
 input {
     padding: 0.6rem;
     margin-left: 0.7rem;

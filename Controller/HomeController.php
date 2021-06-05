@@ -16,9 +16,7 @@ class HomeController extends Controller {
         ]);
 
         // Additional css.
-        $this->addCss([
-            'headerCarousel.css'
-        ]);
+        $this->addCss(['headerCarousel.css']);
         $this->showView('home');
     }
 }

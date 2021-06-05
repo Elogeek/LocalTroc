@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <p class="form-control-info">Uniquement si vous souhaitez changer de mot de passe</p>
+            <p class="form-control-info">Si vous souhaitez changer de mot de passe</p>
             <div class="form-group">
                 <div class="form-group-item">
                     <input type="password" name="password" id="password" placeholder="Mot de passe">

@@ -1,29 +1,90 @@
-<!-- Create user account -->
-<div>
-    <form action="/index.php?controller=user&action=register" method="POST">
-        <h4>Créer un compte </h4>
+<div class="internal-container">
+    <div class="profile-content form">
+        <form action="/index.php?controller=user&action=register" method="POST">
+            <h1>Créer un compte </h1>
+            <hr>
 
-        <!-- first name and last name -->
-        <input type="text" name="firstname" id="firstname" placeholder="Prénom" required>
-        <input type="text" name="lastname" id="lastname" placeholder="Nom" required>
-        <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required>
+            <!-- first name and last name -->
+            <div class="form-group">
+                <div class="form-group-item">
+                    <label for="firstname">Votre prénom</label>
+                    <input type="text" name="firstname" id="firstname" required>
+                </div>
+                <div class="form-group-item">
+                    <label for="lastname">Votre nom</label>
+                    <input type="text" name="lastname" id="lastname" required>
+                </div>
+            </div>
 
-        <!-- User infos. -->
+            <div class="form-group">
+                <div class="form-group-item">
+                    <label for="pseudo">Votre pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" required>
+                </div>
+                <div class="form-group-item">
+                    <label for="birthday">Votre date de naissance</label>
+                    <input type="date" name="birthday" id="birthday">
+                </div>
+            </div>
 
-        <input type="date" name="birthday">
-        <input name="city" type="text" placeholder="Ville" required>
-        <input name="address" type="text" placeholder="Adresse" required>
-        <input name="codeZip" type="number" placeholder="Code postal" required>
-        <input name="other" type="text" placeholder="Autre : diplôme, passions, compétences,...">
-        <input name="phone" type="tel" placeholder="Téléphone">
+            <div class="form-group">
+                <div>
+                    <label for="address">Votre adresse complète</label>
+                    <input name="address" id="address" type="text" required>
+                </div>
+            </div>
 
-        <!-- User info connect -->
-        <input name="mail" type="email" placeholder="Adresse mail" required>
-        <input type="password" name="password" id="password" placeholder="Mot de passe" required>
-        <small>Min 5 caractères, lettres, majuscules, chiffres </small>
-        <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Répétez le mot de passe" required>
+            <div class="form-group">
+                <div class="form-group-item">
+                    <label for="city">Votre ville</label>
+                    <input name="city" id="city" type="text" required>
+                </div>
 
-        <input type="submit" name="submit" value="Créer mon compte">
-    </form>
+                <div class="form-group-item">
+                    <label for="codeZip">Code postal</label>
+                    <input name="codeZip" id="codeZip" type="number" required>
+                </div>
+            </div>
 
+            <div class="form-group">
+                <div class="form-group-item">
+                    <label for="phone">Votre numéro de téléphone</label>
+                    <input name="phone" id="phone" type="tel" placeholder="Téléphone">
+                </div>
+
+                <div class="form-group-item">
+                    <label for="mail">Votre adresse mail</label>
+                    <input name="mail" id="mail" type="email" placeholder="Adresse mail" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group-item">
+                    <label for="password">Votre mot de passe</label>
+                    <input type="password" name="password" id="password" required>
+                    <small class="form-control-info">Min 5 caractères, lettres, majuscules, chiffres </small>
+                </div>
+
+                <div class="form-group-item">
+                    <label for="passwordConfirm">Confirmez votre mot de passe</label>
+                    <input type="password" name="passwordConfirm" id="passwordConfirm" required>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="other">Autres: diplômes, passions, hobbies, compétences, etc...</label>
+                    <textarea name="other" id="other" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group-item">
+                    <input type="submit" name="submit" value="Créer mon compte">
+                </div>
+            </div>
+
+        </form>
+    </div>
 </div>
