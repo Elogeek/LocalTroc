@@ -111,4 +111,15 @@ class UserProfileManager {
         return null;
     }
 
+    /**
+     * Check if a pseudo is already taken and return true if so, false otherwise.
+     * @param string $pseudo
+     * @return bool
+     */
+    public function isPseudoTaken(string $pseudo): bool {
+        $request = DB::getInstance()->prepare("SELECT count(*) as cnt FROM user_profile WHERE pseudo = :pseudo");
+        $request->bindValue(':pseudo', $pseudo);
+        return $request->execute() && intval($request->fetch()['cnt']) > 0;
+    }
+
 }

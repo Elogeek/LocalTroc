@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <div class="form-group-item">
-                    <label for="phone">Votre numéro de téléphone</label>
+                    <label for="phone">Votre numéro de téléphone, format national</label>
                     <input name="phone" id="phone" type="tel" placeholder="Téléphone">
                 </div>
 
