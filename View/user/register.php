@@ -1,6 +1,6 @@
 <div class="internal-container">
     <div class="profile-content form">
-        <form action="/index.php?controller=user&action=register" method="POST">
+        <form action="/index.php?controller=register" method="POST">
             <h1>Créer un compte </h1>
             <hr>
 
@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="form-group-item">
-                    <label for="codeZip">Code postal</label>
-                    <input name="codeZip" id="zip" type="number" required>
+                    <label for="zip">Code postal</label>
+                    <input name="zip" id="zip" type="number" required>
                 </div>
             </div>
 

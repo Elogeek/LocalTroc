@@ -23,8 +23,9 @@ class RegisterController extends Controller {
 
         // Checking if form was submit.
         if($this->isFormSubmitted()) {
+
             // Checking all required are set.
-            if(!$this->issetAndNotEmpty($request, 'fname','lname','pseudo','birthday','city','address','zip','mail','passwd','passwdConfirm')) {
+            if($this->issetAndNotEmpty($request, 'fname','lname','pseudo','birthday','city','address','zip','mail','passwd','passwdConfirm')) {
                 $userManager = new UserManager();
                 $roleManager = new RoleManager();
                 $profileManager = new UserProfileManager();
@@ -51,7 +52,7 @@ class RegisterController extends Controller {
                 // Checking user not already exists.
                 if($userManager->getByMail($mail) !== null) {
                     $error = true;
-                    $this->setErrorMessage("L'utilisateur existe déjà.");
+                    $this->setErrorMessage("Cette adresse email est déjà prise.");
                 }
                 // Checking if pseudo is already taken.
                 else if($profileManager->isPseudoTaken($pseudo)) {
@@ -64,26 +65,32 @@ class RegisterController extends Controller {
                     $this->setErrorMessage("Les mots de passe ne correspondent pas ou ne respectent pas le critère de sécurité.");
                 }
                 // Checking user mail.
-                else if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                elseif(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     $error = true;
                     $this->setErrorMessage("Le format de l'adresse mail n'est pas correct.");
                 }
                 // Checking birthday.
                 // Si la date n'est pas valide ou si la date ne se situe pas dans la limite [-100 ans ... -10 ans].
-                else if(!DateUtils::isDateValid($birthday) || !DateUtils::isDateBetween($birthday)) {
+                elseif(!DateUtils::isDateValid($birthday) || !DateUtils::isDateBetween($birthday)) {
                     $error = true;
                     $this->setErrorMessage("La date ne semble pas valide.");
                 }
-                // Checking phone => in belgium, phone numbers have min 9 ( fixes ) and 10 ( smartphones ) chars
-                else if(strlen($phone) > 0 && !(strlen($phone) >= 9 && strlen($phone) <= 10) && !preg_match('/[^0-9]/', $phone)) {
-                    $error = true;
-                    $this->setErrorMessage("Le numéro de téléphone doit être au format national belge ( 9 ou 10 chiffres )".);
-                }
                 // Checking zip code
-                else if(strlen($zip) !== 4 && !preg_match('/[^0-9]/', $zip)) {
+                elseif(strlen($zip) !== 4 || !is_numeric($zip)) {
                     $error = true;
                     $this->setErrorMessage("Le code postal doit être de 4 chiffre, au format belge.");
                 }
+                // Checking phone => in belgium, phone numbers have min 9 ( fixes ) and 10 ( smartphones ) chars
+                if(strlen($phone) > 0 ){
+                    if(!(strlen($phone) === 9 || strlen($phone) === 10) || !is_numeric($phone)) {
+                        $error = true;
+                        $this->setErrorMessage("Le numéro de téléphone doit être au format national belge ( 9 ou 10 chiffres ).");
+                    }
+                }
+
+                echo "<pre>";
+                var_dump($phone);
+                echo "</pre>";
 
                 // If no errors were found, then registering user.
                 if(!$error) {
