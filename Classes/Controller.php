@@ -70,7 +70,6 @@ class Controller {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/footer.php';
     }
 
-
     /**
      * Check if form was submitted.
      * @return bool

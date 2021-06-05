@@ -61,8 +61,9 @@
             } else {
                 // Si l'utilisateur est connecté, alors on peut afficher le bouton de déconnexion ?>
                 <div>
-                    <i class="fas fa-power-off"></i>
-                    <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">Déconnexion</a>
+                    <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">
+                        <i class="fas fa-power-off"></i>
+                    </a>
                 </div><?php
             }
             ?>

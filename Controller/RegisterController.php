@@ -132,7 +132,7 @@ class RegisterController extends Controller {
             'forms.css',
             'errors.css',
         ]);
-        $this->showView('user/register');
+        $this->showView('register/register');
     }
 
 }

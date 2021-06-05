@@ -543,6 +543,7 @@ h1+hr {
     width: 80%;
     margin: 0 auto;
     flex-direction: column;
+    min-height: calc(100% - 30rem);
 }
 
 nav {

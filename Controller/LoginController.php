@@ -54,7 +54,7 @@ class LoginController extends Controller {
             'forms.css',
             'errors.css',
         ]);
-        $this->showView('user/connect');
+        $this->showView('login/connect');
     }
 
 
