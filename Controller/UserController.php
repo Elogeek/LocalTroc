@@ -116,15 +116,25 @@ class UserController extends Controller {
                 $zip = DB::secureInt($req['codeZip']);
                 $birthday = DB::secureData($req['birthday']);
 
+                // Checking all user inputs.
                 $error = false;
-                // Si la date n'est pas valide ou si la date ne se situe pas dans la limite [-100 ans ... -10 ans].
-                if(!DateUtils::isDateValid($birthday) || !DateUtils::isDateBetween($birthday)) {
+
+                // Checking if pseudo is already taken.
+                if($pseudo !== $userProfile->getPseudo() && $profileManager->isPseudoTaken($pseudo)) {
+                    $error = true;
+                    $this->setErrorMessage("Désolé, mais ce pseudo est déjà pris.");
+                }
+                // Checking birthday.
+                elseif(!DateUtils::isDateValid($birthday) || !DateUtils::isDateBetween($birthday)) {
                     $error = true;
                     $this->setErrorMessage("La date ne semble pas valide.");
                 }
+                // Checking zip code
+                elseif(strlen($zip) !== 4 || !is_numeric($zip)) {
+                    $error = true;
+                    $this->setErrorMessage("Le code postal doit être de 4 chiffre, au format belge.");
+                }
 
-
-                // TODO check $codeZip, phone, ...
                 if(!$error) {
                     $userProfile->setPseudo($pseudo);
                     $userProfile->setCodeZip($zip);
@@ -139,7 +149,16 @@ class UserController extends Controller {
 
                     // Checking if phone was provided.
                     if ($this->issetAndNotEmpty($req, 'phone')) {
-                        $userProfile->setPhone(DB::secureData($req['phone']));
+                        // Checking phone => in belgium, phone numbers have min 9 ( fixes ) and 10 ( smartphones ) chars
+                        $phone = DB::secureData($req['phone']);
+                        if(strlen($phone) > 0 ){
+                            if(!(strlen($phone) === 9 || strlen($phone) === 10) || !is_numeric($phone)) {
+                                $error = true;
+                                $this->setErrorMessage("Le numéro de téléphone doit être au format national belge ( 9 ou 10 chiffres ).");
+                            } else {
+                                $userProfile->setPhone($phone);
+                            }
+                        }
                     }
 
                     if ($profileManager->updateProfile($userProfile)) {

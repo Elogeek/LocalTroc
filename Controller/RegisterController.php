@@ -55,12 +55,12 @@ class RegisterController extends Controller {
                     $this->setErrorMessage("Cette adresse email est déjà prise.");
                 }
                 // Checking if pseudo is already taken.
-                else if($profileManager->isPseudoTaken($pseudo)) {
+                elseif($profileManager->isPseudoTaken($pseudo)) {
                     $error = true;
                     $this->setErrorMessage("Désolé, mais ce pseudo est déjà pris.");
                 }
                 // Checking password.
-                else if($password !== $passwordConfirm || !DB::checkPassword($password)) {
+                elseif($password !== $passwordConfirm || !DB::checkPassword($password)) {
                     $error = true;
                     $this->setErrorMessage("Les mots de passe ne correspondent pas ou ne respectent pas le critère de sécurité.");
                 }
@@ -87,10 +87,6 @@ class RegisterController extends Controller {
                         $this->setErrorMessage("Le numéro de téléphone doit être au format national belge ( 9 ou 10 chiffres ).");
                     }
                 }
-
-                echo "<pre>";
-                var_dump($phone);
-                echo "</pre>";
 
                 // If no errors were found, then registering user.
                 if(!$error) {
