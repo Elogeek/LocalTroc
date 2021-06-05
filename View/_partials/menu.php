@@ -21,13 +21,6 @@
                 </div>
             </div>
 
-            <div class="menu">
-                <p><i class="far fa-question-circle"></i> </p>
-                <div class="submenu">
-                    <a href="#" title="Règles du site"> Charte et règlement du site </a>
-                </div>
-            </div>
-
             <div><i class="fas fa-search"></i> Recherche rapide</div>
             <!--redirection big search bar(home) avec search le + proche (expl ta === tapis/table....)-->
 
@@ -37,7 +30,7 @@
                 <div class="menu">
                     <p>
                         <i class="fas fa-user-astronaut"></i>
-                        <a title="Mon profil" href="/index.php?controller=user&action=profile">Mon profil</a>
+                        <a title="Mon profil" href="/index.php?controller=user&action=profile">Mon compte</a>
                     </p>
                     <div class="submenu">
                         <a href="#" title="Modifier mon profil"><i class="far fa-smile-beam"></i> Changer d'avatar</a>
@@ -67,6 +60,13 @@
                 </div><?php
             }
             ?>
+
+            <div class="menu">
+                <a href="#" title="Règles du site">
+                    <i class="far fa-question-circle"></i>
+                </a>
+            </div>
+
         </div>
     </nav>
 

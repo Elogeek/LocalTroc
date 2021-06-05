@@ -14,6 +14,10 @@ $userProfile = $params['userProfile'];
         <div class="imgAvatar">
             <img src="/assets/img/userProfile.webp" alt="Mon profile">
             <span> <?= $userProfile->getPseudo() ?></span>
+
+            <div class="user-profile-menu">
+                <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/user-profile-menu.php' ?>
+            </div>
         </div>
 
         <div class="profile-table">
@@ -21,10 +25,7 @@ $userProfile = $params['userProfile'];
             <!-- Edit buttons. -->
             <div id="profile-actions">
                 <a href="/index.php?controller=user&action=editInformation" title="item" class="btn btn-primary">
-                    <i class="far fa-edit"></i>Editer mes données
-                </a>
-                <a href="/index.php?controller=user&action=editProfile" title="item" class="btn btn-primary">
-                    <i class="far fa-edit"></i>Editer mon profil
+                    <i class="far fa-edit"></i>Ajouter un service
                 </a>
             </div>
 
