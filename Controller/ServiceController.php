@@ -1,13 +1,13 @@
 <?php
 
-class ServiceController
+class ServiceController extends Controller
 {
-
     /**
-     * ServiceController constructor.
+     * Handle service addition.
      */
-    public function __construct()
-    {
+    public function addService(array $request) {
+
+        $this->showView('service/createService');
     }
 
 }

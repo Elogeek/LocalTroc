@@ -10,6 +10,7 @@ class UserService {
     private ?string $serviceDate;
     private ?string $subject;
     private ?string $description;
+    private ?string $image;
 
     /**
      * UserService constructor.
@@ -19,12 +20,13 @@ class UserService {
      * @param string|null $subject
      * @param string|null $description
      */
-    public  function  __construct(int $id =null, User $user = null, string $serviceDate = null, string $subject = null, string $description = null) {
+    public  function  __construct(int $id =null, User $user = null, string $serviceDate = null, string $subject = null, string $description = null, string $image = null) {
         $this->id = $id;
         $this->user = $user;
         $this->serviceDate = $serviceDate;
         $this->subject = $subject;
         $this->description = $description;
+        $this->image = $image;
     }
 
     /**
@@ -95,6 +97,22 @@ class UserService {
      */
     public function setDescription(string $description): void {
         $this->description = $description;
+    }
+
+    /**
+     * Return the service image.
+     * @return string
+     */
+    public function getImage(): string {
+        return $this->image;
+    }
+
+    /**
+     * Set the service image.
+     * @param string $image
+     */
+    public function setImage(string $image) {
+        $this->image = $image;
     }
 
 }

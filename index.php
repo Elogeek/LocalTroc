@@ -1,42 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Tests/Dumper.php';
-Dumper::dieAndDump($_SESSION);
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include.php';
 
 if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {
-        /*case 'services':
-            $controller = new ServiceController();
-
-            switch ($_GET['action']) {
-                case 'new' :
-                    $controller->addService($_POST);
-                    break;
-
-                case 'read':
-                    if (isset($_GET['services'])) {
-                 // $controller->getServices();
-                    }
-                    break;
-
-                case 'update':
-                    if (isset($_GET['service'])) {
-                  //$manager->updateArticle($_GET['article']);
-                    } else {
-                        //$manager->updateService();
-                    }
-                    break;
-
-                case 'delete':
-                // $manager->deleteService();
-                    break;
-
-                default:
-                    break;
-            }
-
-            break;*/
 
         case 'register':
             RegisterRouter::route();
@@ -54,12 +20,17 @@ if (isset($_GET['controller'])) {
             InfoRouter::route();
             break;
 
+        case 'service':
+            isset($_GET['action']) ? ServiceRouter::route() : home();
+            break;
+
         case "search" :
             //$controller = new QuickSearchController();
             //$controller->goToQSearch();
             break;
     }
-} else {
+}
+else {
     home();
 }
 

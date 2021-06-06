@@ -29,7 +29,7 @@ $userProfile = $params['userProfile'];
 
             <!-- Edit buttons. -->
             <div id="profile-actions">
-                <a href="/index.php?controller=user&action=editInformation" title="item" class="btn btn-primary">
+                <a href="/index.php?controller=service&action=add" title="Ajouter un service" class="btn btn-primary">
                     <i class="far fa-edit"></i>Ajouter un service
                 </a>
             </div>

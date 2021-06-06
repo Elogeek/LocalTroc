@@ -26,6 +26,7 @@ class UserServiceManager {
                 $srv->setServiceDate($serviceData['service_date']);
                 $srv->setSubject($serviceData['subject']);
                 $srv->setUser($user);
+                $srv->setImage($serviceData['image']);
                 $userService[] = $srv;
             }
         }
@@ -50,6 +51,7 @@ class UserServiceManager {
                 $srv->setServiceDate($serviceData['service_date']);
                 $srv->setSubject($serviceData['subject']);
                 $srv->setUser($user);
+                $srv->setImage($serviceData['image']);
                 $services[] = $srv;
             }
         }
@@ -75,6 +77,7 @@ class UserServiceManager {
             $srv->setServiceDate($data['service_date']);
             $srv->setSubject($data['subject']);
             $srv->setUser($userManager->getById($data['user_fk']));
+            $srv->setImage($data['image']);
             return $srv;
         }
         return null;
@@ -88,14 +91,15 @@ class UserServiceManager {
      */
     public function addService(Userservice &$service): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO user_service (user_fk, service_date, subject, description) 
-                VALUES (:user_fk, :service_date, :subject, :description)
+            INSERT INTO user_service (user_fk, service_date, subject, description, image) 
+                VALUES (:user_fk, :service_date, :subject, :description, :image)
         ");
 
         $request->bindValue(':user_fk', $service->getUser()->getId());
         $request->bindValue(':service_date',$service->getServiceDate());
         $request->bindValue(':subject', $service->getSubject());
         $request->bindValue(':description', $service->getDescription());
+        $request->bindValue(':image', $service->getImage());
 
         $request->execute();
         $service->setId(DB::getInstance()->lastInsertId());
@@ -109,12 +113,17 @@ class UserServiceManager {
      */
     public function updateService(Userservice $service): bool {
         $request = DB::getInstance()->prepare("
-            UPDATE user_service SET description = :description, subject = :subject WHERE id = :id AND user_fk = :user
+            UPDATE user_service 
+                SET description = :description, 
+                    subject = :subject,
+                    image = :image
+                WHERE id = :id AND user_fk = :user
         ");
         $request->bindValue(':description', $service->getDescription());
         $request->bindValue(':subject', $service->getSubject());
         $request->bindValue(':id',$service->getId());
         $request->bindValue(':user', $service->getUser()->getId());
+        $request->bindValue(':image', $service->getImage());
 
         return $request->execute() ;
     }
