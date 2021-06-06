@@ -11,8 +11,8 @@ class HomeController extends Controller {
     public function index() {
         // Additional javaScript
         $this->addJavaScript([
-            'HeaderCarousel.js',
-            'GenericCarousel.js',
+            'Objects/HeaderCarousel.js',
+            'Objects/GenericCarousel.js',
         ]);
 
         // Additional css.

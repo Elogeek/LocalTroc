@@ -23,7 +23,10 @@ class UserController extends Controller {
 
         /* return profile user */
         $this->addCss(['profile.css']);
-        $this->addJavaScript(['profile.js']);
+        $this->addJavaScript([
+            'Objects/ModalWindow.js',
+            'profile.js',
+        ]);
         $this->showView('user/profile', [
             'userProfile' => (new UserProfileManager())->getUserProfile($user),
         ]);
