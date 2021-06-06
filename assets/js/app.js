@@ -32,3 +32,6 @@ document.querySelectorAll('.menu').forEach(menu => {
 document.querySelectorAll('.menu .submenu').forEach(submenu => submenu.addEventListener('mouseout', () => {
     submenu.style.display = 'none';
 }))
+
+// Current selected menu.
+document.querySelector(`.nav a[href*="${window.location.pathname}"]`).classList.add('menu-active');

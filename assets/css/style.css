@@ -25,31 +25,6 @@ html {
     width: 100%;
 }
 
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 5.5rem;
-    padding: 1rem;
-    background: #fff;
-    box-shadow: 0 12px 7px -5px #6c757d;
-}
-
-/* Menu a*/
-.nav * a, .nav * i {
-    text-decoration-line: none;
-    color: #3c3c3c;
-}
-
-.submenu > * {
-    display: block;
-}
-
-.submenu a {
-    text-decoration: none;
-    padding-top: 1rem;
-}
-
 /* Logo */
 #myLogo {
     max-width: 13rem;
@@ -507,6 +482,44 @@ h2 {
 /**
  * New code, don't touch this :-)
  */
+.menu-active {
+    color: #08c1ef;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 1.5rem 0 #6c757d;
+    width: 100%;
+    padding: 1%;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 30rem;
+}
+
+.menu > div {
+    margin-right: 2.5rem;
+}
+
+.menu a {
+    text-decoration-line: none;
+    color: #3c3c3c;
+}
+
+.menu a > i {
+    margin-right: 1rem;
+}
+
+.menu a:hover {
+    color: #C9E265;
+    font-weight: bold;
+}
 
 /* Btn registration */
 .btn {
@@ -522,7 +535,6 @@ h2 {
     cursor: pointer;
     text-decoration-line: none;
     margin: 1rem 0;
-
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
@@ -551,26 +563,6 @@ h1+hr {
     margin: 0 auto;
     flex-direction: column;
     min-height: calc(100% - 30rem);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0 0 1.5rem 0 #6c757d;
-    width: 100%;
-    padding: 1%;
-    cursor: pointer;
-    position: relative;
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.nav > div {
-    margin-right: 2.5rem;
 }
 
 footer .share {
