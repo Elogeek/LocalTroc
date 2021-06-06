@@ -19,57 +19,9 @@ if (!is_dir("uploads")) {
 $mineTypes = ["text/plain", "image/jpeg", "image/png", "image/jpg"];
 
 //récupération an file/files user
-foreach ($_FILES as $file) {
+require_once  $_SERVER['DOCUMENT_ROOT'] . '/Classes/FileUpload.php';
 
-    if ($file ['error'] === 0) {
-
-        if (in_array($file ["type"], $mineTypes)) {
-
-            //check size file (===2Mo)
-            $maxSize = 2 * 1024 * 1024;
-            if ((int)$file ["size"] <= $maxSize) {
-                //récupération name file user
-                $tmp_name = $file ["tmp_name"];
-                //récupération an true name file
-                $name = getRandomName($file["name"]);
-
-                //move the file
-                move_uploaded_file($tmp_name, 'uploads/' . $name);
-            } else {
-                $errors = "Le poids de votre fichier" .$file['name'] . "est trop important.";
-            }
-        }
-        else {
-            // false file === message error
-            $errors =  "Vous avez introduit un mauvais format de fichier pour ".$file['name'];
-        }
-    }
-    else {
-        //error move file
-        $errors =  "Une erreur s'est produite en uplodant le fichier" . $file['name'];
-    }
-
-}
-
-if (count($errors) > 0) {
-    //encode securise string $errors
-    header('Location: index.php?e=' . base64_encode(json_encode($errors)));
-}
-else {
-    header('Location: index.php?success');
-}
-
-//create a random string fir the files names
-
-function getRandomName(string $fileName) :string {
-    //récupération de l'extension du fichier
-    $info = pathinfo($fileName);
-    try {
-        //génére a  random string (size :20)
-        $bytes = random_bytes(20);
-    }
-    catch (Exception $exept) {
-        $bytes = openssl_random_pseudo_bytes(20);
-    }
-    return bin2hex($bytes) .'.' . $info['extension'];
+$fileUploader = new FileUpload($_FILES['avatar'], $_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/avatars');
+if($fileUploader->isSizeInThreshold()) {
+    $result = $fileUploader->upload(); // succes ou échec.
 }
