@@ -1,5 +1,5 @@
 
-<div class="containerRules">
+<div class="internal-container">
     <h2>Charte d'utilisation d'internet, des réseaux informatiques et des services multimédia dans le site web LocaTroc</h2>
     <div>
         <p>

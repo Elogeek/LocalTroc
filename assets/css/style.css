@@ -483,6 +483,16 @@ h2 {
  * New code, don't touch this :-)
  */
 
+.site-info p {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.site-info h2 {
+    text-align: left;
+    margin-top: 5rem;
+}
+
 .mobile-menu, .mobile-menu-content {
     display: none;
 }

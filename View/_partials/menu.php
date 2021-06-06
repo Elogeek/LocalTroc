@@ -20,11 +20,13 @@
             }
             else { ?>
                 <!-- User not connected, display login link. -->
-                <a id="loginController" title="Connexion" href="/index.php?controller=login">Se connecter</a> <?php
+                <a id="loginController" title="Connexion" href="/index.php?controller=login">
+                    <i class="fas fa-sign-in-alt"></i>Se connecter
+                </a> <?php
             } ?>
 
             <!-- Help and legal pages. -->
-            <a id="helpController" href="#" title="Règles du site">
+            <a id="helpController" href="/index.php?controller=info" title="Règles du site">
                 <i class="far fa-question-circle"></i>
             </a>
 
@@ -42,7 +44,7 @@
                 } ?>
 
                 <hr>
-                <a id="helpController" href="#" title="Règles du site">A propos</a>
+                <a id="helpController" href="/index.php?controller=info" title="Règles du site">A propos</a>
             </div>
         </div>
     </nav>

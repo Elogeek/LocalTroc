@@ -93,6 +93,11 @@ class UserController extends Controller {
             }
         }
 
+        $this->addJavaScript([
+            'Objects/ModalWindow.js',
+            'profile.js',
+        ]);
+
         $this->addCss([
             'profile.css',
             'forms.css',
@@ -184,6 +189,11 @@ class UserController extends Controller {
                 $this->setErrorMessage("Certains champs obligatoires sont manquants");
             }
         }
+
+        $this->addJavaScript([
+            'Objects/ModalWindow.js',
+            'profile.js',
+        ]);
 
         $this->addCss([
             'profile.css',

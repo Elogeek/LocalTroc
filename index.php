@@ -50,6 +50,10 @@ if (isset($_GET['controller'])) {
             isset($_GET['action']) ? UserRouter::route() : home();
             break;
 
+        case 'info':
+            InfoRouter::route();
+            break;
+
         case "search" :
             //$controller = new QuickSearchController();
             //$controller->goToQSearch();
