@@ -18,12 +18,11 @@ if(psswrd && psswdConfirm) {
 }
 
 // Current selected menu.
-let menuLocation = window.location.search;
-if(menuLocation.includes('?controller=')) {
-    menuLocation = menuLocation.replace('?controller=', '');
-    if(menuLocation.includes('&action=')) {
-        menuLocation = menuLocation.substring(0, menuLocation.indexOf('&action='));
+let selectedMenu = window.location.search;
+if(selectedMenu.includes('?controller=')) {
+    selectedMenu = selectedMenu.replace('?controller=', '');
+    if(selectedMenu.includes('&action=')) {
+        selectedMenu = selectedMenu.substring(0, selectedMenu.indexOf('&action='));
     }
-
-    document.getElementById(menuLocation + 'Controller').classList.add('menu-active');
+    document.getElementById(selectedMenu + 'Controller').classList.add('menu-active');
 }
