@@ -563,6 +563,7 @@ h1+hr {
     margin: 0 auto;
     flex-direction: column;
     min-height: calc(100% - 30rem);
+    margin-top: 3rem;
 }
 
 footer .share {

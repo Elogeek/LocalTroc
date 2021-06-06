@@ -1,5 +1,5 @@
 <div class="internal-container">
-    <div class="profile-content form">
+    <div class="profile-content">
         <form action="/index.php?controller=register" method="POST">
             <h1>Créer un compte </h1>
             <hr>

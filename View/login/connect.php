@@ -1,10 +1,10 @@
 
 <div class="container">
     <div class="internal-container">
-        <div class="profile-content form">
+        <div class="profile-content">
             <h1>Connexion</h1>
             <hr>
-            <div class="login-form form">
+            <div class="login-form">
                 <form action="/index.php?controller=login" method="POST">
                    <div class="form-group">
                        <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>

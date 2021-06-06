@@ -19,10 +19,13 @@ if(psswrd && psswdConfirm) {
 
 // Current selected menu.
 let selectedMenu = window.location.search;
-if(selectedMenu.includes('?controller=')) {
+if(selectedMenu && selectedMenu.includes('?controller=')) {
     selectedMenu = selectedMenu.replace('?controller=', '');
     if(selectedMenu.includes('&action=')) {
         selectedMenu = selectedMenu.substring(0, selectedMenu.indexOf('&action='));
     }
-    document.getElementById(selectedMenu + 'Controller').classList.add('menu-active');
+    const menu = document.getElementById(selectedMenu + 'Controller');
+    if(menu) { // no menu for 'home' page.
+        menu.classList.add('menu-active');
+    }
 }
