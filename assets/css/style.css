@@ -482,6 +482,11 @@ h2 {
 /**
  * New code, don't touch this :-)
  */
+
+.mobile-menu, .mobile-menu-content {
+    display: none;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -626,7 +631,39 @@ footer {
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 380px) {
+
+    .menu {
+        display: none;
+    }
+
+    .mobile-menu, .mobile-menu-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-right: 1rem;
+    }
+
+    .mobile-menu-content {
+        display: none;
+        margin-right: 0;
+        position: absolute;
+        top: 5rem;
+        background-color: white;
+        padding: 2.5rem;
+        right: 1rem;
+        box-shadow: 0 0 1.5rem 0 #6c757d;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .mobile-menu-content a {
+        text-decoration: none;
+        line-height: 4rem;
+        color: inherit;
+        min-width: 18rem;
+    }
 
     h2 {
         font-size: 2rem;

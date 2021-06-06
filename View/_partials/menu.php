@@ -6,8 +6,7 @@
             <a href="/index.php"><img  id="myLogo" src="/assets/img/logo.png" alt="logoSite"></a>
         </div>
 
-        <div class="menu">
-            <?php
+        <div class="menu"> <?php
             // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
             if($connected) { ?>
                 <!-- Display My account link. -->
@@ -29,6 +28,22 @@
                 <i class="far fa-question-circle"></i>
             </a>
 
+        </div>
+
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+            <div class="mobile-menu-content"> <?php
+                if($connected) { ?>
+                    <a title="Mon profil" href="/index.php?controller=user&action=profile">Mon compte</a><hr>
+                    <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">Déconnection</a> <?php
+                }
+                else { ?>
+                    <a title="Connexion" href="/index.php?controller=login">Se connecter</a> <?php
+                } ?>
+
+                <hr>
+                <a id="helpController" href="#" title="Règles du site">A propos</a>
+            </div>
         </div>
     </nav>
 
