@@ -612,8 +612,13 @@ footer .share div {
     padding: 0.8rem;
 }
 
-footer .share div >  i {
+footer .share div > a  i {
     font-size: 3.5rem;
+}
+
+footer .share a {
+    text-decoration: none;
+    color: inherit;
 }
 
 footer > div:first-child {

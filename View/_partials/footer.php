@@ -5,24 +5,28 @@
     <!--si le temps block "restons en conctact"===>newletter?-->
     <div class="share">
         <div>
-           <!--<a title="twitter" target="_blank" href="https://twitter.com/LocalTroc"></a>-->
-            <i id="twitter" class="fab fa-twitter-square"></i>
+            <a title="Twitter" target="_blank" href="https://twitter.com/LocalTroc">
+                <i id="twitter" class="fab fa-twitter-square"></i>
+            </a>
 
         </div>
 
         <div>
-           <!-- <a title="facebook" target="_blank" href=""></a>-->
-            <i id="facebook" class="fab fa-facebook-square"></i>
+            <a title="Facebook" target="_blank" href="https://www.facebook.com/LocalTroc-102784445370671">
+                <i id="facebook" class="fab fa-facebook-square"></i>
+            </a>
 
         </div>
 
         <div>
-           <!-- <a title="instagram"  target="_blank" href="https://www.instagram.com/localtroc1/"></a>-->
-            <i id="insta" class="fab fa-instagram-square"></i>
+            <a target="_blank" title="Instagram" href="https://www.instagram.com/localtroc1/">
+                <i id="insta" class="fab fa-instagram-square"></i>
+            </a>
         </div>
         <div>
-          <!--  <a title="pinterest" target="_blank" href="https://www.pinterest.fr/localtroc/_saved/"></a>-->
-            <i id="printerest" class="fab fa-pinterest-square"></i>
+            <a href="https://www.pinterest.fr/localtroc" title="Pinterest" target="_blank">
+                <i id="printerest" class="fab fa-pinterest-square"></i>
+            </a>
         </div>
     </div>
     <div id="copyright">&copy; 2021 Elogeek, tous droits réservés.</div>
