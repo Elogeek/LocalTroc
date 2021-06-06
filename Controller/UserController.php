@@ -98,7 +98,9 @@ class UserController extends Controller {
             'forms.css',
             'errors.css',
         ]);
-        $this->showView('user/editInformation');
+        $this->showView('user/editInformation', [
+            'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser()),
+        ]);
     }
 
 

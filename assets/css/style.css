@@ -559,7 +559,7 @@ h1+hr {
 
 .internal-container {
     display: flex;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     flex-direction: column;
     min-height: calc(100% - 30rem);

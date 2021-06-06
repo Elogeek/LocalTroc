@@ -8,7 +8,7 @@
 .profile-content {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 4.5rem;
 }
 
 #profile-actions a.btn-primary {
@@ -29,6 +29,10 @@ table.profile-table th, table.profile-table td {
 div.profile-table h2 {
     text-align: left;
     margin-top: 4rem;
+}
+
+div.profile-content h1 {
+    margin-bottom: 1.5rem;
 }
 
 div.profile-table {
