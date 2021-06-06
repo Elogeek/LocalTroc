@@ -113,8 +113,7 @@ class UserController extends Controller {
      * Edit user in site profile.
      * @param array $req
      */
-    public function editProfile(array $req)
-    {
+    public function editProfile(array $req) {
         // Redirect user to the login page if he try to access the edit page without being logged in.
         $user = $this->getLoggedInUser();
         if(is_null($user)) {
@@ -162,6 +161,26 @@ class UserController extends Controller {
                     // Checking if MoreInfo was provided.
                     if ($this->issetAndNotEmpty($req, 'other')) {
                         $userProfile->setMoreInfos(DB::secureData($req['other']));
+                    }
+
+                    // Checking if avatar was provided.
+                    if($this->issetAndNotEmpty($_FILES, 'avatar')) {
+                        $fileUploader = new FileUpload($_FILES['avatar'], '/assets/uploads/avatars/');
+                        if($fileUploader->isSizeInThreshold()) {
+                            if($fileUploader->upload()) {
+                                $this->setSuccessMessage("Votre avatar a bien été mis à jour");
+                                $userProfile->setAvatar($fileUploader->getFinalFileName());
+                            }
+                            else {
+                                $this->setErrorMessage("Une erreur est survenue en envoyant votre avatar");
+                            }
+                        }
+                        else {
+                            $this->setErrorMessage("L'image fournie est trop volumineuse, elle ne doit pas dépasser 5 Mo");
+                        }
+                    }
+                    else {
+                        $this->setErrorMessage("L'avatar n'a pas été fourni");
                     }
 
                     // Checking if phone was provided.

@@ -50,6 +50,9 @@ div.profile-table {
     height: 15rem;
     width: 15rem;
     border-radius: 50%;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 .imgAvatar > span {

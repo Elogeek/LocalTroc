@@ -6,6 +6,7 @@ class FileUpload {
     private $fileToUpload;
     private string $destination;
     private int $maxFileSize = 2;
+    private string $finalName;
 
     /**
      * FileUpload constructor.
@@ -17,9 +18,6 @@ class FileUpload {
         $this->fileToUpload = $file;
         $this->destination = $destination;
         $this->maxFileSize = $maxFileSize * 1024 * 1024;
-        if(strrpos($this->destination, '/') === 0) {
-            $this->destination = $this->destination . '/';
-        }
     }
 
 
@@ -30,11 +28,19 @@ class FileUpload {
     public function upload(): bool {
         if ($this->fileToUpload['error'] === 0 && $this->isAllowedMimeType($this->fileToUpload['type'])) {
             $tmp_name = $this->fileToUpload["tmp_name"];
-            $name = $this->getRandomName($this->fileToUpload["name"]);
-            return move_uploaded_file($tmp_name, $this->destination . $name);
+            $this->finalName = $this->getRandomName($this->fileToUpload["name"]);
+            return move_uploaded_file($tmp_name, $_SERVER['DOCUMENT_ROOT'] . $this->destination . $this->finalName);
         }
 
         return false;
+    }
+
+    /**
+     * Return the final auto generated string.
+     * @return string
+     */
+    public function getFinalFileName(): string {
+        return $this->finalName;
     }
 
     /**

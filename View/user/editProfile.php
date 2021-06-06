@@ -9,7 +9,12 @@ $userProfile = $params['userProfile'];
 <div class="internal-container">
     <div class="profile-content">
         <div class="imgAvatar">
-            <img src="/assets/img/userProfile.webp" alt="Mon profile">
+            <?php
+            if($userProfile->getAvatar() === null) { ?>
+                <img src="/assets/img/userProfile.webp" alt="Mon profile"> <?php
+            } else { ?>
+                <img src="/assets/uploads/avatars/<?= $userProfile->getAvatar() ?>" alt="Mon profile"> <?php
+            } ?>
             <span> <?= $userProfile->getPseudo() ?></span>
 
             <div class="user-profile-menu">
@@ -18,7 +23,7 @@ $userProfile = $params['userProfile'];
         </div>
 
         <div class="profile-table">
-            <form action="/index.php?controller=user&action=editProfile" method="POST">
+            <form action="/index.php?controller=user&action=editProfile" method="POST" enctype="multipart/form-data">
                 <h1>Editer mon profil </h1>
                 <hr>
 
@@ -59,6 +64,10 @@ $userProfile = $params['userProfile'];
                     <div class="form-group-item">
                         <label for="phone">Votre numéro de téléphone</label>
                         <input name="phone" id="phone" type="tel" value="<?= $userProfile->getPhone() ?>">
+                    </div>
+                    <div class="form-group-item">
+                        <label for="avatar">Votre avatar ( JPG / PNG )</label>
+                        <input name="avatar" id="avatar" type="file" accept="image/png, image/jpeg">
                     </div>
                 </div>
 

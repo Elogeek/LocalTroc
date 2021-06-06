@@ -14,6 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/InfoRouter.php';
 require_once  $_SERVER['DOCUMENT_ROOT'] . '/Model/DB.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/DateUtils.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/FileUpload.php';
 
 // Inclusion des modèles et des Entités.
 require_once  $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Message.php';

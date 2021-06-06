@@ -9,10 +9,6 @@ class UserRouter {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/UserController.php';
         $controller = new UserController();
          switch ($_GET['action']) {
-            case 'register':
-                $controller->register($_POST);
-                break;
-
             case 'profile':
                 $controller->profile();
                 break;
@@ -22,6 +18,7 @@ class UserRouter {
                 break;
 
             case 'editProfile':
+
                 $controller->editProfile($_POST);
                 break;
 
