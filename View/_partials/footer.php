@@ -25,7 +25,6 @@
             <i id="printerest" class="fab fa-pinterest-square"></i>
         </div>
     </div>
-
     <div id="copyright">&copy; 2021 Elogeek, tous droits réservés.</div>
 </footer>
 

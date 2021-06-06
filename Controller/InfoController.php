@@ -27,6 +27,9 @@ class InfoController extends Controller {
      * Display the contact form.
      */
     public function getContactForm() {
+        $this->addCss([
+            'forms.css',
+        ]);
         $this->showView('info/contact');
     }
 }
