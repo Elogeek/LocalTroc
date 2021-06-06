@@ -91,8 +91,8 @@
         </ul>
 
         <p>
-            De manière générale, il conviendra de respecter le cadre légal. En cas e manquement et de non respect à ces quelques
-            règles, nous nous réservons le droit de fournir tout contenu utile à la justice (Dans les prochais jours: si vous avez été signalé,
+            De manière générale, il conviendra de respecter le cadre légal. En cas de manquement et de non respect à ces quelques
+            règles, nous nous réservons le droit de fournir tout contenu utile à la justice (Dans les prochains jours: si vous avez été signalé,
             vous ne pourrez pas supprimer votre compte tant qu'un administrateur ne vous aura pas à nouveau autorisé sur le site).
         </p>
     </div>
