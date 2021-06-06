@@ -11,21 +11,21 @@
             // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
             if($connected) { ?>
                 <!-- Display My account link. -->
-                <a title="Mon profil" href="/index.php?controller=user&action=profile">
+                <a id="userController" title="Mon profil" href="/index.php?controller=user&action=profile">
                     <i class="fas fa-user-astronaut"></i>Mon compte
                 </a>
                 <!-- Display logout link. -->
-                <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">
+                <a id="loginController" title="Déconnexion" href="/index.php?controller=login&action=disconnect">
                     <i class="fas fa-power-off"></i>
                 </a> <?php
             }
             else { ?>
                 <!-- User not connected, display login link. -->
-                <a title="Connexion" href="/index.php?controller=login">Se connecter</a> <?php
+                <a id="loginController" title="Connexion" href="/index.php?controller=login">Se connecter</a> <?php
             } ?>
 
             <!-- Help and legal pages. -->
-            <a href="#" title="Règles du site">
+            <a id="helpController" href="#" title="Règles du site">
                 <i class="far fa-question-circle"></i>
             </a>
 

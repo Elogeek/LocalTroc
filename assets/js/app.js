@@ -17,21 +17,13 @@ if(psswrd && psswdConfirm) {
     psswdConfirm.addEventListener('keyup', checkPassword);
 }
 
-/**
- * Managing menu
- */
-// Main menu hovering.
-document.querySelectorAll('.menu').forEach(menu => {
-    menu.addEventListener('mouseover', () => {
-        document.querySelectorAll('.menu .submenu').forEach(submenu => submenu.style.display = 'none');
-        menu.querySelector('.submenu').style.display = 'block';
-    });
-});
-
-// Submenu out.
-document.querySelectorAll('.menu .submenu').forEach(submenu => submenu.addEventListener('mouseout', () => {
-    submenu.style.display = 'none';
-}))
-
 // Current selected menu.
-document.querySelector(`.nav a[href*="${window.location.pathname}"]`).classList.add('menu-active');
+let menuLocation = window.location.search;
+if(menuLocation.includes('?controller=')) {
+    menuLocation = menuLocation.replace('?controller=', '');
+    if(menuLocation.includes('&action=')) {
+        menuLocation = menuLocation.substring(0, menuLocation.indexOf('&action='));
+    }
+
+    document.getElementById(menuLocation + 'Controller').classList.add('menu-active');
+}

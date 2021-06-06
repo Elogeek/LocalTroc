@@ -482,10 +482,6 @@ h2 {
 /**
  * New code, don't touch this :-)
  */
-.menu-active {
-    color: #08c1ef;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -519,6 +515,10 @@ nav {
 .menu a:hover {
     color: #C9E265;
     font-weight: bold;
+}
+
+.menu-active {
+    color: #08c1ef !important;
 }
 
 /* Btn registration */
