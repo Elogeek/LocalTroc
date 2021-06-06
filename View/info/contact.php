@@ -3,7 +3,7 @@
         <h1>Nous contacter</h1>
         <hr>
         <div class="login-form">
-            <form action="/index.php?controller=info&action=contact">
+            <form action="/index.php?controller=info&action=contact" method="POST">
 
                 <div class="form-group">
                     <div>
