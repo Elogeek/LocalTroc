@@ -96,11 +96,26 @@ table th, table td {
     padding: 1rem;
 }
 
+@media screen and (max-width: 1250px) {
+
+    html {
+        font-size: 60%;
+    }
+
+    div.profile-table {
+        width: 62%;
+    }
+}
 
 @media screen and (max-width: 950px) {
 
-    .imgAvatar {
-        display: none;
+    .profile-content {
+        flex-direction: column;
+    }
+
+    .user-profile-menu {
+        width: 70%;
+        margin-bottom: 4rem;
     }
 
     div.profile-table {
@@ -118,6 +133,11 @@ table th, table td {
 }
 
 @media screen and (max-width: 450px) {
+
+    html {
+        font-size: 50%;
+    }
+
     #profile-actions {
         flex-direction: column;
         align-items: stretch;
@@ -125,5 +145,9 @@ table th, table td {
 
     .profile-container {
         width: 90%;
+    }
+
+    .user-profile-menu {
+        width: 95%;
     }
 }
