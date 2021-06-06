@@ -7,10 +7,10 @@
             <div class="login-form">
                 <form action="/index.php?controller=login" method="POST">
                    <div class="form-group">
-                       <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
+                       <input class="no-margin" type="email" id="email" name="email" placeholder="Adresse e-mail" required>
                    </div>
                     <div class="form-group">
-                        <input type="password" id="password" name="password" placeholder="Mot de passe valide" required>
+                        <input class="no-margin" type="password" id="password" name="password" placeholder="Mot de passe valide" required>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-secondary" type="submit" name="submit" value="Connexion">

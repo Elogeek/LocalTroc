@@ -18,6 +18,9 @@ class InfoRouter {
                 case 'confidentiality':
                     $controller->getConfidentialityPolicy();
                     break;
+                case 'contact':
+                    $controller->getContactForm();
+                    break;
                 default:
                     $controller->infoIndex();
             }

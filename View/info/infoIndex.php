@@ -31,6 +31,6 @@
     <div class="site-info">
         <h2>Nous contacter</h2>
         <p>Encore une question ? Utilisez le formulaire de contact</p>
-        <a href="#" class="btn btn-secondary" title="Nous contacter">Nous contacter</a>
+        <a href="/index.php?controller=info&action=contact" class="btn btn-secondary" title="Nous contacter">Nous contacter</a>
     </div>
 </div>

@@ -71,7 +71,7 @@
         <input type="email"  name="email" placeholder="Email" required>
     </label>
     <label for="phone">
-        <input type="phone"  name="phone" placeholder="phone">
+        <input type="text"  name="phone" placeholder="phone">
     </label>
     <label for="date">
         <input type="date" name="date" required>

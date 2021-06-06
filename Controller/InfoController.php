@@ -22,4 +22,11 @@ class InfoController extends Controller {
     public function getConfidentialityPolicy() {
         $this->showView('info/confidentiality');
     }
+
+    /**
+     * Display the contact form.
+     */
+    public function getContactForm() {
+        $this->showView('info/contact');
+    }
 }
