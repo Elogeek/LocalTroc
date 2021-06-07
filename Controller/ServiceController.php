@@ -115,4 +115,56 @@ class ServiceController extends Controller
         $this->redirectTo('service', 'user-services');
     }
 
+
+    /**
+     * USER connected service edition.
+     * @param int $id
+     */
+    public function editLoggedInUserService(int $id, array $request) {
+        $this->redirectIfNotLoggedIn('user', 'login');
+        $service = $this->userServiceManager->getService($id);
+        // Edit service only if service is owned by connected user.
+        if($service->getUser()->getId() === $this->user->getId()) {
+            if($this->isFormSubmitted()) {
+                if($this->issetAndNotEmpty($request, 'subject', 'descriptionService')) {
+                    $subject = DB::secureData($request['subject']);
+                    $description = DB::secureData($request['descriptionService']);
+
+                    $service->setSubject($subject);
+                    $service->setDescription($description);
+
+                    // Checking if user has uploaded a service image.
+                    if($_FILES['serviceImage']['size'] > 0) {
+                        $fileUploader = new FileUpload($_FILES['serviceImage'], '/assets/uploads/services/');
+                        if(!$fileUploader->isSizeInThreshold() || !$fileUploader->upload()) {
+                            $this->setErrorMessage("Une erreur est survenue en envoyant l'image de votre service.");
+                        }
+                        else {
+                            $service->setImage($fileUploader->getFinalFileName());
+                        }
+                    }
+                    // Saving service new data.
+                    if($this->userServiceManager->updateService($service)) {
+                        $this->setSuccessMessage("Votre service a bien été mis à jour.");
+                    }
+                    else {
+                        $this->setErrorMessage("Une erreur est survenue en mettant à jou votre service.");
+                    }
+                }
+                else {
+                    $this->setErrorMessage("Tous les champs requis ne sont pas remplis !");
+                }
+            }
+
+            $this->addCss($this->profileCss);
+            $this->addJavaScript($this->javaScripts);
+            $this->showView('service/loggedInUserServicesEdit', [
+                'service' => $service,
+                'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+            ]);
+        }
+        // If service does not belong to connected user, then redirect to the services pages.
+        $this->redirectTo('service', 'user-services');
+    }
+
 }

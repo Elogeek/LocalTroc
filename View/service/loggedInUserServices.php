@@ -37,7 +37,7 @@
                         <?php
                         $id = $service->getId();
                         ?>
-                        <a class="btn btn-primary" href="/index.php?controller=service&action=edit&id=<?= $id ?>"
+                        <a class="btn btn-primary" href="/index.php?controller=service&action=user-service-edit&id=<?= $id ?>"
                            title="Editer mon annonce">
                             <i class="fas fa-edit"></i>
                         </a>
