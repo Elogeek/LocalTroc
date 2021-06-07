@@ -11,11 +11,18 @@ use Model\DB;
  */
 class RegisterController extends Controller {
 
+    private UserManager $userManager;
+    private RoleManager $roleManager;
+    private UserProfileManager $userProfileManager;
+
     /**
      * RegisterController constructor.
      */
     public function __construct() {
         parent::__construct();
+        $this->userManager = new UserManager();
+        $this->roleManager = new RoleManager();
+        $this->userProfileManager = new UserProfileManager();
     }
 
     /**
@@ -31,9 +38,6 @@ class RegisterController extends Controller {
 
             // Checking all required are set.
             if($this->issetAndNotEmpty($request, 'fname','lname','pseudo','birthday','city','address','zip','mail','passwd','passwdConfirm')) {
-                $userManager = new UserManager();
-                $roleManager = new RoleManager();
-                $profileManager = new UserProfileManager();
 
                 // Optionals
                 $other = isset($request['other']) && !empty($request['other']) ? DB::secureData($request['other']) : '';
@@ -55,12 +59,12 @@ class RegisterController extends Controller {
                 $error = false;
 
                 // Checking user not already exists.
-                if($userManager->getByMail($mail) !== null) {
+                if($this->userManager->getByMail($mail) !== null) {
                     $error = true;
                     $this->setErrorMessage("Cette adresse email est déjà prise.");
                 }
                 // Checking if pseudo is already taken.
-                elseif($profileManager->isPseudoTaken($pseudo)) {
+                elseif($this->userProfileManager->isPseudoTaken($pseudo)) {
                     $error = true;
                     $this->setErrorMessage("Désolé, mais ce pseudo est déjà pris.");
                 }
@@ -101,13 +105,13 @@ class RegisterController extends Controller {
                     $user->setLastName($lastName);
                     $user->setId(null);
                     $user->setPassword($password);
-                    $user->setRole($roleManager->getDefaultRole());
+                    $user->setRole($this->roleManager->getDefaultRole());
 
                     // Sauvegarde du nouvel user.
-                    if ($userManager->addUser($user) && $user->getId() !== null) {
+                    if ($this->userManager->addUser($user) && $user->getId() !== null) {
                         // addUser retourne true en cas de succès, ou false en cas d'erreur.
                         // Si c'est true, on peut ajouter le profil, le profileManager crée automatiquement un profil quand on essaie de le récupérer pour un user et qui ne l'a pas
-                        $profile = $profileManager->getUserProfile($user);
+                        $profile = $this->userProfileManager->getUserProfile($user);
                         $profile->setAddress($address);
                         $profile->setCity($city);
                         $profile->setCodeZip($zip);
@@ -116,7 +120,7 @@ class RegisterController extends Controller {
                         $profile->setPseudo($pseudo);
                         $profile->setBirthday($birthday);
 
-                        if ($profileManager->updateProfile($profile)) {
+                        if ($this->userProfileManager->updateProfile($profile)) {
                             $this->setSuccessMessage("Votre compte a bien été créé.");
                         } else {
                             $this->setErrorMessage("Une erreur est survenue lors de la génération de votre profile.");
