@@ -7,7 +7,7 @@
             <h1>Ajouter un service</h1>
             <hr>
 
-            <form action="/index.php" method="post" enctype="multipart/form-data">
+            <form action="/index.php?controller=service&action=add" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <div>
                         <label for="subject">Précisez le titre du service</label>

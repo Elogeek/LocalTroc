@@ -179,9 +179,6 @@ class UserController extends Controller {
                             $this->setErrorMessage("L'image fournie est trop volumineuse, elle ne doit pas dépasser 5 Mo");
                         }
                     }
-                    else {
-                        $this->setErrorMessage("L'avatar n'a pas été fourni");
-                    }
 
                     // Checking if phone was provided.
                     if ($this->issetAndNotEmpty($req, 'phone')) {
