@@ -187,7 +187,6 @@ class UserController extends Controller {
                         $phone = DB::secureData($req['phone']);
                         if(strlen($phone) > 0 ){
                             if(!(strlen($phone) === 9 || strlen($phone) === 10) || !is_numeric($phone)) {
-                                $error = true;
                                 $this->setErrorMessage("Le numéro de téléphone doit être au format national belge ( 9 ou 10 chiffres ).");
                             } else {
                                 $userProfile->setPhone($phone);

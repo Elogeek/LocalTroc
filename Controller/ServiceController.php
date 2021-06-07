@@ -8,6 +8,8 @@ use Model\DB;
 class ServiceController extends Controller
 {
     private array $profileCss;
+    private UserProfileManager $userProfileManager;
+    private UserServiceManager $userServiceManager;
 
     /**
      * ServiceController constructor.
@@ -19,6 +21,9 @@ class ServiceController extends Controller
             'forms.css',
             'errors.css',
         ];
+
+        $this->userProfileManager = new UserProfileManager();
+        $this->userServiceManager = new UserServiceManager();
     }
 
     /**
@@ -51,8 +56,7 @@ class ServiceController extends Controller
                     }
                 }
 
-                $manager = new UserServiceManager();
-                $manager->addService($service);
+                $this->userServiceManager->addService($service);
                 if($service->getId() !== null) {
                     $this->setSuccessMessage("Votre service a bien été ajouté.");
                 }
@@ -67,7 +71,7 @@ class ServiceController extends Controller
 
         $this->addCss($this->profileCss);
         $this->showView('service/createService', [
-            'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser())
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user)
         ]);
     }
 
@@ -80,7 +84,6 @@ class ServiceController extends Controller
     {
         // Make sure user is connected before allowing to add a new service.
         $this->redirectIfNotLoggedIn('user', 'login');
-
         $this->addCss($this->profileCss);
     }
 
