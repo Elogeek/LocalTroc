@@ -80,11 +80,14 @@ class ServiceController extends Controller
      * USER connected function
      * Show connected user services ( user profile )
      */
-    public function showServices()
-    {
+    public function showLoggedInUserServices() {
         // Make sure user is connected before allowing to add a new service.
         $this->redirectIfNotLoggedIn('user', 'login');
         $this->addCss($this->profileCss);
+        $this->showView('service/loggedInUserServices', [
+            'services' => $this->userServiceManager->getServicesByUser($this->user),
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+        ]);
     }
 
 }

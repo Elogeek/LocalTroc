@@ -8,7 +8,7 @@
 <div class="imgAvatar">
     <?php
     if($userProfile->getAvatar() === null) { ?>
-        <img src="/assets/img/userProfile.webp" alt="Mon profile"> <?php
+        <img src="/assets/img/defaultImages/userProfile.webp" alt="Mon profile"> <?php
     } else { ?>
         <img src="/assets/uploads/avatars/<?= $userProfile->getAvatar() ?>" alt="Mon profile"> <?php
     } ?>

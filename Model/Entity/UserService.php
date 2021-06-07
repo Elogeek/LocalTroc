@@ -109,9 +109,9 @@ class UserService {
 
     /**
      * Set the service image.
-     * @param string $image
+     * @param string|null $image
      */
-    public function setImage(string $image) {
+    public function setImage(?string $image) {
         $this->image = $image;
     }
 

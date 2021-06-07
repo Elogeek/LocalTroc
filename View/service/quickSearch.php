@@ -83,7 +83,7 @@
            <!--FIRST LINE-->
                <div>
                     <tr>
-                       <td><img src="/assets/img/userProfile.webp" alt="wonderful avatar"> </td>
+                       <td><img src="/assets/img/defaultImages/userProfile.webp" alt="wonderful avatar"> </td>
                        <td>John </td>
                        <td>Disponible</td>
                        <td>Chimay</td>
@@ -99,7 +99,7 @@
                </div>
                <div>
                    <tr>
-                      <td><img src="/assets/img/userProfile.webp" alt="wonderful avatar"> </td>
+                      <td><img src="/assets/img/defaultImages/userProfile.webp" alt="wonderful avatar"> </td>
                        <td>Jane </td>
                        <td>Disponible</td>
                        <td>Bourlers</td>
