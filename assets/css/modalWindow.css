@@ -1,0 +1,46 @@
+/**
+ * Modal window CSS.
+ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(175,175,175,0.5);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal window text content */
+.modal-overlay #confirm {
+    width: 50rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,0.85);
+    background-color: white;
+    padding: 3rem;
+    line-height: 2.8rem;
+}
+
+.modal-overlay #confirm h3 {
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid #3c3c3c;
+}
+
+.modal-overlay #confirm p {
+    margin-top: 1rem;
+}
+
+/* Modal window buttons container */
+.modal-buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+    .modal-overlay #confirm {
+        padding: 2rem;
+        width: 30rem;
+    }
+}

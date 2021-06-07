@@ -21,6 +21,7 @@ class ServiceController extends Controller
             'profile.css',
             'forms.css',
             'services.css',
+            'modalWindow.css'
         ];
 
         $this->javaScripts = [

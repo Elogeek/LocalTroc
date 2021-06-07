@@ -30,6 +30,7 @@ class UserController extends Controller {
         $this->css = [
             'profile.css',
             'forms.css',
+            'modalWindow.css',
         ];
 
         $this->userProfileManager = new UserProfileManager();
