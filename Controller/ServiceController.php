@@ -19,7 +19,7 @@ class ServiceController extends Controller
         $this->profileCss = [
             'profile.css',
             'forms.css',
-            'errors.css',
+            'services.css',
         ];
 
         $this->userProfileManager = new UserProfileManager();
@@ -77,7 +77,7 @@ class ServiceController extends Controller
 
 
     /**
-     * USER connected function
+     * USER connected function // Uniquement ceux de l'utilisateur connecté.
      * Show connected user services ( user profile )
      */
     public function showLoggedInUserServices() {

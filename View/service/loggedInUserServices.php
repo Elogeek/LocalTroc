@@ -11,9 +11,14 @@
             <?php
             $services = $params['services'];
             foreach($services as $service) {
+                $date = (DateTime::createFromFormat('Y-m-d H:i:s', $service->getServiceDate()));
+                $date = $date->format('d / m / Y à H:i:s');
                 /* @var UserService $service */ ?>
                 <div class="user-service-profile">
-                    <h2><?= $service->getSubject() ?></h2>
+                    <h2>
+                        <?= $service->getSubject() ?>
+                        <p><span>Ajouté le:</span> <?= $date ?></p>
+                    </h2>
                     <div class="user-service-profile-content">
                         <div> <?php
                             if($service->getImage() !== null) { ?>
@@ -25,11 +30,19 @@
                             } ?>
                         </div>
                         <div>
-                            <p class="user-service-date">
-                                <?= $service->getServiceDate() ?>
-                            </p>
-                            <p><?= $service->getDescription() ?></p>
+                            <p><?= stripslashes($service->getDescription()) ?></p>
                         </div>
+                    </div>
+                    <div class="services-user-actions">
+                        <?php
+                        $id = $service->getId();
+                        ?>
+                        <a class="btn btn-primary" href="/index.php?controller=service&action=edit&id=<?= $id ?>" title="Editer mon annonce">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="btn btn-secondary" href="/index.php?controller=service&action=delete&id=<?= $id ?>" title="Supprimer mon annonce">
+                            <i class="fas fa-trash"></i>
+                        </a>
                     </div>
                 </div>
             <?php

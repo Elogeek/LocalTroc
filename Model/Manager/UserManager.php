@@ -10,7 +10,7 @@ class UserManager
 {
 
     /**
-     * Return an User by his id
+     *
      * @param int $id
      * @return User|null
      */

@@ -30,7 +30,6 @@ class UserController extends Controller {
         $this->css = [
             'profile.css',
             'forms.css',
-            'errors.css',
         ];
 
         $this->userProfileManager = new UserProfileManager();

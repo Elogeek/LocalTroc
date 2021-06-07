@@ -43,10 +43,16 @@ else {
     echo "Erreur en ajoutant l'utilisateur<br>";
     die();
 }
-
-// Test de la mise à jour d'un user.
-$user->setEmail('007.nux@gmail.com');
-$result = $userManager->updateUser($user);
+// Test getByMail()
+$user = $userManager->getByMail('jeandoe@gmail.com');
+// Test update user.
+if(is_null($userManager->getByMail('douidouille@gmail.com'))) {
+    $user->setEmail('douidouille@gmail.com');
+    $result = $userManager->updateUser($user);
+}
+else {
+    echo "Adresse mail déjà prise.<br>";
+}
 
 if($result) {
     echo "user mis à jour<br>";
@@ -56,8 +62,9 @@ else {
     die();
 }
 
-// Test de la fonction de mise à jour du password.
-$result = $userManager->updatePassword($user , 'azerty0000');
+
+// Test update password.
+$result = $userManager->updatePassword($user , '123Abc');
 if($result) {
     echo 'mot de passe modifié<br>';
 }
@@ -66,7 +73,7 @@ else {
     die();
 }
 
-// Teste la fonction de récupération du mot de passe utilisateur en base de données.
+// Test the database user password recovery function.
 $result = $userManager->getUserPassword($user);
 if($result) {
     echo "tout est ok<br>";

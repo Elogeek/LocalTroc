@@ -63,10 +63,7 @@ class InfoController extends Controller {
             }
         }
 
-        $this->addCss([
-            'forms.css',
-            'errors.css',
-        ]);
+        $this->addCss(['forms.css']);
         $this->showView('info/contact');
     }
 }

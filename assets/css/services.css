@@ -1,0 +1,73 @@
+.user-service-profile {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1rem 0 #6c757d;
+    padding: 0.8rem 2rem;
+}
+
+.user-service-profile h2 {
+    margin-top: 0 !important;
+    padding: 1rem;
+    border-bottom: 0.1rem solid #3c3c3c;
+}
+
+.user-service-profile h2 p {
+    font-size: 1.2rem;
+    color: #727171
+}
+
+.user-service-profile h2 p span {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #3c3c3c;
+}
+
+.user-service-profile-content img {
+    max-width: 30rem;
+}
+
+.user-service-profile-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user-service-profile-content > div:last-child {
+    padding-left: 3rem;
+    line-height: 2.5rem;
+}
+
+.services-user-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.services-user-actions > * {
+    margin-right: 2rem;
+}
+
+.services-user-actions > a.btn {
+    padding: 0.1rem 1rem 0.1rem 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .user-service-profile-content img {
+        max-width: 25rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .user-service-profile-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-service-profile-content > div:last-child {
+        padding-left: 0;
+    }
+
+    .services-user-actions > a.btn {
+        padding: 0.8rem 1rem 0.5rem 1rem;
+    }
+}

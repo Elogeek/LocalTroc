@@ -537,12 +537,7 @@ nav {
     box-shadow: 0 8px 6px -6px black;
 }
 
-.btn i {
-    padding-right: 0.5rem;
-}
-
 .btn-primary {
-    border: 1px solid #3c3c3c;
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
 }
 

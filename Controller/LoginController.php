@@ -54,10 +54,7 @@ class LoginController extends Controller {
 
         }
         // On affiche la vue qui est en charge du formulaire inscription.
-        $this->addCss([
-            'forms.css',
-            'errors.css',
-        ]);
+        $this->addCss(['forms.css']);
         $this->showView('login/connect');
     }
 

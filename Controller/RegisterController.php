@@ -137,10 +137,7 @@ class RegisterController extends Controller {
             }
         }
 
-        $this->addCss([
-            'forms.css',
-            'errors.css',
-        ]);
+        $this->addCss(['forms.css']);
         $this->showView('register/register');
     }
 

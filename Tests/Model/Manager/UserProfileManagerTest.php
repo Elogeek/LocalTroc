@@ -34,7 +34,6 @@ else {
 }
 
 $profile->setMoreInfos('updated');
-$profile->setCountry('somewhere');
 $profile->setCodeZip(59610);
 $profile->setAddress('Rue Arlette Corrente');
 $profile->setCity('Fourmies');
