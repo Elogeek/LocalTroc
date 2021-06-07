@@ -424,45 +424,6 @@ h2 {
     border: 2px solid #c9e265;
 }
 
-/* CREATE SERVICE*/
-#createServ h3 {
-    text-decoration: #c9e265 underline overline;
-    font-size: 3rem;
-    text-align: center;
-}
-
-#createServ {
-    margin: 2rem;
-    padding: 1rem;
-    border: 3px solid turquoise;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    width: 50%;
-}
-
-#createServ * input {
-    margin-top: 2rem;
-}
-
-#createServ div {
-    margin-top: 2rem;
-}
-/*#createServ input[name*="fichier"] {
-    margin-top: 2rem;
-}
-*/
-#createServ textarea {
-    margin-top: 2rem;
-}
-
-#createServ button {
-    display: flex;
-    width: 10rem;
-    height: 2rem;
-    margin: 2rem 16rem;
-}
-
 /*DESING OPINION SERVICE*/
 .opinion {
     display: flex;
@@ -597,7 +558,7 @@ h1+hr {
     display: flex;
     width: 90%;
     flex-direction: column;
-    min-height: calc(100% - 30rem);
+    min-height: calc(100vh - 38rem);
     margin: 3rem auto 0;
 }
 

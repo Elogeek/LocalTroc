@@ -7,6 +7,9 @@ class ServiceController extends Controller
      */
     public function addService(array $request) {
 
+        $this->addCss([
+            'forms.css'
+        ]);
         $this->showView('service/createService');
     }
 
