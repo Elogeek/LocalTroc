@@ -1,7 +1,8 @@
-
-
 <div class="internal-container">
     <div class="profile-content">
+
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/avatar-and-menu.php' ?>
+
         <div class="profile-table">
             <h1>Ajouter un service</h1>
             <hr>

@@ -8,9 +8,14 @@ class ServiceController extends Controller
     public function addService(array $request) {
 
         $this->addCss([
-            'forms.css'
+            'profile.css',
+            'forms.css',
+            'errors.css',
         ]);
-        $this->showView('service/createService');
+
+        $this->showView('service/createService', [
+            'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser())
+        ]);
     }
 
 }
