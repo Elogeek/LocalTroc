@@ -38,11 +38,11 @@ else {
 }
 
 // Send a message
-$userFK = $userManager->getById(1); // obtention d'un utilisateur qui envoie le message pour un service de l'utilisateur 3
+$userFK = $userManager->getById(1); // getting a user to send the message for a user 3 service
 
-$result = $messageManager->sendMessages('test message', $services[0], $userFK); // Premier service de la liste des services.
+$result = $messageManager->sendMessages('test message', $services[0], $userFK); // First service on the list of services.
 if($result){
-    echo "Message  bien envoyé";
+    echo "Le message est bien envoyé";
 }
 else {
     echo "Error lors de l'envoi  du message";
@@ -50,7 +50,7 @@ else {
 }
 
 //delete a message
-$messages = $messageManager->getSentMessages($user); // Pour avoir aussi le dernier message envoyé.
+$messages = $messageManager->getSentMessages($user); // To also have the last message sent.
 print_r($messages);
 if(count($messages) > 0) {
     $result = $messageManager->deleteMessage($messages[count($messages) - 1]);

@@ -33,30 +33,29 @@ else {
     die();
 }
 
-$profile->setMoreInfos('updated');
-$profile->setCodeZip(59610);
-$profile->setAddress('Rue Arlette Corrente');
-$profile->setCity('Fourmies');
+$profile->setMoreInfos('test ');
+$profile->setCodeZip(6593);
+$profile->setAddress('Rue Dans ton code');
+$profile->setCity('Macquenoise');
 $profile->setBirthday((new DateTime())->format('Y-m-d H:i:s'));
 $profile->setAvatar('mon avatar');
-$profile->setPhone('+336123456');
+$profile->setPhone('046123456');
 
 //Test modify profile
 if($userProfileManager->updateProfile($profile)) {
-    echo "Modif réussie <br>";
+    echo " Yes, les modifs ont réussies <br>";
 }
 else {
-    echo "Erreur aucune modif réussie <br>";
+    echo "Erreur, les modifications n'ont pas réussies <br>";
     die();
 }
-
 
 //Test delete profile.
 if($userProfileManager->deleteUserProfile($profile)) {
     echo "Suppression réussie <br>";
 }
 else {
-    echo "Erreur de suppression du profil user<br>";
+    echo "Erreur lors de la suppression du profil <br>";
     die();
 }
 

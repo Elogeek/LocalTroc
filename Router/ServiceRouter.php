@@ -12,9 +12,21 @@ class ServiceRouter {
                 case 'add':
                     $controller->addService($_POST);
                     break;
+
                 case 'user-services':
                     $controller->showLoggedInUserServices();
                     break;
+
+                case 'user-service-delete':
+                    if(isset($_GET['id'])) {
+                        // Delete user service if id was provided.
+                        $controller->deleteLoggedInUserService($_GET['id']);
+                    } else {
+                        // f no service id was provided, then redirect to user services listing.
+                        $controller->showLoggedInUserServices();
+                    }
+                    break;
+
                 default:
                     // TODO => List all services.
             }

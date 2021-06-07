@@ -8,6 +8,7 @@ use Model\DB;
 class ServiceController extends Controller
 {
     private array $profileCss;
+    private array $javaScripts;
     private UserProfileManager $userProfileManager;
     private UserServiceManager $userServiceManager;
 
@@ -20,6 +21,11 @@ class ServiceController extends Controller
             'profile.css',
             'forms.css',
             'services.css',
+        ];
+
+        $this->javaScripts = [
+            'Objects/ModalWindow.js',
+            'profile.js',
         ];
 
         $this->userProfileManager = new UserProfileManager();
@@ -88,6 +94,22 @@ class ServiceController extends Controller
             'services' => $this->userServiceManager->getServicesByUser($this->user),
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
+    }
+
+    /**
+     * USER connected service deletion.
+     * Si l'utilisateur ayant créé le service ( son id ) est égale à l'id de l'utilisateur connecté, alors ont peut supprimer
+     * @param int $serviceId
+     */
+    public function deleteLoggedInUserService(int $serviceId) {
+        $this->redirectIfNotLoggedIn('user', 'login');
+        $service = $this->userServiceManager->getService($serviceId);
+        // Delete service only if service is owned by connected user.
+        if($service->getUser()->getId() === $this->user->getId()) {
+            $this->userServiceManager->deleteService($service);
+        }
+        // User service deleted, then return to user services listing.
+        $this->redirectTo('service', 'user-services');
     }
 
 }
