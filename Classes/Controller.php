@@ -10,8 +10,8 @@ class Controller {
 
     private ?string $errorMessage = null;
     private ?string $successMessage = null;
-    private ?array $javaScripts = null;
-    private ?array $css = null;
+    private ?array $controllerJavaScripts = null;
+    private ?array $controllerCss = null;
     public ?User $user;
 
     /**
@@ -32,18 +32,18 @@ class Controller {
         $connected = !is_null($user);
 
         // Handling additional JavaScripts.
-        if(!is_null($this->javaScripts)) {
-            $javaScripts = array_map(function ($js) { return '/assets/js/' . $js;}, $this->javaScripts);
-            $this->javaScripts = null;
+        if(!is_null($this->controllerJavaScripts)) {
+            $javaScripts = array_map(function ($js) { return '/assets/js/' . $js;}, $this->controllerJavaScripts);
+            $this->controllerJavaScripts = null;
         }
         else {
             $javaScripts = [];
         }
 
         // Handling additional css.
-        if(!is_null($this->css)) {
-            $css = array_map(function ($cs) { return '/assets/css/' . $cs;}, $this->css);
-            $this->css = null;
+        if(!is_null($this->controllerCss)) {
+            $css = array_map(function ($cs) { return '/assets/css/' . $cs;}, $this->controllerCss);
+            $this->controllerCss = null;
         }
         else {
             $css = [];
@@ -125,7 +125,7 @@ class Controller {
      * @param array $javaScripts
      */
     public function addJavaScript(array $javaScripts) {
-        $this->javaScripts = $javaScripts;
+        $this->controllerJavaScripts = $javaScripts;
     }
 
     /**
@@ -133,7 +133,7 @@ class Controller {
      * @param array $css
      */
     public function addCss(array $css) {
-        $this->css = $css;
+        $this->controllerCss = $css;
     }
 
     /**

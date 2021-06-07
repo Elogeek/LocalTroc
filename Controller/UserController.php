@@ -109,7 +109,7 @@ class UserController extends Controller {
         $this->addCss($this->css);
 
         $this->showView('user/editInformation', [
-            'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser()),
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
     }
 
@@ -119,14 +119,10 @@ class UserController extends Controller {
      * @param array $req
      */
     public function editProfile(array $req) {
-        // Redirect user to the login page if he try to access the edit page without being logged in.
-        $user = $this->getLoggedInUser();
-        if(is_null($user)) {
-            $this->redirectTo('user', 'login');
-        }
+        $this->redirectIfNotLoggedIn('user', 'login');
+
         // Getting user profile to populate html fields and update user profile with provided data.
-        $profileManager = new UserProfileManager();
-        $userProfile = $profileManager->getUserProfile($user);
+        $userProfile = $this->userProfileManager->getUserProfile($this->user);
 
         if($this->isFormSubmitted()) {
             // Starting checking provided - required form data.
@@ -141,7 +137,7 @@ class UserController extends Controller {
                 $error = false;
 
                 // Checking if pseudo is already taken.
-                if($pseudo !== $userProfile->getPseudo() && $profileManager->isPseudoTaken($pseudo)) {
+                if($pseudo !== $userProfile->getPseudo() && $this->userProfileManager->isPseudoTaken($pseudo)) {
                     $error = true;
                     $this->setErrorMessage("Désolé, mais ce pseudo est déjà pris.");
                 }
@@ -199,7 +195,7 @@ class UserController extends Controller {
                         }
                     }
 
-                    if ($profileManager->updateProfile($userProfile)) {
+                    if ($this->userProfileManager->updateProfile($userProfile)) {
                         $this->setSuccessMessage("Votre profil a bien été mis à jour");
                     } else {
                         $this->setErrorMessage("Une erreur est survenue en mettant à jour votre profil");
@@ -211,16 +207,8 @@ class UserController extends Controller {
             }
         }
 
-        $this->addJavaScript([
-            'Objects/ModalWindow.js',
-            'profile.js',
-        ]);
-
-        $this->addCss([
-            'profile.css',
-            'forms.css',
-            'errors.css',
-        ]);
+        $this->addJavaScript($this->javaScripts);
+        $this->addCss($this->css);
 
         $this->showView('user/editProfile', [
             'userProfile' => $userProfile,
@@ -232,36 +220,28 @@ class UserController extends Controller {
      * Delete all user data.
      */
     public function deleteUser() {
-        $user = $this->getLoggedInUser();
-        if(is_null($user)) {
-            $this->redirectTo('user', 'login');
-        }
+        $this->redirectIfNotLoggedIn('user', 'login');
 
-        $userManager = new UserManager();
         $messageManager = new MessageManager();
-        $userProfileManager = new UserProfileManager();
         $serviceManager = new UserServiceManager();
 
         // Getting all user data and delete them to be RGPD conform.
-        $messages = $messageManager->getSentMessages($user);
-        $profile = $userProfileManager->getUserProfile($user);
-        $services = $serviceManager->getServicesByUser($user);
+        $messages = $messageManager->getSentMessages($this->user);
+        $profile = $this->userProfileManager->getUserProfile($this->user);
+        $services = $serviceManager->getServicesByUser($this->user);
 
         foreach($messages as $message) {
             $messageManager->deleteMessage($message);
         }
 
-        $userProfileManager->deleteUserProfile($profile);
+        $this->userProfileManager->deleteUserProfile($profile);
 
         foreach($services as $service) {
             $serviceManager->deleteService($service);
         }
 
         // Finally deleting the user itself.
-        $userManager->deleteUser($user);
-
+        $this->userManager->deleteUser($this->user);
         $this->redirectTo('login', 'disconnect');
     }
-
-
 }
