@@ -14,6 +14,12 @@
     } ?>
     <span> <?= $userProfile->getPseudo() ?></span>
 
+    <?php
+        // Checking if connected user is admin and display admin menu if so.
+        if($user->getRole()->getName() === 'admin') {
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/View/admin/_partials/admin-menu.php';
+        }
+    ?>
     <div class="user-profile-menu">
         <nav>
             <ul>

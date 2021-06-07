@@ -56,9 +56,25 @@ div.profile-table {
 }
 
 .imgAvatar > span {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-transform: capitalize;
     font-weight: bold;
+}
+
+.admin-menu nav {
+    background: #3c3c3c;
+    color: white;
+    min-width: 21rem;
+    display: block
+}
+
+.admin-menu h3 {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+}
+
+.admin-menu ul {
+    margin-top: 0.5rem;
 }
 
 .user-profile-menu nav {
@@ -66,6 +82,7 @@ div.profile-table {
     margin-top: 3rem;
     border-radius: 0.8rem;
     line-height: 3.5rem;
+    min-width: 21rem;
 }
 
 .user-profile-menu nav ul li {
