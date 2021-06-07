@@ -103,7 +103,7 @@ class UserService {
      * Return the service image.
      * @return string
      */
-    public function getImage(): string {
+    public function getImage(): ?string {
         return $this->image;
     }
 

@@ -18,9 +18,9 @@ class ServiceController extends Controller
         }
 
         if($this->isFormSubmitted()) {
-            if($this->issetAndNotEmpty($request, 'subject', 'description')) {
+            if($this->issetAndNotEmpty($request, 'subject', 'descriptionService')) {
                 $subject = DB::secureData($request['subject']);
-                $description = DB::secureData($request['description']);
+                $description = DB::secureData($request['descriptionService']);
 
                 $service = new UserService();
                 $service->setSubject($subject);
@@ -29,8 +29,8 @@ class ServiceController extends Controller
                 $service->setUser($user);
 
                 // Checking if user has uploaded a service image.
-                if($this->issetAndNotEmpty($_FILES, 'image')) {
-                    $fileUploader = new FileUpload($_FILES['image'], '/assets/uploads/services/');
+                if($_FILES['serviceImage']['size'] > 0) {
+                    $fileUploader = new FileUpload($_FILES['serviceImage'], '/assets/uploads/services/');
                     if(!$fileUploader->isSizeInThreshold() || !$fileUploader->upload()) {
                         $this->setErrorMessage("Une erreur est survenue en envoyant l'image de votre service.");
                     }

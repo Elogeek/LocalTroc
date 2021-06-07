@@ -164,7 +164,7 @@ class UserController extends Controller {
                     }
 
                     // Checking if avatar was provided.
-                    if($this->issetAndNotEmpty($_FILES, 'avatar')) {
+                    if($_FILES['avatar']['size'] > 0) {
                         $fileUploader = new FileUpload($_FILES['avatar'], '/assets/uploads/avatars/');
                         if($fileUploader->isSizeInThreshold()) {
                             if($fileUploader->upload()) {
