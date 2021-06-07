@@ -7,6 +7,10 @@ class ServiceController extends Controller
      */
     public function addService(array $request) {
 
+        if($this->isFormSubmitted()) {
+
+        }
+
         $this->addCss([
             'profile.css',
             'forms.css',
