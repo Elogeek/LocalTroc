@@ -6,12 +6,7 @@
 
         <div class="profile-table">
 
-            <!-- Edit buttons. -->
-            <div id="profile-actions">
-                <a href="/index.php?controller=service&action=add" title="Ajouter un service" class="btn btn-primary">
-                    <i class="far fa-edit"></i>Ajouter un service
-                </a>
-            </div>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/add-service-button.php' ?>
 
             <h1>Mon profil </h1>
             <hr>

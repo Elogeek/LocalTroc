@@ -64,4 +64,13 @@ class ServiceController extends Controller
         ]);
     }
 
+
+    /**
+     * Show connected user services ( user profile )
+     */
+    public function showServices()
+    {
+
+    }
+
 }

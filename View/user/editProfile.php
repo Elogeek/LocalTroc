@@ -4,6 +4,9 @@
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/avatar-and-menu.php' ?>
 
         <div class="profile-table">
+
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/add-service-button.php' ?>
+
             <form action="/index.php?controller=user&action=editProfile" method="POST" enctype="multipart/form-data">
                 <h1>Editer mon profil </h1>
                 <hr>

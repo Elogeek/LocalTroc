@@ -12,6 +12,9 @@ class ServiceRouter {
                 case 'add':
                     $controller->addService($_POST);
                     break;
+                case 'user-services':
+                    $controller->showServices();
+                    break;
                 default:
                     // TODO => List all services.
             }
