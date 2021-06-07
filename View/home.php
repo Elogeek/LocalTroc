@@ -53,7 +53,7 @@ if(!$connected) { ?>
     <div class="elements">
         <!--one slide-->
         <div class="element active">
-            <img src="/assets/img/déménagement.jpg" alt="img1">
+            <img src="/assets/img/carouselImg/déménagement.jpg" alt="img1">
             <div class="caption">
                 <p>
                     Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
@@ -64,7 +64,7 @@ if(!$connected) { ?>
 
         <!--two slide-->
         <div class="element">
-            <img src="/assets/img/cuisine.jpg" alt="img2">
+            <img src="/assets/img/carouselImg/cuisine.jpg" alt="img2">
             <div class="caption">
                 <p>
                     Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
@@ -74,7 +74,7 @@ if(!$connected) { ?>
         </div>
         <!--three slide-->
         <div class="element">
-            <img src="/assets/img/couture.jpg" alt="img3">
+            <img src="/assets/img/carouselImg/couture.jpg" alt="img3">
             <div class="caption">
                 <p>
                     Trop de connaissances en couture, envie de partager sa passion ? LocalTroc est fait pour vous.
@@ -84,7 +84,7 @@ if(!$connected) { ?>
 
         <!--four slide-->
         <div class="element">
-            <img src="/assets/img/massage.webp" alt="img4">
+            <img src="/assets/img/carouselImg/massage.webp" alt="img4">
             <div class="caption">
                 <p>
                     Trop nerveux, envie de relaxation, besoin d' améliorer ces compétences en massage? Trouver un troqueur/ une troqueuse.
@@ -93,7 +93,7 @@ if(!$connected) { ?>
         </div>
         <!--five slide-->
         <div class="element">
-            <img src="/assets/img/travel.webp" alt="img5">
+            <img src="/assets/img/carouselImg/travel.webp" alt="img5">
             <div class="caption">
                 <p>
                     Envie de s'évader dans votre région, besoin de vacances? Venez sur LocalTroc.
@@ -103,7 +103,7 @@ if(!$connected) { ?>
 
         <!--six slide-->
         <div class="element">
-            <img src="/assets/img/makeUp.jpg" alt="img6">
+            <img src="/assets/img/carouselImg/makeUp.jpg" alt="img6">
             <div class="caption">
                 <p>
                     Pas douée pour se maquiller seul? Où tout,simplement maquiller les enfants pour les grandes occasions? C'est sur LocalTroc.
@@ -113,7 +113,7 @@ if(!$connected) { ?>
 
         <!--seven slide-->
         <div class="element">
-            <img src="/assets/img/course.jpg" alt="img7">
+            <img src="/assets/img/carouselImg/course.jpg" alt="img7">
             <div class="caption">
                 <p>
                     Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
@@ -124,7 +124,7 @@ if(!$connected) { ?>
 
         <!-- eight slide-->
         <div class="element">
-            <img src="/assets/img/baby-sitter.jpg" alt="img8">
+            <img src="/assets/img/carouselImg/baby-sitter.jpg" alt="img8">
             <div class="caption">
                 <p>
                     Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
@@ -135,7 +135,7 @@ if(!$connected) { ?>
 
         <!-- nine slide-->
         <div class="element">
-            <img src="/assets/img/jardinage.jpg" alt="img9">
+            <img src="/assets/img/carouselImg/jardinage.jpg" alt="img9">
             <div class="caption">
                 <p>
                     Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.
@@ -145,7 +145,7 @@ if(!$connected) { ?>
 
         <!-- ten slide-->
         <div class="element">
-            <img src="/assets/img/dog-sitter.jpg" alt="img10">
+            <img src="/assets/img/carouselImg/dog-sitter.jpg" alt="img10">
             <div class="caption">
                 <p>
                     Personne pour garder ou promener son chien ? Parcourir nos annonces.
@@ -155,7 +155,7 @@ if(!$connected) { ?>
 
         <!-- eleven slide-->
         <div class="element">
-            <img src="/assets/img/bricolage.jpg" alt="img11">
+            <img src="/assets/img/carouselImg/bricolage.jpg" alt="img11">
             <div class="caption">
                 <p>
                     Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
@@ -166,7 +166,7 @@ if(!$connected) { ?>
 
         <!-- twelve slide-->
         <div class="element">
-            <img src="/assets/img/photographe.jpg" alt="img12">
+            <img src="/assets/img/carouselImg/photographe.jpg" alt="img12">
             <div class="caption">
                 <p>
                     Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région? Venez sur LocalTroc.

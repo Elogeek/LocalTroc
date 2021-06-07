@@ -6,9 +6,9 @@ const HeaderCarousel = {
     carrousel: document.getElementById('slider'),
     div: document.createElement("img"),
     images: [
-        "/assets/img/img1.jpg",
-        "/assets/img/img2.jpg",
-        "/assets/img/img3.jpg"
+        "/assets/img/carouselImg/headerCarousel/img1.jpg",
+        "/assets/img/carouselImg/headerCarousel/img2.jpg",
+        "/assets/img/carouselImg/headerCarousel/img3.jpg"
     ],
     counter: 0,
 
