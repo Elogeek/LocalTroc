@@ -5,6 +5,13 @@ use Model\DB;
 class InfoController extends Controller {
 
     /**
+     * InfoController constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
      * Display the info page that links to CGU and Confidentiality policy.
      */
     public function infoIndex() {

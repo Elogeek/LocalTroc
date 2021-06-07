@@ -156,7 +156,20 @@ class Controller {
      * @param string|null $action
      */
     public function redirectIfNotLoggedIn(string $controller, string $action = null) {
+        if(is_null($this->user)) {
+            $this->redirectTo($controller, $action);
+        }
+    }
 
+    /**
+     * Redirect user if he is logged in.
+     * @param string $controller
+     * @param string $action
+     */
+    public function redirectIfLoggedIn(string $controller, string $action) {
+        if(!is_null($this->user)) {
+            $this->redirectTo($controller, $action);
+        }
     }
 
     /**

@@ -10,15 +10,19 @@ use Model\DB;
 class LoginController extends Controller {
 
     /**
+     * LoginController constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
      * Get user logged in.
      * @param array $request
      */
     public function login(array $request) {
 
-        // Si l'utilisateur est déjà connecté, je le renvoie sur son profile.
-        if(!is_null($this->getLoggedInUser())) {
-            $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
-        }
+        $this->redirectIfLoggedIn('user', 'profile');
 
         // Je vérifie si le formulaire a été soumis ou pas.
         if($this->isFormSubmitted() && $this->issetAndNotEmpty($request, 'email', 'password')) {

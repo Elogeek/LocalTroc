@@ -12,14 +12,19 @@ use Model\DB;
 class RegisterController extends Controller {
 
     /**
+     * RegisterController constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
      * Handle user account register.
      * @param array $request
      */
     public function register(array $request) {
         // Si un utilisateur connecté tente d'accéder à la page d'enregistrelment, alors on le redirige vers son profil.
-        if(!is_null($this->getLoggedInUser())) {
-            $this->redirectTo('user', 'profile'); // Pas besoin de else puisque l'utilisateur est redirigé si déjà connecté
-        }
+        $this->redirectIfLoggedIn('user', 'profile');
 
         // Checking if form was submit.
         if($this->isFormSubmitted()) {

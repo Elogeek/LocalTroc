@@ -12,23 +12,40 @@ use Model\DB;
  */
 class UserController extends Controller {
 
+    private array $javaScripts;
+    private array $css;
+    private UserManager $userManager;
+    private UserProfileManager  $userProfileManager;
+
+    /**
+     * UserController constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+        $this->javaScripts = [
+            'Objects/ModalWindow.js',
+            'profile.js',
+        ];
+
+        $this->css = [
+            'profile.css',
+            'forms.css',
+            'errors.css',
+        ];
+
+        $this->userProfileManager = new UserProfileManager();
+        $this->userManager = new UserManager();
+    }
+
     /**
      * Handle user profile.
      */
     public function profile() {
-        $user = $this->getLoggedInUser();
-        if(is_null($user)) {
-            $this->redirectTo('user', 'login');
-        }
-
-        /* return profile user */
-        $this->addCss(['profile.css']);
-        $this->addJavaScript([
-            'Objects/ModalWindow.js',
-            'profile.js',
-        ]);
+        $this->redirectIfNotLoggedIn('user', 'login');
+        $this->addCss($this->css);
+        $this->addJavaScript($this->javaScripts);
         $this->showView('user/profile', [
-            'userProfile' => (new UserProfileManager())->getUserProfile($user),
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
     }
 
@@ -38,34 +55,29 @@ class UserController extends Controller {
      * @param array $req
      */
     public function editInformation(array $req) {
-        $user = $this->getLoggedInUser();
-        if(is_null($user)) {
-            $this->redirectTo('user', 'login');
-        }
+        $this->redirectIfNotLoggedIn('user', 'login');
 
         if($this->isFormSubmitted()) {
             // Checking all required are set.
             if ($this->issetAndNotEmpty($req, 'firstname', 'lastname', 'mail')) {
-                $userManager = new UserManager();
-
                 $mail = DB::secureData($req['mail']);
                 $firstName = DB::secureData($req['firstname']);
                 $lastname = DB::secureData($req['lastname']);
 
                 // Checking user not already exists.
                 $error = false;
-                if($mail !== $user->getEmail() && $userManager->getByMail($mail) !== null || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                if($mail !== $this->user->getEmail() && $this->userManager->getByMail($mail) !== null || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     $error = true;
                     $this->setErrorMessage("Cette adresse email est déjà prise ou n'est pas au bon format.");
                 }
 
                 // If no errors.
                 if(!$error) {
-                    $user->setFirstname($firstName);
-                    $user->setLastName($lastname);
-                    $user->setEmail($mail);
+                    $this->user->setFirstname($firstName);
+                    $this->user->setLastName($lastname);
+                    $this->user->setEmail($mail);
 
-                    $infosRes = $userManager->updateUser($user);
+                    $infosRes = $this->userManager->updateUser($this->user);
 
                     $passwordResult = true;
                     // Checking if password was changed, if so, updating password.
@@ -78,7 +90,7 @@ class UserController extends Controller {
                             $passwordResult = false;
                         } else {
                             if ($pass === $passConfirm) {
-                                $passwordResult = $userManager->updatePassword($user, $pass);
+                                $passwordResult = $this->userManager->updatePassword($this->user, $pass);
                             } else {
                                 $this->setErrorMessage("Les mots de passe ne correspondent pas");
                                 $passwordResult = false;
@@ -93,16 +105,9 @@ class UserController extends Controller {
             }
         }
 
-        $this->addJavaScript([
-            'Objects/ModalWindow.js',
-            'profile.js',
-        ]);
+        $this->addJavaScript($this->javaScripts);
+        $this->addCss($this->css);
 
-        $this->addCss([
-            'profile.css',
-            'forms.css',
-            'errors.css',
-        ]);
         $this->showView('user/editInformation', [
             'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser()),
         ]);
