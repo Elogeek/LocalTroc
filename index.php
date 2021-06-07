@@ -24,6 +24,10 @@ if (isset($_GET['controller'])) {
             isset($_GET['action']) ? ServiceRouter::route() : home();
             break;
 
+        case 'admin':
+            isset($_GET['action']) ? AdminRouter::route() : home();
+            break;
+
         case "search" :
             //$controller = new QuickSearchController();
             //$controller->goToQSearch();

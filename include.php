@@ -10,6 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/LoginRouter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/UserRouter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/InfoRouter.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/ServiceRouter.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/AdminRouter.php';
 
 // Loading dependencies classes.
 require_once  $_SERVER['DOCUMENT_ROOT'] . '/Model/DB.php';
