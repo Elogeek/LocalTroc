@@ -1,6 +1,12 @@
 <nav>
     <ul>
         <li>
+            <a href="/index.php?controller=service&action=user-services" title="Mes services">
+                <i class="fas fa-briefcase"></i>Mes services
+            </a>
+        </li>
+
+        <li>
             <a href="/index.php?controller=user&action=profile" title="Mon profil">
                 <i class="fas fa-user-alt"></i>Mon profil
             </a>

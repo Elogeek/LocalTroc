@@ -12,6 +12,14 @@ class Controller {
     private ?string $successMessage = null;
     private ?array $javaScripts = null;
     private ?array $css = null;
+    public ?User $user;
+
+    /**
+     * Controller constructor.
+     */
+    public function __construct() {
+        $this->user = $this->getLoggedInUser();
+    }
 
     /**
      * Show a provided view with all provided params.
@@ -141,6 +149,15 @@ class Controller {
         header('Location: /index.php' . $route);
     }
 
+
+    /**
+     * Redirect user if he is not connected.
+     * @param string $controller
+     * @param string|null $action
+     */
+    public function redirectIfNotLoggedIn(string $controller, string $action = null) {
+
+    }
 
     /**
      * Return the connected user or null

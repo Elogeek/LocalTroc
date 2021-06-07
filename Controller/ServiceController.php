@@ -1,21 +1,33 @@
 <?php
 
+use App\Entity\User;
 use App\Entity\UserService;
 use App\Manager\UserServiceManager;
 use Model\DB;
 
 class ServiceController extends Controller
 {
+    private array $profileCss;
+
     /**
+     * ServiceController constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+        $this->profileCss = [
+            'profile.css',
+            'forms.css',
+            'errors.css',
+        ];
+    }
+
+    /**
+     * USER connected function.
      * Handle service addition.
      */
     public function addService(array $request) {
-
-        $user = $this->getLoggedInUser();
         // Make sure user is connected before allowing to add a new service.
-        if(is_null($user)) {
-            $this->redirectTo('user', 'login');
-        }
+        $this->redirectIfNotLoggedIn('user', 'login');
 
         if($this->isFormSubmitted()) {
             if($this->issetAndNotEmpty($request, 'subject', 'descriptionService')) {
@@ -26,7 +38,7 @@ class ServiceController extends Controller
                 $service->setSubject($subject);
                 $service->setDescription($description);
                 $service->setServiceDate((new \DateTime())->format('Y-m-d h:i:s'));
-                $service->setUser($user);
+                $service->setUser($this->user);
 
                 // Checking if user has uploaded a service image.
                 if($_FILES['serviceImage']['size'] > 0) {
@@ -53,12 +65,7 @@ class ServiceController extends Controller
             }
         }
 
-        $this->addCss([
-            'profile.css',
-            'forms.css',
-            'errors.css',
-        ]);
-
+        $this->addCss($this->profileCss);
         $this->showView('service/createService', [
             'userProfile' => (new UserProfileManager())->getUserProfile($this->getLoggedInUser())
         ]);
@@ -66,11 +73,15 @@ class ServiceController extends Controller
 
 
     /**
+     * USER connected function
      * Show connected user services ( user profile )
      */
     public function showServices()
     {
+        // Make sure user is connected before allowing to add a new service.
+        $this->redirectIfNotLoggedIn('user', 'login');
 
+        $this->addCss($this->profileCss);
     }
 
 }
