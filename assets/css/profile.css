@@ -93,12 +93,6 @@ table th {
     border: 0.1rem solid #6c757d;
 }
 
-/*tbody table*/
-table td {
-    border: 0.1rem solid #6c757d;
-    font-size: 2rem;
-}
-
 table th, table td {
     padding: 1rem;
 }

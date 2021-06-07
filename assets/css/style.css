@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:regular,wght@1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 * {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: large;
 }
 
 html {
@@ -448,11 +446,6 @@ h2 {
     margin-top: 2rem;
 }
 
-.site-info p {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
 .site-info h2 {
     text-align: left;
     margin-top: 5rem;
@@ -470,6 +463,10 @@ h2 {
 
 .site-info ul li {
     line-height: 4rem;
+}
+
+.site-info p:last-child {
+    margin-top: 2rem;
 }
 
 .mobile-menu, .mobile-menu-content {

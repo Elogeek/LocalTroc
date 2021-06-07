@@ -11,7 +11,11 @@
             modification a été effectuée, nous vous préviendrons au plus vite par email.
         </p>
 
-        <a class="btn btn-secondary" href="/index.php?controller=info&action=cgu" title="Consulter les CGU">Consulter les CGU</a>
+        <p>
+            <a class="btn btn-secondary" href="/index.php?controller=info&action=cgu" title="Consulter les CGU">
+                Consulter les CGU
+            </a>
+        </p>
     </div>
 
     <!-- Confidentiality link -->
@@ -22,15 +26,21 @@
             En toute transparence, découvrez comment nous traitons vos données et comment vous pouvez facilement les
             consulter, modifier, et les supprimer.
         </p>
-        <a href="/index.php?controller=info&action=confidentiality" class="btn btn-secondary" title="Politique de confidentialité">
-            Politique de confidentialité
-        </a>
+        <p>
+            <a href="/index.php?controller=info&action=confidentiality" class="btn btn-secondary" title="Politique de confidentialité">
+                Politique de confidentialité
+            </a>
+        </p>
     </div>
 
     <!-- Contat section. -->
     <div class="site-info">
         <h2>Nous contacter</h2>
         <p>Encore une question ? Utilisez le formulaire de contact</p>
-        <a href="/index.php?controller=info&action=contact" class="btn btn-secondary" title="Nous contacter">Nous contacter</a>
+        <p>
+            <a href="/index.php?controller=info&action=contact" class="btn btn-secondary" title="Nous contacter">
+                Nous contacter
+            </a>
+        </p>
     </div>
 </div>

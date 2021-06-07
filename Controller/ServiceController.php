@@ -76,6 +76,7 @@ class ServiceController extends Controller
         }
 
         $this->addCss($this->profileCss);
+        $this->addJavaScript($this->javaScripts);
         $this->showView('service/createService', [
             'userProfile' => $this->userProfileManager->getUserProfile($this->user)
         ]);
@@ -90,6 +91,7 @@ class ServiceController extends Controller
         // Make sure user is connected before allowing to add a new service.
         $this->redirectIfNotLoggedIn('user', 'login');
         $this->addCss($this->profileCss);
+        $this->addJavaScript($this->javaScripts);
         $this->showView('service/loggedInUserServices', [
             'services' => $this->userServiceManager->getServicesByUser($this->user),
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
