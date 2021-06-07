@@ -37,10 +37,12 @@
                         <?php
                         $id = $service->getId();
                         ?>
-                        <a class="btn btn-primary" href="/index.php?controller=service&action=edit&id=<?= $id ?>" title="Editer mon annonce">
+                        <a class="btn btn-primary" href="/index.php?controller=service&action=edit&id=<?= $id ?>"
+                           title="Editer mon annonce">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a class="btn btn-secondary" href="/index.php?controller=service&action=user-service-delete&id=<?= $id ?>" title="Supprimer mon annonce">
+                        <a class="btn btn-secondary delete-user-service" href="/index.php?controller=service&action=user-service-delete&id=<?= $id ?>"
+                           title="Supprimer mon annonce">
                             <i class="fas fa-trash"></i>
                         </a>
                     </div>
