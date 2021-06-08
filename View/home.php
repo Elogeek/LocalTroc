@@ -1,9 +1,9 @@
 
 
-    <div class="div1">
-        <!--slider--->
-        <div id="slider"></div>
-    </div>
+<div id="headerCarousel">
+    <!--slider--->
+    <div id="slider"></div>
+</div>
 
 
 <h2>Qu'est-ce-que LocalTroc ?</h2>
