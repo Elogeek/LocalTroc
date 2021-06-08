@@ -51,50 +51,44 @@ h2 {
     color: #08C1EFFF;
 }
 
-/* Design div2  */
-.div2 {
-    margin: 8rem;
+
+/**
+ * Design of 'Qu'est ce que LocalTroc' 3 bottom icons.
+ */
+.site-description {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     height: 6rem;
     text-align: center;
+    max-width: 60%;
+    margin: 3rem auto 0;
 }
 
-.div2 i {
+.site-description i {
     border-radius: 50%;
     background-color: #75d8f7;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 10rem;
+    height: 10rem;
     color: white;
+    font-size: 5rem;
 }
 
-.div2 i:hover {
+.site-description i:hover {
     color: white;
     background-color: #c9e265;
-    transform: scale(1.2);
+    transition: background-color 0.5s linear;
 }
 
-.div2Text{
-    display: flex;
-    flex-flow: row;
-    justify-content: space-around;
+
+.site-description p {
+    text-align: center;
     margin: 1rem;
-    color: #c9e265;
-    text-transform: lowercase;
-}
-
-.div2Text:hover {
-    color: #08c1ef;
-    font-style: italic;
-    font-weight: bold;
-    font-size: x-large;
-    transform: scale(1.2);
-    justify-content: center;
-    text-transform: uppercase;
+    color: #3c3c3c;
+    text-transform: capitalize;
 }
 
 /* Design div3*/

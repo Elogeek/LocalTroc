@@ -1,5 +1,3 @@
-
-
 <div id="headerCarousel">
     <!--slider--->
     <div id="slider"></div>
@@ -7,18 +5,18 @@
 
 
 <h1 class="site-tite">Qu'est-ce-que LocalTroc ?</h1>
-<div class="div2">
+<div class="site-description">
     <div>
         <i class="fas fa-users"></i>
-        <p class="div2Text">COMMUNAUTÉ</p>
+        <p>communauté</p>
     </div>
     <div>
         <i class="fas fa-map"></i>
-            <p class="div2Text">LOCAL</p>
+        <p>local</p>
     </div>
     <div>
         <i class="fas fa-piggy-bank"></i>
-            <p class="div2Text">GRATUIT</p>
+        <p>gratuit</p>
     </div>
 </div>
 
