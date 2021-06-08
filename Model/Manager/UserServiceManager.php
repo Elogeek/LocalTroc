@@ -36,12 +36,23 @@ class UserServiceManager {
 
     /**
      * Return all services
+     * @param int|null $limit
      * @return array
      */
-    public function getServices(): array {
+    public function getServices(int $limit = null): array {
+        $limitSQL = '';
+        if(!is_null($limit)) {
+            $limitSQL = " LIMIT $limit";
+        }
+
         $userManager = new UserManager();
         $services = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM user_service ORDER BY id desc");
+        $request = DB::getInstance()->prepare("
+            SELECT * FROM user_service 
+                ORDER BY id desc
+                $limitSQL
+            ");
+
         if ($request->execute()) {
             foreach ($request->fetchAll() as $serviceData) {
                 $user = $userManager->getById($serviceData['user_fk']);

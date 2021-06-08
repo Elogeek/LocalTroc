@@ -14,9 +14,3 @@
 .admin-table img {
     max-width: 8rem;
 }
-
-@media screen and (max-width: 600px) {
-    .admin-table .mobile-hidden {
-        display: none;
-    }
-}

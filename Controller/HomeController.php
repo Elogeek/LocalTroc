@@ -1,5 +1,7 @@
 <?php
 
+use App\Manager\UserServiceManager;
+
 /**
  * Class HomeController
  */
@@ -27,11 +29,15 @@ class HomeController extends Controller {
      * Handle the home page.
      */
     public function index() {
+        $manager = new UserServiceManager();
+        $lastServices = $manager->getServices(3);
+
         // Additional javaScript
         $this->addJavaScript($this->javaScripts);
-
         // Additional css.
         $this->addCss($this->css);
-        $this->showView('home');
+        $this->showView('home', [
+            'services' => $lastServices,
+        ]);
     }
 }

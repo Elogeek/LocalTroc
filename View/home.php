@@ -6,15 +6,15 @@
 <section>
     <h1 class="site-tite">Qu'est-ce-que LocalTroc ?</h1>
     <div class="site-description">
-        <div>
+        <div class="site-description-item">
             <i class="fas fa-users"></i>
             <p>communauté</p>
         </div>
-        <div>
+        <div class="site-description-item">
             <i class="fas fa-map"></i>
             <p>local</p>
         </div>
-        <div>
+        <div class="site-description-item">
             <i class="fas fa-piggy-bank"></i>
             <p>gratuit</p>
         </div>
@@ -22,6 +22,9 @@
 </section>
 
 <?php
+
+use App\Entity\UserService;
+
 if(!$connected) { ?>
     <section class="callToAction">
         <span>LocalTroc est 100% gratuit !</span>
@@ -30,7 +33,8 @@ if(!$connected) { ?>
     </section> <?php
 } ?>
 
-<div class="diapo">
+<!-- Hidden on mobile version. -->
+<div class="diapo mobile-hidden">
 
     <div class="elements">
         <!-- first slide-->
@@ -43,6 +47,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
+
         <!--slide two -->
         <div class="element">
             <img src="/assets/img/carouselImg/cuisine.jpg" alt="img2">
@@ -124,60 +129,51 @@ if(!$connected) { ?>
 
 
 
+
 <?php
 // Display register button only if user is not connected.
 if(!$connected) { ?>
-    <section class="callToAction">
-        <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
+    <!-- Hidden on mobile version. -->
+    <section class="callToAction mobile-hidden">
+        <span>Envie d'essayer ?</span>
+        <span>Devenir troqueur, troqueuse ? </span>
         <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
     </section> <?php
 }
 ?>
 
 
-<div class="containerLastService">
-    <div class="lastSerivces">
-        <div class="imageRectangle"></div> <!--soit linux où avatar de l' user qui créer le service-->
-        <div class="subjectServices">
-            <h2>Course</h2>
-            <span>Paru le date here</span>
-            <hr>
-        </div>
-        <div class="descriptionServices">
-            <p>
-                <span>John</span> a besoin d'aide pour faire ses courses  à <span> Bourlers (6460) . </span>
-            </p>
-        </div>
-    </div>
+<div class="container-last-services">
+    <?php
+    $lastServices = $params['services'];
+    foreach($lastServices as $service) {
+        /* @var UserService $service */
+        $date = (DateTime::createFromFormat('Y-m-d H:i:s', $service->getServiceDate()));
+        $date = $date->format('d / m / y à H:i'); ?>
+        <div class="last-service">
 
-    <div class="lastSerivces">
-        <div class="imageRectangle"></div> <!--soit linux où avatar de l' user qui créer le service-->
-        <div class="subjectServices">
-            <h2>Course</h2>
-            <span>Paru le date here</span>
-            <hr>
-        </div>
-        <div class="descriptionServices">
-            <p>
-                <span>John</span> a besoin d'aide pour faire ses courses  à <span> Bourlers (6460) . </span>
-            </p>
-        </div>
-    </div>
+            <div class="service-detail">
+                <h2><?= $service->getSubject() ?></h2>
+                <span><?= $date ?></span>
+                <hr>
+            </div>
 
-    <div class="lastSerivces">
-        <div class="imageRectangle"></div> <!--soit linux où avatar de l' user qui créer le service-->
-        <div class="subjectServices">
-            <h2>Course</h2>
-            <span>Paru le date here</span>
-            <hr>
-        </div>
-        <div class="descriptionServices">
-            <p>
-                <span>John</span> a besoin d'aide pour faire ses courses  à <span> Bourlers (6460) . </span>
-            </p>
-        </div>
-    </div>
+            <div class="service-image"> <?php
+                if($service->getImage() === null) {
+                    $imageSrc = '/assets/img/defaultImages/service.png';
+                }
+                else {
+                    $imageSrc = '/assets/uploads/services/' . $service->getImage();
+                } ?>
+                <img src="<?= $imageSrc ?>" alt="Service image">
+            </div>
+
+            <div class="service-description">
+                <p>
+                    <?= $service->getDescription() ?>
+                </p>
+            </div>
+        </div> <?php
+    }
+    ?>
 </div>
-
-
-
