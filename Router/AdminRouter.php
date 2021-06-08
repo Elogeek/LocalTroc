@@ -7,11 +7,11 @@ class AdminRouter {
      */
     public static function route() {
         require_once $_SERVER['DOCUMENT_ROOT'] . '/Controller/AdminController.php';
-        $controller = new AdminRouter();
+        $controller = new AdminController();
 
         switch ($_GET['action']) {
 
-            case 'user-list':
+            case 'users-list':
                 $controller->listUsers();
                 break;
 
@@ -19,4 +19,5 @@ class AdminRouter {
                 home();
         }
     }
+
 }

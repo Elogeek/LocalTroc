@@ -186,4 +186,13 @@ class Controller {
         }
         return null;
     }
+
+    /**
+     * Return true if given user is admin.
+     * @param User $user
+     * @return bool
+     */
+    public function isAdmin(User $user): bool {
+        return $user->getRole()->getName() === 'admin';
+    }
 }

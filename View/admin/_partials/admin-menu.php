@@ -3,7 +3,7 @@
         <h3>Administration</h3>
         <ul>
             <li>
-                <a href="/index.php?controller=admin&action=user-list" title="Utilisateurs">
+                <a href="/index.php?controller=admin&action=users-list" title="Utilisateurs">
                     <i class="fas fa-briefcase"></i>Utilisateurs
                 </a>
             </li>

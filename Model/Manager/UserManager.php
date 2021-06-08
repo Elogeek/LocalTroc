@@ -10,6 +10,23 @@ class UserManager
 {
 
     /**
+     * Return all users.
+     * @return array
+     */
+    public function getAllUsers(): array {
+        $users = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM user ORDER BY id DESC");
+        if($request->execute() && $data = $request->fetchAll()) {
+            $roleManager = new RoleManager();
+            foreach($data as $udata) {
+                $role = $roleManager->getRoleById($udata['role_fk']);
+                $users[] = new User($udata['id'], $role, $udata['firstname'], $udata['lastName'], $udata['email']);
+            }
+        }
+        return $users;
+    }
+
+    /**
      *
      * @param int $id
      * @return User|null
