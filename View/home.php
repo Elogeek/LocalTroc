@@ -30,7 +30,6 @@ if(!$connected) { ?>
     </section> <?php
 } ?>
 
-<!--TODO mODIF  articles diapo-->
 <div class="diapo">
 
     <div class="elements">
@@ -126,7 +125,7 @@ if(!$connected) { ?>
 
 
 <?php
-// Discplay register button only if user is not connected.
+// Display register button only if user is not connected.
 if(!$connected) { ?>
     <section class="callToAction">
         <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
@@ -137,8 +136,6 @@ if(!$connected) { ?>
 
 
 <div class="containerLastService">
-    <!--Affiche près de chez soi, les derniers services create
-  quand service terminée === hidden -->
     <div class="lastSerivces">
         <div class="imageRectangle"></div> <!--soit linux où avatar de l' user qui créer le service-->
         <div class="subjectServices">
