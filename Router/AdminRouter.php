@@ -28,6 +28,15 @@ class AdminRouter {
                 $controller->listServices();
                 break;
 
+            case 'service-delete':
+                if(isset($_GET['id'])) {
+                    $controller->deleteService($_GET['id']);
+                }
+                else {
+                    home();
+                }
+                break;
+
             default:
                 home();
         }

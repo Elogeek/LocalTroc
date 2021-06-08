@@ -193,6 +193,10 @@ class Controller {
      * @return bool
      */
     public function isAdmin(User $user): bool {
+        // Redirect to home page is session is closed.
+        if(is_null($user)) {
+            $this->redirectTo('index');
+        }
         return $user->getRole()->getName() === 'admin';
     }
 }

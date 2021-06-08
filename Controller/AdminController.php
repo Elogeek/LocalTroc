@@ -62,9 +62,6 @@ class AdminController extends Controller {
      */
     public function deleteUser(int $id) {
         if($this->isAdmin($this->user)) {
-            $this->addJavaScript($this->javaScripts);
-            $this->addCss($this->css);
-
             $user = $this->userManager->getById($id);
             if(!is_null($user)) {
                 // Getting all user data and delete them to be RGPD conform.
@@ -95,10 +92,8 @@ class AdminController extends Controller {
             } else {
                 $this->setErrorMessage("L'utilisateur n'a pas été trouvé");
             }
-            $this->showView('admin/users', [
-                'users' => $this->userManager->getAllUsers(),
-                'userProfile' => $this->userProfileManager->getUserProfile($this->user),
-            ]);
+            // Je retourne vers la liste des utilisateurs.
+            $this->listUsers();
         }
         else {
             // If user is not admin, redirect to the user space.
@@ -118,6 +113,41 @@ class AdminController extends Controller {
                 'services' => $this->userServiceManager->getServices(),
                 'userProfile' => $this->userProfileManager->getUserProfile($this->user),
             ]);
+        }
+        else {
+            // If user is not admin, redirect to the user space.
+            $this->redirectTo('user', 'profile');
+        }
+    }
+
+
+    /**
+     * Delete a service.
+     * @param int $id
+     */
+    public function deleteService(int $id) {
+        if($this->isAdmin($this->user)) {
+            // Deleting the service.
+            $service = $this->userServiceManager->getService($id);
+            if(!is_null($service)) {
+                // Suppression des messages associés au service.
+                $messages = $this->messageManager->getMessagesByUserService($service);
+                foreach ($messages as $message) {
+                    $this->messageManager->deleteMessage($message);
+                }
+
+                // Suppression du service en lui même
+                if($this->userServiceManager->deleteService($service)) {
+                    $this->setSuccessMessage("Le service a bien été supprimé.");
+                }
+                else {
+                    $this->setErrorMessage("Une erreur est survenue en supprimant le service");
+                }
+            }
+            else {
+                $this->setErrorMessage("Erreur, le service n'existe pas");
+            }
+            $this->listServices();
         }
         else {
             // If user is not admin, redirect to the user space.

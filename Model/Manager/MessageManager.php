@@ -68,4 +68,30 @@ class MessageManager {
         $request->bindValue(':id', $message->getId());
         return $request->execute();
     }
+
+    /**
+     * Return messages by service.
+     * @param UserService $userService
+     * @return array
+     */
+    public function getMessagesByUserService(UserService $userService): array {
+        $request = DB::getInstance()->prepare("SELECT * FROM message where user_service_fk = :service_id");
+        $request->bindValue(':service_id', $userService->getId());
+        $messages = [];
+        if($request->execute() && $data = $request->fetchAll()) {
+            foreach($data as $mdata) {
+                $message = new Message();
+                $user = (new UserManager())->getById($mdata['user_service_fk']);
+                if(!is_null($user)) {
+                    $message->setId($mdata['id']);
+                    $message->setContent($mdata['content']);
+                    $message->setDate($mdata['date']);
+                    $message->setUserFrom($user);
+                    $message->setUserService($userService);
+                    $messages[] = $message;
+                }
+            }
+        }
+        return $messages;
+    }
 }

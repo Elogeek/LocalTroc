@@ -12,3 +12,16 @@ if(deleteUserButtons) {
         deleteUserModalWindow.build();
     }
 }
+
+const deleteUserService = document.querySelectorAll('.admin-delete-service');
+if(deleteUserService) {
+    for(let buttonDelete of deleteUserService){
+        const deleteServiceModalWindow = new ModalWindow(
+            "Supprimer ce service ?",
+            'Tous les messages associés à ce service seront également supprimés !',
+            buttonDelete
+        );
+
+        deleteServiceModalWindow.build();
+    }
+}
