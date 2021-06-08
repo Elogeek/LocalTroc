@@ -108,54 +108,6 @@ h2 {
     font-weight: bold;
 }
 
-/* Design div4 ( search bar)*/
-#div4 {
-    text-align: center;
-    font-weight: bold;
-    color: #08c1ef;
-    padding: 2rem;
-    font-size: 2.5rem;
-}
-
-#div4 h2 {
-    margin: 5rem 0 4rem 0;
-}
-/*search-bar*/
-#search-bar {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-content: center;
-    width: 100%;
-    height: 8rem;
-    margin-top: 1rem;
-}
-
-#search-bar input {
-    border-radius: 20rem;
-    margin: 1rem;
-    padding: 1rem;
-    border-color: black;
-    border-style: double;
-    text-align: center;
-}
-
-#search-bar button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6rem;
-    border-style: hidden;
-    background-color: #08c1ef;
-    color: white;
-    width: 4rem;
-}
-
-#search-bar button:hover {
-    background-color: #c9e265;
-}
-
 /*  DIAPO*/
 #titleDiapo {
     margin: 6rem;
@@ -245,7 +197,7 @@ h2 {
     width: 50rem;
 }
 
-/* Desgin div6 (opinion users via an make service  ) */
+/* Desgin div6 (with btn free registration ) */
 #div6 {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
@@ -268,7 +220,6 @@ h2 {
     /*font-size: 3rem;*/
 }
 
-/* Design div 7 : last users opinion */
 #div6 {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
@@ -339,7 +290,8 @@ h2 {
     z-index: 1000;
 }
 
-.helpRectangle {
+/*last service create*/
+.lastSerivces {
     background-color: #ffffff;
     box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
     transition: transform 0.3s;
@@ -347,26 +299,20 @@ h2 {
     width: 25rem;
     height: 25rem;
     margin-top: -16rem;
+    padding: 1rem;
 }
 
-.rectangle h2 {
+.lastSerivces h2 {
     position: relative;
     text-align: center;
     margin-top: 2rem;
-    font-size: xxx-large;
+    font-size: xx-large;
 }
 
-.blue {
-    color: #08c1ef;
-    font-size: 20px;
+.descriptionServices {
+    margin-top: 1rem;
 }
 
-.gras {
-    font-weight: bold;
-    font-style: italic;
-    color: #c9e265;
-    text-shadow: 2px 2px black;
-}
 
 /* DESIGN  result QUICK SEARCH */
 .containerSearch {
