@@ -41,7 +41,7 @@ class UserServiceManager {
     public function getServices(): array {
         $userManager = new UserManager();
         $services = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM user_service");
+        $request = DB::getInstance()->prepare("SELECT * FROM user_service ORDER BY id desc");
         if ($request->execute()) {
             foreach ($request->fetchAll() as $serviceData) {
                 $user = $userManager->getById($serviceData['user_fk']);

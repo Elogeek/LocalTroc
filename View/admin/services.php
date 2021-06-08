@@ -15,7 +15,7 @@
                 <tr>
                     <th class="mobile-hidden">ID</th>
                     <th class="mobile-hidden">Image</th>
-                    <th class="mobile-hidden">User ID</th>
+                    <th class="mobile-hidden">User</th>
                     <th>Date</th>
                     <th>Sujet</th>
                     <th></th>
@@ -30,7 +30,15 @@
                     <tr>
                         <td class="mobile-hidden"><?= $service->getId() ?></td>
                         <td class="mobile-hidden">
-                            <img src="/assets/uploads/services/<?= $service->getImage() ?>" alt="Service image">
+                            <?php
+                            if($service->getImage() === null) {
+                                $imageSrc = '/assets/img/defaultImages/service.png';
+                            }
+                            else {
+                                $imageSrc = '/assets/uploads/services/' . $service->getImage();
+                            }
+                            ?>
+                            <img src="<?= $imageSrc ?>" alt="Service image">
                         </td>
                         <td class="mobile-hidden"><?= $service->getUser()->getId() ?></td>
                         <td><?= $date ?></td>

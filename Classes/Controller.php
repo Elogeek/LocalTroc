@@ -180,7 +180,7 @@ class Controller {
         if(array_key_exists('connected_user', $_SESSION)) {
             $userManager = new UserManager();
             $user = $userManager->getById($_SESSION['connected_user']);
-            if($user->getId()) {
+            if(!is_null($user)) {
                 return $user;
             }
         }
