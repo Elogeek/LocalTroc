@@ -6,7 +6,7 @@
 </div>
 
 
-<h2>Qu'est-ce-que LocalTroc ?</h2>
+<h1 class="site-tite">Qu'est-ce-que LocalTroc ?</h1>
 <div class="div2">
     <div>
         <i class="fas fa-users"></i>

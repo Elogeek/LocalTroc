@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,9 +24,31 @@ body {
     width: 100%;
 }
 
-/* Logo */
-#myLogo {
+#site-logo {
     max-width: 13rem;
+}
+
+.site-tite {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+#menu-user-avatar {
+    max-width: 4rem;
+    border-radius: 50%;
+}
+
+.menu a > img {
+    padding-right: 0.5rem;
+    vertical-align: bottom;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #08C1EFFF;
 }
 
 /* Design div2  */
@@ -72,14 +95,6 @@ body {
     transform: scale(1.2);
     justify-content: center;
     text-transform: uppercase;
-}
-
-h2 {
-    text-align: center;
-    margin-top: 2.5rem;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #08C1EFFF;
 }
 
 /* Design div3*/
@@ -298,13 +313,6 @@ h2 {
     height: 25rem;
     margin-top: -16rem;
     padding: 1rem;
-}
-
-.lastSerivces h2 {
-    position: relative;
-    text-align: center;
-    margin-top: 2rem;
-    font-size: xx-large;
 }
 
 .descriptionServices {

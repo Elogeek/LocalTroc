@@ -3,16 +3,26 @@
     <nav>
 
         <div id="logo">
-            <a href="/index.php"><img  id="myLogo" src="/assets/img/logo.png" alt="logoSite"></a>
+            <a href="/index.php"><img  id="site-logo" src="/assets/img/logo.png" alt="logoSite"></a>
         </div>
 
         <div class="menu"> <?php
             // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
-            if($connected) { ?>
+            if($connected && !is_null($user)) {
+                $avatar = (new UserProfileManager())->getUserProfile($user)->getAvatar();
+                if($avatar) {
+                    $avatar = '/assets/uploads/avatars/' . $avatar;
+                }
+                else {
+                    $avatar = '/assets/img/defaultImages/userProfile.webp';
+                }
+                ?>
                 <!-- Display My account link. -->
-                <a id="userController" title="Mon profil" href="/index.php?controller=user&action=profile">
-                    <i class="fas fa-user-astronaut"></i>Mon compte
-                </a>
+                <div>
+                    <a id="userController" title="Mon profil" href="/index.php?controller=user&action=profile">
+                        <img id="menu-user-avatar" src="<?= $avatar ?>" alt="Avatar utilisateur">Mon compte
+                    </a>
+                </div>
                 <!-- Display logout link. -->
                 <a id="loginController" title="Déconnexion" href="/index.php?controller=login&action=disconnect">
                     <i class="fas fa-power-off"></i>
