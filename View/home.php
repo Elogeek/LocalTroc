@@ -75,7 +75,13 @@ if(!$connected) { ?>
 
                 <div class="service-description-content">
                     <p>
-                        <?= wordwrap($service->getDescription(), 150) ?>
+                        <?php
+                        $description = $service->getDescription();
+                        if(strlen($description) > 200) {
+                            $description = substr($description, 0, 200) . '...';
+                        }
+                        echo $description;
+                        ?>
                     </p>
                     <a class="btn btn-secondary" href="">Lire plus</a>
                 </div>

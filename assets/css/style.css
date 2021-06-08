@@ -182,7 +182,7 @@ nav {
  * Last added services.
  */
 .container-last-services {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -193,6 +193,7 @@ nav {
 .service-image {
     box-shadow: 1px 1px 12px #555;
     padding: 1rem;
+    margin-right: 3.5rem;
 }
 
 .service-image img {
@@ -217,13 +218,14 @@ nav {
 .service-description {
     display: flex;
     margin-top: 1.5rem;
+    align-items: flex-start;
 }
 
 .service-description-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     width: 100%;
 }
 
@@ -358,7 +360,7 @@ footer {
     }
 
     .container-last-services {
-        width: 70%;
+        width: 90%;
     }
 }
 
@@ -380,7 +382,15 @@ footer {
     }
 
     .container-last-services {
-        width: 90%;
+        width: 80%;
+    }
+
+    .service-description {
+        flex-direction: column;
+    }
+
+    .service-image {
+        margin-bottom: 2rem;
     }
 }
 
