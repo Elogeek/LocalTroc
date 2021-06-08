@@ -215,11 +215,12 @@ nav {
 }
 
 .last-service {
-
+    margin-bottom: 6rem;
 }
 
 .service-image img {
     max-width: 20rem;
+    margin-right: 2rem;
 }
 
 .service-detail {
@@ -238,7 +239,15 @@ nav {
 }
 
 .service-description {
+    display: flex;
+    margin-top: 1.5rem;
+}
 
+.service-description-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 /**

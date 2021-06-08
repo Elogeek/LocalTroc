@@ -158,21 +158,25 @@ if(!$connected) { ?>
                 <hr>
             </div>
 
-            <div class="service-image"> <?php
-                if($service->getImage() === null) {
-                    $imageSrc = '/assets/img/defaultImages/service.png';
-                }
-                else {
-                    $imageSrc = '/assets/uploads/services/' . $service->getImage();
-                } ?>
-                <img src="<?= $imageSrc ?>" alt="Service image">
+            <div class="service-description">
+                <div class="service-image"> <?php
+                    if($service->getImage() === null) {
+                        $imageSrc = '/assets/img/defaultImages/service.png';
+                    }
+                    else {
+                        $imageSrc = '/assets/uploads/services/' . $service->getImage();
+                    } ?>
+                    <img src="<?= $imageSrc ?>" alt="Service image">
+                </div>
+
+                <div class="service-description-content">
+                    <p>
+                        <?= wordwrap($service->getDescription(), 150) ?>
+                    </p>
+                    <a class="btn btn-secondary" href="">Lire plus</a>
+                </div>
             </div>
 
-            <div class="service-description">
-                <p>
-                    <?= $service->getDescription() ?>
-                </p>
-            </div>
         </div> <?php
     }
     ?>
