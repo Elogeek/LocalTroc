@@ -16,12 +16,16 @@ const HeaderCarousel = {
      * Initialize carousel.
      */
     init: function() {
+        let width = 50;
+        if(window.innerWidth <= 400) {
+            width = 90;
+        }
+
         this.div.style.cssText = `
-            width: 50%;
+            width: ${width}%;
             display: flex;
             flex-flow: row;
             justify-content: center;
-            height: 31vw;
             margin-top: 0.5rem;
             box-shadow: 2px 1px 8px 5px #6c757d;
         `;

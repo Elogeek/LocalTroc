@@ -72,4 +72,7 @@ const GenericCarousel = function(diaporamaElement) {
     }
 }
 
-new GenericCarousel(document.querySelector(".diapo")).init();
+const diapo = document.querySelector(".diapo");
+if(diapo) {
+    new GenericCarousel(diapo).init();
+}
