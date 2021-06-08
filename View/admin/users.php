@@ -12,11 +12,11 @@
         ?>
 
         <div class="profile-table">
-            <table>
+            <table class="admin-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Role</th>
+                        <th class="mobile-hidden">ID</th>
+                        <th class="mobile-hidden">Role</th>
                         <th>Prénom</th>
                         <th>Nom</th>
                         <th>Mail</th>
@@ -28,14 +28,14 @@
                 foreach ($users as $user) {
                     /* @var User $user */ ?>
                     <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getRole()->getName() ?></td>
+                        <td class="mobile-hidden"><?= $user->getId() ?></td>
+                        <td class="mobile-hidden"><?= $user->getRole()->getName() ?></td>
                         <td><?= $user->getFirstname() ?></td>
                         <td><?= $user->getLastName() ?></td>
                         <td><?= $user->getEmail() ?></td>
                         <!-- User delete button. -->
                         <td>
-                            <a class="admin-delete-user" href="/index.php?controller=admin&action=user-delete&id=<?= $user->getId() ?>">
+                            <a class="admin-delete-user red" href="/index.php?controller=admin&action=user-delete&id=<?= $user->getId() ?>">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

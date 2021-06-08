@@ -106,10 +106,6 @@ table {
     margin-bottom: 2rem;
 }
 
-table th {
-    border: 0.1rem solid #6c757d;
-}
-
 table th, table td {
     padding: 1rem;
 }

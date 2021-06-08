@@ -26,7 +26,8 @@ class AdminController extends Controller {
             'profile.css',
             'forms.css',
             'services.css',
-            'modalWindow.css'
+            'modalWindow.css',
+            'admin.css',
         ];
         $this->javaScripts = [
             'Objects/ModalWindow.js',

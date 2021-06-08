@@ -1,0 +1,18 @@
+.admin-table th {
+    background-color: #3c3c3c;
+    color: white;
+}
+
+.admin-table td a.red {
+    color: darkred;
+}
+
+.admin-table td, .admin-table th {
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .admin-table .mobile-hidden {
+        display: none;
+    }
+}
