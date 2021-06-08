@@ -6,9 +6,9 @@ const HeaderCarousel = {
     carrousel: document.getElementById('slider'),
     div: document.createElement("img"),
     images: [
-        "/assets/img/carouselImg/headerCarousel/img1.jpg",
-        "/assets/img/carouselImg/headerCarousel/img2.jpg",
-        "/assets/img/carouselImg/headerCarousel/img3.jpg"
+        "/assets/img/carouselImg/headerCarousel/1.jpg",
+        "/assets/img/carouselImg/headerCarousel/2.jpg",
+        "/assets/img/carouselImg/headerCarousel/3.jpg"
     ],
     counter: 0,
 
@@ -27,6 +27,7 @@ const HeaderCarousel = {
         `;
         this.carrousel.appendChild(this.div);
         this.div.className = "headerCarousel";
+        HeaderCarousel.start();
     },
 
 
@@ -34,15 +35,13 @@ const HeaderCarousel = {
      * Start the header carousel.
      */
     start: function() {
-        setTimeout(() => {
-            this.div.src = this.images[this.counter++];
-            if (this.counter === this.images.length) {
-                this.counter = 0;
-            }
-            this.start();
-        }, this.speed)
+        this.div.src = this.images[this.counter++];
+        if (this.counter === this.images.length) {
+            this.counter = 0;
+        }
+
+        setTimeout(() => { this.start();}, this.speed)
     }
 }
 
 HeaderCarousel.init();
-HeaderCarousel.start();
