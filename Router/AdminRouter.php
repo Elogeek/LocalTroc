@@ -15,6 +15,15 @@ class AdminRouter {
                 $controller->listUsers();
                 break;
 
+            case 'user-delete':
+                if(isset($_GET['id'])) {
+                    $controller->deleteUser($_GET['id']);
+                }
+                else {
+                    home();
+                }
+                break;
+
             default:
                 home();
         }

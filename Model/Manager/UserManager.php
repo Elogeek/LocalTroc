@@ -102,39 +102,15 @@ class UserManager
     }
 
     /**
-     * Sanitize cookies session User
-     * Destroy session cookie
-     * @param int $id
-     * @param string $email
-     * @return void
-     */
-    public function logOut(int $id, string $email): void
-    {
-        if (isset($_SESSION['id'], $_SESSION['email'])) {
-            //Destroy all session variables (the data)
-            $_SESSION = array();
-            $params = session_get_cookie_params();
-            //destruction of the session cookie sent to the browser
-            //the session id no longer exists on the session cookie side
-            setcookie(session_name(), '', time() - 50000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-            //destruction ot the session
-            session_destroy();
-            header('location=index.php');
-        }
-
-    }
-
-    /**
      * Delete  an user in the Database
      * @param User $user
-     * @return User|null
+     * @return bool
      */
-    public function deleteUser(User $user): ?User
+    public function deleteUser(User $user): bool
     {
         $request = DB::getInstance()->prepare("DELETE FROM user WHERE  id =:id");
         $request->bindValue(":id", $user->getId());
-        $request->execute();
-        return $user;
+        return $request->execute();
     }
 
 
