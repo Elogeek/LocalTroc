@@ -3,32 +3,31 @@
     <div id="slider"></div>
 </div>
 
-
-<h1 class="site-tite">Qu'est-ce-que LocalTroc ?</h1>
-<div class="site-description">
-    <div>
-        <i class="fas fa-users"></i>
-        <p>communauté</p>
+<section>
+    <h1 class="site-tite">Qu'est-ce-que LocalTroc ?</h1>
+    <div class="site-description">
+        <div>
+            <i class="fas fa-users"></i>
+            <p>communauté</p>
+        </div>
+        <div>
+            <i class="fas fa-map"></i>
+            <p>local</p>
+        </div>
+        <div>
+            <i class="fas fa-piggy-bank"></i>
+            <p>gratuit</p>
+        </div>
     </div>
-    <div>
-        <i class="fas fa-map"></i>
-        <p>local</p>
-    </div>
-    <div>
-        <i class="fas fa-piggy-bank"></i>
-        <p>gratuit</p>
-    </div>
-</div>
+</section>
 
 <?php
 if(!$connected) { ?>
-    <div id="div3">
-        <div id="div3Text">
-            <span>LocalTroc est 100% gratuit !</span>
-            <span>Lancez - vous !</span><br>
-            <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
-        </div>
-    </div><?php
+    <section class="callToAction">
+        <span>LocalTroc est 100% gratuit !</span>
+        <span>Lancez - vous !</span><br>
+        <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
+    </section> <?php
 } ?>
 
 <!--articles diapo-->
@@ -183,10 +182,10 @@ if(!$connected) { ?>
 <?php
 // Discplay register button only if user is not connected.
 if(!$connected) { ?>
-    <div id="div6">
+    <section class="callToAction">
         <span>Envie d'essayer ? Devenir troqueur, troqueuse ? </span>
         <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
-    </div> <?php
+    </section> <?php
 }
 ?>
 
