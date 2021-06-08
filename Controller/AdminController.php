@@ -105,4 +105,23 @@ class AdminController extends Controller {
             $this->redirectTo('user', 'profile');
         }
     }
+
+
+    /**
+     * List all available services.
+     */
+    public function listServices() {
+        if($this->isAdmin($this->user)) {
+            $this->addJavaScript($this->javaScripts);
+            $this->addCss($this->css);
+            $this->showView('admin/services', [
+                'services' => $this->userServiceManager->getServices(),
+                'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+            ]);
+        }
+        else {
+            // If user is not admin, redirect to the user space.
+            $this->redirectTo('user', 'profile');
+        }
+    }
 }

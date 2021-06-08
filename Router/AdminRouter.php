@@ -24,6 +24,10 @@ class AdminRouter {
                 }
                 break;
 
+            case 'services-list':
+                $controller->listServices();
+                break;
+
             default:
                 home();
         }

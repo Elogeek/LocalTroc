@@ -12,7 +12,7 @@
             $services = $params['services'];
             foreach($services as $service) {
                 $date = (DateTime::createFromFormat('Y-m-d H:i:s', $service->getServiceDate()));
-                $date = $date->format('d / m / Y à H:i:s');
+                $date = $date->format('d / m / Y à H:i');
                 /* @var UserService $service */ ?>
                 <div class="user-service-profile">
                     <h2>
