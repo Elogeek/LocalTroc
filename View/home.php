@@ -30,23 +30,21 @@ if(!$connected) { ?>
     </section> <?php
 } ?>
 
-<!--articles diapo-->
+<!--TODO mODIF  articles diapo-->
 <div class="diapo">
-    <h2 id="titleDiapo">Besoin d'aide ? Rien à faire, envie de partager son temps, sa passion... </h2>
 
     <div class="elements">
-        <!--one slide-->
+        <!-- first slide-->
         <div class="element active">
             <img src="/assets/img/carouselImg/déménagement.jpg" alt="img1">
             <div class="caption">
                 <p>
-                    Vous avez accumuler trop de chose ? Pas assez de place pour tout déménager ?
+                    Vous avez accumulé trop de chose ? Pas assez de place pour tout déménager ?
                     Rédiger une annonce sur LocalTroc.
                 </p>
             </div>
         </div>
-
-        <!--two slide-->
+        <!--slide two -->
         <div class="element">
             <img src="/assets/img/carouselImg/cuisine.jpg" alt="img2">
             <div class="caption">
@@ -56,7 +54,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-        <!--three slide-->
+        <!--slide three-->
         <div class="element">
             <img src="/assets/img/carouselImg/couture.jpg" alt="img3">
             <div class="caption">
@@ -65,17 +63,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!--four slide-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/massage.webp" alt="img4">
-            <div class="caption">
-                <p>
-                    Trop nerveux, envie de relaxation, besoin d' améliorer ces compétences en massage? Trouver un troqueur/ une troqueuse.
-                </p>
-            </div>
-        </div>
-        <!--five slide-->
+        <!--slide four -->
         <div class="element">
             <img src="/assets/img/carouselImg/travel.webp" alt="img5">
             <div class="caption">
@@ -84,29 +72,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!--six slide-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/makeUp.jpg" alt="img6">
-            <div class="caption">
-                <p>
-                    Pas douée pour se maquiller seul? Où tout,simplement maquiller les enfants pour les grandes occasions? C'est sur LocalTroc.
-                </p>
-            </div>
-        </div>
-
-        <!--seven slide-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/course.jpg" alt="img7">
-            <div class="caption">
-                <p>
-                    Pas le temps de faire vos courses vous même? Vous chercher une personne de confiance pour les faire à votre place ?
-                    Trouver un troqueur/ une troqueuse.
-                </p>
-            </div>
-        </div>
-
-        <!-- eight slide-->
+        <!--slide five -->
         <div class="element">
             <img src="/assets/img/carouselImg/baby-sitter.jpg" alt="img8">
             <div class="caption">
@@ -116,8 +82,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!-- nine slide-->
+        <!--slide six -->
         <div class="element">
             <img src="/assets/img/carouselImg/jardinage.jpg" alt="img9">
             <div class="caption">
@@ -126,8 +91,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!-- ten slide-->
+        <!--slide Seven -->
         <div class="element">
             <img src="/assets/img/carouselImg/dog-sitter.jpg" alt="img10">
             <div class="caption">
@@ -136,8 +100,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!-- eleven slide-->
+        <!--slide eight-->
         <div class="element">
             <img src="/assets/img/carouselImg/bricolage.jpg" alt="img11">
             <div class="caption">
@@ -147,8 +110,7 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
-        <!-- twelve slide-->
+        <!--slide nine-->
         <div class="element">
             <img src="/assets/img/carouselImg/photographe.jpg" alt="img12">
             <div class="caption">
@@ -157,27 +119,11 @@ if(!$connected) { ?>
                 </p>
             </div>
         </div>
-
    </div>
 
-    <!-- control navigation : arrows -->
-    <i id="navLeft" class="las la-chevron-left"></i>
-    <i id="navRight" class="las la-chevron-right"></i>
-
 </div>
 
-<!-- BARRE DE SATISFACTION-->
-<div id="div5">
-    <div id="happyBar">
-        <div id="textHappy">
-            <span>95%</span>
-            <span>d'utilisateurs satisfaits</span>
-            <div>
-                <progress id="barHappy" max="100" value="85"></progress>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <?php
 // Discplay register button only if user is not connected.
@@ -190,14 +136,7 @@ if(!$connected) { ?>
 ?>
 
 
-<div id="div8">
-    <div id="helpContact">
-        <i class="far fa-envelope"></i>
-    </div>
-</div>
-<!--OPTION  "helpContact" : messages automatiques besoin d'aide, un renseignement, parler avec les autres membres connecter par expl-->
-
-<div id="div9">
+<div class="containerLastService">
     <!--Affiche près de chez soi, les derniers services create
   quand service terminée === hidden -->
     <div class="lastSerivces">

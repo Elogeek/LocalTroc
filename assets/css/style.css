@@ -26,6 +26,10 @@ section {
     margin-top: 4rem;
 }
 
+h1+hr {
+    margin-top: 1rem;
+}
+
 h2 {
     text-align: center;
     margin-top: 2rem;
@@ -37,6 +41,60 @@ h2 {
 #container {
     margin: 0 auto;
     width: 100%;
+}
+
+.internal-container {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    min-height: calc(100vh - 38rem);
+    margin: 3rem auto 0;
+}
+
+
+/**
+ * Styling menu and mobile menu.
+ */
+.mobile-menu, .mobile-menu-content {
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 1.5rem 0 #6c757d;
+    width: 100%;
+    padding: 1%;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 30rem;
+}
+
+.menu > div {
+    margin-right: 2.5rem;
+}
+
+.menu a {
+    text-decoration-line: none;
+    color: #3c3c3c;
+}
+
+.menu a > i {
+    margin-right: 1rem;
+}
+
+.menu a:hover {
+    color: #C9E265;
+}
+
+.menu-active {
+    color: #08c1ef !important;
 }
 
 /**
@@ -90,7 +148,6 @@ h2 {
     transition: background-color 0.5s linear;
 }
 
-
 .site-description p {
     text-align: center;
     margin: 1rem;
@@ -98,7 +155,9 @@ h2 {
     text-transform: capitalize;
 }
 
-
+/**
+ * Styling call to inscription ( call to action )
+ */
 .callToAction {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
@@ -113,43 +172,19 @@ h2 {
     color: white
 }
 
-
-
-
-/*  DIAPO*/
-#titleDiapo {
-    margin: 6rem;
-    color: #08c1ef;
-}
-
+/**
+ * Styling diaporama.
+ */
 .diapo {
     position: relative;
     overflow: hidden;
     width: 80%;
-    margin: 3rem;
+    margin: 0 auto;
 }
 
-/*placement arrows*/
-#navRight, #navLeft {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-50%);
-    color: black;
-    font-size: 3em;
-}
-
-#navRight {
-    right: 20px;
-}
-
-#navLeft {
-    left: 20px;
-}
-
-/*placement diapo*/
+/* diapo images container */
 .elements {
     display: flex;
-    transition: 1s linear;
 }
 
 .element {
@@ -157,12 +192,10 @@ h2 {
     position: relative;
 }
 
-/*size img*/
 .element > img {
     width: 100%;
 }
 
-/*text*/
 .caption {
     position: absolute;
     top: 80%;
@@ -173,96 +206,10 @@ h2 {
     padding: 30px;
 }
 
-/* Design div5 (user satisfaction) */
-#div5 {
-    width: 100%;
-    height: 11rem;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-#happyBar {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin: 7rem 0 0 0;
-}
-
-#textHappy span {
-    color: #08c1ef;
-    display: block;
-    font-size: xx-large;
-    margin-bottom: 1rem;
-    width: 50rem;
-}
-
-#barHappy {
-    font-size: xx-large;
-    margin:0 0 4rem 0;
-    width: 50rem;
-}
-
-/* Desgin div6 (with btn free registration ) */
-#div6 {
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-    width: 100%;
-    height: 11rem;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin-top: 7rem;
-}
-
-#div6 span {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem;
-    padding: 1rem;
-}
-
-#div6 {
-    background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
-    width: 100%;
-    height: 11rem;
-    display: flex;
-    flex-flow: row;
-    margin-top: 16rem;
-}
-
-/* Design div8: helpContact */
-#div8 {
-    font-weight: bold;
-    padding: 2rem;
-    font-size: 2.5rem;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
-}
-
-#helpContact {
-    border-radius: 50%;
-    background-color: #75d8f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    color: #c9e265;
-}
-
-#helpContact:hover {
-    transform: scale(1.5);
-}
-
-/* Design div9 : last create service*/
-#div9 {
+/**
+ * Last added services.
+ */
+.containerLastService {
     background: linear-gradient(135deg, #08c1ef 0%, #c9e265 100%);
     width: 100%;
     height: 11rem;
@@ -271,16 +218,6 @@ h2 {
     justify-content: space-evenly;
     align-items: end;
     margin-top: 20rem;
-}
-
-/*title subject*/
-.subjectRectangle {
-    margin-top: 0;
-}
-
-.descriptionRectangle {
-    padding: 2%;
-    margin-top:  1rem;
 }
 
 .imageRectangle {
@@ -297,7 +234,6 @@ h2 {
     z-index: 1000;
 }
 
-/*last service create*/
 .lastSerivces {
     background-color: #ffffff;
     box-shadow: 0 15px 35px grey, 0 5px 15px #6c757d;
@@ -313,80 +249,8 @@ h2 {
     margin-top: 1rem;
 }
 
-
-/* DESIGN  result QUICK SEARCH */
-.containerSearch {
-    margin: 5rem;
-}
-
-/*avatar user image*/
-.containerSearch img {
-    border-radius: 50% !important;
-    height: 10rem;
-    width: 10rem;
-    margin: 2%;
-    padding: 2%;
-}
-
-/*Design click message ( result search)*/
-.containerMessage {
-    margin:4rem 15rem;
-    display:flex;
-    flex-flow: row;
-    justify-content: flex-start;
-    border: 3px solid #6c757d;
-    width:60%;
-}
-/*form*/
-.containerMessage form {
-    width: 100%;
-    padding: 2%;
-    text-align: left;
-}
-
-.containerMessage hr {
-    margin-top: 2rem;
-}
-
-.containerMessage textarea {
-    margin: 3rem 8rem;
-    justify-content: flex-end;
-    padding: 2%;
-}
-
-.containerMessage button {
-    margin: 1rem 55rem;
-    padding: 1%;
-    justify-content: flex-end;
-    background-color: #08c1ef;
-    border: 2px solid #08c1ef;
-    color: white;
-}
-/*animation button*/
-.containerMessage button:hover {
-    background-color: #c9e265;
-    border: 2px solid #c9e265;
-}
-
-/*DESING OPINION SERVICE*/
-.opinion {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    text-align: center;
-    margin: 3rem;
-    padding: 3rem;
-    border: 3px solid turquoise;
-}
-
-.opinion h3 {
-    text-decoration: #c9e265 underline overline;
-    font-size: 3rem;
-    text-align: center;
-}
-
 /**
- * New code, don't touch this :-)
+ * Styling info page ( specific to the info page ).
  */
 .site-info {
     margin-top: 2rem;
@@ -415,53 +279,13 @@ h2 {
     margin-top: 2rem;
 }
 
-.mobile-menu, .mobile-menu-content {
-    display: none;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0 0 1.5rem 0 #6c757d;
-    width: 100%;
-    padding: 1%;
-    cursor: pointer;
-    position: relative;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 30rem;
-}
-
-.menu > div {
-    margin-right: 2.5rem;
-}
-
-.menu a {
-    text-decoration-line: none;
-    color: #3c3c3c;
-}
-
-.menu a > i {
-    margin-right: 1rem;
-}
-
-.menu a:hover {
-    color: #C9E265;
-}
-
-.menu-active {
-    color: #08c1ef !important;
-}
-
 .no-margin {
     margin: 0;
 }
 
-/* Btn registration */
+/**
+ * Setting style to two button used in the whole site.
+ */
 .btn {
     transition: all 0.2s ease-in-out;
     text-align: center;
@@ -488,18 +312,9 @@ nav {
     background-color: #3c3c3c;
 }
 
-h1+hr {
-    margin-top: 1rem;
-}
-
-.internal-container {
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    min-height: calc(100vh - 38rem);
-    margin: 3rem auto 0;
-}
-
+/**
+ * Styling footer
+ */
 footer .share {
     width: 40%;
     display: flex;
