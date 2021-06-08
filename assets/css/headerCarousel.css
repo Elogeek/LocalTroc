@@ -10,4 +10,13 @@
     justify-content: center;
     align-content: center;
     padding-top: 2rem;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 650px) {
+    #slider {
+        max-width: unset;
+    }
 }

@@ -17,8 +17,11 @@ const HeaderCarousel = {
      */
     init: function() {
         let width = 50;
+
         if(window.innerWidth <= 400) {
             width = 90;
+        } else if (window.innerWidth <= 850) {
+            width= 75;
         }
 
         this.div.style.cssText = `

@@ -33,102 +33,6 @@ if(!$connected) { ?>
     </section> <?php
 } ?>
 
-<!-- Hidden on mobile version. -->
-<div class="diapo mobile-hidden">
-
-    <div class="elements">
-        <!-- first slide-->
-        <div class="element active">
-            <img src="/assets/img/carouselImg/déménagement.jpg" alt="img1">
-            <div class="caption">
-                <p>
-                    Vous avez accumulé trop de chose ? Pas assez de place pour tout déménager ?
-                    Rédiger une annonce sur LocalTroc.
-                </p>
-            </div>
-        </div>
-
-        <!--slide two -->
-        <div class="element">
-            <img src="/assets/img/carouselImg/cuisine.jpg" alt="img2">
-            <div class="caption">
-                <p>
-                    Vous avez beaucoup de connaissances en cuisine ? Envie de partager des recettes ?
-                    LocalTroc est fait pour vous.
-                </p>
-            </div>
-        </div>
-        <!--slide three-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/couture.jpg" alt="img3">
-            <div class="caption">
-                <p>
-                    Trop de connaissances en couture, envie de partager sa passion ? LocalTroc est fait pour vous.
-                </p>
-            </div>
-        </div>
-        <!--slide four -->
-        <div class="element">
-            <img src="/assets/img/carouselImg/travel.webp" alt="img5">
-            <div class="caption">
-                <p>
-                    Envie de s'évader dans votre région, besoin de vacances? Venez sur LocalTroc.
-                </p>
-            </div>
-        </div>
-        <!--slide five -->
-        <div class="element">
-            <img src="/assets/img/carouselImg/baby-sitter.jpg" alt="img8">
-            <div class="caption">
-                <p>
-                    Besoin de faire garder vos enfants ? Envie de garder les enfants de vos voisins?
-                    Pratiquer le troc.
-                </p>
-            </div>
-        </div>
-        <!--slide six -->
-        <div class="element">
-            <img src="/assets/img/carouselImg/jardinage.jpg" alt="img9">
-            <div class="caption">
-                <p>
-                    Besoin d'aide en jardinerie? Trouver un troqueur/troqueuse.
-                </p>
-            </div>
-        </div>
-        <!--slide Seven -->
-        <div class="element">
-            <img src="/assets/img/carouselImg/dog-sitter.jpg" alt="img10">
-            <div class="caption">
-                <p>
-                    Personne pour garder ou promener son chien ? Parcourir nos annonces.
-                </p>
-            </div>
-        </div>
-        <!--slide eight-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/bricolage.jpg" alt="img11">
-            <div class="caption">
-                <p>
-                    Vous êtes très bon bricoleur ? Vous chercher un bon bricoleur dans votre région ?
-                    Pratiquer le troc.
-                </p>
-            </div>
-        </div>
-        <!--slide nine-->
-        <div class="element">
-            <img src="/assets/img/carouselImg/photographe.jpg" alt="img12">
-            <div class="caption">
-                <p>
-                    Vous êtes bon photographe ? Vous chercher un bon photographe dans votre région? Venez sur LocalTroc.
-                </p>
-            </div>
-        </div>
-   </div>
-
-</div>
-
-
-
 
 <?php
 // Display register button only if user is not connected.
@@ -142,7 +46,7 @@ if(!$connected) { ?>
 }
 ?>
 
-
+<!-- Last users added services -->
 <div class="container-last-services">
     <?php
     $lastServices = $params['services'];

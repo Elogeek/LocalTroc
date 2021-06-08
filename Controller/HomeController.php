@@ -30,7 +30,7 @@ class HomeController extends Controller {
      */
     public function index() {
         $manager = new UserServiceManager();
-        $lastServices = $manager->getServices(3);
+        $lastServices = $manager->getServices(5);
 
         // Additional javaScript
         $this->addJavaScript($this->javaScripts);
