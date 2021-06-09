@@ -51,6 +51,25 @@
     padding: 0.1rem 1rem 0.1rem 1rem;
 }
 
+.service-status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.service-status span {
+    margin-left: 1rem;
+}
+
+.service-status span.green {
+    color: seagreen;
+}
+
+.service-status span.red {
+    color: darkred;
+}
+
 @media screen and (max-width: 1000px) {
     .user-service-profile-content img {
         max-width: 25rem;

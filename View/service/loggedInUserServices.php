@@ -45,6 +45,12 @@
                            title="Supprimer mon annonce">
                             <i class="fas fa-trash"></i>
                         </a>
+                        <div class="service-status">
+                            Statut:
+                            <span class="<?= $service->getValidated() === 1 ? 'green' : 'red' ?>">
+                                <?= $service->getValidated() === 1 ? 'Validé' : 'En attente'?>
+                            </span>
+                        </div>
                     </div>
                 </div>
             <?php

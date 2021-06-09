@@ -38,18 +38,27 @@ class UserServiceManager {
     /**
      * Return all services
      * @param int|null $limit
+     * @param bool $validated
      * @return array
      */
-    public function getServices(int $limit = null): array {
+    public function getServices(int $limit = null, bool $validated=false): array {
+        // With limit.
         $limitSQL = '';
         if(!is_null($limit)) {
             $limitSQL = " LIMIT $limit";
         }
 
+        // Only validated ones.
+        $validateSQL = '';
+        if($validated) {
+            $validateSQL = " WHERE validate = 1 ";
+        }
+
         $userManager = new UserManager();
         $services = [];
         $request = DB::getInstance()->prepare("
-            SELECT * FROM user_service 
+            SELECT * FROM user_service
+                $validateSQL
                 ORDER BY id desc
                 $limitSQL
             ");
