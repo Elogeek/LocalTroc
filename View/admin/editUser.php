@@ -11,7 +11,7 @@
 
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/View/user/_partials/add-service-button.php' ?>
 
-            <form action="/index.php?controller=user&action=editInformation" method="POST">
+            <form action="/index.php?controller=admin&action=user-edit&id=<?= $user->getId() ?>" method="POST" enctype="multipart/form-data">
                 <h1>Editer l'utilisateur <?= $userProfile->getPseudo() ?></h1>
                 <hr>
 

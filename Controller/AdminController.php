@@ -178,7 +178,7 @@ class AdminController extends Controller {
 
                         // Checking user not already exists.
                         $error = false;
-                        if($mail !== $this->user->getEmail() && $this->userManager->getByMail($mail) !== null || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                        if($mail !== $user->getEmail() && $this->userManager->getByMail($mail) !== null || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                             $error = true;
                             $this->setErrorMessage("Adresse email est déjà prise ou n'est pas au bon format.");
                         }
