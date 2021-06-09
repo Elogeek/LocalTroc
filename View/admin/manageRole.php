@@ -31,6 +31,7 @@
                                 ?>
                                 <option value="<?= $user->getId() ?>"
                                         data-role="<?= ucfirst($user->getRole()->getName()) ?>"
+                                        data-role-id="<?= $user->getRole()->getId() ?>"
                                 ><?= $optionValue ?></option>
                                 <?php
                             } ?>
