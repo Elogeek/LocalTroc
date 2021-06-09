@@ -1,6 +1,9 @@
 <?php
 use App\Entity\UserService;
-$services = $params['services']; ?>
+$services = $params['services'];
+
+require_once  $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/search.php';
+?>
 
 <section class="container-last-services"><?php
 

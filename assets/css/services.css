@@ -70,16 +70,13 @@
     color: darkred;
 }
 
-
-
 .service-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 80%;
-    margin: 4rem auto;
+    margin: 3rem auto 4rem;
 }
-
 
 .service-page-content {
     display: flex;

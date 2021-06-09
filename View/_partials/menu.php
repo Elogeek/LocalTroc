@@ -49,7 +49,8 @@
 
         <div class="mobile-menu">
             <i class="fas fa-bars"></i>
-            <div class="mobile-menu-content"> <?php
+            <div class="mobile-menu-content">
+                <a title="Services" href="/index.php?controller=service&action=show-all">Services</a> <?php
                 if($connected) { ?>
                     <a title="Mon profil" href="/index.php?controller=user&action=profile">Mon compte</a><hr>
                     <a title="Déconnexion" href="/index.php?controller=login&action=disconnect">Déconnection</a> <?php

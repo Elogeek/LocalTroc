@@ -42,3 +42,6 @@ $date = $date->format('d / m / y à H:i'); ?>
         </p>
     </div>
 </section>
+
+<?php
+require_once  $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/search.php';
