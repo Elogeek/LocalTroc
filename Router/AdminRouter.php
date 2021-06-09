@@ -26,7 +26,7 @@ class AdminRouter {
 
             case 'user-edit':
                 if(isset($_GET['id'])) {
-                    $controller->editUser($_GET['id']);
+                    $controller->editUser($_GET['id'], $_POST);
                 }
                 else {
                     home();
