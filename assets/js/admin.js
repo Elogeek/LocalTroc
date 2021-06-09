@@ -36,7 +36,7 @@ if(form) {
             const currentStr = this.options[this.selectedIndex].dataset.role;
             const roleId = this.options[this.selectedIndex].dataset.roleId;
             document.querySelector('#current-role span').innerHTML = currentStr;
-            document.querySelector('#role-id').selectedIndex = parseInt(currentRole) - 1;
+            document.querySelector('#role-id').selectedIndex = parseInt(roleId) - 1;
         }
         else {
             document.querySelector('#current-role span').innerHTML = 'Aucune sélection';

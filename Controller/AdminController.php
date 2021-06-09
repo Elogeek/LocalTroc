@@ -375,11 +375,19 @@ class AdminController extends Controller {
                 $this->setErrorMessage("Vous n'avez pas sélectionné d'utilisateur.");
             }
         }
+
+        // Getting users and removing the current logged in admin ( users cannot change their own role )
+        $users = $this->userManager->getAllUsers();
+        foreach ($users as $key => $user) {
+            if($user->getId() === $this->user->getId()) {
+                unset($users[$key]);
+            }
+        }
         $this->addJavaScript($this->javaScripts);
         $this->addCss($this->css);
         $this->showView('admin/manageRole', [
             'roles' => $this->rolesManager->getRoles(),
-            'users' => $this->userManager->getAllUsers(),
+            'users' => $users,
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
     }
