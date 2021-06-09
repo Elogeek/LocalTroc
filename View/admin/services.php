@@ -47,7 +47,7 @@
 
                         <!-- Service edition button. -->
                         <td>
-                            <a class="admin-delete-service green" href="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>">
+                            <a class="green" href="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </td>

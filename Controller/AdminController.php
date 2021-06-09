@@ -291,12 +291,53 @@ class AdminController extends Controller {
     /**
      * Edit a user service.
      * @param int $id
-     * @param array $_POST
+     * @param array $req
      */
-    public function editService(int $id, array $req)
-    {
+    public function editService(int $id, array $req) {
         // Rediret to user profile if connected user is not admin.
         $this->redirectIfNotAdmin($this->user);
+        $service = $this->userServiceManager->getService($id);
 
+        if(!is_null($service)) {
+            if ($this->isFormSubmitted()) {
+                if ($this->issetAndNotEmpty($req, 'subject', 'descriptionService')) {
+                    $subject = DB::secureData($req['subject']);
+                    $description = DB::secureData($req['descriptionService']);
+
+                    $service->setSubject($subject);
+                    $service->setDescription($description);
+                    $service->setServiceDate((new \DateTime())->format('Y-m-d h:i:s'));
+
+                    // Checking if user has uploaded a service image.
+                    if ($_FILES['serviceImage']['size'] > 0) {
+                        $fileUploader = new FileUpload($_FILES['serviceImage'], '/assets/uploads/services/');
+                        if (!$fileUploader->isSizeInThreshold() || !$fileUploader->upload()) {
+                            $this->setErrorMessage("Une erreur est survenue en envoyant l'image de votre service.");
+                        } else {
+                            $service->setImage($fileUploader->getFinalFileName());
+                        }
+                    }
+
+                    $this->userServiceManager->addService($service);
+                    if ($service->getId() !== null) {
+                        $this->setSuccessMessage("Votre service a bien été ajouté.");
+                    } else {
+                        $this->setErrorMessage("Une erreur est survenue en ajoutant votre service.");
+                    }
+                } else {
+                    $this->setErrorMessage("Tous les champs requis ne sont pas remplis !");
+                }
+            }
+
+            $this->addCss($this->css);
+            $this->addJavaScript($this->javaScripts);
+            $this->showView('admin/editService', [
+                'service' => $service,
+                'userProfile' => $this->userProfileManager->getUserProfile($this->user)
+            ]);
+        }
+        else {
+            $this->setErrorMessage("Ce service n'a pas pu être trouvé !");
+        }
     }
 }
