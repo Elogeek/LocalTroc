@@ -82,6 +82,21 @@
             </div>
 
             <div class="form-group">
+                <div class="cgu-confirm">
+                    <input type="checkbox" id="confirm" name="confirm" value="0">
+                    <p>
+                        En m'enregistrant sur LocalTroc, je confirme avoir pris connaissance des
+                        <a target="_blank" href="/index.php?controller=info&action=cgu" title="Conditions générales d'utilisation">
+                            conditions générales d'utilisation
+                        </a>
+                        et de la <a target="_blank" href="/index.php?controller=info&action=confidentiality" title="Politique de confidentialité">
+                            politique de confidentialité des données
+                        </a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class="form-group-item">
                     <input class="btn btn-secondary" type="submit" name="submit" value="Créer mon compte">
                 </div>

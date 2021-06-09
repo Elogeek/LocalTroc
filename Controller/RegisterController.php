@@ -58,8 +58,13 @@ class RegisterController extends Controller {
                 // Checking all user inputs.
                 $error = false;
 
+                // Checking if user accepted CGU & confidentiality policy.
+                if(!isset($request['confirm'])) {
+                    $error = true;
+                    $this->setErrorMessage("Vous devez accepter nos CGU et notre politique de confidentialité pour vous inscrire !");
+                }
                 // Checking user not already exists.
-                if($this->userManager->getByMail($mail) !== null) {
+                elseif($this->userManager->getByMail($mail) !== null) {
                     $error = true;
                     $this->setErrorMessage("Cette adresse email est déjà prise.");
                 }
