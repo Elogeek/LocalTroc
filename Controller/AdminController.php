@@ -154,4 +154,31 @@ class AdminController extends Controller {
             $this->redirectTo('user', 'profile');
         }
     }
+
+    /**
+     * Edit a user
+     * @param int $id
+     */
+    public function editUser(int $id) {
+        if($this->isAdmin($this->user)) {
+            // Getting user to edit.
+            $user = $this->userManager->getById($id);
+            if($user) {
+                $userProfile = $this->userProfileManager->getUserProfile($user);
+                $this->addCss($this->css);
+                $this->addJavaScript($this->javaScripts);
+                $this->showView('admin/editUser', [
+                    'user' => $user,
+                    'userProfile' => $userProfile,
+                ]);
+            }
+            else {
+                $this->setErrorMessage("L'utilisateur spécifié ne peut être trouvé");
+            }
+        }
+        else {
+            // If user is not admin, redirect to the user space.
+            $this->redirectTo('user', 'profile');
+        }
+    }
 }

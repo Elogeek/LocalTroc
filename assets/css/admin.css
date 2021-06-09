@@ -7,6 +7,10 @@
     color: darkred;
 }
 
+.admin-table td a.green {
+    color: seagreen;
+}
+
 .admin-table td, .admin-table th {
     text-align: left;
 }

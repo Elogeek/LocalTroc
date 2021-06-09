@@ -25,6 +25,7 @@
 
 use App\Entity\UserService;
 
+/* First call to register */
 if(!$connected) { ?>
     <section class="callToAction">
         <span>LocalTroc est 100% gratuit !</span>
@@ -33,9 +34,29 @@ if(!$connected) { ?>
     </section> <?php
 } ?>
 
+<!-- Search form -->
+<section class="search">
+    <!-- Search by country -->
+    <div>
+        <input type="text">
+        <input type="submit">
+    </div>
+
+    <!-- Search by title -->
+    <div>
+        <input type="text">
+        <input type="submit">
+    </div>
+
+    <!-- Search by user -->
+    <div>
+        <input type="text">
+        <input type="submit">
+    </div>
+</section>
 
 <?php
-// Display register button only if user is not connected.
+// Second call to register, Display register button only if user is not connected.
 if(!$connected) { ?>
     <!-- Hidden on mobile version. -->
     <section class="callToAction mobile-hidden">

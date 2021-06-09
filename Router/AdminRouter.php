@@ -24,6 +24,15 @@ class AdminRouter {
                 }
                 break;
 
+            case 'user-edit':
+                if(isset($_GET['id'])) {
+                    $controller->editUser($_GET['id']);
+                }
+                else {
+                    home();
+                }
+                break;
+
             case 'services-list':
                 $controller->listServices();
                 break;

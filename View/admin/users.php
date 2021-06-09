@@ -21,6 +21,7 @@
                         <th>Nom</th>
                         <th>Mail</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +34,12 @@
                         <td><?= $user->getFirstname() ?></td>
                         <td><?= $user->getLastName() ?></td>
                         <td><?= $user->getEmail() ?></td>
+                        <!-- User edition button -->
+                        <td>
+                            <a class="admin-edit-user green" href="/index.php?controller=admin&action=user-edit&id=<?= $user->getId() ?>">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
                         <!-- User delete button. -->
                         <td>
                             <a class="admin-delete-user red" href="/index.php?controller=admin&action=user-delete&id=<?= $user->getId() ?>">
