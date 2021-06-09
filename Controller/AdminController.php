@@ -318,7 +318,7 @@ class AdminController extends Controller {
                         }
                     }
 
-                    $this->userServiceManager->addService($service);
+                    $this->userServiceManager->updateService($service);
                     if ($service->getId() !== null) {
                         $this->setSuccessMessage("Votre service a bien été ajouté.");
                     } else {

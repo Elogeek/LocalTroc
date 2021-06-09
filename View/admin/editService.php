@@ -14,7 +14,7 @@
             <h1>Ajouter un service</h1>
             <hr>
 
-            <form action="/index.php?controller=admin&action=edit-service&id=<?= $service->getId() ?>" method="POST" enctype="multipart/form-data">
+            <form action="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <div>
                         <label for="subject">Titre</label>
