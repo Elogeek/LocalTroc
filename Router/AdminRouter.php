@@ -41,12 +41,14 @@ class AdminRouter {
                 break;
 
             case 'service-delete':
-                if(isset($_GET['id'])) {
+                if(isset($_GET['id']))
                     $controller->deleteService($_GET['id']);
-                }
-                else {
+                else
                     home();
-                }
+                break;
+
+            case 'roles':
+                $controller->manageRoles($_POST);
                 break;
 
             default:

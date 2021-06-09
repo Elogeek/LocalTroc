@@ -35,23 +35,27 @@ if(!$connected) { ?>
 } ?>
 
 <!-- Search form -->
-<section class="search">
+<h2>Recherche de services</h2>
+<section class="search-container">
     <!-- Search by country -->
-    <div>
-        <input type="text">
-        <input type="submit">
+    <div class="search">
+        <label for="by-country">Par ville</label>
+        <input type="text" name="by-country" id="by-country" class="no-margin">
+        <input type="submit" class="btn btn-primary">
     </div>
 
     <!-- Search by title -->
-    <div>
-        <input type="text">
-        <input type="submit">
+    <div class="search">
+        <label for="by-title">Par titre</label>
+        <input type="text" name="by-title" id="by-title" class="no-margin">
+        <input type="submit" class="btn btn-secondary">
     </div>
 
     <!-- Search by user -->
-    <div>
-        <input type="text">
-        <input type="submit">
+    <div class="search">
+        <label for="by-user">Par utilisateur</label>
+        <input type="text" name="by-user" id="by-user" class="no-margin">
+        <input type="submit" class="btn btn-secondary">
     </div>
 </section>
 
@@ -68,6 +72,7 @@ if(!$connected) { ?>
 ?>
 
 <!-- Last users added services -->
+<h2>Nos derniers services</h2>
 <div class="container-last-services">
     <?php
     $lastServices = $params['services'];

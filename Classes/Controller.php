@@ -174,10 +174,10 @@ class Controller {
 
     /**
      * Redirect user to user profile if he is not admin.
-     * @param User $user
+     * @param User|null $user
      */
-    public function redirectIfNotAdmin(User $user) {
-        if(!$this->isAdmin($user)) {
+    public function redirectIfNotAdmin(?User $user) {
+        if(is_null($user) || !$this->isAdmin($user)) {
             $this->redirectTo('user', 'profile');
         }
     }
@@ -199,10 +199,10 @@ class Controller {
 
     /**
      * Return true if given user is admin.
-     * @param User $user
+     * @param User|null $user
      * @return bool
      */
-    public function isAdmin(User $user): bool {
+    public function isAdmin(?User $user): bool {
         // Redirect to home page is session is closed.
         if(is_null($user)) {
             $this->redirectTo('index');

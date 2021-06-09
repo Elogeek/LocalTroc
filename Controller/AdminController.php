@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Manager\RoleManager;
 use App\Manager\UserServiceManager;
 use App\Model\Entity\UserManager;
 use App\Manager\MessageManager;
@@ -10,6 +11,7 @@ class AdminController extends Controller {
 
     private array $javaScripts;
     private array $css;
+    private RoleManager $rolesManager;
     private UserManager $userManager;
     private UserProfileManager $userProfileManager;
     private MessageManager $messageManager;
@@ -22,6 +24,7 @@ class AdminController extends Controller {
         $this->userServiceManager = new UserServiceManager();
         $this->userProfileManager = new UserProfileManager();
         $this->messageManager = new MessageManager();
+        $this->rolesManager = new RoleManager();
 
         $this->css = [
             'profile.css',
@@ -339,5 +342,45 @@ class AdminController extends Controller {
         else {
             $this->setErrorMessage("Ce service n'a pas pu être trouvé !");
         }
+    }
+
+
+    /**
+     * Allow admin to promote / unpromote users.
+     */
+    public function manageRoles(array $request) {
+        // Redirect user if he is not an admin.
+        $this->redirectIfNotAdmin($this->user);
+        if($this->isFormSubmitted()) {
+            $userId = DB::secureInt($request['user-id']);
+            $roleId = DB::secureInt($request['role-id']);
+            if($userId !== 0) {
+                $user = $this->userManager->getById($userId);
+                $role = $this->rolesManager->getRoleById($roleId);
+
+                if(!is_null($user) && !is_null($role)) {
+                    $user->setRole($role);
+                    if($this->userManager->updateUser($user)) {
+                        $this->setSuccessMessage("Le rôle utilisateur a bien été modifié.");
+                    }
+                    else {
+                        $this->setErrorMessage("Une erreur est survenue lors de l'édition du rôle utilisateur.");
+                    }
+                }
+                else {
+                    $this->setErrorMessage("L'utilisateur ou le rôle n'existe pas.");
+                }
+            }
+            else {
+                $this->setErrorMessage("Vous n'avez pas sélectionné d'utilisateur.");
+            }
+        }
+        $this->addJavaScript($this->javaScripts);
+        $this->addCss($this->css);
+        $this->showView('admin/manageRole', [
+            'roles' => $this->rolesManager->getRoles(),
+            'users' => $this->userManager->getAllUsers(),
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+        ]);
     }
 }

@@ -13,6 +13,21 @@ class RoleManager
 {
 
     /**
+     * Get all rôles.
+     * @return array
+     */
+    public function getRoles(): array {
+        $roles = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM role");
+        if($request->execute() && $data = $request->fetchAll()) {
+            foreach($data as $roleData) {
+                $roles[] = new Role($roleData['id'], $roleData['name']);
+            }
+        }
+        return $roles;
+    }
+
+    /**
      * Return a Role object based on a given role id.
      * @param int $id
      * @return Role

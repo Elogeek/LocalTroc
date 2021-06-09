@@ -1,5 +1,3 @@
-
-
 <div class="internal-container">
     <div class="profile-content">
 

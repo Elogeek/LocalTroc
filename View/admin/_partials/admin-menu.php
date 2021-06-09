@@ -12,6 +12,11 @@
                     <i class="fas fa-briefcase"></i>Services
                 </a>
             </li>
+            <li>
+                <a href="/index.php?controller=admin&action=roles" title="Services">
+                    <i class="fas fa-briefcase"></i>Gérer les admins
+                </a>
+            </li>
         </ul>
     </nav>
 </div>

@@ -25,3 +25,18 @@ if(deleteUserService) {
         deleteServiceModalWindow.build();
     }
 }
+
+// Managing roles attributions.
+const form = document.getElementById('roles-edition');
+if(form) {
+    // Allow to change the value of user role in appropriate span.
+    form.querySelector('#user-id').addEventListener('change', function() {
+        if(this.selectedIndex !== 0) {
+            const currentRole = this.options[this.selectedIndex].dataset.role;
+            document.querySelector('#current-role span').innerHTML = currentRole;
+        }
+        else {
+            document.querySelector('#current-role span').innerHTML = 'Aucune sélection';
+        }
+    });
+}
