@@ -19,6 +19,7 @@
                     <th>Date</th>
                     <th>Sujet</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,7 +44,15 @@
                         <td class="mobile-hidden"><?= $service->getUser()->getId() ?></td>
                         <td><?= $date ?></td>
                         <td><?= $service->getSubject() ?></td>
-                        <!-- User delete button. -->
+
+                        <!-- Service edition button. -->
+                        <td>
+                            <a class="admin-delete-service green" href="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+
+                        <!-- Service delete button. -->
                         <td>
                             <a class="admin-delete-service red" href="/index.php?controller=admin&action=service-delete&id=<?= $service->getId() ?>">
                                 <i class="fas fa-trash"></i>

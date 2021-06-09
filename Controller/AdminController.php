@@ -293,7 +293,7 @@ class AdminController extends Controller {
      * @param int $id
      * @param array $_POST
      */
-    public function editService(int $id, array $_POST)
+    public function editService(int $id, array $req)
     {
         // Rediret to user profile if connected user is not admin.
         $this->redirectIfNotAdmin($this->user);
