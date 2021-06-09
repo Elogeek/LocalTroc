@@ -1,62 +1,28 @@
-.search .form-wrapper {
-    background-color: #f6f6f6;
-    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
-    border-color: #dedede #bababa #aaa #bababa;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-    margin: 100px auto;
-    overflow: hidden;
-    padding: 8px;
-    width: 450px;
+.search-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem auto;
 }
 
-.search .form-wrapper #search {
-    border: 1px solid #CCC;
-    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
-    border-radius: 3px;
-    color: #999;
-    float: left;
-    font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
-    height: 20px;
-    padding: 10px;
-    width: 320px;
+.search-container{
+    max-width: 60%;
 }
 
-.search .form-wrapper #search:focus {
-    border-color: #aaa;
-    box-shadow: 0 1px 1px #bbb inset;
-    outline: 0;
+.search-container select, .search-container input {
+    margin-top: 3rem;
 }
 
-.search .form-wrapper #submit {
-    background-color: #0483a0;
-    background-image: linear-gradient(top, #31b2c3, #0483a0);
-    border: 1px solid #00748f;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
-    color: #fafafa;
-    cursor: pointer;
-    height: 42px;
-    float: right;
-    padding: 0;
-    text-transform: uppercase;
-    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
-    width: 100px;
+.search-container input {
+    padding: 1rem;
+    margin-left: 0;
 }
 
-.search .form-wrapper #submit:hover,
-.search .form-wrapper #submit:focus {
-    background-color: #31b2c3;
-    background-image: linear-gradient(top, #0483a0, #31b2c3);
+.search-container .btn {
+    padding: inherit;
 }
 
-.search .form-wrapper #submit:active {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-    outline: 0;
-}
-
-.search .form-wrapper #submit::-moz-focus-inner {
-    border: 0;
+h2.search-container-title {
+    font-size: 3rem;
+    margin-bottom: 5rem;
 }

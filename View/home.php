@@ -35,42 +35,18 @@ if(!$connected) { ?>
 } ?>
 
 <!-- Search form -->
-<h2>Recherche de services</h2>
-
-<div class="search">
-    <form class="form-wrapper">
+<h2 class="search-container-title">Recherche de services</h2>
+<div class="search-container">
+    <form>
         <select name="" id="">
-            <option value="">Par ville</option>
-            <option value="">Par titre</option>
-            <option value="">Par utilisateur</option>
+            <option value="0">Par ville</option>
+            <option value="1">Par titre</option>
+            <option value="2">Par utilisateur</option>
         </select>
         <input type="text" id="search" placeholder="Recherche par ville" required>
-        <input type="submit" value="go" id="submit">
+        <input class="btn btn-secondary" type="submit" value="Chercher un service" id="submit">
     </form>
 </div>
-
-<section class="search-container">
-    <!-- Search by country -->
-    <div class="search">
-        <label for="by-country">Par ville</label>
-        <input type="text" name="by-country" id="by-country" class="no-margin">
-        <input type="submit" class="btn btn-primary">
-    </div>
-
-    <!-- Search by title -->
-    <div class="search">
-        <label for="by-title">Par titre</label>
-        <input type="text" name="by-title" id="by-title" class="no-margin">
-        <input type="submit" class="btn btn-secondary">
-    </div>
-
-    <!-- Search by user -->
-    <div class="search">
-        <label for="by-user">Par utilisateur</label>
-        <input type="text" name="by-user" id="by-user" class="no-margin">
-        <input type="submit" class="btn btn-secondary">
-    </div>
-</section>
 
 <?php
 // Second call to register, Display register button only if user is not connected.
@@ -85,7 +61,7 @@ if(!$connected) { ?>
 ?>
 
 <!-- Last users added services -->
-<h2>Nos derniers services</h2>
+<h2 class="search-container-title">Nos derniers services</h2>
 <div class="container-last-services">
     <?php
     $lastServices = $params['services'];

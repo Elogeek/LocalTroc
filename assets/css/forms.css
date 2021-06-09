@@ -1,25 +1,3 @@
-.search-container {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    margin: 5rem auto;
-}
-
-.search .btn {
-    max-width: 20rem;
-}
-
-.search {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.search label {
-    text-align: center;
-    color: #C9E265FF
-}
-
 .form-group {
     padding: 1rem;
     display: flex;
