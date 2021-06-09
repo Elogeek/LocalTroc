@@ -37,15 +37,12 @@ class AdminController extends Controller {
         ];
     }
 
-
     /**
      * List all available users.
      */
     public function listUsers() {
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
-
+        // Rediret user if he is not an admin.
+        $this->redirectIfNotAdmin($this->user);
         $this->addJavaScript($this->javaScripts);
         $this->addCss($this->css);
         $this->showView('admin/users', [
@@ -60,9 +57,7 @@ class AdminController extends Controller {
      * @param int $id
      */
     public function deleteUser(int $id) {
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
+        $this->redirectIfNotAdmin($this->user);
         $user = $this->userManager->getById($id);
         if(!is_null($user)) {
             // Getting all user data and delete them to be RGPD conform.
@@ -102,9 +97,7 @@ class AdminController extends Controller {
      * List all available services.
      */
     public function listServices() {
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
+        $this->redirectIfNotAdmin($this->user);
 
         $this->addJavaScript($this->javaScripts);
         $this->addCss($this->css);
@@ -121,9 +114,7 @@ class AdminController extends Controller {
      * @param int $id
      */
     public function deleteService(int $id) {
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
+        $this->redirectIfNotAdmin($this->user);
         // Deleting the service.
         $service = $this->userServiceManager->getService($id);
         if(!is_null($service)) {
@@ -153,9 +144,7 @@ class AdminController extends Controller {
      * @param array $req
      */
     public function editUser(int $id, array $req) {
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
+        $this->redirectIfNotAdmin($this->user);
         // Getting user to edit.
         $user = $this->userManager->getById($id);
         if($user) {
@@ -307,9 +296,7 @@ class AdminController extends Controller {
     public function editService(int $id, array $_POST)
     {
         // Rediret to user profile if connected user is not admin.
-        if(!$this->isAdmin($this->user)) {
-            $this->redirectTo('user', 'profile');
-        }
+        $this->redirectIfNotAdmin($this->user);
 
     }
 }

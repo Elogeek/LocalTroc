@@ -173,6 +173,16 @@ class Controller {
     }
 
     /**
+     * Redirect user to user profile if he is not admin.
+     * @param User $user
+     */
+    public function redirectIfNotAdmin(User $user) {
+        if(!$this->isAdmin($user)) {
+            $this->redirectTo('user', 'profile');
+        }
+    }
+
+    /**
      * Return the connected user or null
      * @return User|null
      */
