@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a id="delete-user" href="/index.php?controller=user&action=delete" title="Editer mes informations">
+                    <a id="delete-user" href="/index.php?controller=user&action=delete" title="Supprimer mon compte">
                         <i class="fas fa-trash"></i>Supprimer mon compte
                     </a>
                 </li>

@@ -30,7 +30,7 @@ if(!$connected) { ?>
     <section class="callToAction">
         <span>LocalTroc est 100% gratuit !</span>
         <span>Lancez - vous !</span><br>
-        <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
+        <a title="Inscription" class="btn" href="/index.php?controller=register">Inscription gratuite</a>
     </section> <?php
 } ?>
 
@@ -66,7 +66,7 @@ if(!$connected) { ?>
     <section class="callToAction mobile-hidden">
         <span>Envie d'essayer ?</span>
         <span>Devenir troqueur, troqueuse ? </span>
-        <a class="btn" href="/index.php?controller=register">Inscription gratuite</a>
+        <a title="Inscription" class="btn" href="/index.php?controller=register">Inscription gratuite</a>
     </section> <?php
 }
 ?>
@@ -109,7 +109,9 @@ if(!$connected) { ?>
                         echo $description;
                         ?>
                     </p>
-                    <a class="btn btn-secondary" href="">Lire plus</a>
+                    <a title="Lire plus" class="btn btn-secondary" href="/index.php?controller=service&action=read&id=<?= $service->getId() ?>">
+                        Lire plus
+                    </a>
                 </div>
             </div>
 

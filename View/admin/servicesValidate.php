@@ -34,7 +34,7 @@
 
                         <!-- Service validation button. -->
                         <td>
-                            <a class="red" href="/index.php?controller=admin&action=validate&id=<?= $service->getId() ?>">
+                            <a title="Valider" class="red" href="/index.php?controller=admin&action=validate&id=<?= $service->getId() ?>">
                                 <i class="fas fa-check-square"></i>
                             </a>
                         </td>

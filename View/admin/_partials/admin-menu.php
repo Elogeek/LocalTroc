@@ -13,12 +13,12 @@
                 </a>
             </li>
             <li>
-                <a href="/index.php?controller=admin&action=roles" title="Services">
+                <a href="/index.php?controller=admin&action=roles" title="Gérer admins">
                     <i class="fas fa-wrench"></i>Gérer les admins
                 </a>
             </li>
             <li>
-                <a href="/index.php?controller=admin&action=validate" title="Services">
+                <a href="/index.php?controller=admin&action=validate" title="Valider annonces">
                     <i class="fas fa-check-square"></i>Valider les annonces
                 </a>
             </li>

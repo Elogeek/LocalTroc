@@ -167,4 +167,28 @@ class ServiceController extends Controller
         $this->redirectTo('service', 'user-services');
     }
 
+    /**
+     * Display a single service page.
+     * @param int $id
+     */
+    public function readService(int $id) {
+        $service = $this->userServiceManager->getService($id);
+
+        if(!is_null($service)) {
+            $userProfile = $this->userProfileManager->getUserProfile($service->getUser());
+            $this->addCss([
+                'services.css',
+                'forms.css,
+            ']);
+            $this->addJavaScript($this->javaScripts);
+            $this->showView('service/servicePage', [
+                'service' => $service,
+                'userProfile' => $userProfile,
+            ]);
+        }
+        else {
+            $this->redirectTo('index');
+        }
+    }
+
 }

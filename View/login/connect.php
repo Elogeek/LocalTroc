@@ -16,7 +16,7 @@
                         <input class="btn btn-secondary" type="submit" name="submit" value="Connexion">
                     </div>
                 </form>
-                <p id="createAccount">Pas encore de compte ? <a title="Register" href="/index.php?controller=register">Créez en un</a>.</p>
+                <p id="createAccount">Pas encore de compte ? <a title="S'enregistrer" href="/index.php?controller=register">Créez en un</a>.</p>
             </div>
         </div>
     </div>

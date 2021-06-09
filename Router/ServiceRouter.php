@@ -18,22 +18,26 @@ class ServiceRouter {
                     break;
 
                 case 'user-service-delete':
-                    if(isset($_GET['id'])) {
+                    if(isset($_GET['id']))
                         // Delete user service if id was provided.
                         $controller->deleteLoggedInUserService($_GET['id']);
-                    } else {
+                    else
                         // if no service id was provided, then redirect to user services listing.
                         $controller->showLoggedInUserServices();
-                    }
                     break;
                 case 'user-service-edit':
-                    if(isset($_GET['id'])) {
+                    if(isset($_GET['id']))
                         $controller->editLoggedInUserService($_GET['id'], $_POST);
-                    }
-                    else {
+                    else
                         // Redirect to logged in user services if no service id provided.
                         $controller->showLoggedInUserServices();
-                    }
+                    break;
+
+                case 'read':
+                    if(isset($_GET['id']))
+                        $controller->readService($_GET['id']);
+                    else
+                        home();
                     break;
 
                 default:

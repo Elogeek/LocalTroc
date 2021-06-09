@@ -50,14 +50,14 @@
 
                         <!-- Service edition button. -->
                         <td>
-                            <a class="green" href="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>">
+                            <a title="Editer" class="green" href="/index.php?controller=admin&action=service-edit&id=<?= $service->getId() ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </td>
 
                         <!-- Service delete button. -->
                         <td>
-                            <a class="admin-delete-service red" href="/index.php?controller=admin&action=service-delete&id=<?= $service->getId() ?>">
+                            <a tite="Supprimer" class="admin-delete-service red" href="/index.php?controller=admin&action=service-delete&id=<?= $service->getId() ?>">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

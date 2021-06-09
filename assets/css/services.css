@@ -70,6 +70,48 @@
     color: darkred;
 }
 
+
+
+.service-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 80%;
+    margin: 4rem auto;
+}
+
+
+.service-page-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.service-page .service-page-left img {
+    max-width: 50rem;
+}
+
+.service-page .service-page-right {
+    padding-left: 3rem;
+}
+
+.service-line {
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: #08c1ef;
+}
+
+.service-line span {
+    font-weight: normal;
+    font-style: italic;
+    color: #3c3c3c;
+    margin-left: 1rem;
+}
+
+.service-page-description {
+    margin-top: 2rem;
+}
+
 @media screen and (max-width: 1000px) {
     .user-service-profile-content img {
         max-width: 25rem;
