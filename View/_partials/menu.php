@@ -6,7 +6,12 @@
             <a href="/index.php"><img  id="site-logo" src="/assets/img/logo.png" alt="logoSite"></a>
         </div>
 
-        <div class="menu"> <?php
+        <div class="menu">
+
+            <a title="Services" href="/index.php?controller=service&action=show-all">
+                <i class="fas fa-briefcase"></i>Services
+            </a> <?php
+
             // Si l'utilisateur est connecté, alors on affiche l'entrée de menu 'Mon profil'.
             if($connected && !is_null($user)) {
                 $avatar = (new UserProfileManager())->getUserProfile($user)->getAvatar();

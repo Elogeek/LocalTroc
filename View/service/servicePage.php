@@ -42,27 +42,3 @@ $date = $date->format('d / m / y à H:i'); ?>
         </p>
     </div>
 </section>
-
-<!-- Hidden on mobile version. -->
-<section class="search-container">
-    <!-- Search by country -->
-    <div class="search">
-        <label for="by-country">Par ville</label>
-        <input type="text" name="by-country" id="by-country" class="no-margin">
-        <input type="submit" class="btn btn-primary">
-    </div>
-
-    <!-- Search by title -->
-    <div class="search">
-        <label for="by-title">Par titre</label>
-        <input type="text" name="by-title" id="by-title" class="no-margin">
-        <input type="submit" class="btn btn-secondary">
-    </div>
-
-    <!-- Search by user -->
-    <div class="search">
-        <label for="by-user">Par utilisateur</label>
-        <input type="text" name="by-user" id="by-user" class="no-margin">
-        <input type="submit" class="btn btn-secondary">
-    </div>
-</section>

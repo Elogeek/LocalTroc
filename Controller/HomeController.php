@@ -23,6 +23,7 @@ class HomeController extends Controller {
         $this->css = [
             'headerCarousel.css',
             'forms.css',
+            'search.css',
         ];
     }
 

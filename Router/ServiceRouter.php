@@ -41,7 +41,8 @@ class ServiceRouter {
                     break;
 
                 default:
-                    // TODO => List all services.
+                    // List all services. ( also used for action=show-all )
+                    $controller->displayAllServices();
             }
         }
     }

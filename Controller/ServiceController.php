@@ -191,4 +191,16 @@ class ServiceController extends Controller
         }
     }
 
+
+    /**
+     * Display all available ( and validated ) services.
+     */
+    public function displayAllServices() {
+        $services = $this->userServiceManager->getServices(null, true);
+        $this->addJavaScript($this->javaScripts);
+        $this->showView('service/allServices', [
+            'services' => $services,
+        ]);
+    }
+
 }

@@ -36,6 +36,19 @@ if(!$connected) { ?>
 
 <!-- Search form -->
 <h2>Recherche de services</h2>
+
+<div class="search">
+    <form class="form-wrapper">
+        <select name="" id="">
+            <option value="">Par ville</option>
+            <option value="">Par titre</option>
+            <option value="">Par utilisateur</option>
+        </select>
+        <input type="text" id="search" placeholder="Recherche par ville" required>
+        <input type="submit" value="go" id="submit">
+    </form>
+</div>
+
 <section class="search-container">
     <!-- Search by country -->
     <div class="search">
@@ -81,7 +94,6 @@ if(!$connected) { ?>
         $date = (DateTime::createFromFormat('Y-m-d H:i:s', $service->getServiceDate()));
         $date = $date->format('d / m / y à H:i'); ?>
         <div class="last-service">
-
             <div class="service-detail">
                 <h2><?= $service->getSubject() ?></h2>
                 <span><?= $date ?></span>
