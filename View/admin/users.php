@@ -10,6 +10,9 @@
         ?>
 
         <div class="profile-table">
+            <h1>Liste des utilisateurs</h1>
+            <hr>
+
             <table class="admin-table">
                 <thead>
                     <tr>

@@ -27,6 +27,7 @@ class UserServiceManager {
                 $srv->setSubject($serviceData['subject']);
                 $srv->setUser($user);
                 $srv->setImage($serviceData['image']);
+                $srv->setValidated($serviceData['validate']);
                 $userService[] = $srv;
             }
         }
@@ -63,6 +64,7 @@ class UserServiceManager {
                 $srv->setSubject($serviceData['subject']);
                 $srv->setUser($user);
                 $srv->setImage($serviceData['image']);
+                $srv->setValidated($serviceData['validate']);
                 $services[] = $srv;
             }
         }
@@ -89,6 +91,7 @@ class UserServiceManager {
             $srv->setSubject($data['subject']);
             $srv->setUser($userManager->getById($data['user_fk']));
             $srv->setImage($data['image']);
+            $srv->setValidated($data['validate']);
             return $srv;
         }
         return null;
@@ -127,7 +130,8 @@ class UserServiceManager {
             UPDATE user_service 
                 SET description = :description, 
                     subject = :subject,
-                    image = :image
+                    image = :image,
+                    validate = :validate
                 WHERE id = :id AND user_fk = :user
         ");
         $request->bindValue(':description', $service->getDescription());
@@ -135,6 +139,7 @@ class UserServiceManager {
         $request->bindValue(':id',$service->getId());
         $request->bindValue(':user', $service->getUser()->getId());
         $request->bindValue(':image', $service->getImage());
+        $request->bindValue(':validate', $service->getValidated());
 
         return $request->execute() ;
     }
@@ -149,6 +154,38 @@ class UserServiceManager {
         $request->bindValue(':id',$service->getId());
 
         return $request->execute();
+    }
+
+
+    /**
+     * Return not validated user services.
+     * @return array
+     */
+    public function getNotValidatedServices(): array
+    {
+        $userManager = new UserManager();
+        $services = [];
+        $request = DB::getInstance()->prepare("
+            SELECT * FROM user_service 
+                WHERE validate = 0
+                ORDER BY id desc
+            ");
+
+        if ($request->execute() && $servicesData = $request->fetchAll()) {
+            foreach ($servicesData as $serviceData) {
+                $user = $userManager->getById($serviceData['user_fk']);
+                $srv = new UserService();
+                $srv->setId($serviceData['id']);
+                $srv->setDescription($serviceData['description']);
+                $srv->setServiceDate($serviceData['service_date']);
+                $srv->setSubject($serviceData['subject']);
+                $srv->setUser($user);
+                $srv->setImage($serviceData['image']);
+                $srv->setValidated($serviceData['validate']);
+                $services[] = $srv;
+            }
+        }
+        return $services;
     }
 
 }

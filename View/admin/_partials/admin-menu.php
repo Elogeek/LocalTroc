@@ -14,7 +14,12 @@
             </li>
             <li>
                 <a href="/index.php?controller=admin&action=roles" title="Services">
-                    <i class="fas fa-briefcase"></i>Gérer les admins
+                    <i class="fas fa-wrench"></i>Gérer les admins
+                </a>
+            </li>
+            <li>
+                <a href="/index.php?controller=admin&action=validate" title="Services">
+                    <i class="fas fa-check-square"></i>Valider les annonces
                 </a>
             </li>
         </ul>

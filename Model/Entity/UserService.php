@@ -11,6 +11,7 @@ class UserService {
     private ?string $subject;
     private ?string $description;
     private ?string $image;
+    private int $validated;
 
     /**
      * UserService constructor.
@@ -20,13 +21,14 @@ class UserService {
      * @param string|null $subject
      * @param string|null $description
      */
-    public  function  __construct(int $id =null, User $user = null, string $serviceDate = null, string $subject = null, string $description = null, string $image = null) {
+    public  function  __construct(int $id =null, User $user = null, string $serviceDate = null, string $subject = null, string $description = null, string $image = null, int $validated = 0) {
         $this->id = $id;
         $this->user = $user;
         $this->serviceDate = $serviceDate;
         $this->subject = $subject;
         $this->description = $description;
         $this->image = $image;
+        $this->validated = $validated;
     }
 
     /**
@@ -113,6 +115,23 @@ class UserService {
      */
     public function setImage(?string $image) {
         $this->image = $image;
+    }
+
+    /**
+     * Set the UserService validation status.
+     * @param int $validated
+     */
+    public function setValidated(int $validated): void {
+        $this->validated = $validated;
+    }
+
+
+    /**
+     * Return the UserService validation status.
+     * @return int
+     */
+    public function getValidated(): int {
+        return $this->validated;
     }
 
 }

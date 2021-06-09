@@ -108,7 +108,6 @@ class AdminController extends Controller {
             'services' => $this->userServiceManager->getServices(),
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
-
     }
 
 
@@ -388,6 +387,38 @@ class AdminController extends Controller {
         $this->showView('admin/manageRole', [
             'roles' => $this->rolesManager->getRoles(),
             'users' => $users,
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+        ]);
+    }
+
+    /**
+     * Service moderation.
+     * @param int|null $id
+     */
+    public function serviceValidate(int $id=null) {
+        // Redirect user if he is not an admin.
+        $this->redirectIfNotAdmin($this->user);
+        $this->addJavaScript($this->javaScripts);
+        $this->addCss($this->css);
+
+        if($id !== null) {
+            $service = $this->userServiceManager->getService($id);
+            if(!is_null($service)) {
+                $service->setValidated(1);
+                if($this->userServiceManager->updateService($service)) {
+                    $this->setSuccessMessage("Le service a bien été validé.");
+                }
+                else {
+                    $this->setErrorMessage("Le service n'a pas pu être validé.");
+                }
+            }
+            else {
+                $this->setErrorMessage("Le service n'a pas pu etre trouvé");
+            }
+        }
+
+        $this->showView('admin/servicesValidate', [
+            'services' => $this->userServiceManager->getNotValidatedServices(),
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
     }

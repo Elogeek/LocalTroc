@@ -51,6 +51,11 @@ class AdminRouter {
                 $controller->manageRoles($_POST);
                 break;
 
+            case 'validate':
+                $serviceId = $_GET['id'] ?? null;
+                $controller->serviceValidate($serviceId);
+                break;
+
             default:
                 home();
         }
