@@ -197,4 +197,13 @@ class UserServiceManager {
         return $services;
     }
 
+    /**
+     * @param int $criteria
+     * @param string $searchText
+     * @param bool $true
+     */
+    public function search(int $criteria, string $searchText, bool $true) {
+
+    }
+
 }

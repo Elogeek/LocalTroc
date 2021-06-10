@@ -199,7 +199,6 @@ class ServiceController extends Controller
     public function displayAllServices() {
         $services = $this->userServiceManager->getServices(null, true);
         $this->addCss(['search.css', 'forms.css']);
-        $this->addJavaScript($this->javaScripts);
         $this->showView('service/allServices', [
             'services' => $services,
         ]);

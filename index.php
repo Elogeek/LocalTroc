@@ -29,8 +29,8 @@ if (isset($_GET['controller'])) {
             break;
 
         case "search" :
-            //$controller = new QuickSearchController();
-            //$controller->goToQSearch();
+            $controller = new SearchController();
+            $controller->search($_POST);
             break;
     }
 }
