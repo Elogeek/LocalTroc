@@ -1,0 +1,14 @@
+{
+  "name": "ven/tests",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "elodie",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
