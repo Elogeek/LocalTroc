@@ -1,8 +1,6 @@
 <?php
+// Starting session.
 session_start();
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 // Loading routes.
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/RegisterRouter.php';
@@ -18,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/Controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/DateUtils.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Classes/FileUpload.php';
 
-// Inclusion des modèles et des Entités.
+// Including entities and models.
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Message.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/Role.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/Model/Entity/User.php';
