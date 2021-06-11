@@ -1,5 +1,5 @@
 {
-  "name": "ven/tests",
+  "name": "ven/test",
   "description": "description",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -9,6 +9,10 @@
       "email": "email@example.com"
     }
   ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
   "require": {
+    "ext-pdo": "*"
   }
 }

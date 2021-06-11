@@ -17,7 +17,7 @@ const ModalWindow = function(title, textContent, a) {
             document.body.append(this.overlay);
             document.body.style.overflowY = 'hidden';
 
-            // Création de la fenêtre modale.
+            // Create modal window
             const confirm = document.createElement('div');
             confirm.id = 'confirm';
 

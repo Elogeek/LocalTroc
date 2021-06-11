@@ -2,7 +2,6 @@
 
     <div>Nous suivre !</div>
 
-    <!--si le temps block "restons en conctact"===>newletter?-->
     <div class="share">
         <div>
             <a title="Twitter" target="_blank" href="https://twitter.com/LocalTroc">

@@ -29,16 +29,16 @@ class DB {
     }
 
     /**
-     * Return a new instance or an instance
+     * Return the database PDO connection
      * @return PDO|null
      */
     public static function getInstance(): ?PDO {
         if(null === self::$pdo) {
             new self();
         }
-
         return self::$pdo;
     }
+
 
     /**
      * Return string to have secure data to insert into the BDD.
