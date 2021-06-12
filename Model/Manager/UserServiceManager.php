@@ -214,15 +214,20 @@ class UserServiceManager {
                     INNER JOIN user_profile as p ON u.id = p.user_fk
                 WHERE u.firstname LIKE :search OR u.lastName LIKE :search OR p.pseudo LIKE :search
             ");
+        }
+        elseif($criteria === 'city') {
+            $request = DB::getInstance()->prepare("
+                SELECT user_fk as uid FROM user_profile WHERE city LIKE :search
+            ");
+        }
 
-            $request->bindValue(':search', "%" . $searchText . "%");
+        $request->bindValue(':search', "%" . strtolower($searchText) . "%");
 
-            if($request->execute() && $data = $request->fetchAll()) {
-                $userManager = new UserManager();
-                foreach ($data as $udata) {
-                    $user = $userManager->getById($udata['uid']);
-                    $services = array_merge($services, $this->getServicesByUser($user));
-                }
+        if($request->execute() && $data = $request->fetchAll()) {
+            $userManager = new UserManager();
+            foreach ($data as $udata) {
+                $user = $userManager->getById($udata['uid']);
+                $services = array_merge($services, $this->getServicesByUser($user));
             }
         }
 
