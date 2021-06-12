@@ -301,6 +301,15 @@ nav {
     background-color: #3c3c3c;
 }
 
+.text-center {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 /**
  * Styling footer
  */

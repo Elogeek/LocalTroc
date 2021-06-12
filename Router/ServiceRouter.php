@@ -25,6 +25,7 @@ class ServiceRouter {
                         // if no service id was provided, then redirect to user services listing.
                         $controller->showLoggedInUserServices();
                     break;
+
                 case 'user-service-edit':
                     if(isset($_GET['id']))
                         $controller->editLoggedInUserService($_GET['id'], $_POST);
@@ -38,6 +39,10 @@ class ServiceRouter {
                         $controller->readService($_GET['id']);
                     else
                         home();
+                    break;
+
+                case 'message':
+                    $controller->sendMessage($_POST);
                     break;
 
                 default:

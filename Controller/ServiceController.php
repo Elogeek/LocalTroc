@@ -2,6 +2,7 @@
 
 use App\Entity\User;
 use App\Entity\UserService;
+use App\Manager\MessageManager;
 use App\Manager\UserServiceManager;
 use Model\DB;
 
@@ -119,6 +120,7 @@ class ServiceController extends Controller
     /**
      * USER connected service edition.
      * @param int $id
+     * @param array $request
      */
     public function editLoggedInUserService(int $id, array $request) {
         $this->redirectIfNotLoggedIn('user', 'login');
@@ -202,6 +204,45 @@ class ServiceController extends Controller
         $this->showView('service/allServices', [
             'services' => $services,
         ]);
+    }
+
+
+    /**
+     * Allow to send message to a service.
+     * @param array $request
+     */
+    public function sendMessage(array $request){
+
+        $this->redirectIfNotLoggedIn('service', 'show-all');
+
+        if($this->isFormSubmitted()) {
+            if($this->issetAndNotEmpty($request, 'message', 'service-id')) {
+                $messageContent = DB::secureData($request['message']);
+                $serviceId = DB::secureInt($request['service-id']);
+
+                $service = $this->userServiceManager->getService($serviceId);
+                if (!is_null($service->getId())) {
+                    $messageManager = new MessageManager();
+                    if($messageManager->sendMessages($messageContent, $service, $this->user)) {
+                        $this->setSuccessMessage("Votre message a bien été envoyé");
+                    }
+                    else {
+                        $this->setErrorMessage("Une erreur est survenue en envoyant votre message.");
+                    }
+                }
+                else {
+                    $this->setErrorMessage("Le service pour lequel vous souhaitez envoyer un message n'existe pas.");
+                }
+
+                $this->readService($serviceId);
+            }
+            else {
+                $this->setErrorMessage("Le message ou le service n'a pas été spécifié");
+            }
+        }
+        else {
+            $this->redirectIfNotLoggedIn('service', 'show-all');
+        }
     }
 
 }
