@@ -186,6 +186,14 @@ nav {
     margin: 0 auto;
 }
 
+.container-last-services hr {
+    margin-bottom: 6rem;
+}
+
+.container-last-services h1 {
+    margin-top: 2rem;
+}
+
 .last-service {
     margin-bottom: 6rem;
 }

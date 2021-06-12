@@ -26,3 +26,12 @@ h2.search-container-title {
     font-size: 3rem;
     margin-bottom: 5rem;
 }
+
+.no-search-result {
+    text-align: center;
+    font-weight: bold;
+}
+
+.container-last-services h1 span {
+    color: seagreen;
+}

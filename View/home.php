@@ -36,19 +36,11 @@ if(!$connected) { ?>
 
 <!-- Search form -->
 <h2 class="search-container-title">Recherche de services</h2>
-<div class="search-container">
-    <form>
-        <select name="" id="">
-            <option value="0">Par ville</option>
-            <option value="1">Par titre</option>
-            <option value="2">Par utilisateur</option>
-        </select>
-        <input type="text" id="search" placeholder="Recherche par ville" required>
-        <input class="btn btn-secondary" type="submit" value="Chercher un service" id="submit">
-    </form>
-</div>
-
 <?php
+
+/* include search box */
+require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/search.php';
+
 // Second call to register, Display register button only if user is not connected.
 if(!$connected) { ?>
     <!-- Hidden on mobile version. -->

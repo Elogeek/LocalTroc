@@ -14,7 +14,6 @@
             <a title="Facebook" target="_blank" href="https://www.facebook.com/LocalTroc-102784445370671">
                 <i id="facebook" class="fab fa-facebook-square"></i>
             </a>
-
         </div>
 
         <div>

@@ -198,12 +198,36 @@ class UserServiceManager {
     }
 
     /**
-     * @param int $criteria
+     * @param string $criteria
      * @param string $searchText
      * @param bool $true
+     * @return array
      */
-    public function search(int $criteria, string $searchText, bool $true) {
+    public function search(string $criteria, string $searchText, bool $true): array {
+        ini_set('error_reporting', E_ALL);
+        ini_set('display_errors', 1);
 
+        $services = [];
+        if($criteria === 'user') {
+            $request = DB::getInstance()->prepare("
+                SELECT u.id as uid, p.id as pid FROM user as u 
+                    INNER JOIN user_profile as p ON u.id = p.user_fk
+                WHERE u.firstname LIKE :search OR u.lastName LIKE :search OR p.pseudo LIKE :search
+            ");
+
+            $request->bindValue(':search', "%" . $searchText . "%");
+
+            if($request->execute() && $data = $request->fetchAll()) {
+                $userManager = new UserManager();
+                foreach ($data as $udata) {
+                    $user = $userManager->getById($udata['uid']);
+                    $services = array_merge($services, $this->getServicesByUser($user));
+                }
+            }
+        }
+
+
+        return $services;
     }
 
 }

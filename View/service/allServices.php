@@ -7,6 +7,19 @@ require_once  $_SERVER['DOCUMENT_ROOT'] . '/View/_partials/search.php';
 
 <section class="container-last-services"><?php
 
+if(isset($params['search-title'])) { ?>
+    <h1>Résulat de recherche pour: <span><?= $params['search-title'] ?></span></h1>
+    <hr><?php
+}
+else { ?>
+    <h1>Tous les services</h1>
+    <hr><?php
+}
+
+if(count($services) === 0) { ?>
+    <p class="no-search-result">Votre recherche n'a donné aucun résultat<p> <?php
+}
+
 foreach($services as $service) {
     $date = (DateTime::createFromFormat('Y-m-d H:i:s', $service->getServiceDate()));
     $date = $date->format('d / m / y à H:i'); ?>
