@@ -208,28 +208,58 @@ class UserServiceManager {
         ini_set('display_errors', 1);
 
         $services = [];
-        if($criteria === 'user') {
-            $request = DB::getInstance()->prepare("
-                SELECT u.id as uid, p.id as pid FROM user as u 
-                    INNER JOIN user_profile as p ON u.id = p.user_fk
-                WHERE u.firstname LIKE :search OR u.lastName LIKE :search OR p.pseudo LIKE :search
-            ");
-        }
-        elseif($criteria === 'city') {
-            $request = DB::getInstance()->prepare("
-                SELECT user_fk as uid FROM user_profile WHERE city LIKE :search
-            ");
-        }
+        $userManager = new UserManager();
 
-        $request->bindValue(':search', "%" . strtolower($searchText) . "%");
+        if($criteria === 'user' || $criteria === 'city') {
+            // Search by user.
+            if ($criteria === 'user') {
+                $request = DB::getInstance()->prepare("
+                    SELECT u.id as uid, p.id as pid FROM user as u 
+                        INNER JOIN user_profile as p ON u.id = p.user_fk
+                    WHERE LOWER(u.firstname) LIKE :search OR LOWER(u.lastName) LIKE :search OR LOWER(p.pseudo) LIKE :search
+                ");
+            }
+            // Search by city.
+            else {
+                $request = DB::getInstance()->prepare("
+                    SELECT user_fk as uid FROM user_profile WHERE LOWER(city) LIKE :search
+                ");
+            }
 
-        if($request->execute() && $data = $request->fetchAll()) {
-            $userManager = new UserManager();
-            foreach ($data as $udata) {
-                $user = $userManager->getById($udata['uid']);
-                $services = array_merge($services, $this->getServicesByUser($user));
+            $request->bindValue(':search', "%" . strtolower($searchText) . "%");
+
+            if($request->execute() && $data = $request->fetchAll()) {
+                foreach ($data as $udata) {
+                    $user = $userManager->getById($udata['uid']);
+                    $services = array_merge($services, $this->getServicesByUser($user));
+                }
             }
         }
+        // Search by title ( and admin validated ).
+        else {
+            $request = DB::getInstance()->prepare("
+                SELECT * FROM user_service WHERE LOWER(subject) LIKE :search AND validate = 1
+            ");
+
+            $request->bindValue(':search', "%" . strtolower($searchText) . "%");
+
+            if($request->execute() && $data = $request->fetchAll()) {
+                foreach($data as $sdata) {
+                    $user = $userManager->getById($sdata['user_fk']);
+                    $services[] = new UserService(
+                        $sdata['id'],
+                        $user,
+                        $sdata['service_date'],
+                        $sdata['subject'],
+                        $sdata['description'],
+                        $sdata['image'],
+                        $sdata['validate']
+                    );
+                }
+            }
+        }
+
+
 
 
         return $services;
