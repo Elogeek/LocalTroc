@@ -9,6 +9,11 @@
     padding: 2rem;
 }
 
+.messages-box {
+    display: flex;
+    flex-direction: column;
+}
+
 .messages-box .btn {
     max-width: 15rem;
 }
@@ -32,6 +37,14 @@
     color: white;
     font-weight: bold;
 }
+
+.messages-service-box h3 span {
+    position: relative;
+    font-size: 2rem;
+    float: right;
+    margin-right: 1rem;
+}
+
 
 .messages-box textarea {
     width: 100%;

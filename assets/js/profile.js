@@ -30,3 +30,23 @@ if(deleteUserServiceAction) {
         deleteUserServiceModalWindow.build();
     }
 }
+
+
+// Messages box display hidden messages.
+const messagesBox = document.querySelectorAll('.messages-service-box');
+if(messagesBox) {
+    for(let messageBox of messagesBox) {
+        messageBox.querySelector('h3 > span').addEventListener('click', e => {
+            messagesBox.forEach(msgBox => {
+                msgBox.querySelector('.messages-box').style.display = 'none';
+            });
+
+            messageBox.querySelector('.messages-box').style.display = 'flex';
+            console.log(messageBox);
+        });
+    }
+}
+
+messagesBox.forEach(msgBox => {
+   msgBox.querySelector('.messages-box').style.display = 'none';
+});

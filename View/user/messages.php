@@ -13,7 +13,7 @@
                     $service = $messageData['service'];
                     $messages = $messageData['messages']; ?>
                     <div class="messages-service-box">
-                        <h3><i class="fas fa-briefcase"></i>&nbsp;<?= $service->getSubject() ?></h3>
+                        <h3><i class="fas fa-briefcase"></i>&nbsp;<?= $service->getSubject() ?><span><i class="fas fa-arrow-down"></i></span></h3>
                         <div class="messages-box"> <?php
                             foreach($messages as $conversation) { ?>
                                 <div class="conversation"> <?php
