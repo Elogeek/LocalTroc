@@ -27,7 +27,14 @@ class UserRouter {
                 break;
 
              case 'messages':
-                 $controller->userMessages();
+                 // If service id is provided, then adding a new message from user panel.
+                 if(isset($_GET['sid'])) {
+                     $controller->addMessage($_POST, $_GET['sid']);
+                 }
+                 // Display user messages.
+                 else {
+                     $controller->userMessages();
+                 }
                  break;
 
             default:

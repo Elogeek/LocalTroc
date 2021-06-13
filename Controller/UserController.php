@@ -283,12 +283,47 @@ class UserController extends Controller {
         }
 
         $this->addJavaScript($this->javaScripts);
-        $this->addCss($this->css);
+        $this->addCss([...$this->css, 'messages.css']);
 
         $this->showView('user/messages', [
             'fromUserServices' => $messages,
             'userProfile' => $this->userProfileManager->getUserProfile($this->user),
         ]);
+    }
+
+    /**
+     * Add a respond message to service on user profile
+     * @param $req
+     * @param $sid
+     */
+    public function addMessage($req, $sid) {
+        $this->redirectIfNotLoggedIn('index');
+
+        if($this->isFormSubmitted()) {
+            if($this->issetAndNotEmpty($req, 'message', 'user-from', 'user-to')) {
+                $msg = DB::secureData($req['message']);
+                $userFrom = DB::secureInt($req['user-from']);
+                $userTo = DB::secureInt($req['user-to']);
+
+                $service = (new UserServiceManager())->getService($sid);
+
+                if (!is_null($service)) {
+                    $messageManager = new MessageManager();
+                    if($service->getUser()->getId() === $this->user->getId()) {
+                        $userFrom = $this->userManager->getById($userFrom);
+                        $userTo = $this->userManager->getById($userTo);
+                    }
+                    if($messageManager->sendMessages($msg, $service, $userFrom, $userTo)) {
+                        $this->setSuccessMessage("Votre message a bien été envoyé");
+                    }
+                    else {
+                        $this->setErrorMessage("Une erreur est survenue en envoyant votre message.");
+                    }
+                }
+            }
+        }
+
+        $this->userMessages();
     }
 
 }
