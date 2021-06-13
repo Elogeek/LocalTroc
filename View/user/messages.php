@@ -18,14 +18,21 @@
                             foreach($messages as $conversation) { ?>
                                 <div class="conversation"> <?php
 
-                                    $userFrom = $messages[array_keys($messages)[0]][0]->getUserFrom();
+                                    $userFrom = $conversation[0]->getUserFrom();
                                     if($userFrom->getId() === $user->getId()) {
-                                        $userTo =  $messages[array_keys($messages)[0]][0]->getUserTo();
+                                        $userTo =  $conversation[0]->getUserTo();
                                     }
                                     else {
-                                        $userTo = $messages[array_keys($messages)[0]][0]->getUserFrom();
+                                        $userTo = $conversation[0]->getUserFrom();
                                         $userFrom = $user;
                                     }
+                                    ?>
+                                    <h4>Conversation entre:
+                                        <?= $userFrom->getFirstname() . ' ' . $userFrom->getLastName() ?> et
+                                        <?= $userTo->getFirstName() . ' ' . $userTo->getLastName() ?>
+                                    </h4>
+                                    <hr>
+                                    <?php
 
                                     foreach($conversation as $message) {
                                         $class = $user->getId() === $message->getUserFrom()->getId() ? 'bubble-bottom-right from' : 'bubble-bottom-left to';

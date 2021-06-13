@@ -42,7 +42,6 @@ if(messagesBox) {
             });
 
             messageBox.querySelector('.messages-box').style.display = 'flex';
-            console.log(messageBox);
         });
     }
 }
