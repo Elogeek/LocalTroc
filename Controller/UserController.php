@@ -326,4 +326,25 @@ class UserController extends Controller {
         $this->userMessages();
     }
 
+
+    /**
+     * Delete a message if ownad by logged in user..
+     * @param int $messageId
+     */
+    public function deleteMessage(int $messageId) {
+        $this->redirectIfNotLoggedIn('index');
+        $messagesManager = new MessageManager();
+        $message = $messagesManager->getById($messageId);
+        if($message && $message->getUserFrom()->getId() === $this->user->getId()) {
+            if($messagesManager->deleteMessage($message)) {
+                $this->setSuccessMessage("Votre message a bien été supprimé");
+            }
+            else {
+                $this->setErrorMessage("Une erreur est survenue en supprimant votre message");
+            }
+        }
+
+        $this->userMessages();
+    }
+
 }

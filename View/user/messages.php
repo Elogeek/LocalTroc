@@ -48,7 +48,14 @@
                                                 $date = $date->format('d-m-y à H:i');
                                             ?>
                                             <small>De: <?= $from ?>, <span class="message-date"><?= $date ?></span></small>
-                                            <p><?= $message->getContent() ?></p>
+                                            <p><?= $message->getContent() ?></p> <?php
+
+                                            if($message->getUserFrom()->getId() === $user->getId()) { ?>
+                                                <a href="/index.php?controller=user&action=delete-message&id=<?= $message->getId() ?>">
+                                                    <i class="fas fa-trash"></i>
+                                                </a> <?php
+                                            } ?>
+
                                         </div><?php
                                     }
                                     ?>

@@ -12,6 +12,36 @@ use PDOStatement;
 class MessageManager {
 
     /**
+     * Return a message by id.
+     * @param int $id
+     * @return Message|null
+     */
+    public function getById(int $id) {
+        $message = null;
+        $request = DB::getInstance()->prepare("SELECT * FROM message WHERE id = :id");
+        $request->bindValue(':id', $id);
+        if($request->execute() && $mdata = $request->fetch()) {
+            $userManager = new UserManager();
+            $servicesManager = new UserServiceManager();
+
+            $userFrom = $userManager->getById($mdata['from_user_fk']);
+            $userTo = $userManager->getById($mdata['to_user_fk']);
+            $service = $servicesManager->getService($mdata['user_service_fk']);
+
+            if(!is_null($userFrom) && !is_null($userTo) && !is_null($service)) {
+                $message = new Message();
+                $message->setUserTo($userTo);
+                $message->setUserFrom($userFrom);
+                $message->setContent($mdata['content']);
+                $message->setDate($mdata['date']);
+                $message->setUserService($service);
+                $message->setId($id);
+            }
+        }
+        return $message;
+    }
+
+    /**
      * Return all messages sent by user if service is not owned by user
      * @param User $user
      * @return array

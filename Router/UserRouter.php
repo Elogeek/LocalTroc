@@ -37,6 +37,10 @@ class UserRouter {
                  }
                  break;
 
+             case 'delete-message':
+                 $controller->deleteMessage($_GET['id']);
+                 break;
+
             default:
                 home();
         }

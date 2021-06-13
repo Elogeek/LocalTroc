@@ -74,6 +74,13 @@
     flex-direction: column;
 }
 
+.bubble a {
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: white;
+    align-self: flex-end;
+}
+
 .bubble-bottom-left:before {
     content: "";
     width: 0;
