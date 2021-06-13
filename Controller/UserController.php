@@ -243,4 +243,52 @@ class UserController extends Controller {
         $this->userManager->deleteUser($this->user);
         $this->redirectTo('login', 'disconnect');
     }
+
+
+    /**
+     * Display the user messages list.
+     */
+    public function userMessages() {
+        $this->redirectIfNotLoggedIn('user', 'login');
+
+        $messageManager = new MessageManager();
+        $userServiceManager = new UserServiceManager();
+
+        // Getting available messages for connected user services.
+        $services = $userServiceManager->getServicesByUser($this->user);
+        $servicesMsg = [];
+        foreach ($services as $service) {
+            $messages = $messageManager->getMessagesByUserService($service);
+            if(count($messages) > 0) {
+                $servicesMsg[$service->getId()] = $messages;
+            }
+        }
+
+        // Filtering messages to get pair to pair messages.
+        $messages = [];
+        foreach( $servicesMsg as $serviceId => $msgArray) {
+            $msgs = [];
+            // Grouping messages by sender.
+            for($y = 0; $y < count($msgArray); $y++) {
+                if($msgArray[$y]->getUserFrom()->getId() === $this->user->getId()) {
+                    $msgs[$msgArray[$y]->getUserTo()->getId()][] = $msgArray[$y];
+                }
+                else {
+                    $msgs[$msgArray[$y]->getUserFrom()->getId()][] = $msgArray[$y];
+                }
+            }
+
+            $messages[$serviceId]['messages'] = $msgs;
+            $messages[$serviceId]['service'] = $userServiceManager->getService($serviceId);
+        }
+
+        $this->addJavaScript($this->javaScripts);
+        $this->addCss($this->css);
+
+        $this->showView('user/messages', [
+            'fromUserServices' => $messages,
+            'userProfile' => $this->userProfileManager->getUserProfile($this->user),
+        ]);
+    }
+
 }

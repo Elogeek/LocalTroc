@@ -26,6 +26,10 @@ class UserRouter {
                 $controller->deleteUser();
                 break;
 
+             case 'messages':
+                 $controller->userMessages();
+                 break;
+
             default:
                 home();
         }

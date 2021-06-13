@@ -1,0 +1,9 @@
+/vendor/
+/.phpunit.result.cache
+/assets/uploads/avatars/21ccc358518522a5c13ea2d390f716f677fc3540.jpg
+/assets/uploads/avatars/39c97465d7c806119550cee81689f5b7b1870484.png
+/assets/uploads/avatars/83deb14d342a4e4b05d3bedeb0980fee9496951a.png
+/assets/uploads/avatars/c8eb486cd591054385292f32b6d0dfc3fb468def.png
+/composer.lock
+/assets/uploads/services/e9738d3fa83ee32dd6304facb3cb0086b15b828f.jpg
+/.idea/php-test-framework.xml

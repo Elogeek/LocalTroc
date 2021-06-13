@@ -24,9 +24,11 @@ class MessageManager {
         $message = [];
         if($datas = $request->fetchAll()) {
             $serviceManager = new UserServiceManager();
+            $userManager = new UserManager();
             foreach($datas as $data) {
+                $toUser = $userManager->getById($data['to_user_fk']);
                 $userService = $serviceManager->getService($data['user_service_fk']);
-                $message[] = new Message($data['id'], $user, $userService , $data['content'], $data['date']);
+                $message[] = new Message($data['id'], $user, $toUser, $userService , $data['content'], $data['date']);
             }
         }
 
@@ -39,18 +41,20 @@ class MessageManager {
      * @param string $messageContent
      * @param UserService $service
      * @param User $fromUser
+     * @param User $toUser
      * @return bool
      */
-    public function sendMessages(string $messageContent, UserService $service, User $fromUser): bool {
+    public function sendMessages(string $messageContent, UserService $service, User $fromUser, User $toUser): bool {
         // Creating a Mysql date.
         $date = new \DateTime();
         $date = $date->format('Y-m-d H:i:s');
 
         $request = DB::getInstance()->prepare("
-            INSERT INTO message (from_user_fk, user_service_fk, content, date) 
-                VALUES (:fromUser, :user_service, :content, :date)
+            INSERT INTO message (from_user_fk, to_user_fk, user_service_fk, content, date) 
+                VALUES (:fromUser, :toUser, :user_service, :content, :date)
         ");
         $request->bindValue( ":fromUser", $fromUser->getId());
+        $request->bindValue(":toUser", $toUser->getId());
         $request->bindValue(":user_service", $service->getId());
         $request->bindValue(":content", $messageContent);
         $request->bindValue(":date", (new \DateTime())->format('Y-m-d H:i:s'));
@@ -75,22 +79,35 @@ class MessageManager {
      * @return array
      */
     public function getMessagesByUserService(UserService $userService): array {
-        $request = DB::getInstance()->prepare("SELECT * FROM message where user_service_fk = :service_id");
+        ini_set('error_reporting', E_ALL);
+        ini_set('display_errors', 1);
+
+        $request = DB::getInstance()->prepare("
+            SELECT * FROM message where user_service_fk = :service_id ORDER BY date
+        ");
         $request->bindValue(':service_id', $userService->getId());
         $messages = [];
+
         if($request->execute() && $data = $request->fetchAll()) {
+            $userManager = new UserManager();
+
             foreach($data as $mdata) {
                 $message = new Message();
-                $user = (new UserManager())->getById($mdata['user_service_fk']);
-                if(!is_null($user)) {
+                $userFrom = $userManager->getById($mdata['from_user_fk']);
+                $userTo = $userManager->getById($mdata['to_user_fk']);
+
+                if(!is_null($userFrom)) {
                     $message->setId($mdata['id']);
                     $message->setContent($mdata['content']);
                     $message->setDate($mdata['date']);
-                    $message->setUserFrom($user);
+                    $message->setUserFrom($userFrom);
+                    $message->setUserTo($userTo);
                     $message->setUserService($userService);
                     $messages[] = $message;
                 }
+
             }
+
         }
         return $messages;
     }

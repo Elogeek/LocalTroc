@@ -31,16 +31,17 @@ class UserManager
      * @param int $id
      * @return User|null
      */
-    public function getById(int $id): ?User
-    {
+    public function getById(int $id): ?User {
         $user = null;
         $request = DB::getInstance()->prepare("SELECT * FROM user WHERE id = :id ");
         $request->bindValue(':id', $id);
+        $result = $request->execute();
+        $data = $request->fetch();
 
-        if ($request->execute() && $userData = $request->fetch()) {
+        if ($result && $data) {
             $roleManager = new RoleManager();
-            $role = $roleManager->getRoleById($userData['role_fk']);
-            $user = new User($userData['id'], $role, $userData['firstname'], $userData['lastName'], $userData['email']);
+            $role = $roleManager->getRoleById($data['role_fk']);
+            $user = new User($data['id'], $role, $data['firstname'], $data['lastName'], $data['email']);
         }
         return $user;
     }

@@ -9,6 +9,7 @@ class Message {
 
     private ?int $id;
     private ?User $userFrom;
+    private ?User $userTo;
     private ?UserService $userService;
     private ?string $content;
     private ?string $date;
@@ -21,12 +22,13 @@ class Message {
      * @param string|null $content
      * @param string|null $date
      */
-    public function __construct(int $id = null, User $fromUser = null, UserService $userService = null, string $content = null, string $date = null) {
+    public function __construct(int $id = null, User $fromUser = null, User $userTo = null, UserService $userService = null, string $content = null, string $date = null) {
         $this->id = $id;
         $this->userFrom = $fromUser;
         $this->userService = $userService;
         $this->content = $content;
         $this->date = $date;
+        $this->userTo = $userTo;
     }
 
     /**
@@ -55,6 +57,20 @@ class Message {
      */
     public function setUserFrom(User $user): void {
         $this->userFrom = $user;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getUserTo(): ?User {
+        return $this->userTo;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUserTo(User $user): void {
+        $this->userTo = $user;
     }
 
     /**

@@ -204,9 +204,6 @@ class UserServiceManager {
      * @return array
      */
     public function search(string $criteria, string $searchText, bool $true): array {
-        ini_set('error_reporting', E_ALL);
-        ini_set('display_errors', 1);
-
         $services = [];
         $userManager = new UserManager();
 
